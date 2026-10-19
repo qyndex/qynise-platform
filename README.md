@@ -1,4 +1,4 @@
-# Arentic — AI Workflow OS
+# Qynise — AI Workflow OS
 ## Master Product, Architecture, and Delivery Blueprint for AI Implementation Agents
 
 **Purpose:** Consolidated build brief for product, architecture, implementation, QA, security, and deployment agents. This document organizes the known requirements and design directions into a sequence suitable for implementation planning. It explicitly identifies unresolved decisions so agents do not silently fill gaps with assumptions.
@@ -9,7 +9,7 @@
 
 # 1. Mission and Product Vision
 
-Arentic is an **enterprise AI Workflow OS**: a platform to define, execute, observe, govern, and improve AI-enabled business workflows. Customers should be able to use first-party workflow products, compose their own workflows, and integrate agents, skills, tools, connectors, knowledge, policies, and human approvals.
+Qynise is an **enterprise AI Workflow OS**: a platform to define, execute, observe, govern, and improve AI-enabled business workflows. Customers should be able to use first-party workflow products, compose their own workflows, and integrate agents, skills, tools, connectors, knowledge, policies, and human approvals.
 
 The platform must support:
 - First-party workflow products built on shared primitives.
@@ -41,7 +41,7 @@ The product must not become a collection of disconnected AI demos. Every importa
 
 # 2. Product Portfolio
 
-The initial product portfolio contains four workflow products built on the shared Arentic platform.
+The initial product portfolio contains four workflow products built on the shared Qynise platform.
 
 ## 2.1 AI SDLC
 
@@ -180,10 +180,10 @@ Do not claim that AI-generated assessments guarantee legal or regulatory complia
 The architecture should support three models without requiring three separate codebases.
 
 ## 4.1 SaaS
-Arentic operates the control and execution planes. Define tenant isolation, data residency, backup, retention and operational responsibilities.
+Qynise operates the control and execution planes. Define tenant isolation, data residency, backup, retention and operational responsibilities.
 
 ## 4.2 Hybrid/customer-hosted execution
-Arentic may operate shared management services while workflow execution, sensitive data processing or selected connectors run in the customer's environment.
+Qynise may operate shared management services while workflow execution, sensitive data processing or selected connectors run in the customer's environment.
 
 Requirements:
 - Secure registration/communication from customer-hosted runners.
@@ -202,7 +202,7 @@ Requirements:
 - Externalized configuration and secrets.
 - Health checks, backup/restore, migrations and diagnostics.
 - Supported infrastructure/version matrix.
-- No undocumented dependency on Arentic-hosted services.
+- No undocumented dependency on Qynise-hosted services.
 - Entitlement/licensing design, if needed, must not compromise customer availability.
 
 **Open decision:** Which deployment model is required for the first commercial release? Preserve options architecturally without overbuilding all deployment automation before demand is validated.
@@ -273,7 +273,7 @@ Start as modular components where appropriate; extract services only when scale,
 Suggested monorepo, subject to validation:
 
 ```text
-arentic/
+Qynise/
   apps/
     console-web/
     operator-console/
@@ -497,7 +497,7 @@ Avoid sending full conversation histories or unrestricted workflow data. Pass on
 - Customer-hosted agent.
 - Approved container/runtime package.
 - Framework adapter.
-- Native Arentic agent.
+- Native Qynise agent.
 
 Implement progressively rather than promising all frameworks on day one.
 
