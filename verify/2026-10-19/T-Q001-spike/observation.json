@@ -1,0 +1,19 @@
+{
+  "scope": "Disposable local fixture-only contract/recovery experiment; no Spec001 acceptance completion",
+  "runtime": "Node.js24.13.1",
+  "tests": 7,
+  "passed": 7,
+  "failed": 0,
+  "provider_execution": false,
+  "deployment": false,
+  "strict_typescript_compilation": false,
+  "independent_readonly_review": "No actionable defect within disposable scope; reviewer independence is sequencing only, not authenticated authority",
+  "files": {
+    "experiments/recovery-spike/README.md": "cab14d778c55a40c83d54f4a0da6775a4a38bdea3fd90fd1013d037cab0c3d6e",
+    "experiments/recovery-spike/crash.ts": "9af9434c8174cde30b2b76141ecfe89a32d8c1fd95d175134adc741050728a83",
+    "experiments/recovery-spike/recovery.test.ts": "8079e7d657a23bf9bc5f1a2c3f96ff85b82b9385ad1c4da68465cc0762788b35",
+    "experiments/recovery-spike/store.ts": "0241ff4a426692da33500c21f8f7c835552edfa62d1c3adeeeb1a1a55d847252"
+  },
+  "red_log_sha256": "b1a083e976d22face4656a4148815c9f72c54073ae48db0ae9dce68fb584f725",
+  "green_log_sha256": "6aeb3a1a634da9008d1ac83058cea61a16d231ba56b78fda96789b267b82902b"
+}

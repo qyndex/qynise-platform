@@ -1,7 +1,9 @@
 ---
 id: 001
 slug: first-workflow-slice
-status: draft
+status: review
+scope_approved: 2026-10-19
+implementation_approval: pending-adrs
 owner: "@codex"
 human_owner: "@qyndex"
 created: 2026-10-19
@@ -16,13 +18,13 @@ service_tier: T2
 
 The master blueprint describes an AI Workflow OS but the repository has no runnable product. The first delivery must prove one useful workflow across identity, durable execution, parallel agents, review and observable evidence before expanding the platform.
 
-This is a proposal for review, not an approved product implementation or deployment instruction. It derives from README sections 18, 22, 26 and 29. The current approved source brief names the product Qynise. The naming update on main is preserved.
+The operator approved this scope and design/ADR preparation on 2026-10-19. Dependent product implementation and deployment remain blocked by unresolved ADRs. It derives from README sections 18, 22, 26 and 29. The current approved source brief names the product Qynise. The naming update on main is preserved.
 
 ## Proposed first use case
 
 An authenticated operator submits a non-sensitive software feature brief. Three independent native agents concurrently produce (1) requirements and assumptions, (2) risks and dependencies, and (3) a testable acceptance checklist. An independent reviewer evaluates the aggregate against a versioned workflow contract. The result is a draft planning package with evidence, limitations and explicit human decisions, useful for planning subsequent implementation. It cannot approve its own scope, modify a Git repository or deploy anything.
 
-This first use case is proposed, not already selected by the blueprint. Confirm it with the operator before implementation. Input must exclude secrets and regulated/customer data for this initial slice.
+The operator selected this first use case on 2026-10-19; architecture and operational limits remain subject to the ADR decisions below. Input must exclude secrets and regulated/customer data for this initial slice.
 
 ## Goals
 
