@@ -1,0 +1,17 @@
+{
+  "source_head": "d2edad1553e59e8154fd1c9c569ac70527cf3407",
+  "full_spec_verdict": "FAIL",
+  "ac_proven": 0,
+  "ac_total": 10,
+  "smoke_exit": 0,
+  "heavy_results_excluded": true,
+  "missing_results_reference": "verify/2026-10-19-001-first-workflow-slice/attempt-d9sxxHDa/results.json",
+  "evidence_scope": "Only four lightweight bundle files plus bounded task review/collector proof. Local smoke success is not native acceptance.",
+  "previous_failure": "Earlier zero-AC observation remains in parent hub qynise-least-privilege-collector.log.",
+  "repo_template": "No adopter .github/PULL_REQUEST_TEMPLATE.md; used harness template headings.",
+  "local_evidence_validator": {
+    "exit": 1,
+    "reason": "incomplete AC counts",
+    "meaning": "Expected publication blocker retained; candidate stays draft, no no-AC or ready exception."
+  }
+}
