@@ -28,3 +28,7 @@ The selected reporting destination is the existing private `qyndex-alerts` chann
 - Supply deployment platform, health/SLO and rollback contract before any production activation.
 
 Use the pinned source [adopter setup](https://github.com/qyndex/claude-init/blob/a76b258353c0c692a80c0e40ae0ccf4d2cb4c246/docs/FACTORY-ADOPTER-SETUP.md), [activation guide](https://github.com/qyndex/claude-init/blob/a76b258353c0c692a80c0e40ae0ccf4d2cb4c246/docs/FACTORY-ACTIVATION.md) and [quickstart](https://github.com/qyndex/claude-init/blob/a76b258353c0c692a80c0e40ae0ccf4d2cb4c246/docs/FACTORY-ADOPTER-QUICKSTART.md) for documents intentionally not distributed locally. Source-pilot success does not certify this target.
+
+## Native baseline CI
+
+The new `adopter-baseline.yml` workflow uses only a read-only GitHub token, pinned checkout/runtime actions and no secrets or protected environments. It records process validation separately from application readiness. It grants no merge authority. The application-readiness job deliberately blocks until an approved runnable application and real stack checks replace it; an empty greenfield repository must not produce a false application PASS.
