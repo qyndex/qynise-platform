@@ -1,0 +1,17 @@
+# TDD ledger — green — T-005
+ledger_format: 2
+timestamp: 2026-10-19T21:35:56+11:00
+command: /Users/shravanjha/.nvm/versions/node/v24.13.1/bin/node --test --test-name-pattern="HTTP input and retained-run limits" app/local/demo.test.ts
+exit_code: 0
+---
+(node:86750) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ HTTP input and retained-run limits reject invalid or oversized requests explicitly (147.872125ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 248.180667

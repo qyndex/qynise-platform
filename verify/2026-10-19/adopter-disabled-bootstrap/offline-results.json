@@ -1,0 +1,96 @@
+{
+  "scope": "offline structural negatives, actual disabled-policy first guards, synthetic cert shape; no native attestation acceptance",
+  "cases": [
+    {
+      "case": "FACTORY_AUTHORITY_ENABLED",
+      "passed": true,
+      "result": "BLOCKED"
+    },
+    {
+      "case": "FACTORY_PRODUCERS_ENABLED",
+      "passed": true,
+      "result": "BLOCKED"
+    },
+    {
+      "case": "FACTORY_REPORTING_ENABLED",
+      "passed": true,
+      "result": "BLOCKED"
+    },
+    {
+      "case": "FACTORY_FEEDBACK_ENABLED",
+      "passed": true,
+      "result": "BLOCKED"
+    },
+    {
+      "case": "FACTORY_REPORTING_APP_WRITER_ENABLED",
+      "passed": true,
+      "result": "BLOCKED"
+    },
+    {
+      "case": "FACTORY_REPORTING_QUEUE_ENABLED",
+      "passed": true,
+      "result": "BLOCKED"
+    },
+    {
+      "case": "FACTORY_REPORTING_MONITOR_ENABLED",
+      "passed": true,
+      "result": "BLOCKED"
+    },
+    {
+      "case": "FACTORY_REPORTING_WATCHDOG_ENABLED",
+      "passed": true,
+      "result": "BLOCKED"
+    },
+    {
+      "case": "policy-enabled",
+      "passed": true,
+      "result": "BLOCKED"
+    },
+    {
+      "case": "policy-merge",
+      "passed": true,
+      "result": "BLOCKED"
+    },
+    {
+      "case": "pilot-repo",
+      "passed": true,
+      "result": "BLOCKED"
+    },
+    {
+      "case": "pilot-state",
+      "passed": true,
+      "result": "BLOCKED"
+    },
+    {
+      "case": "premature-trust",
+      "passed": true,
+      "result": "BLOCKED"
+    },
+    {
+      "case": "review-env",
+      "passed": true,
+      "result": "BLOCKED"
+    },
+    {
+      "case": "disabled-coordinate",
+      "passed": true,
+      "result": "BLOCKED before API/process"
+    },
+    {
+      "case": "disabled-producer",
+      "passed": true,
+      "result": "BLOCKED before API/process"
+    },
+    {
+      "case": "environment-additive-certificate-shape",
+      "passed": true,
+      "synthetic_only": true
+    },
+    {
+      "case": "environment-does-not-bypass-ref-binding",
+      "passed": true,
+      "synthetic_only": true
+    }
+  ],
+  "native_environment_attestation_pending": true
+}

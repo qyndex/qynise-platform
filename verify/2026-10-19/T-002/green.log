@@ -1,0 +1,16 @@
+# TDD ledger — green — T-002
+ledger_format: 2
+timestamp: 2026-10-19T21:27:20+11:00
+command: /Users/shravanjha/.nvm/versions/node/v24.13.1/bin/node --test app/local/ui.test.ts
+exit_code: 0
+---
+✔ late Alice response cannot render after a successful Bob identity switch (1.526959ms)
+✔ overlapping identity submissions cannot reorder the browser session cookie (0.437167ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 61.827208

@@ -1,0 +1,42 @@
+(node:95246) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ explicit local mode, server-owned identities, origin and session boundaries (22.981ms)
+✔ durable idempotent start validates input and denies cross-tenant access (10.045875ms)
+✔ restart resumes durable fixture work, records overlap, review and digest without a provider (417.883833ms)
+✔ cancellation persists and prevents queued fixture completion (9.678333ms)
+✔ recovery after review commit preserves original task provenance and final set (422.121667ms)
+✔ chunked Unicode brief is preserved byte-for-byte (27.139042ms)
+✔ running cancellation prevents final fixture publication (509.448209ms)
+✔ actual process death after a planner commit resumes without replacing that evidence (524.592125ms)
+✔ initial storage-claim failure stops scheduling without process death or false success (558.8615ms)
+✔ late cancel body cannot overwrite a committed successful run (416.394083ms)
+✔ HTTP input and retained-run limits reject invalid or oversized requests explicitly (88.385208ms)
+✔ static responses and session boundaries retain their explicit contract (24.638167ms)
+✔ a forged Host cannot read even a valid local test session (5.042208ms)
+✔ late Alice response cannot render after a successful Bob identity switch (1.610375ms)
+✔ overlapping identity submissions cannot reorder the browser session cookie (0.506166ms)
+✔ UI polls fixture evidence and preserves provenance and explicit errors (0.668833ms)
+✔ UI cancellation refreshes terminal state and reports failed mutations (0.514875ms)
+✔ UI login and polling failures remain visible without continuing a stale poll (0.384667ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 18
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3135.256334
+ℹ start of coverage report
+ℹ ------------------------------------------------------------
+ℹ file        | line % | branch % | funcs % | uncovered lines
+ℹ ------------------------------------------------------------
+ℹ app         |        |          |         | 
+ℹ  local      |        |          |         | 
+ℹ   server.ts |  96.12 |    87.12 |   94.74 | 100-103
+ℹ public      |        |          |         | 
+ℹ  app.js     | 100.00 |    81.25 |   91.67 | 
+ℹ ------------------------------------------------------------
+ℹ all files   |  97.67 |    85.78 |   94.00 | 
+ℹ ------------------------------------------------------------
+ℹ end of coverage report
+Actual server/controller coverage: 97.67% lines, 85.78% branches.

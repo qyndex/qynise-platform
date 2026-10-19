@@ -1,0 +1,19 @@
+(node:79817) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ explicit local mode, server-owned identities, origin and session boundaries (22.130666ms)
+✔ durable idempotent start validates input and denies cross-tenant access (11.2875ms)
+✔ restart resumes durable fixture work, records overlap, review and digest without a provider (418.480333ms)
+✔ cancellation persists and prevents queued fixture completion (5.635459ms)
+✔ recovery after review commit preserves original task provenance and final set (414.828292ms)
+✔ chunked Unicode brief is preserved byte-for-byte (26.982625ms)
+✔ running cancellation prevents final fixture publication (514.821458ms)
+✔ actual process death after a planner commit resumes without replacing that evidence (527.347166ms)
+✔ late Alice response cannot render after a successful Bob identity switch (1.765ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2026.315

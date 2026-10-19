@@ -1,0 +1,38 @@
+# TDD ledger — red — T-004
+ledger_format: 2
+timestamp: 2026-10-19T21:34:04+11:00
+command: /Users/shravanjha/.nvm/versions/node/v24.13.1/bin/node --test --test-name-pattern="late cancel body" app/local/demo.test.ts
+exit_code: 1
+red_reason: assertion-failure
+---
+(node:84740) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✖ late cancel body cannot overwrite a committed successful run (429.926625ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 507.593292
+
+✖ failing tests:
+
+test at app/local/demo.test.ts:155:1
+✖ late cancel body cannot overwrite a committed successful run (429.926625ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  200 !== 409
+  
+      at TestContext.<anonymous> (file:///private/tmp/factory-greenfield-qynise-20261019/app/local/demo.test.ts:164:62)
+      at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at async Test.run (node:internal/test_runner/test:1110:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 200,
+    expected: 409,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

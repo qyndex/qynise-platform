@@ -35,3 +35,11 @@ This prevents choosing infrastructure merely to make CI green. It adds up-front 
 ## Local observation
 
 The disposable experiments/recovery-spike implementation passed seven runtime tests on Node24.13.1. It uses a local SQLite transaction/outbox and fault-injected child processes. See the experiment README and verify/2026-10-19/T-Q001-spike for exact scope, red/green logs and limitations. This does not select SQLite for deployed storage or satisfy all Spec001 acceptance criteria.
+
+## Bounded local phase approved after the recovery spike
+
+Operator reply `1A, 2A, 3A, 4A, 5A` on 2026-10-19 selects local test identities, a single-host local application contract, disabled provider execution, operator-entered credentials after bootstrap review, and a bounded readiness completion boundary. Production identity, managed storage, real-provider acceptance and deployment are deferred. These choices permit the fixture-backed local contract demonstration, not production authentication or native model acceptance.
+
+The latest strict-compile/recovery observation has nine passing tests; the earlier seven-test observation above is historical. Tenant parameters in that experiment are not authenticated identities. The local application must reject client-supplied tenant/role authority and bind test sessions to server-side identities. Local fixtures must be visibly identified and the provider adapter must fail closed.
+
+Engineering limits for synthetic local tests can be explicit, versioned, conservative fixture settings; they grant no paid token budget, retention authorization for customer data, or deployment capacity. Keep all original Spec001 acceptance criteria and genuine-provider gaps visible. A successful bounded demonstration cannot turn deferred criteria into PASS.

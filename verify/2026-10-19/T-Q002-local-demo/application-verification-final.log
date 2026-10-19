@@ -1,0 +1,88 @@
+(node:58729) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ explicit local mode, server-owned identities, origin and session boundaries (31.930666ms)
+✔ durable idempotent start validates input and denies cross-tenant access (14.817042ms)
+✔ restart resumes durable fixture work, records overlap, review and digest without a provider (419.924ms)
+✔ cancellation persists and prevents queued fixture completion (6.339416ms)
+✔ recovery after review commit preserves original task provenance and final set (415.756834ms)
+✔ chunked Unicode brief is preserved byte-for-byte (27.60675ms)
+✔ running cancellation prevents final fixture publication (513.5595ms)
+✔ actual process death after a planner commit resumes without replacing that evidence (858.092709ms)
+✔ initial storage-claim failure stops scheduling without process death or false success (743.992834ms)
+✔ late cancel body cannot overwrite a committed successful run (415.27825ms)
+✔ HTTP input and retained-run limits reject invalid or oversized requests explicitly (48.624334ms)
+✔ static responses and session boundaries retain their explicit contract (26.72725ms)
+✔ a forged Host cannot read even a valid local test session (6.315875ms)
+✔ client identity hints cannot change the server-owned session tenant (4.787917ms)
+✔ late Alice response cannot render after a successful Bob identity switch (1.421792ms)
+✔ overlapping identity submissions cannot reorder the browser session cookie (0.506708ms)
+✔ UI polls fixture evidence and preserves provenance and explicit errors (0.675833ms)
+✔ UI cancellation refreshes terminal state and reports failed mutations (0.54175ms)
+✔ UI login and polling failures remain visible without continuing a stale poll (0.427875ms)
+✔ UI rejects a changed shared cookie instead of writing under a stale identity label (0.813792ms)
+✔ coverage summary weights real counts from both application source files (0.663542ms)
+✔ missing, duplicate, foreign or malformed coverage never becomes a passing summary (0.229209ms)
+ℹ tests 22
+ℹ suites 0
+ℹ pass 22
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3628.709
+(node:59714) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ explicit local mode, server-owned identities, origin and session boundaries (39.163042ms)
+✔ durable idempotent start validates input and denies cross-tenant access (13.978667ms)
+✔ restart resumes durable fixture work, records overlap, review and digest without a provider (416.38325ms)
+✔ cancellation persists and prevents queued fixture completion (7.960917ms)
+✔ recovery after review commit preserves original task provenance and final set (426.135958ms)
+✔ chunked Unicode brief is preserved byte-for-byte (28.837375ms)
+✔ running cancellation prevents final fixture publication (509.30725ms)
+✔ actual process death after a planner commit resumes without replacing that evidence (709.778792ms)
+✔ initial storage-claim failure stops scheduling without process death or false success (1025.036834ms)
+✔ late cancel body cannot overwrite a committed successful run (415.818042ms)
+✔ HTTP input and retained-run limits reject invalid or oversized requests explicitly (56.357333ms)
+✔ static responses and session boundaries retain their explicit contract (21.157542ms)
+✔ a forged Host cannot read even a valid local test session (3.153875ms)
+✔ client identity hints cannot change the server-owned session tenant (3.490875ms)
+✔ late Alice response cannot render after a successful Bob identity switch (1.944792ms)
+✔ overlapping identity submissions cannot reorder the browser session cookie (0.738125ms)
+✔ UI polls fixture evidence and preserves provenance and explicit errors (0.80625ms)
+✔ UI cancellation refreshes terminal state and reports failed mutations (0.573375ms)
+✔ UI login and polling failures remain visible without continuing a stale poll (0.421583ms)
+✔ UI rejects a changed shared cookie instead of writing under a stale identity label (0.35725ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 20
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4315.033834
+ℹ start of coverage report
+ℹ ------------------------------------------------------------
+ℹ file        | line % | branch % | funcs % | uncovered lines
+ℹ ------------------------------------------------------------
+ℹ app         |        |          |         | 
+ℹ  local      |        |          |         | 
+ℹ   server.ts |  96.19 |    87.35 |   94.74 | 102-105
+ℹ public      |        |          |         | 
+ℹ  app.js     | 100.00 |    83.02 |   91.67 | 
+ℹ ------------------------------------------------------------
+ℹ all files   |  97.84 |    86.30 |   94.00 | 
+ℹ ------------------------------------------------------------
+ℹ end of coverage report
+Actual server/controller coverage: 97.84% lines, 86.30% branches.
+(node:61002) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ actual Chromium brief-to-evidence journey and tenant switch at desktop/mobile sizes (2239.610083ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2558.09175
+PASS: approved local fixture application contract; provider execution and production acceptance DEFERRED.

@@ -1,5 +1,15 @@
 # qyndex/qynise-platform factory adoption readiness
 
+## Current bounded readiness — 2026-10-19
+
+The earlier sections below are retained historical observations. The current harness distribution pin is `69574d23988d1a98c2c6f6f27c08815449a59351`. Eight disabled workflow definitions and an unregistered disabled policy are included. A reviewed selective overlay updates managed source while preserving custom instructions/MCP/settings; it is **not** a successful automatic installer upgrade. True distribution hashes remain in the ownership manifest, so future automatic upgrades still stop on retained customizations.
+
+No credentials, repository variables, protected environments, remote policy, state, authority or production configuration were changed by this source overlay. The operator has selected shared existing Apps and Slack destination with independent repository state. Repository-specific workflow IDs, profiles, signed shadow/negative tests and protected credentials remain pending. The separate main-only `factory-review` environment proposal contains only subscription OAuth capacity. Evidence: `verify/2026-10-19/adopter-disabled-bootstrap/`.
+
+The approved local fixture application now replaces the previously empty application gate: run `npm ci --ignore-scripts`, install pinned Chromium, then `bash scripts/verify-application.sh` on Node24.13.1. Strict compile, HTTP/VM/recovery/storage-fault tests,97.84%line/86.30%branch coverage and a real Chromium desktop/mobile/two-tab journey passed locally. Coverage tests now have a30second per-test timeout; the sandbox listener failure is retained as tooling evidence. See `docs/LOCAL-CONTRACT-DEMO.md`. Test identities and deterministic planning/review fixtures are visibly labelled. No genuine provider call, production identity, cloud deployment or full Spec001 acceptance is claimed. The full collector remains FAIL0/10 with passing smoke checks.
+
+## Historical installation and baseline observations
+
 Status: local installation proposal; activation is disabled. Application readiness and autonomous readiness are separate gates.
 
 Current repository baseline: `bb027da38d4c45e9171e56aeefbd6b4d0b47de0a`. The original installation baseline was `5ddcfa54a470b3758339f3a35f7ad73675ad5883`; the later README-only product-name update is merged unchanged. Harness source: [`a76b258353c0c692a80c0e40ae0ccf4d2cb4c246`](https://github.com/qyndex/claude-init/tree/a76b258353c0c692a80c0e40ae0ccf4d2cb4c246). The final source checkout was clean and immutable. Initial installation used the previously merged source; the separately recorded exact upgrade preserves the original observation. The exact installation observation is [recorded here](adoption/installation-observation.json).

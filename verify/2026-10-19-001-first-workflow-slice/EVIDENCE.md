@@ -1,7 +1,7 @@
 ## Evidence Bundle — Spec 001 (001-first-workflow-slice)
-Spec: `specs/active/001-first-workflow-slice.md` · Commit: `23de681`
+Spec: `specs/active/001-first-workflow-slice.md` · Commit: `60ef31b`
 
-Retained results: [verify/2026-10-19-001-first-workflow-slice/attempt-eRwwzhaq/results.json](verify/2026-10-19-001-first-workflow-slice/attempt-eRwwzhaq/results.json)
+Retained results: [verify/2026-10-19-001-first-workflow-slice/attempt-NleY8ENQ/results.json](verify/2026-10-19-001-first-workflow-slice/attempt-NleY8ENQ/results.json)
 
 ### Acceptance criteria (0/10 proven)
 | AC | Proven by | Result |
@@ -19,7 +19,7 @@ Retained results: [verify/2026-10-19-001-first-workflow-slice/attempt-eRwwzhaq/r
 
 ### Smoke test (exit codes are load-bearing)
 ```
-# Smoke test — 2026-10-19T14:59:01+11:00
+# Smoke test — 2026-10-19T22:06:28+11:00
 $ bash .claude/scripts/verify.sh
 
 → Integration coverage gate
@@ -37,7 +37,7 @@ exit: 0
 0 API trace file(s) under `verify/2026-10-19-001-first-workflow-slice/traces/`; full HAR at `verify/2026-10-19-001-first-workflow-slice/network.har`.
 
 ### Coverage
-line ?% · branch ?% (gate: line≥90 branch≥85)
+line 97.83783783783784% · branch 86.3013698630137% (gate: line≥90 branch≥85)
 
 ### Verdict: **FAIL**
 

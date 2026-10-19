@@ -1,0 +1,27 @@
+# TDD ledger — green — T-007
+ledger_format: 2
+timestamp: 2026-10-19T21:40:21+11:00
+command: /Users/shravanjha/.nvm/versions/node/v24.13.1/bin/node --test app/local/browser.test.ts
+exit_code: 1
+---
+(node:96845) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✖ actual Chromium brief-to-evidence journey and tenant switch at desktop/mobile sizes (1382.48575ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1736.790875
+
+✖ failing tests:
+
+test at app/local/browser.test.ts:10:1
+✖ actual Chromium brief-to-evidence journey and tenant switch at desktop/mobile sizes (1382.48575ms)
+  Error: Please use browser.newContext()
+      at _BrowserContext.newPage (/private/tmp/factory-greenfield-qynise-20261019/node_modules/playwright-core/lib/coreBundle.js:63972:17)
+      at TestContext.<anonymous> (file:///private/tmp/factory-greenfield-qynise-20261019/app/local/browser.test.ts:32:36)
+      at async Test.run (node:internal/test_runner/test:1110:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3)

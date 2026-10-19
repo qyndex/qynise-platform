@@ -1,0 +1,54 @@
+{
+  "method": "reviewed-selective-overlay-not-installer-journal",
+  "source_sha": "69574d23988d1a98c2c6f6f27c08815449a59351",
+  "source_tree": "af91417e669ad544d0a48571d66d750fbba44fb5",
+  "custom_paths_preserved": [
+    ".mcp.json",
+    "CLAUDE.md"
+  ],
+  "future_automatic_upgrade_blocks_on_retained_customizations": true,
+  "writes": {
+    ".claude/scripts/factory-git-state.py": "a56e99db7984c25f13b443d1298c0812817718be6d723629dca506710e2d5285",
+    ".claude/scripts/factory-reporting-maintenance.py": "ea64f83cbaa1b62116a5c07eb92d03e090ba1cfa473de1f258ba201e0366ab86",
+    ".claude/scripts/factory-reporting-queue.py": "625f64f4142848445acebc9e07f38693be3f9f4603eded7b7720c1b09291c427",
+    ".claude/scripts/test/factory-reporting-maintenance-liveness.sh": "4b815e2a3c863c07c5af812726b9c0a935dd2871291aecc6b5c4a6def8c91ca9",
+    ".claude/scripts/test/factory-reporting-queue-diagnostics.sh": "7f9607143b4197c2d8ea4d8e9b528e441343dfe83bbc5d73011036de7081f1ca",
+    ".github/actions/setup-stack/action.yml": "d19dd1979b5becdd0d5b200828fcba7004659ac49960ba0e1fda70e2a14e5116",
+    ".github/workflows/evidence-gate.yml": "25b7198baedf699f3441cb059ae89833fb4fe2d2cd8b108a5609d83b729cce44",
+    ".github/workflows/factory-hosted-digest.yml": "c1adb7c9f68e3a01e76989b8be454c7e412105c54bd50da3bc32e8f1603f9982",
+    ".github/workflows/factory-hosted-feedback.yml": "be5de5b5d5234e580df793b3f24f532812b09c2689fb84a953b15a00d7cb46b4",
+    ".github/workflows/factory-merge.yml": "1cf9e819e0c6e0aeaad84d7704897972c1482cdeccff55ce3da1196c59523cfa",
+    ".github/workflows/factory-reporting-alerts.yml": "9181f6d7c78b0b6b7863acd852b7f5f50f82ace867b93895e9332422da5db7db",
+    ".github/workflows/factory-reporting-queue.yml": "0098aa17dd30b94d5351380ba7ef118cc6238ed5fbfc3399209885e84b22f7fd",
+    ".github/workflows/factory-review.yml": "786ead972bf5e9005a61e5b0a6011c932c43dcd921ac4de83e09a52307b21eb9",
+    ".github/workflows/factory-verification.yml": "1ec9a5a9f2b3b30934814832b47a5da667782d529f1b504fe562141042de137c",
+    "factory/policy.json": "66b3ccfe13be12a7f3ae9fe9602afbdbc433d47b1ab00e0f73aab72c9facaeff",
+    ".claude/install-manifest.json": "09d4dc9dbf1a38f8b0da677ca66729b327664d2e54b57883e27de40fb3182edf"
+  },
+  "private_before_after_journal_published": false,
+  "local_application_status": {
+    "status": "complete",
+    "applied": [
+      ".claude/scripts/factory-git-state.py",
+      ".claude/scripts/factory-reporting-maintenance.py",
+      ".claude/scripts/factory-reporting-queue.py",
+      ".claude/scripts/test/factory-reporting-maintenance-liveness.sh",
+      ".claude/scripts/test/factory-reporting-queue-diagnostics.sh",
+      ".github/actions/setup-stack/action.yml",
+      ".github/workflows/evidence-gate.yml",
+      ".github/workflows/factory-hosted-digest.yml",
+      ".github/workflows/factory-hosted-feedback.yml",
+      ".github/workflows/factory-merge.yml",
+      ".github/workflows/factory-reporting-alerts.yml",
+      ".github/workflows/factory-reporting-queue.yml",
+      ".github/workflows/factory-review.yml",
+      ".github/workflows/factory-verification.yml",
+      "factory/policy.json",
+      ".claude/install-manifest.json"
+    ],
+    "customizations_preserved": true,
+    "installer_success_claimed": false
+  },
+  "native_acceptance": "PENDING",
+  "activation_enabled": false
+}

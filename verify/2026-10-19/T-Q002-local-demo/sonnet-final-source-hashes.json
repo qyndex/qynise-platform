@@ -1,0 +1,18 @@
+{
+  "app/local/server.ts": "21b7e50857dd76501bbaf2caebdebf435c307155434e38ef3d42ead0e8daaac8",
+  "app/local/demo.test.ts": "f1e4e28178d682089a78da834ad02052d2255e4b3b4f039deb1f25f317ca670c",
+  "app/local/ui.test.ts": "0e8c5c475c9f10e5cf7adf0dac51b28cd49228d8d1af6b6d91808734db005c9d",
+  "app/local/browser.test.ts": "0d53c05d97e83f4ddcf58b207f0eb8cca1a5809a4ae0e7da12ea1f9dcc20128e",
+  "app/local/crash.fixture.ts": "0c4ac7574645e1d915c034dbec8c7d959f384e2e368ac54fa9a3a4a68ca3953e",
+  "public/app.js": "1731fdea41ff2b019144fd1688cac0624a9f1ea7b418dc026ad9035469f67360",
+  "public/index.html": "32627d9526a19a0470afee50c837eda828c941f0d5826a21b3ce211caddabe54",
+  "public/style.css": "dce79b646d9bf835b978344b227d60346920948c68cebccd47195ce60b1ce4af",
+  "scripts/verify-application.sh": "514e70ae289564e6529254860fd9b5229229eeddb2075aa281ce7fdd8d4df9d4",
+  ".github/workflows/adopter-baseline.yml": "3393114e25413dbb4730dd46bbad10617e255ece97a08827383fc92abf2b32ba",
+  "docs/LOCAL-CONTRACT-DEMO.md": "9e6016c1e7817dd8f92a93c186137982e7a8845c5d72fea46316b94215f242f7",
+  "package.json": "9f27cea0d7ce1f1b9d2382b35b0614c6420ad30c5ebc481d7f01a717dd51d799",
+  "app/local/tsconfig.json": "47001765e4ea22d7cf0a592b9f0d99418dd95173cf8c2398187e16fc0f4dcc49",
+  "scripts/coverage-reporter.mjs": "f612d9ef10ee80b45bcf74c93ca3c09c7ba492aec02c7a7901c396dc4501f0d8",
+  "scripts/coverage-reporter.test.mjs": "8eed374200f220e24de4a4377984b8e4a5dfe486e1b95a772f6f7c3abb2a7ba6",
+  "scripts/test-coverage.sh": "1fa1032f5920b547273d61663ac0998161b08dfb3e308b1728443cf3aadfa7bf"
+}

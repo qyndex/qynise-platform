@@ -1,0 +1,1 @@
+Existing HTTP413 and quota behavior passed the first actual regression. No failing behavior is claimed. The speculative transport-reset inference was not reproduced; the red helper correctly refused to record a passing run as red.

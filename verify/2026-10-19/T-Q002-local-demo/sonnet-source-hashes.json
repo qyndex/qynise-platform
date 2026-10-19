@@ -1,0 +1,15 @@
+{
+  "app/local/server.ts": "15a071ab40ee622740e7b0e988f553417a70cd8c6b2a29011e2a6c2121dc1342",
+  "app/local/demo.test.ts": "33030b71e00c0b439fa5851b1cc92ee5eca998f345ba177ebe2f268716c0cfd5",
+  "app/local/ui.test.ts": "5fe0d3d04466f51a0ee5b126a88f354cfcddd11947324406601c57cafe3432ae",
+  "app/local/browser.test.ts": "4eb688e498b0047a082a985a5cb103c08dd55e2cce0d3894fa1a9db32075afe2",
+  "app/local/crash.fixture.ts": "0c4ac7574645e1d915c034dbec8c7d959f384e2e368ac54fa9a3a4a68ca3953e",
+  "public/app.js": "c27c26b1e40933761b383bd783a88a69c0afa25e2ef7f0dbedb8e54f71530a8f",
+  "public/index.html": "32627d9526a19a0470afee50c837eda828c941f0d5826a21b3ce211caddabe54",
+  "public/style.css": "dce79b646d9bf835b978344b227d60346920948c68cebccd47195ce60b1ce4af",
+  "scripts/verify-application.sh": "505b2a845e420f75d7202e0ca726ffb96977b959513d8c3fa0861dac64eb84c2",
+  ".github/workflows/adopter-baseline.yml": "3393114e25413dbb4730dd46bbad10617e255ece97a08827383fc92abf2b32ba",
+  "docs/LOCAL-CONTRACT-DEMO.md": "5c0bd4fbb0da29cec58facca2a6bab010a4da7b413610ee076b0efd748c4b293",
+  "package.json": "e1411a768d49c3df6757577870cdaa7101b38ada850b1b845aa693aec0cfd382",
+  "app/local/tsconfig.json": "47001765e4ea22d7cf0a592b9f0d99418dd95173cf8c2398187e16fc0f4dcc49"
+}

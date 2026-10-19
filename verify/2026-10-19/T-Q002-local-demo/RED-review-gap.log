@@ -1,0 +1,37 @@
+(node:79167) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ explicit local mode, server-owned identities, origin and session boundaries (19.237125ms)
+✔ durable idempotent start validates input and denies cross-tenant access (10.441875ms)
+✔ restart resumes durable fixture work, records overlap, review and digest without a provider (31.045417ms)
+✔ cancellation persists and prevents queued fixture completion (4.15675ms)
+✖ recovery after review commit preserves original task provenance and final set (31.132917ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 4
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 170.769791
+
+✖ failing tests:
+
+test at app/local/demo.test.ts:71:1
+✖ recovery after review commit preserves original task provenance and final set (31.132917ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'failed'
+  - 'succeeded'
+  
+      at TestContext.<anonymous> (file:///private/tmp/factory-greenfield-qynise-20261019/app/local/demo.test.ts:82:10)
+      at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at async Test.run (node:internal/test_runner/test:1110:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:785:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'failed',
+    expected: 'succeeded',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

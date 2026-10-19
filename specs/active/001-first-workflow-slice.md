@@ -3,7 +3,7 @@ id: 001
 slug: first-workflow-slice
 status: review
 scope_approved: 2026-10-19
-implementation_approval: pending-adrs
+implementation_approval: local-fixture-contract-only
 owner: "@codex"
 human_owner: "@qyndex"
 created: 2026-10-19
@@ -78,3 +78,9 @@ A spec approval must identify which of these decisions are settled; unresolved d
 ## Rollout and rollback
 
 Default disabled outside the isolated development environment. Initially allow only the explicitly configured operator and non-sensitive briefs. Revocation stops new runs; existing run state remains auditable. Roll back code through a reviewed revert and preserve versioned records; never reset durable state to make acceptance pass.
+
+## Approved bounded local phase — 2026-10-19
+
+Operator decisions `1A, 2A, 3A, 4A, 5A` authorize server-owned local test identities, single-host durable SQLite state, fixture-backed planning/review, actual local browser verification and recovery contracts. All original acceptance criteria above remain unchanged. Genuine-provider portions of AC3/4/6/8 and production identity/deployment remain deferred; local synthetic review is never represented as independent model review. Application-readiness CI may verify the explicitly labelled local contract, while complete Spec001 acceptance and factory activation remain gated separately.
+
+Synthetic limits: 4,096 UTF-8 input bytes, 8,192 request/result bytes, 80-character idempotency keys, 100 retained local runs, 64 one-hour test sessions, two active runs, three concurrent planning fixture tasks per run, one distinct fixture contract-review task, ten-second run deadline and no external calls or paid token budget. No automatic retention pruning; the operator removes only disposable synthetic databases. These limits grant no customer-data processing or paid execution authorization.
