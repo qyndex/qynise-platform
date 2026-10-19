@@ -1,0 +1,15 @@
+# App-only adopter credentials and bounded shadow permissions
+
+This is the local F5/F7 source hardening identified by the retained bootstrap Sonnet review. Existing eight false activation flags and disabled policy remain unchanged. No credential, environment, protection, receipt registration, App selection, dispatch or production setting is applied by this commit. Original full-spec/native acceptance stays incomplete.
+
+All four reporting jobs now require the selected App-writer flag before entering factory-reporting. Reporting uses the ordinary token for read-only source metadata and the repository-scoped reporting App for state writes/policy reads. Legacy state PAT bindings and the digest workflow's legacy CLI branch are omitted from these adopters. The generic transport's existing legacy support is unchanged. Unconditional runtime validation rejects an effective environment override away from App mode before Slack/client operations; absent App credentials cannot select a legacy or ambient writer instead. Alerts additionally require their existing monitor flag before allocating their role.
+
+The merge request resolver rejects a requested merge when merge_enabled is not exactly true before producing permission-selection outputs. Shadow requests mint Contents-read and Pull-requests-read; eligibility still needs Checks-write, plus Actions/Administration-read. The shadow token is therefore not globally read-only. Permitted merge requests retain write permissions only after the existing policy preflight and validated request. Core coordinator policy, exact-head, protection, signed-proof and allowed-scope guards are untouched.
+
+## Local evidence and limits
+
+scripts/verify-factory-least-privilege.sh uses the Python standard library: actual inline request resolver and credential validation, synthetic expressions for maintained workflow formatting, and real transport routing with process effects replaced by an observer. Initial RED: eight methods, seventeen permission/authorization failures; no tooling failure. Final suite: nine methods, including unchanged preflight ordering/disabled-policy checks. These fixtures never mint a token or call GitHub/Slack. Separate Actionlint validates YAML/expressions; its ShellCheck/Pyflakes adapters are not included unless recorded explicitly.
+
+A source metadata read uses a synthetic read token; a state CAS routes only to a synthetic App token; foreign endpoints and missing App tokens reject even when a synthetic legacy token is present. Real GitHub App permission readback, denied-write native shadow observations, current reporting, native producer proof and complete-spec evidence remain pending. No useful-delivery or twenty-sample credit follows from this maintenance change.
+
+Before any later trust registration, recompute final merged workflow/runtime/policy hashes. Earlier post-merge-registration proposals describe the prior merged baseline only and have not been edited into approvals by this work. The two adopter source branches need independent review, full honest collectors and fresh native checks before any separate publication/maintenance decision.

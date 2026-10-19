@@ -4,7 +4,7 @@ on:
     - cron: '7,22,37,52 * * * *'
   workflow_dispatch:
 permissions:
-  contents: write
+  contents: read
 concurrency:
   group: factory-reporting-${{ github.repository }}
   cancel-in-progress: false
@@ -12,6 +12,7 @@ jobs:
   intake:
     if: >-
       vars.FACTORY_FEEDBACK_ENABLED == 'true' &&
+      vars.FACTORY_REPORTING_APP_WRITER_ENABLED == 'true' &&
       vars.FACTORY_REPORTING_PROFILE == 'github-hosted' &&
       github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
     environment: factory-reporting
@@ -38,7 +39,6 @@ jobs:
           permission-contents: write
           permission-administration: read
       - name: Validate selected reporting credentials
-        if: env.FACTORY_REPORTING_APP_WRITER_ENABLED == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
           FACTORY_REPORTING_APP_TOKEN: ${{ steps.reporting_app.outputs.token }}
@@ -47,6 +47,8 @@ jobs:
           import importlib.util,os
           spec=importlib.util.spec_from_file_location('reporting_transport','.claude/scripts/factory-reporting-transport.py')
           transport=importlib.util.module_from_spec(spec);spec.loader.exec_module(transport)
+          transport.require(transport.build_config(os.environ)['writer_mode']=='app',
+                            'Adopter reporting requires App writer')
           transport.create_api(os.environ)
           PYWRITER
       - name: Install pinned encryption dependencies
@@ -87,7 +89,6 @@ jobs:
       - name: Capture authenticated feedback and commit only encrypted state
         env:
           GH_TOKEN: ${{ github.token }}
-          FACTORY_REPORTING_STATE_TOKEN: ${{ secrets.FACTORY_REPORTING_STATE_TOKEN }}
           FACTORY_REPORTING_APP_TOKEN: ${{ steps.reporting_app.outputs.token }}
           FACTORY_SLACK_BOT_TOKEN: ${{ secrets.FACTORY_SLACK_BOT_TOKEN }}
           FACTORY_FEEDBACK_STATE_KEY: ${{ secrets.FACTORY_FEEDBACK_STATE_KEY }}

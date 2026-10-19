@@ -1,0 +1,14 @@
+test_ordinary_token_is_read_and_no_legacy_secret_is_exposed (__main__.ReportingAuthorization.test_ordinary_token_is_read_and_no_legacy_secret_is_exposed) ... ok
+test_real_transport_routes_state_only_to_app_and_never_falls_back (__main__.ReportingAuthorization.test_real_transport_routes_state_only_to_app_and_never_falls_back) ... ok
+test_runtime_rejects_env_override_before_any_client_or_slack (__main__.ReportingAuthorization.test_runtime_rejects_env_override_before_any_client_or_slack) ... ok
+test_writer_disabled_or_absent_never_allocates_reporting_job (__main__.ReportingAuthorization.test_writer_disabled_or_absent_never_allocates_reporting_job) ... ok
+test_forbidden_merge_is_rejected_before_permission_outputs_exist (__main__.ShadowAuthorization.test_forbidden_merge_is_rejected_before_permission_outputs_exist) ... ok
+test_missing_or_unknown_mode_fails_without_mint_outputs (__main__.ShadowAuthorization.test_missing_or_unknown_mode_fails_without_mint_outputs) ... ok
+test_permitted_merge_and_workflow_completion_keep_existing_modes (__main__.ShadowAuthorization.test_permitted_merge_and_workflow_completion_keep_existing_modes) ... ok
+test_policy_preflight_and_validated_request_precede_token_mint (__main__.ShadowAuthorization.test_policy_preflight_and_validated_request_precede_token_mint) ... ok
+test_shadow_keeps_checks_write_but_cannot_request_content_or_pr_write (__main__.ShadowAuthorization.test_shadow_keeps_checks_write_but_cannot_request_content_or_pr_write) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 1.081s
+
+OK

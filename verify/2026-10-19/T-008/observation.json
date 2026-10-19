@@ -1,0 +1,12 @@
+{
+  "task": "T-008",
+  "initial_red_test_sha256": "b5e77248f2b9eba6b9d0bdaf857ea3735b50158c0a8a0a1fd92f45a3c864b884",
+  "initial_red_methods": 8,
+  "initial_red_failures": 17,
+  "final_methods": 9,
+  "red_exit": 1,
+  "green_exit": 0,
+  "effects": "offline synthetic process observations only; no real token/network",
+  "full_collector_not_run_by_this_task": true,
+  "native_permission_proof": "pending"
+}
