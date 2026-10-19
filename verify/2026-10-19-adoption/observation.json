@@ -25,5 +25,7 @@
   "production_activation": false,
   "note": "No source-pilot delivery or receipt credit inherited. No real application/native operational acceptance claimed.",
   "initial_harness_sha": "6e89cc6f3d8e368fd078f5652c928225bec10f03",
-  "actual_upgrade": "passed with exact known custom files reconciled and reapplied"
+  "actual_upgrade": "passed with exact known custom files reconciled and reapplied",
+  "current_baseline_sha": "bb027da38d4c45e9171e56aeefbd6b4d0b47de0a",
+  "baseline_integration": "Merged upstream README-only Arentic-to-Qynise naming update; no application code exists"
 }

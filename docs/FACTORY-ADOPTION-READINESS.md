@@ -2,7 +2,7 @@
 
 Status: local installation proposal; activation is disabled. Application readiness and autonomous readiness are separate gates.
 
-Repository baseline: `5ddcfa54a470b3758339f3a35f7ad73675ad5883`. Harness source: [`a76b258353c0c692a80c0e40ae0ccf4d2cb4c246`](https://github.com/qyndex/claude-init/tree/a76b258353c0c692a80c0e40ae0ccf4d2cb4c246). The final source checkout was clean and immutable. Initial installation used the previously merged source; the separately recorded exact upgrade preserves the original observation. The exact installation observation is [recorded here](adoption/installation-observation.json).
+Current repository baseline: `bb027da38d4c45e9171e56aeefbd6b4d0b47de0a`. The original installation baseline was `5ddcfa54a470b3758339f3a35f7ad73675ad5883`; the later README-only product-name update is merged unchanged. Harness source: [`a76b258353c0c692a80c0e40ae0ccf4d2cb4c246`](https://github.com/qyndex/claude-init/tree/a76b258353c0c692a80c0e40ae0ccf4d2cb4c246). The final source checkout was clean and immutable. Initial installation used the previously merged source; the separately recorded exact upgrade preserves the original observation. The exact installation observation is [recorded here](adoption/installation-observation.json).
 
 ## Installation observed
 

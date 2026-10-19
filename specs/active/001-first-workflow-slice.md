@@ -16,7 +16,7 @@ service_tier: T2
 
 The master blueprint describes an AI Workflow OS but the repository has no runnable product. The first delivery must prove one useful workflow across identity, durable execution, parallel agents, review and observable evidence before expanding the platform.
 
-This is a proposal for review, not an approved product implementation or deployment instruction. It derives from README sections 18, 22, 26 and 29. The product is called Arentic in the existing brief; this spec preserves that naming rather than silently renaming it.
+This is a proposal for review, not an approved product implementation or deployment instruction. It derives from README sections 18, 22, 26 and 29. The current approved source brief names the product Qynise. The naming update on main is preserved.
 
 ## Proposed first use case
 
