@@ -1,0 +1,24 @@
+{
+  "repository": "qyndex/qynise-platform",
+  "from_harness_sha": "6e89cc6f3d8e368fd078f5652c928225bec10f03",
+  "to_harness_sha": "a76b258353c0c692a80c0e40ae0ccf4d2cb4c246",
+  "dry_run": {
+    "source_sha": "a76b258353c0c692a80c0e40ae0ccf4d2cb4c246",
+    "changed_files": 12,
+    "dry_run": true,
+    "activation_enabled": false
+  },
+  "upgrade": {
+    "source_sha": "a76b258353c0c692a80c0e40ae0ccf4d2cb4c246",
+    "changed_files": 12,
+    "journal": "a4dcbbf287434c218c0a5d0ff73c4bf5",
+    "activation_enabled": false
+  },
+  "unchanged_repeat": "passed before reapplying deliberate project customization",
+  "customization_reapplied": {
+    "CLAUDE.md": "fdce12db2ccfd3ea00e6660cb68094a48526da8533d23e6c4bff5e6f3894fc7d"
+  },
+  "customization_guard": "still fails closed after reapplying project instructions/settings",
+  "application_and_product_baseline_preserved": true,
+  "activation_enabled": false
+}

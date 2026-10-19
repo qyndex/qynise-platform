@@ -2,11 +2,11 @@
 
 Status: local installation proposal; activation is disabled. Application readiness and autonomous readiness are separate gates.
 
-Repository baseline: `5ddcfa54a470b3758339f3a35f7ad73675ad5883`. Harness source: [`6e89cc6f3d8e368fd078f5652c928225bec10f03`](https://github.com/qyndex/claude-init/tree/6e89cc6f3d8e368fd078f5652c928225bec10f03). The source checkout was clean and immutable. The exact installation observation is [recorded here](adoption/installation-observation.json).
+Repository baseline: `5ddcfa54a470b3758339f3a35f7ad73675ad5883`. Harness source: [`a76b258353c0c692a80c0e40ae0ccf4d2cb4c246`](https://github.com/qyndex/claude-init/tree/a76b258353c0c692a80c0e40ae0ccf4d2cb4c246). The final source checkout was clean and immutable. Initial installation used the previously merged source; the separately recorded exact upgrade preserves the original observation. The exact installation observation is [recorded here](adoption/installation-observation.json).
 
 ## Installation observed
 
-The actual transactional installer proposed 637 files. Installation, unchanged repeat (zero writes), exact revert and reinstall passed locally. Existing application/product baseline files remain byte-identical except the deliberately composed root instructions and, for brownfield, shared Claude settings. Brownfield originals are preserved in `docs/adoption/original/`; its original permission allow entries are retained alongside the harness guard settings.
+The initial transactional installer proposed 637 files. The [upgrade observation](adoption/upgrade-observation.json) records the subsequent merged-source upgrade. Installation, unchanged repeat (zero writes), exact revert and reinstall passed locally. Existing application/product baseline files remain byte-identical except the deliberately composed root instructions and, for brownfield, shared Claude settings. Brownfield originals are preserved in `docs/adoption/original/`; its original permission allow entries are retained alongside the harness guard settings.
 
 `CLAUDE.md` is intentionally customized for this application. Brownfield `.claude/settings.json` is also customized. The unchanged upstream ownership manifest is preserved: a subsequent automatic upgrade correctly rejects these files. Before upgrading, reconcile the upstream changes with these project customizations in an isolated branch. Do not rewrite ownership hashes to pretend customized files match stock bytes.
 
@@ -27,4 +27,4 @@ The selected reporting destination is the existing private `qyndex-alerts` chann
 - Prove real reporting and authenticated feedback delivery if those capabilities are enabled.
 - Supply deployment platform, health/SLO and rollback contract before any production activation.
 
-Use the pinned source [adopter setup](https://github.com/qyndex/claude-init/blob/6e89cc6f3d8e368fd078f5652c928225bec10f03/docs/FACTORY-ADOPTER-SETUP.md), [activation guide](https://github.com/qyndex/claude-init/blob/6e89cc6f3d8e368fd078f5652c928225bec10f03/docs/FACTORY-ACTIVATION.md) and [quickstart](https://github.com/qyndex/claude-init/blob/6e89cc6f3d8e368fd078f5652c928225bec10f03/docs/FACTORY-ADOPTER-QUICKSTART.md) for documents intentionally not distributed locally. Source-pilot success does not certify this target.
+Use the pinned source [adopter setup](https://github.com/qyndex/claude-init/blob/a76b258353c0c692a80c0e40ae0ccf4d2cb4c246/docs/FACTORY-ADOPTER-SETUP.md), [activation guide](https://github.com/qyndex/claude-init/blob/a76b258353c0c692a80c0e40ae0ccf4d2cb4c246/docs/FACTORY-ACTIVATION.md) and [quickstart](https://github.com/qyndex/claude-init/blob/a76b258353c0c692a80c0e40ae0ccf4d2cb4c246/docs/FACTORY-ADOPTER-QUICKSTART.md) for documents intentionally not distributed locally. Source-pilot success does not certify this target.
