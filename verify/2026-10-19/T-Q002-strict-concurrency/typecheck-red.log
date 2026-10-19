@@ -1,0 +1,5 @@
+
+> typecheck
+> tsc --noEmit
+
+recovery.test.ts(9,18): error TS7006: Parameter 't' implicitly has an 'any' type.

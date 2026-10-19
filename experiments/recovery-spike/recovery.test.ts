@@ -1,12 +1,12 @@
-import test from 'node:test';
+import test, { type TestContext } from 'node:test';
 import assert from 'node:assert/strict';
 import { mkdtempSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { spawnSync } from 'node:child_process';
+import { spawnSync, fork } from 'node:child_process';
 import { Store } from './store.ts';
 
-function fixture(t) {
+function fixture(t: TestContext) {
   const dir = mkdtempSync(join(tmpdir(), 'qynise-recovery-'));
   const path = join(dir, 'state.sqlite');
   const store = new Store(path);
@@ -90,4 +90,61 @@ test('process death after fixture response requires fenced retry without duplica
   store.complete('a', run, 'requirements', generation, 'fixture result');
   assert.equal(store.count('results'), 1);
   assert.throws(() => store.complete('a', run, 'requirements', 1, 'fixture result'), /stale/);
+});
+
+async function workers(path: string, operation: string, run = '') {
+  const children = [0, 1].map(() => fork(new URL('./worker.ts', import.meta.url), [path, operation, run], {
+    execArgv: [], stdio: ['ignore', 'ignore', 'pipe', 'ipc'],
+  }));
+  const ready = new Set<number>();
+  const timer = setTimeout(() => children.forEach(child => child.kill()), 10000);
+  try {
+    return await Promise.all(children.map((child, index) => new Promise<string | number>((resolve, reject) => {
+      let value: string | number | undefined;
+      let diagnostic = '';
+      child.stderr?.on('data', chunk => { diagnostic += String(chunk); });
+      child.on('error', reject);
+      child.on('message', raw => {
+        const message = raw as { type: string; value?: string | number };
+        if (message.type === 'ready') {
+          ready.add(index);
+          if (ready.size === children.length) children.forEach(worker => worker.send('go'));
+        } else if (message.type === 'result') value = message.value;
+      });
+      child.on('exit', code => {
+        if (code === 0 && value !== undefined) resolve(value);
+        else reject(Error(`fixture worker failed: ${code}; ${diagnostic}`));
+      });
+    })));
+  } finally {
+    clearTimeout(timer);
+    await Promise.all(children.map(child => new Promise<void>(resolve => {
+      if (child.exitCode !== null || child.signalCode !== null) { resolve(); return; }
+      const force = setTimeout(() => child.kill('SIGKILL'), 1000);
+      child.once('close', () => { clearTimeout(force); resolve(); });
+      child.kill('SIGTERM');
+    })));
+  }
+}
+
+test('simultaneous processes serialize idempotent starts and fence competing claims', async t => {
+  const { path, store } = fixture(t);
+  const ids = await workers(path, 'start');
+  assert.equal(ids[0], ids[1]);
+  assert.equal(store.count('runs'), 1);
+  assert.equal(store.count('outbox'), 3);
+  const run = String(ids[0]);
+  const generations = await workers(path, 'claim', run);
+  assert.deepEqual(generations.sort(), [1, 2]);
+  assert.throws(() => store.complete('a', run, 'requirements', 1, 'fixture result'), /stale/);
+  store.complete('a', run, 'requirements', 2, 'fixture result');
+  assert.equal(store.count('results'), 1);
+});
+
+
+test('worker failure closes the competing fixture processes before returning', async t => {
+  const { path, store } = fixture(t);
+  await assert.rejects(workers(path, 'invalid'), /fixture worker failed/);
+  assert.equal(store.count('runs'), 0);
+  assert.equal(store.count('results'), 0);
 });

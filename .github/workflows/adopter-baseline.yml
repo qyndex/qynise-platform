@@ -39,3 +39,21 @@ jobs:
             exit 1
           fi
           bash scripts/verify-application.sh
+  recovery-spike:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '24.13.1'
+          cache: npm
+          cache-dependency-path: experiments/recovery-spike/package-lock.json
+      - name: Install only pinned experiment development tools
+        run: npm ci --ignore-scripts --no-audit --no-fund --prefix experiments/recovery-spike
+      - name: Strictly compile the disposable contract experiment
+        run: npm run typecheck --prefix experiments/recovery-spike
+      - name: Exercise process-exit and competing-worker recovery contracts
+        run: npm test --prefix experiments/recovery-spike

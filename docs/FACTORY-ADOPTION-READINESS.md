@@ -32,3 +32,7 @@ Use the pinned source [adopter setup](https://github.com/qyndex/claude-init/blob
 ## Native baseline CI
 
 The new `adopter-baseline.yml` workflow uses only a read-only GitHub token, pinned checkout/runtime actions and no secrets or protected environments. It records process validation separately from application readiness. It grants no merge authority. The application-readiness job deliberately blocks until an approved runnable application and real stack checks replace it; an empty greenfield repository must not produce a false application PASS.
+
+## Local contract spike verification follow-up
+
+The disposable experiment now has a committed development-only lockfile, strict TypeScript configuration and a separate read-only Node24 CI job. Nine tests include two actual processes released by an IPC barrier to contend on identical start keys and task generations. This closes the earlier strict-compilation and sequential-only limitations. No actual identity/provider/deployed storage/production claim is made, and the application readiness gate remains independently blocked.

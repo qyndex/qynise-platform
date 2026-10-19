@@ -1,0 +1,21 @@
+{
+  "scope": "Local-only disposable contract/recovery spike; no real identity/provider/application certification",
+  "runtime": "Node24.13.1",
+  "strict_typecheck_exit": 0,
+  "runtime_tests": 9,
+  "runtime_exit": 0,
+  "simultaneous_worker_proof": "Two child processes wait at IPCbarrier before shared idempotency and generation claims",
+  "failure_cleanup": "Await owned child closures with TERM then KILL fallback",
+  "audit_findings": 0,
+  "source_sha256": {
+    "experiments/recovery-spike/recovery.test.ts": "57667c0548b8809f8a754d88b4511caae523703c7f9fac26e343153b7a6fd033",
+    "experiments/recovery-spike/crash.ts": "9af9434c8174cde30b2b76141ecfe89a32d8c1fd95d175134adc741050728a83",
+    "experiments/recovery-spike/worker.ts": "b4f5e0fa40b9d745ef2849949b7467719794c74938638661758f3f080b6e7a13",
+    "experiments/recovery-spike/store.ts": "0241ff4a426692da33500c21f8f7c835552edfa62d1c3adeeeb1a1a55d847252",
+    "experiments/recovery-spike/package.json": "aad9ffa3d7d02711aeffa810681c45be422b29234bdd078c552d5b454bb9e3d8",
+    "experiments/recovery-spike/package-lock.json": "414b19d023d7e956ee9f7dcf5ed21b6ff534796a1d4622a501845bbe6fee3706",
+    "experiments/recovery-spike/tsconfig.json": "0a553354321f3a77afdf9e141e7357bb4dff9b5512cecbbd1b6befff9079cf87",
+    ".github/workflows/adopter-baseline.yml": "4afe271e21274a64ee0d014501ada240b20a0be9db20e7426d222274cb57a0df"
+  },
+  "setup_error": "Host defaultNode22 attempt retained separately; not RED. Actual RED/GREEN usesNode24.13.1."
+}
