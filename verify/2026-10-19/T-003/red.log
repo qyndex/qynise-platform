@@ -1,0 +1,38 @@
+# TDD ledger — red — T-003
+ledger_format: 2
+timestamp: 2026-10-19T21:29:32+11:00
+command: /Users/shravanjha/.nvm/versions/node/v24.13.1/bin/node --test --test-name-pattern="initial storage-claim failure" app/local/demo.test.ts
+exit_code: 1
+red_reason: assertion-failure
+---
+(node:81343) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✖ initial storage-claim failure stops scheduling without process death or false success (1152.990083ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1231.904125
+
+✖ failing tests:
+
+test at app/local/demo.test.ts:131:1
+✖ initial storage-claim failure stops scheduling without process death or false success (1152.990083ms)
+  AssertionError [ERR_ASSERTION]: storage outage must return bounded503, not starve the HTTP loop
+  
+  undefined !== 503
+  
+      at TestContext.<anonymous> (file:///private/tmp/factory-greenfield-qynise-20261019/app/local/demo.test.ts:145:10)
+      at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at async Test.run (node:internal/test_runner/test:1110:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: 503,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

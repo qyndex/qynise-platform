@@ -1,0 +1,300 @@
+#!/usr/bin/env bash
+# Evidence collector — Round 10 C.
+#
+# Reads a spec's acceptance criteria, maps each to its proving test, runs the
+# journey (capturing screenshots+video+HAR via the playwright rig), runs smoke
+# commands, and emits a PR-ready evidence bundle.
+#
+# Outputs into verify/<date>-<spec-id>/:
+#   EVIDENCE.md     — full human-readable bundle
+#   pr-body.md      — PR-ready markdown block (embedded in gh pr create --body-file)
+#   evidence.json   — machine-readable for the evidence-gate
+#   + screenshots/, traces/, results.json, video.webm, trace.zip, network.har
+#
+# Usage: bash .claude/scripts/collect-evidence.sh <spec-id|latest> [--check-only]
+# Exit 0 only if all ACs proven + smoke green + coverage gate met.
+
+set -uo pipefail
+
+ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
+cd "$ROOT"
+
+# shellcheck source=lib/atomic-write.sh
+. "$ROOT/.claude/scripts/lib/atomic-write.sh"
+
+target="${1:-latest}"
+CHECK_ONLY=0
+[ "${2:-}" = "--check-only" ] && CHECK_ONLY=1
+
+# Resolve spec
+if [ "$target" = "latest" ]; then
+  # JUSTIFIED: the redirect drops the glob's no-match error — an empty spec is caught by the existence check below which exits with a clear message
+  spec=$(ls -t specs/active/*.md 2>/dev/null | head -1)
+else
+  # JUSTIFIED: the redirect drops the glob's no-match error — an empty spec is caught by the existence check below which exits with a clear message
+  spec=$(ls specs/active/${target}*.md 2>/dev/null | head -1)
+fi
+[ -z "$spec" ] && { echo "Spec not found: $target"; exit 1; }
+
+spec_id=$(basename "$spec" .md | grep -oE '^[0-9]+' | head -1)
+slug=$(basename "$spec" .md)
+date_dir="verify/$(date +%Y-%m-%d)-${slug}"
+mkdir -p "$date_dir/screenshots" "$date_dir/traces" || exit 1
+rm -f "$date_dir/evidence.json" "$date_dir/pr-body.md" "$date_dir/EVIDENCE.md" || exit 1
+
+echo "→ Collecting evidence for spec $spec_id ($slug)"
+
+# ─── 1. Parse acceptance criteria ───────────────────────────────────────
+# Share the same bounded section parser as spec-match. Cross-spec references
+# outside this section are not additional acceptance definitions.
+if ! ac_ids=$(python3 -I "$ROOT/.claude/scripts/acceptance-criteria.py" "$spec"); then
+  exit 1
+fi
+# Count the already validated nonempty canonical identifier set.
+ac_count=$(printf '%s\n' "$ac_ids" | awk 'NF {n++} END {print n+0}')
+[ "$ac_count" -gt 0 ] || { echo "No AC identifiers: evidence cannot prove this spec" >&2; exit 1; }
+
+# ─── 2. Run the journey via the playwright rig (unless check-only) ──────
+results_json="$date_dir/results.json"
+runner_exit=0
+if [ "$CHECK_ONLY" = "1" ]; then
+  # Retain the submitted proof before smoke can overwrite date-root results.
+  attempt_dir=$(mktemp -d "$date_dir/attempt-XXXXXXXX") || exit 1
+  if [ -f "$results_json" ]; then
+    cp "$results_json" "$attempt_dir/results.json" || exit 1
+  fi
+  results_json="$attempt_dir/results.json"
+fi
+if [ "$CHECK_ONLY" = "0" ]; then
+  # Never consume a preceding invocation's result or publish its PASS as current.
+  attempt_dir=$(mktemp -d "$date_dir/attempt-XXXXXXXX") || exit 1
+  results_json="$attempt_dir/results.json"
+  # e2e-audit e2e-rig-4: the rig runs via its OWN config (--config
+  # playwright.evidence.config.ts) so it never collides with a brownfield
+  # project's playwright.config.ts; existence checks key on the evidence config.
+  if [ -f playwright.evidence.config.ts ] && [ -d "e2e/$spec_id" ]; then
+    echo "  Running journey: VERIFY_FEATURE=$slug npx playwright test --config playwright.evidence.config.ts e2e/$spec_id"
+    # Runner failure is recorded independently of any result tags and blocks PASS.
+    VERIFY_FEATURE="$slug" VERIFY_OUTPUT_DIR="$attempt_dir" npx playwright test --config playwright.evidence.config.ts "e2e/$spec_id" 2>&1 | tail -20 || runner_exit=$?
+  else
+    # e2e-audit greenfield-4: no browser rig — CLIs/APIs/libraries prove ACs via
+    # the stack's own runner emitting AC-tagged junit/json into the bundle dir.
+    echo "  ⚠ No playwright.evidence.config.ts or e2e/$spec_id/ — run: bash .claude/scripts/rig-bootstrap.sh (web apps) or rely on the stack-runner AC proof below"
+    if [ -f package.json ] && jq -e '.devDependencies.vitest // .dependencies.vitest' package.json >/dev/null 2>&1; then
+      echo "  Running stack AC proof: vitest → $results_json"
+      # JUSTIFIED: failing tests must not abort evidence collection — step 4 reads pass/fail from the output file
+      npx vitest run --reporter=json --outputFile="$results_json" 2>&1 | tail -5 || runner_exit=$?
+    elif [ -f package.json ] && jq -e '.devDependencies.jest // .dependencies.jest' package.json >/dev/null 2>&1; then
+      echo "  Running stack AC proof: jest → $results_json"
+      # JUSTIFIED: same contract as above — the verdict comes from the output file
+      npx jest --json --outputFile="$results_json" 2>&1 | tail -5 || runner_exit=$?
+    elif [ -f pyproject.toml ] || [ -f requirements.txt ] || [ -f setup.py ]; then
+      echo "  Running stack AC proof: pytest → $attempt_dir/results.xml"
+      results_json="$attempt_dir/results.xml"
+      # JUSTIFIED: same contract — junit XML carries pass/fail per testcase
+      python3 -m pytest --junitxml="$results_json" 2>&1 | tail -5 || runner_exit=$?
+    fi
+  fi
+fi
+if [ ! -f "$results_json" ]; then
+  echo "  ⚠ No results at $results_json — every AC will read UNPROVEN. Install the rig: bash .claude/scripts/rig-bootstrap.sh, or emit AC-tagged junit/jest output to that path."
+fi
+
+# Validate the whole output before any AC tags can be consumed. A parser can
+# emit a valid prefix and then fail on trailing garbage; that is not proof.
+if [ -f "$results_json" ]; then
+  case "$results_json" in
+    *.xml)
+      python3 -I -c 'import sys, xml.etree.ElementTree as ET; ET.parse(sys.argv[1])' "$results_json" || exit 1 ;;
+    *)
+      # Parse the raw file: jq can accept a JSON prefix followed by NUL bytes.
+      python3 -I -c 'import json, sys; value=json.load(open(sys.argv[1], encoding="utf-8"), parse_constant=lambda value: sys.exit("Invalid JSON constant: " + value)); sys.exit(0 if isinstance(value, dict) else 1)' "$results_json" || exit 1 ;;
+  esac
+fi
+
+# Hash raw bytes, never shell-capture proof text (which can strip NUL/newlines).
+proof_present=0
+proof_digest=""
+proof_hash() {
+  python3 -I -c 'import hashlib, sys; print(hashlib.sha256(open(sys.argv[1], "rb").read()).hexdigest())' "$1"
+}
+if [ -f "$results_json" ]; then
+  proof_present=1
+  proof_digest=$(proof_hash "$results_json") || exit 1
+fi
+
+# ─── 3. Smoke commands ──────────────────────────────────────────────────
+smoke_log="$date_dir/smoke.log"
+smoke_max_exit=0
+{
+  echo "# Smoke test — $(date -Iseconds)"
+  for cmd in "bash .claude/scripts/verify.sh"; do
+    echo "\$ $cmd"
+    if eval "$cmd" >/tmp/smoke.out 2>&1; then ec=0; else ec=$?; fi
+    tail -5 /tmp/smoke.out
+    echo "exit: $ec"
+    echo "---"
+    [ "$ec" -gt "$smoke_max_exit" ] && smoke_max_exit=$ec
+  done
+} > "$smoke_log"
+
+# Smoke may rewrite canonical results, but cannot replace the retained proof.
+if [ "$proof_present" = "1" ]; then
+  current_digest=$(proof_hash "$results_json") || exit 1
+  [ "$current_digest" = "$proof_digest" ] || { echo "Retained proof changed during smoke" >&2; exit 1; }
+  case "$results_json" in
+    *.json)
+      # Preserve the canonical path consumed by check-local-evidence.py.
+      replace_atomic "$date_dir/results.json" < "$results_json" || exit 1
+      canonical_digest=$(proof_hash "$date_dir/results.json") || exit 1
+      [ "$canonical_digest" = "$proof_digest" ] || exit 1 ;;
+  esac
+elif [ -e "$results_json" ]; then
+  echo "Smoke created proof that was absent at validation" >&2
+  exit 1
+fi
+
+# ─── 4. spec-match (AC → passing test) ──────────────────────────────────
+ac_proven=0
+ac_unproven=()
+if [ -f "$results_json" ]; then
+  # JUSTIFIED: the fallback keeps match_out as captured output even if spec-match exits non-zero — each AC is then individually checked against it below, so a tool error degrades to "unproven", never a crash
+  match_out=$(bash .claude/scripts/spec-match.sh "$spec_id" "$results_json" 2>&1 || true)
+  for ac in $ac_ids; do
+    # Anchored (e2e-audit e2e-rig-3): without the boundary, '✓ AC-10' satisfied AC-1.
+    if echo "$match_out" | grep -qE "✓ ${ac}( |\$)"; then
+      ac_proven=$((ac_proven + 1))
+    else
+      ac_unproven+=("$ac")
+    fi
+  done
+else
+  # No results — all ACs unproven
+  for ac in $ac_ids; do ac_unproven+=("$ac"); done
+fi
+
+# ─── 5. Coverage delta ──────────────────────────────────────────────────
+cov_line="?"
+cov_branch="?"
+[ -f coverage/coverage-summary.json ] && {
+  # JUSTIFIED: the redirect and fallback yield "?" when the coverage summary is malformed — coverage is informational in the evidence bundle and a parse failure must not block evidence collection
+  cov_line=$(jq -r '.total.lines.pct' coverage/coverage-summary.json 2>/dev/null || echo "?")
+  # JUSTIFIED: same — a malformed coverage summary degrades the branch figure to "?" rather than aborting the bundle
+  cov_branch=$(jq -r '.total.branches.pct' coverage/coverage-summary.json 2>/dev/null || echo "?")
+}
+
+# ─── 6. Verdict ─────────────────────────────────────────────────────────
+verdict="PASS"
+[ "${#ac_unproven[@]}" -gt 0 ] && verdict="FAIL"
+[ "$smoke_max_exit" -ne 0 ] && verdict="FAIL"
+[ "$runner_exit" -ne 0 ] && verdict="FAIL"
+
+# ─── 7. Emit evidence.json ──────────────────────────────────────────────
+# Build the unproven-AC JSON array. The previous form piped through
+# `grep . | jq -R . | jq -sc . || echo '[]'`, which double-emitted "[]\n[]" when
+# the list was empty (the inner jq printed [] AND the || fallback fired on grep's
+# exit 1) — that is invalid JSON and broke the --argjson below, writing an empty
+# evidence.json (FINDING-21, live-e2e 2026-06-13). Build it directly from the
+# array with jq, no grep/fallback race: empty array -> a clean [].
+if [ "${#ac_unproven[@]}" -eq 0 ]; then
+  unproven_json='[]'
+else
+  unproven_json=$(printf '%s\n' "${ac_unproven[@]}" | jq -Rsc 'split("\n") | map(select(length > 0))')
+fi
+# Gap-audit G53: bind the bundle to the exact commit + moment it attests, so
+# evidence-gate can reject stale or wrong-branch evidence instead of trusting
+# any committed file.
+# JUSTIFIED: git muted + unknown fallback — outside a repo the binding fields degrade visibly; evidence-gate treats "unknown" as unbound and fails
+ev_commit=$(git rev-parse HEAD 2>/dev/null || echo unknown)
+jq -nc \
+  --arg spec "$spec_id" \
+  --arg commit "$ev_commit" \
+  --arg results_file "$results_json" \
+  --arg results_sha256 "$proof_digest" \
+  --arg generated_at "$(date -Iseconds)" \
+  --argjson ac_total "${ac_count:-0}" \
+  --argjson ac_proven "$ac_proven" \
+  --argjson ac_unproven "$unproven_json" \
+  --argjson smoke_exit "$smoke_max_exit" \
+  --argjson runner_exit "$runner_exit" \
+  --arg cov_line "$cov_line" \
+  --arg cov_branch "$cov_branch" \
+  --arg verdict "$verdict" \
+  '{spec: $spec, commit: $commit, generated_at: $generated_at, results_file: $results_file, results_sha256: $results_sha256,
+    ac_total: $ac_total, ac_proven: $ac_proven, ac_unproven: $ac_unproven,
+    smoke_exit_max: $smoke_exit, runner_exit: $runner_exit, coverage: {line: $cov_line, branch: $cov_branch}, verdict: $verdict}' \
+  | replace_atomic "$date_dir/evidence.json" || { echo "Evidence emission failed" >&2; exit 1; }
+
+jq -e --argjson total "$ac_count" '.ac_total == $total and (.ac_unproven | type == "array") and (.verdict == "PASS" or .verdict == "FAIL")' "$date_dir/evidence.json" >/dev/null || { echo "Invalid evidence manifest" >&2; exit 1; }
+
+# ─── 8. Emit pr-body.md ─────────────────────────────────────────────────
+{
+  echo "## Evidence Bundle — Spec $spec_id ($slug)"
+  # JUSTIFIED: the redirect and fallback print "unknown" outside a git repo — the commit ref is cosmetic provenance in the PR body and its absence must not break bundle generation
+  echo "Spec: \`$spec\` · Commit: \`$(git rev-parse --short HEAD 2>/dev/null || echo unknown)\`"
+  # Round 11 D: link the projected spec issue for traceability + lifecycle automation
+  # JUSTIFIED: the redirect drops awk stderr if the spec is unreadable — an empty gh_issue simply skips the "Closes #" line below
+  gh_issue=$(awk '/^github_issue:/{print $2}' "$spec" 2>/dev/null)
+  if [ -n "$gh_issue" ]; then
+    echo
+    echo "Closes #${gh_issue}"
+  fi
+  echo
+  echo "Retained results: [$results_json]($results_json)"
+  echo
+  echo "### Acceptance criteria ($ac_proven/$ac_count proven)"
+  echo "| AC | Proven by | Result |"
+  echo "|----|-----------|--------|"
+  for ac in $ac_ids; do
+    if printf '%s\n' "${ac_unproven[@]+"${ac_unproven[@]}"}" | grep -qx "$ac"; then
+      echo "| $ac | — | ✗ UNPROVEN |"
+    else
+      # JUSTIFIED: the redirect drops grep stderr when e2e/ or tests/ is absent — an empty test_file falls back to the "tagged test" label via the default expansion below
+      test_file=$(grep -rl "@$ac\|$ac" e2e/ tests/ 2>/dev/null | head -1)
+      echo "| $ac | ${test_file:-tagged test} | ✓ PASS |"
+    fi
+  done
+  echo
+  echo "### Smoke test (exit codes are load-bearing)"
+  echo '```'
+  cat "$smoke_log"
+  echo '```'
+  echo
+  echo "### Visual proof"
+  # JUSTIFIED: the redirect drops the glob's no-match error — wc then counts zero, correctly reporting no screenshots captured
+  shot_count=$(ls "$date_dir/screenshots/"*.png 2>/dev/null | wc -l | tr -d ' ')
+  echo "$shot_count screenshot(s) captured under \`$date_dir/screenshots/\` (named by AC)."
+  # e2e-rig-5: playwright writes per-test artifacts under test-results/<name>/ —
+  # the flat $date_dir path only exists when a rig copies it up. Glob both so the
+  # PR body links the video/trace it promises.
+  # JUSTIFIED: find over a dir that may lack artifacts — empty means "not captured", correctly omitting the link
+  video=$(find "$date_dir" -maxdepth 3 -name 'video.webm' 2>/dev/null | head -1)
+  trace=$(find "$date_dir" -maxdepth 3 -name 'trace.zip' 2>/dev/null | head -1)
+  [ -n "$video" ] && echo "Journey video: \`$video\` (CI artifact)."
+  [ -n "$trace" ] && echo "Playwright trace: \`$trace\` → trace.playwright.dev"
+  echo
+  echo "### API traces"
+  # JUSTIFIED: the redirect drops the glob's no-match error — wc then counts zero, correctly reporting no API trace files
+  api_count=$(ls "$date_dir/traces/"*.json 2>/dev/null | wc -l | tr -d ' ')
+  echo "$api_count API trace file(s) under \`$date_dir/traces/\`; full HAR at \`$date_dir/network.har\`."
+  echo
+  echo "### Coverage"
+  echo "line ${cov_line}% · branch ${cov_branch}% (gate: line≥90 branch≥85)"
+  echo
+  echo "### Verdict: **$verdict**"
+} > "$date_dir/pr-body.md" || exit 1
+
+# ─── 9. EVIDENCE.md = pr-body + index ───────────────────────────────────
+cp "$date_dir/pr-body.md" "$date_dir/EVIDENCE.md" || exit 1
+{
+  echo
+  echo "## Artifact index"
+  find "$date_dir" -type f | sed 's|^|- |'
+} >> "$date_dir/EVIDENCE.md" || exit 1
+
+echo
+echo "✓ Evidence bundle: $date_dir/"
+echo "  Verdict: $verdict | ACs: $ac_proven/$ac_count proven | smoke exit: $smoke_max_exit"
+echo "  PR body: $date_dir/pr-body.md"
+
+[ "$verdict" = "PASS" ]

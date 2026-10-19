@@ -1,0 +1,30 @@
+(node:10515) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✖ actual Chromium brief-to-evidence journey and tenant switch at desktop/mobile sizes (1739.182709ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2151.411
+
+✖ failing tests:
+
+test at app/local/browser.test.ts:10:1
+✖ actual Chromium brief-to-evidence journey and tenant switch at desktop/mobile sizes (1739.182709ms)
+  AssertionError [ERR_ASSERTION]: a cross-tab cookie change must reset the previous identity view
+  
+  false !== true
+  
+      at TestContext.<anonymous> (file:///private/tmp/factory-adopter-readiness-20261019/historical-cross-tab-replay/app/local/browser.test.ts:39:10)
+      at async Test.run (node:internal/test_runner/test:1110:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

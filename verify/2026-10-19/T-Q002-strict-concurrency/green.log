@@ -1,0 +1,19 @@
+(node:45049) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ tenant-scoped idempotency conflicts and denies foreign reads (3.641875ms)
+✔ generation fence rejects stale completion and duplicate output conflicts (2.302041ms)
+✔ cancelled run refuses claims and late completion (2.18225ms)
+✔ final artifact waits for three tasks and independent review; replay is stable (2.818416ms)
+✔ review cannot run before aggregate; foreign or unknown task cannot mutate state (1.730875ms)
+✔ process death rolls back partial start; committed outbox survives death (117.75075ms)
+✔ process death after fixture response requires fenced retry without duplicate committed result (54.073292ms)
+✔ simultaneous processes serialize idempotent starts and fence competing claims (119.959959ms)
+✔ worker failure closes the competing fixture processes before returning (59.563416ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 430.827208

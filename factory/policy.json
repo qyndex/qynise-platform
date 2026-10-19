@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "enabled": false,
+  "merge_enabled": false,
+  "repository": "qyndex/qynise-platform",
+  "base_branch": "main",
+  "app_id": 5251754,
+  "protected_paths": [
+    ".github/*",
+    "factory/*",
+    ".claude/CLAUDE.md",
+    ".claude/settings.json",
+    ".claude/hooks/*",
+    ".claude/scripts/factory-*",
+    ".claude/scripts/validate-candidate-evidence.py",
+    ".claude/scripts/verify.sh",
+    ".claude/scripts/rerun-acceptance.py",
+    ".claude/scripts/autonomous-ship.sh",
+    ".claude/scripts/verified-merge.sh",
+    ".gitleaks.toml",
+    ".gitleaksignore"
+  ],
+  "required_checks": {
+    "process-validation": 15368,
+    "application-readiness": 15368,
+    "evidence-gate": 15368,
+    "factory-verification": 15368,
+    "factory-independent-review": 15368
+  },
+  "specs": {},
+  "producers": {},
+  "receipts": {
+    "trusted_revisions": {}
+  }
+}

@@ -1,0 +1,14 @@
+(node:78231) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ explicit local mode, server-owned identities, origin and session boundaries (19.776917ms)
+✔ durable idempotent start validates input and denies cross-tenant access (10.926375ms)
+✔ restart resumes durable fixture work, records overlap, review and digest without a provider (30.625041ms)
+✔ cancellation persists and prevents queued fixture completion (4.046834ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 141.174041

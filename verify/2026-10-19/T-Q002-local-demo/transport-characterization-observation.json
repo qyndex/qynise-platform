@@ -1,0 +1,7 @@
+{
+  "command": "bash .claude/scripts/tdd-ledger.sh red T-005 <HTTP input and retained-run limits test>",
+  "test_exit": 0,
+  "ledger_helper_exit": 1,
+  "red_record_created": false,
+  "classification": "existing behavior; characterization, not product defect or valid red evidence"
+}

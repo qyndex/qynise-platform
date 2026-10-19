@@ -1,0 +1,39 @@
+(node:79690) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ explicit local mode, server-owned identities, origin and session boundaries (20.366334ms)
+✔ durable idempotent start validates input and denies cross-tenant access (10.155292ms)
+✔ restart resumes durable fixture work, records overlap, review and digest without a provider (31.512667ms)
+✔ cancellation persists and prevents queued fixture completion (4.279875ms)
+✔ recovery after review commit preserves original task provenance and final set (29.221583ms)
+✖ chunked Unicode brief is preserved byte-for-byte (28.085834ms)
+✔ running cancellation prevents final fixture publication (513.957625ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 6
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 717.4705
+
+✖ failing tests:
+
+test at app/local/demo.test.ts:86:1
+✖ chunked Unicode brief is preserved byte-for-byte (28.085834ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'Plan a café export ���� with keyboard support'
+  - 'Plan a café export 🚀 with keyboard support'
+  
+      at TestContext.<anonymous> (file:///private/tmp/factory-greenfield-qynise-20261019/app/local/demo.test.ts:95:44)
+      at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at async Test.run (node:internal/test_runner/test:1110:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:785:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'Plan a café export ���� with keyboard support',
+    expected: 'Plan a café export 🚀 with keyboard support',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

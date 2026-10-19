@@ -1,0 +1,16 @@
+# TDD ledger — green — T-006
+ledger_format: 2
+timestamp: 2026-10-19T21:38:46+11:00
+command: /Users/shravanjha/.nvm/versions/node/v24.13.1/bin/node --test scripts/coverage-reporter.test.mjs
+exit_code: 0
+---
+✔ coverage summary weights real counts from both application source files (0.353917ms)
+✔ missing, duplicate, foreign or malformed coverage never becomes a passing summary (0.158458ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 35.467834

@@ -1,0 +1,32 @@
+(node:80518) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ explicit local mode, server-owned identities, origin and session boundaries (21.955792ms)
+✔ durable idempotent start validates input and denies cross-tenant access (12.992ms)
+✔ restart resumes durable fixture work, records overlap, review and digest without a provider (413.029084ms)
+✔ cancellation persists and prevents queued fixture completion (5.311333ms)
+✔ recovery after review commit preserves original task provenance and final set (418.01775ms)
+✔ chunked Unicode brief is preserved byte-for-byte (26.942083ms)
+✔ running cancellation prevents final fixture publication (512.862166ms)
+✔ actual process death after a planner commit resumes without replacing that evidence (524.324916ms)
+✔ late Alice response cannot render after a successful Bob identity switch (1.975084ms)
+✔ overlapping identity submissions cannot reorder the browser session cookie (0.606041ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2024.23525
+(node:80529) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ actual Chromium brief-to-evidence journey and tenant switch at desktop/mobile sizes (798.928292ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1003.720458
+PASS: approved local fixture application contract; provider execution and production acceptance DEFERRED.

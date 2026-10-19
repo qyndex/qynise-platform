@@ -1,0 +1,36 @@
+# TDD ledger — red — T-002
+ledger_format: 2
+timestamp: 2026-10-19T21:27:12+11:00
+command: /Users/shravanjha/.nvm/versions/node/v24.13.1/bin/node --test app/local/ui.test.ts
+exit_code: 1
+red_reason: assertion-failure
+---
+✔ late Alice response cannot render after a successful Bob identity switch (1.462958ms)
+✖ overlapping identity submissions cannot reorder the browser session cookie (0.79125ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 1
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 62.339833
+
+✖ failing tests:
+
+test at app/local/ui.test.ts:35:1
+✖ overlapping identity submissions cannot reorder the browser session cookie (0.79125ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  2 !== 1
+  
+      at TestContext.<anonymous> (file:///private/tmp/factory-greenfield-qynise-20261019/app/local/ui.test.ts:45:10)
+      at async Test.run (node:internal/test_runner/test:1110:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:785:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 2,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

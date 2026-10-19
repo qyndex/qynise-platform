@@ -1,0 +1,15 @@
+# Phase-one disabled workflow bootstrap: qyndex/qynise-platform
+
+Repository ID1425001622; public. Reviewed source merge `69574d23988d1a98c2c6f6f27c08815449a59351`, exact equivalent local tree `af91417e669ad544d0a48571d66d750fbba44fb5` at `f8afe0b37d7e3fb63a3414a63f3f74cdfaea6d7a`. Existing harness distribution pin `a76b258353c0c692a80c0e40ae0ccf4d2cb4c246`.
+
+Propose overlay `files/` into a separate reviewed adoption commit only after checking every recorded target before-hash and reconciling installer ownership entries for the five changed managed runtime files. No application file, instruction customization, task/spec authority, existing baseline workflow or state is overwritten. The setup-stack composite action is explicitly included because evidence-gate depends on it. Complete scripts/runtime inventory and exact changed-file before/after hashes are supplied.
+
+Original workflow event/dispatch inputs and job gate expressions are preserved. The review producer gains `environment: factory-review`, a separate **main-only** environment containing only subscription `CLAUDE_CODE_OAUTH_TOKEN`, with no App/reporting keys and no API fallback. Its permissions include GitHub native attestation; both adopters are public. Merge-token selection is corrected from source-pilot hardcoding to actual GitHub repository context; the ordinary adopter baseline is added to merge workflow completion triggers. Existing main-only factory-authority/factory-reporting remain separate.
+
+All eight protected producer/authority/reporting feature flags remain explicit false; policy.enabled and merge_enabled are false. Empty specs/producers are an intentionally unregistered disabled policy, not a malformed active profile. No null/guessed workflow ID, trust profile, bootstrap receipt, source-pilot identity or state anchor is installed. Missing registrations are enumerated in POST-MERGE-REGISTRATION.json and only become authoritative in a later reviewed change after genuine workflow IDs exist.
+
+Evidence gate is ordinary unprivileged PR validation and remains runnable; preserving it can yield honest failures while complete spec evidence is absent. Skipped disabled producer jobs do not prove factory-verification, factory-independent-review or App eligibility. These definitions do not satisfy the four bootstrap-required contexts by themselves.
+
+No approval to change branch protection, merge either draft, enter/copy keys, dispatch, activate trust/authority, send Slack data or deploy is implied. Main currently requires factory contexts before trusted main producers exist; an exact-head operator bootstrap maintenance/restoration proposal remains necessary after final application/source review and fresh ordinary checks.
+
+Local tests prove YAML/actionlint validity, preserved events/inputs/gates, expected false-gate behavior, disabled policy rejection before any API use, exact runtime source bindings and rejection of pilot config/state reuse. They are not live acceptance. Production identity/provider/cloud work remains explicitly deferred.

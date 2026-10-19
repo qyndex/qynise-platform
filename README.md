@@ -1227,3 +1227,14 @@ Every agent definition includes:
 # End of Master Blueprint
 
 Treat this as the baseline design brief, not a substitute for detailed implementation plans. Before coding, create architecture decision records, canonical backlog, contracts, threat model and first vertical-slice acceptance criteria. Update this document when approved decisions materially change the design.
+
+
+## Bounded local contract demonstration
+
+The blueprint above remains the product direction. The approved local phase now has a fixture-backed workflow desk with server-owned test identities, tenant-scoped durable runs, synthetic planning/review evidence and restart/cancellation verification. It does not run models or establish production authentication.
+
+Use Node24.13.1. Run `npm ci --ignore-scripts --no-audit --no-fund`, then `node node_modules/playwright/cli.js install chromium` for browser verification. Run `bash scripts/verify-application.sh` to execute strict TypeScript, JavaScript syntax, HTTP/recovery and real Chromium desktop/mobile checks.
+
+To inspect the local UI, run `QYNISE_LOCAL_FIXTURES=true npm run local` and open http://127.0.0.1:4317. Choose Alice or Bob as visibly labelled test identities. Only synthetic, non-sensitive briefs belong here. The server binds loopback and defaults disabled without the explicit fixture flag. SQLite state is retained in the ignored `qynise-local.sqlite` file, or a path supplied through `QYNISE_LOCAL_DB`.
+
+Genuine provider execution, managed infrastructure, production identity, deployment and full native Spec001 acceptance remain deferred. Adopter authority/reporting activation still requires its own reviewed bootstrap and authentic evidence. See `docs/LOCAL-CONTRACT-DEMO.md` for contracts and limitations.

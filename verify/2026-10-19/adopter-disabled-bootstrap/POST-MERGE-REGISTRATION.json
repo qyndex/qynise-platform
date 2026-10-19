@@ -1,0 +1,25 @@
+{
+  "repository": "qyndex/qynise-platform",
+  "repository_id": 1425001622,
+  "private": false,
+  "phase": "post-merge-only-not-live-config",
+  "requirements": [
+    "Confirm exact phase-one main SHA and fresh GitHub workflow IDs before registering producer/receipt authority",
+    "Register separately approved full spec digest/AC/task/path/acceptance argv and digest-pinned verification image",
+    "Derive and review final runtime/policy profile hashes from merged adopter workflow bytes, including factory-review environment mapping",
+    "Operator manually enters subscription OAuth only in new main-only factory-review, and App/reporting secrets only in their separate existing main-only environments",
+    "Create and protect adopter-owned inert state branch; capture real initial commit/tree and reporting origin; never reuse source pilot anchors",
+    "Generate a distinct base64 encoded32-byte feedback key per repository using pinned adapter contract, then secure manual environment entry",
+    "Capture exact settled policy observations and actual installed App permission/access evidence",
+    "Authenticate real producer proofs and run shadow negatives; request separate exact activation/cutover approval"
+  ],
+  "no_trust_files_created": [
+    "factory/receipt-trust.json",
+    "factory/receipt-archive-bootstrap.json",
+    "factory/receipt-store.json",
+    "factory/receipt-policy-observations.json",
+    "factory/operational-proof-profiles.json"
+  ],
+  "review_capacity": "Repository Sonnet5.5 subscription-OAuth review remains distinct from disabled application providers; no API fallback",
+  "sample_not_satisfied": "Current digest, feedback loop and natural twenty-delivery sample are operational observations, not supplied by installing these files"
+}

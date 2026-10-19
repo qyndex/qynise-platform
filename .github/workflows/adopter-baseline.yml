@@ -1,0 +1,65 @@
+name: Adopter readiness baseline
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: adopter-baseline-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+jobs:
+  process-validation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Validate installed process files
+        shell: bash
+        run: |
+          set -euo pipefail
+          bash .claude/scripts/validate.sh --json | tee "$RUNNER_TEMP/process-validation.json"
+  application-readiness:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '24.13.1'
+          cache: npm
+          cache-dependency-path: package-lock.json
+      - name: Install pinned local verification tools without lifecycle scripts
+        run: npm ci --ignore-scripts --no-audit --no-fund
+      - name: Install pinned Chromium runtime
+        run: node node_modules/playwright/cli.js install --with-deps chromium
+      - name: Verify approved local fixture application contract
+        shell: bash
+        run: |
+          bash scripts/verify-application.sh
+          echo '::notice::Local fixture contract only. Genuine provider, production identity and deployment acceptance are deferred by operator decision.'
+  recovery-spike:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '24.13.1'
+          cache: npm
+          cache-dependency-path: experiments/recovery-spike/package-lock.json
+      - name: Install only pinned experiment development tools
+        run: npm ci --ignore-scripts --no-audit --no-fund --prefix experiments/recovery-spike
+      - name: Strictly compile the disposable contract experiment
+        run: npm run typecheck --prefix experiments/recovery-spike
+      - name: Exercise process-exit and competing-worker recovery contracts
+        run: npm test --prefix experiments/recovery-spike

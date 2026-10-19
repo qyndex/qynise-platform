@@ -1,0 +1,15 @@
+{
+  "source_tree_equivalence": "PASS retained merged/independent readback plus local tree",
+  "workflow_yaml": "PASS original events/inputs/gates preserved",
+  "actionlint": "PASS exit0 on eight workflows; shellcheck/pyflakes subprocess lint excluded, not claimed",
+  "runtime_closure_hashes": "PASS",
+  "runtime_closure_files": 419,
+  "runtime_overlay_files": 6,
+  "offline_cases": 18,
+  "offline_cases_result": "PASS",
+  "actual_disabled_coordinator_and_producer": "reject before API",
+  "preflight": "expected NOT READY with activation/capacity/scope/producer registration missing",
+  "native_attestation": "PENDING; synthetic compatibility only",
+  "live_effects": 0,
+  "installer_ownership_reconciliation": "Local selective overlay applied and all16 postimages verified; customizations preserved; NOT transactional installer success"
+}

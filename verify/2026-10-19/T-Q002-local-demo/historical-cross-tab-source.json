@@ -1,0 +1,10 @@
+{
+  "historical_not_original_tdd": true,
+  "purpose": "Corrected two-tab regression against immutable first-review source; no original chronological TDD credit.",
+  "source_hashes": {
+    "app/local/server.ts": "15a071ab40ee622740e7b0e988f553417a70cd8c6b2a29011e2a6c2121dc1342",
+    "public/app.js": "c27c26b1e40933761b383bd783a88a69c0afa25e2ef7f0dbedb8e54f71530a8f",
+    "public/index.html": "32627d9526a19a0470afee50c837eda828c941f0d5826a21b3ce211caddabe54",
+    "public/style.css": "dce79b646d9bf835b978344b227d60346920948c68cebccd47195ce60b1ce4af"
+  }
+}

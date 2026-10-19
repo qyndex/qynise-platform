@@ -1,0 +1,17 @@
+# TDD ledger — green — T-003
+ledger_format: 2
+timestamp: 2026-10-19T21:29:54+11:00
+command: /Users/shravanjha/.nvm/versions/node/v24.13.1/bin/node --test --test-name-pattern="initial storage-claim failure" app/local/demo.test.ts
+exit_code: 0
+---
+(node:81395) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ initial storage-claim failure stops scheduling without process death or false success (572.855583ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 653.255833

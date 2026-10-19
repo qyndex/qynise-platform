@@ -1,0 +1,45 @@
+{
+  "repository": "qyndex/qynise-platform",
+  "repository_id": 1425001622,
+  "private": false,
+  "default_branch": "main",
+  "record_type": "reviewed-source-proposal-not-live-readback",
+  "repository_variables": {
+    "FACTORY_AUTHORITY_ENABLED": "false",
+    "FACTORY_PRODUCERS_ENABLED": "false",
+    "FACTORY_REPORTING_ENABLED": "false",
+    "FACTORY_FEEDBACK_ENABLED": "false",
+    "FACTORY_REPORTING_APP_WRITER_ENABLED": "false",
+    "FACTORY_REPORTING_QUEUE_ENABLED": "false",
+    "FACTORY_REPORTING_MONITOR_ENABLED": "false",
+    "FACTORY_REPORTING_WATCHDOG_ENABLED": "false",
+    "FACTORY_REPORTING_PROFILE": "github-hosted"
+  },
+  "new_environment": {
+    "name": "factory-review",
+    "deployment_branch_policy": {
+      "protected_branches": false,
+      "custom_branch_policies": true
+    },
+    "allowed_branch": {
+      "name": "main",
+      "type": "branch"
+    },
+    "required_secret_names_after_separate_setup": [
+      "CLAUDE_CODE_OAUTH_TOKEN"
+    ],
+    "forbidden_secret_names": [
+      "FACTORY_APP_PRIVATE_KEY",
+      "FACTORY_REPORTING_APP_PRIVATE_KEY",
+      "FACTORY_SLACK_BOT_TOKEN",
+      "ANTHROPIC_API_KEY"
+    ]
+  },
+  "preserve_existing_main_only_environments": [
+    "factory-authority",
+    "factory-reporting"
+  ],
+  "credentials_entered": false,
+  "state_initialized": false,
+  "authority_activated": false
+}

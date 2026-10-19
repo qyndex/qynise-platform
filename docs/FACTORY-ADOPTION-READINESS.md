@@ -1,0 +1,48 @@
+# qyndex/qynise-platform factory adoption readiness
+
+## Current bounded readiness — 2026-10-19
+
+The earlier sections below are retained historical observations. The current harness distribution pin is `69574d23988d1a98c2c6f6f27c08815449a59351`. Eight disabled workflow definitions and an unregistered disabled policy are included. A reviewed selective overlay updates managed source while preserving custom instructions/MCP/settings; it is **not** a successful automatic installer upgrade. True distribution hashes remain in the ownership manifest, so future automatic upgrades still stop on retained customizations.
+
+No credentials, repository variables, protected environments, remote policy, state, authority or production configuration were changed by this source overlay. The operator has selected shared existing Apps and Slack destination with independent repository state. Repository-specific workflow IDs, profiles, signed shadow/negative tests and protected credentials remain pending. The separate main-only `factory-review` environment proposal contains only subscription OAuth capacity. Evidence: `verify/2026-10-19/adopter-disabled-bootstrap/`.
+
+The approved local fixture application now replaces the previously empty application gate: run `npm ci --ignore-scripts`, install pinned Chromium, then `bash scripts/verify-application.sh` on Node24.13.1. Strict compile, HTTP/VM/recovery/storage-fault tests,97.84%line/86.30%branch coverage and a real Chromium desktop/mobile/two-tab journey passed locally. Coverage tests now have a30second per-test timeout; the sandbox listener failure is retained as tooling evidence. See `docs/LOCAL-CONTRACT-DEMO.md`. Test identities and deterministic planning/review fixtures are visibly labelled. No genuine provider call, production identity, cloud deployment or full Spec001 acceptance is claimed. The full collector remains FAIL0/10 with passing smoke checks.
+
+## Historical installation and baseline observations
+
+Status: local installation proposal; activation is disabled. Application readiness and autonomous readiness are separate gates.
+
+Current repository baseline: `bb027da38d4c45e9171e56aeefbd6b4d0b47de0a`. The original installation baseline was `5ddcfa54a470b3758339f3a35f7ad73675ad5883`; the later README-only product-name update is merged unchanged. Harness source: [`a76b258353c0c692a80c0e40ae0ccf4d2cb4c246`](https://github.com/qyndex/claude-init/tree/a76b258353c0c692a80c0e40ae0ccf4d2cb4c246). The final source checkout was clean and immutable. Initial installation used the previously merged source; the separately recorded exact upgrade preserves the original observation. The exact installation observation is [recorded here](adoption/installation-observation.json).
+
+## Installation observed
+
+The initial transactional installer proposed 637 files. The [upgrade observation](adoption/upgrade-observation.json) records the subsequent merged-source upgrade. Installation, unchanged repeat (zero writes), exact revert and reinstall passed locally. Existing application/product baseline files remain byte-identical except the deliberately composed root instructions and, for brownfield, shared Claude settings. Brownfield originals are preserved in `docs/adoption/original/`; its original permission allow entries are retained alongside the harness guard settings.
+
+`CLAUDE.md` is intentionally customized for this application. `.mcp.json` is also customized: all inherited optional servers are kept in a disabled catalog and `mcpServers` is empty, so opening an adopted session does not inherit provider connections or tool processes. Brownfield `.claude/settings.json` is also customized. The unchanged upstream ownership manifest is preserved: a subsequent automatic upgrade correctly rejects these files. Before upgrading, reconcile the upstream changes with these project customizations in an isolated branch. Do not rewrite ownership hashes to pretend customized files match stock bytes.
+
+The installer omits generic supporting scaffold files required by structural validation. This branch explicitly adds the pinned neutral autopilot/swarm manuals and three swarm templates, plus repository-owned empty objectives/roadmap/SLO/deprecation scaffolds. These are supplemental project files, not inherited source-pilot authority. An empty SLO registry does not certify production readiness.
+
+## Protected boundaries
+
+No source pilot policy, receipt trust, active backlog, fleet state or live factory workflows were imported. No GitHub App was installed, no secret was copied, no main policy was changed and no production adapter was activated. Native prompts remain advisory until the guarded console and the repository's own trusted intake configuration are established. Never interpret stock prompt hooks as authenticated human-origin proof.
+
+The selected reporting destination is the existing private `qyndex-alerts` channel, team `T0B2VADDUG4`, channel `C0C7T1Y29K5`, operator `U0B3L0TRCTA`. Each repository must have its own protected state and reporting origin; do not share the source pilot state branch, feedback database or receipt archive. Reporting is disabled pending per-repository configuration and a real receipt. Keep tokens and private keys out of this branch and chat.
+
+## Remaining acceptance
+
+- Run actual application lint, typecheck, tests, build and meaningful browser journey; retain failures honestly.
+- Approve the bounded product/remediation specs before feature or dependency implementation.
+- Review per-repository workflow/producer identities, protected environments, App scope, approved spec paths and signed exact-head evidence.
+- Prove shadow eligibility and stale-head, failed-check, forged-proof, out-of-scope and recovery negatives.
+- Prove real reporting and authenticated feedback delivery if those capabilities are enabled.
+- Supply deployment platform, health/SLO and rollback contract before any production activation.
+
+Use the pinned source [adopter setup](https://github.com/qyndex/claude-init/blob/a76b258353c0c692a80c0e40ae0ccf4d2cb4c246/docs/FACTORY-ADOPTER-SETUP.md), [activation guide](https://github.com/qyndex/claude-init/blob/a76b258353c0c692a80c0e40ae0ccf4d2cb4c246/docs/FACTORY-ACTIVATION.md) and [quickstart](https://github.com/qyndex/claude-init/blob/a76b258353c0c692a80c0e40ae0ccf4d2cb4c246/docs/FACTORY-ADOPTER-QUICKSTART.md) for documents intentionally not distributed locally. Source-pilot success does not certify this target.
+
+## Native baseline CI
+
+The new `adopter-baseline.yml` workflow uses only a read-only GitHub token, pinned checkout/runtime actions and no secrets or protected environments. It records process validation separately from application readiness. It grants no merge authority. The application-readiness job deliberately blocks until an approved runnable application and real stack checks replace it; an empty greenfield repository must not produce a false application PASS.
+
+## Local contract spike verification follow-up
+
+The disposable experiment now has a committed development-only lockfile, strict TypeScript configuration and a separate read-only Node24 CI job. Nine tests include two actual processes released by an IPC barrier to contend on identical start keys and task generations. This closes the earlier strict-compilation and sequential-only limitations. No actual identity/provider/deployed storage/production claim is made, and the application readiness gate remains independently blocked.

@@ -1,0 +1,50 @@
+{
+  "repository": "qyndex/qynise-platform",
+  "kind": "greenfield",
+  "baseline_sha": "5ddcfa54a470b3758339f3a35f7ad73675ad5883",
+  "harness_sha": "6e89cc6f3d8e368fd078f5652c928225bec10f03",
+  "dry_run": {
+    "source_sha": "6e89cc6f3d8e368fd078f5652c928225bec10f03",
+    "changed_files": 637,
+    "dry_run": true,
+    "activation_enabled": false
+  },
+  "first_install": {
+    "source_sha": "6e89cc6f3d8e368fd078f5652c928225bec10f03",
+    "changed_files": 637,
+    "journal": "f251e07d61314cf0abe19196594be770",
+    "activation_enabled": false
+  },
+  "repeat_install": {
+    "source_sha": "6e89cc6f3d8e368fd078f5652c928225bec10f03",
+    "changed_files": 0,
+    "dry_run": false,
+    "activation_enabled": false
+  },
+  "revert_then_reinstall": {
+    "source_sha": "6e89cc6f3d8e368fd078f5652c928225bec10f03",
+    "changed_files": 637,
+    "journal": "7dc1a017ada5481481dd20e2a33ce7fc",
+    "activation_enabled": false
+  },
+  "unchanged_baseline_files": [
+    "LICENSE",
+    "README.md"
+  ],
+  "deliberately_customized_files": [
+    "CLAUDE.md"
+  ],
+  "originals_preserved": {},
+  "customization_upgrade_guard": "rejected as designed; explicit three-way reconciliation required before upgrade",
+  "pilot_authority_and_state_excluded": true,
+  "activation_enabled": false,
+  "reporting_decision": {
+    "channel": "qyndex-alerts",
+    "channel_id": "C0C7T1Y29K5",
+    "team_id": "T0B2VADDUG4",
+    "operator_id": "U0B3L0TRCTA",
+    "separate_repository_state": true,
+    "enabled": false
+  },
+  "scope": "local adoption and reversible exact-file proof; not application, reporting, autonomous-merge or production acceptance"
+}
