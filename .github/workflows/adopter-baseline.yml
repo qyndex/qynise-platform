@@ -34,5 +34,8 @@ jobs:
       - name: Require an implemented application verification contract
         shell: bash
         run: |
-          echo '::error::Product scope is draft. No runnable application or approved stack verification contract exists yet. This job must be replaced by the real approved lint/test/build/browser checks when the first slice is implemented.'
-          exit 1
+          if [ ! -x scripts/verify-application.sh ]; then
+            echo '::error::Missing approved application verification contract: scripts/verify-application.sh. Product scope remains draft; harness installation is not application readiness.'
+            exit 1
+          fi
+          bash scripts/verify-application.sh
