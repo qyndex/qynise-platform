@@ -1,9 +1,9 @@
 {
   "$schema": "https://modelcontextprotocol.io/schema/mcp.json",
-  "_comment": "Project-scoped MCP servers. With ENABLE_TOOL_SEARCH=true, tool schemas load on-demand. alwaysLoad: true forces eager load for every-turn tools. Pinned versions where possible — review before enabling community servers.",
+  "_comment": "Project-scoped MCP servers. With ENABLE_TOOL_SEARCH=true, tool schemas load on-demand. alwaysLoad: true forces eager load for every-turn tools. Pinned versions where possible \u2014 review before enabling community servers.",
   "_examples_comment": "To enable an example server: copy its block from _disabled_examples into mcpServers and configure env vars.",
   "_disabled_examples": {
-    "_doc": "Catalogue of optional servers. NOT parsed by Claude Code — kept at top level, outside mcpServers. Copy any entry into mcpServers to activate.",
+    "_doc": "Catalogue of optional servers. NOT parsed by Claude Code \u2014 kept at top level, outside mcpServers. Copy any entry into mcpServers to activate.",
     "supabase": {
       "type": "stdio",
       "command": "npx",
@@ -134,7 +134,8 @@
       ]
     }
   },
-  "mcpServers": {
+  "mcpServers": {},
+  "_disabled_adoption_catalog": {
     "filesystem": {
       "_doc": "Always-loaded. Sandboxed filesystem access scoped to this project.",
       "type": "stdio",
@@ -171,7 +172,7 @@
       "alwaysLoad": true
     },
     "chrome-devtools": {
-      "_doc": "Deferred via Tool Search. Browser debugging, perf, Lighthouse. Version pinned per Round 4 audit H-FO2 (no @latest in production — supply-chain risk).",
+      "_doc": "Deferred via Tool Search. Browser debugging, perf, Lighthouse. Version pinned per Round 4 audit H-FO2 (no @latest in production \u2014 supply-chain risk).",
       "type": "stdio",
       "command": "npx",
       "args": [
@@ -221,7 +222,7 @@
       }
     },
     "apify": {
-      "_doc": "Deferred. Official Apify MCP — 5000+ Actors including Crawlee-powered scrapers. OAuth via Apify.",
+      "_doc": "Deferred. Official Apify MCP \u2014 5000+ Actors including Crawlee-powered scrapers. OAuth via Apify.",
       "type": "http",
       "url": "https://mcp.apify.com",
       "oauth": {
@@ -246,7 +247,7 @@
       ]
     },
     "openfeature": {
-      "_doc": "OpenFeature gateway — provider-agnostic flag MCP. Drives flag-rollout / flag-cleanup / experiment skills. Set OPENFEATURE_PROVIDER and provider-specific env in .claude/settings.local.json.",
+      "_doc": "OpenFeature gateway \u2014 provider-agnostic flag MCP. Drives flag-rollout / flag-cleanup / experiment skills. Set OPENFEATURE_PROVIDER and provider-specific env in .claude/settings.local.json.",
       "type": "stdio",
       "command": "npx",
       "args": [
@@ -258,7 +259,7 @@
       }
     },
     "posthog": {
-      "_doc": "PostHog — product analytics, feature flags, A/B experiments, session replays. Lower-friction flag store than LaunchDarkly for small teams.",
+      "_doc": "PostHog \u2014 product analytics, feature flags, A/B experiments, session replays. Lower-friction flag store than LaunchDarkly for small teams.",
       "type": "http",
       "url": "https://mcp.posthog.com/sse",
       "headers": {
@@ -266,7 +267,7 @@
       }
     },
     "graphify": {
-      "_doc": "Graphify — code-as-knowledge-graph. Tree-sitter parsing across 32 languages; agents prefer `query_graph` / `shortest_path` / `get_neighbors` for cross-module questions over grep on >3 files. NOT a memory layer (we keep markdown ADRs/patterns/incidents). Pin to 0.8.21 — pre-1.0 churn risk. Round 5 A1.",
+      "_doc": "Graphify \u2014 code-as-knowledge-graph. Tree-sitter parsing across 32 languages; agents prefer `query_graph` / `shortest_path` / `get_neighbors` for cross-module questions over grep on >3 files. NOT a memory layer (we keep markdown ADRs/patterns/incidents). Pin to 0.8.21 \u2014 pre-1.0 churn risk. Round 5 A1.",
       "type": "stdio",
       "command": "uvx",
       "args": [
@@ -278,7 +279,7 @@
       ]
     },
     "langfuse": {
-      "_doc": "Langfuse MCP — prompt management only (NOT tracing; tracing is native OTEL via env vars in settings.json). Agents can fetch versioned prompts from Langfuse via this MCP. Round 6 A. Pinned per Round 4 audit H-FO2.",
+      "_doc": "Langfuse MCP \u2014 prompt management only (NOT tracing; tracing is native OTEL via env vars in settings.json). Agents can fetch versioned prompts from Langfuse via this MCP. Round 6 A. Pinned per Round 4 audit H-FO2.",
       "type": "stdio",
       "command": "npx",
       "args": [
@@ -292,7 +293,7 @@
       }
     },
     "fireflies": {
-      "_doc": "Fireflies sales-call transcripts — read-only for feedback-extractor agent (Round 7 C). Auth via FIREFLIES_API_KEY in env. Deferred.",
+      "_doc": "Fireflies sales-call transcripts \u2014 read-only for feedback-extractor agent (Round 7 C). Auth via FIREFLIES_API_KEY in env. Deferred.",
       "type": "stdio",
       "command": "npx",
       "args": [
@@ -304,7 +305,7 @@
       }
     },
     "intercom": {
-      "_doc": "Intercom support tickets + conversations — read-only for feedback-extractor agent (Round 7 C). Deferred.",
+      "_doc": "Intercom support tickets + conversations \u2014 read-only for feedback-extractor agent (Round 7 C). Deferred.",
       "type": "stdio",
       "command": "npx",
       "args": [
@@ -316,7 +317,7 @@
       }
     },
     "pendo": {
-      "_doc": "Pendo in-product feedback + polls — read-only for feedback-extractor (Round 7 C). Deferred.",
+      "_doc": "Pendo in-product feedback + polls \u2014 read-only for feedback-extractor (Round 7 C). Deferred.",
       "type": "stdio",
       "command": "npx",
       "args": [
@@ -328,12 +329,12 @@
       }
     },
     "replicate": {
-      "_doc": "Replicate — FLUX Schnell (Apache-2.0, $0.003/img) + FLUX Pro (commercial, $0.04). Used by image-generation skill (Round 9 D). Deferred.",
+      "_doc": "Replicate \u2014 FLUX Schnell (Apache-2.0, $0.003/img) + FLUX Pro (commercial, $0.04). Used by image-generation skill (Round 9 D). Deferred.",
       "type": "http",
       "url": "https://mcp.replicate.com/"
     },
     "recraft": {
-      "_doc": "Recraft V3 — raster + native SVG vector generation. $0.04 raster / $0.08 SVG. Used for brand icons, scalable assets. Round 9 D. Deferred.",
+      "_doc": "Recraft V3 \u2014 raster + native SVG vector generation. $0.04 raster / $0.08 SVG. Used for brand icons, scalable assets. Round 9 D. Deferred.",
       "type": "stdio",
       "command": "npx",
       "args": [
@@ -345,7 +346,7 @@
       }
     },
     "pexels": {
-      "_doc": "Pexels stock photo — CC0, no attribution required. Fallback when AI photo fails. Round 9 D. Deferred.",
+      "_doc": "Pexels stock photo \u2014 CC0, no attribution required. Fallback when AI photo fails. Round 9 D. Deferred.",
       "type": "stdio",
       "command": "npx",
       "args": [
@@ -357,7 +358,7 @@
       }
     },
     "osv": {
-      "_doc": "OSV vulnerability database MCP (StacklokLabs). First-class query_vulns(package, version, ecosystem) tool for agents — alternative to raw curl. Round 8 A. Pinned per §X security rule.",
+      "_doc": "OSV vulnerability database MCP (StacklokLabs). First-class query_vulns(package, version, ecosystem) tool for agents \u2014 alternative to raw curl. Round 8 A. Pinned per \u00a7X security rule.",
       "type": "stdio",
       "command": "uvx",
       "args": [
@@ -366,5 +367,6 @@
         "osv-mcp"
       ]
     }
-  }
+  },
+  "_adoption_note": "No inherited optional MCP server is enabled. Review a repository-specific entry and its authentication, permissions and dependencies before copying it into mcpServers."
 }
