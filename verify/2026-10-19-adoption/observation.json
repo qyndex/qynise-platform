@@ -1,0 +1,27 @@
+{
+  "repository": "qyndex/qynise-platform",
+  "baseline_sha": "5ddcfa54a470b3758339f3a35f7ad73675ad5883",
+  "harness_sha": "6e89cc6f3d8e368fd078f5652c928225bec10f03",
+  "install_repeat_revert": "passed on actual isolated target checkout",
+  "structural": {
+    "passed": 68,
+    "warned": 234,
+    "failed": 0,
+    "overall": "warn"
+  },
+  "collector": {
+    "spec": "001",
+    "verdict": "FAIL",
+    "proven": 0,
+    "total": 10,
+    "reason": "Product/remediation scope is draft and unimplemented; these are not installation acceptance tests"
+  },
+  "application": {
+    "implemented": false,
+    "test_build_browser": "not available"
+  },
+  "factory_activation": false,
+  "reporting_activation": false,
+  "production_activation": false,
+  "note": "No source-pilot delivery or receipt credit inherited. No real application/native operational acceptance claimed."
+}
