@@ -1,0 +1,69 @@
+{
+  "production_workflows_unchanged_from": "cc733036b8742e5fa0daac87fc0619fc590aa3da",
+  "workflow_sha256": {
+    ".github/workflows/adopter-baseline.yml": "b2346f63d7382ce6a4f834a71b63872bc390b618247095aacf6300f67aeafab5",
+    ".github/workflows/evidence-gate.yml": "25b7198baedf699f3441cb059ae89833fb4fe2d2cd8b108a5609d83b729cce44",
+    ".github/workflows/factory-hosted-digest.yml": "f35b40a48810a17c066b622e1438a7dd62ab657ebc6fff0e5844b33428575ddb",
+    ".github/workflows/factory-hosted-feedback.yml": "bb4396c4aafe551c085e79e0355483824e2bc893b7c2bca271bd768c8e5f4bc2",
+    ".github/workflows/factory-merge.yml": "fc85c75f6de636bf8dfaf8bc8584ce0a3de505d42d6739e524b64fea7705808f",
+    ".github/workflows/factory-reporting-alerts.yml": "f6bbae61083aec446cb3fe75150162b0ece0ae8c3a743ce4709873b4c8b80f48",
+    ".github/workflows/factory-reporting-queue.yml": "0ddc43e357677553dc8539d432e682e6eaad9a39cdaaa1fb020a6de2d8e85757",
+    ".github/workflows/factory-review.yml": "786ead972bf5e9005a61e5b0a6011c932c43dcd921ac4de83e09a52307b21eb9",
+    ".github/workflows/factory-verification.yml": "1ec9a5a9f2b3b30934814832b47a5da667782d529f1b504fe562141042de137c"
+  },
+  "current_policy_observation_only": {
+    "schema_version": 1,
+    "enabled": false,
+    "merge_enabled": false,
+    "repository": "qyndex/qynise-platform",
+    "base_branch": "main",
+    "app_id": 5251754,
+    "protected_paths": [
+      ".github/*",
+      "factory/*",
+      ".claude/CLAUDE.md",
+      ".claude/settings.json",
+      ".claude/hooks/*",
+      ".claude/scripts/factory-*",
+      ".claude/scripts/validate-candidate-evidence.py",
+      ".claude/scripts/verify.sh",
+      ".claude/scripts/rerun-acceptance.py",
+      ".claude/scripts/autonomous-ship.sh",
+      ".claude/scripts/verified-merge.sh",
+      ".gitleaks.toml",
+      ".gitleaksignore"
+    ],
+    "required_checks": {
+      "process-validation": 15368,
+      "application-readiness": 15368,
+      "evidence-gate": 15368,
+      "factory-verification": 15368,
+      "factory-independent-review": 15368
+    },
+    "specs": {},
+    "producers": {},
+    "receipts": {
+      "trusted_revisions": {}
+    }
+  },
+  "permanent_disabled_policy_test": false,
+  "review_repair_tests": 15,
+  "review_repair_red_failures": 19,
+  "review_repair_green_exit": 0,
+  "native_shadow_dispatch": "not performed",
+  "full_collector": "parent runs separately",
+  "targeted_semgrep": {
+    "exit": 0,
+    "targets": 2,
+    "findings": 0,
+    "errors": 0,
+    "scope": "two changed test files, source identical in both clones",
+    "public_rules": [
+      "p/ci",
+      "p/owasp-top-ten",
+      "p/secrets"
+    ],
+    "metrics": "off",
+    "sandbox_attempt": "exit2 rule download limitation retained; successful escalated public-rules run separate"
+  }
+}

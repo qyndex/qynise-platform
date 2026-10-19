@@ -45,7 +45,7 @@ def python_script(step):
 
 def expression(value, context):
     value = value.strip()
-    if not value.startswith('${{') and '==' not in value:
+    if value in ('read', 'write', 'none'):
         return value
     value = value.removeprefix('${{').removesuffix('}}').strip()
     for key in sorted(context, key=len, reverse=True):
@@ -79,7 +79,11 @@ def interpret(node):
         left = interpret(node.left)
         for operator, child in zip(node.ops, node.comparators):
             right = interpret(child)
-            if (left == right) != isinstance(operator, ast.Eq):
+            # Deliberately bounded model: GitHub ignores ASCII string case.
+            # Loose numeric coercion and Unicode case folding are not modeled.
+            if not (isinstance(left, str) and isinstance(right, str) and left.isascii() and right.isascii()):
+                raise AssertionError('Unsupported equality: only ASCII string operands are modeled')
+            if (left.lower() == right.lower()) != isinstance(operator, ast.Eq):
                 return False
             left = right
         return True
@@ -105,16 +109,36 @@ def reporting_context():
             'github.event.repository.default_branch': 'main'}
 
 
+def move_validation_after_effect(text, effect):
+    name = 'Validate selected reporting credentials'
+    selected = '      - name: ' + name + '\n' + block(text, name)
+    following = '      - name: ' + effect + '\n' + block(text, effect)
+    changed = text.replace(selected, '', 1)
+    if following not in changed:
+        raise AssertionError('Negative fixture could not locate effect')
+    changed = changed.replace(following, following + selected, 1)
+    if changed.count('      - name: ' + name) != 1 or changed.index(name) < changed.index(effect):
+        raise AssertionError('Negative fixture failed to reorder intact steps')
+    return changed
+
+
 class ReportingAuthorization(unittest.TestCase):
     def test_writer_disabled_or_absent_never_allocates_reporting_job(self):
         for name in REPORTS:
             condition = reporting_condition(read_workflow(name))
             context = reporting_context()
             self.assertTrue(expression(condition, context), name + ' intended route unavailable')
-            for value in ('false', ''):
-                with self.subTest(workflow=name, writer=value):
-                    context['vars.FACTORY_REPORTING_APP_WRITER_ENABLED'] = value
-                    self.assertFalse(expression(condition, context), 'writer-disabled job can expose reporting environment')
+            required = ['FACTORY_REPORTING_APP_WRITER_ENABLED']
+            required += ['FACTORY_FEEDBACK_ENABLED'] if name == 'factory-hosted-feedback' else ['FACTORY_REPORTING_ENABLED']
+            if name == 'factory-reporting-alerts':
+                required.append('FACTORY_REPORTING_MONITOR_ENABLED')
+            if name == 'factory-reporting-queue':
+                required.append('FACTORY_REPORTING_QUEUE_ENABLED')
+            for flag in required:
+                for value in ('false', ''):
+                    with self.subTest(workflow=name, flag=flag, value=value):
+                        selected = {**context, 'vars.' + flag: value}
+                        self.assertFalse(expression(condition, selected), 'disabled flag exposes reporting environment')
 
     def test_ordinary_token_is_read_and_no_legacy_secret_is_exposed(self):
         for name in REPORTS:
@@ -122,6 +146,16 @@ class ReportingAuthorization(unittest.TestCase):
                 text = read_workflow(name)
                 permissions = re.search(r'^permissions:\n((?:  .*\n)+)', text, re.M)[1]
                 self.assertRegex(permissions, r'(?m)^  contents: read$')
+                # Maintained YAML block form is checked by actionlint separately.
+                # Any job override must remain an explicit read/none mapping.
+                for match in re.finditer(r'^    permissions:(.*)\n((?:      [a-z-]+: .*\n)*)', text, re.M):
+                    inline, mapping = match.groups()
+                    self.assertFalse(inline.strip(), 'ordinary token permission override is not a read-only mapping')
+                    entries = re.findall(r'^      [a-z-]+: (.+)$', mapping, re.M)
+                    self.assertTrue(entries, 'ordinary token permission override is empty or unsupported')
+                    self.assertTrue(all(value in ('read', 'none') for value in entries), 'ordinary token permission escalation')
+                top_values = re.findall(r'^  [a-z-]+: (.+)$', permissions, re.M)
+                self.assertTrue(all(value in ('read', 'none') for value in top_values), 'ordinary token top-level permission escalation')
                 self.assertNotIn('FACTORY_REPORTING_STATE_TOKEN', text)
                 mint = block(text, 'Mint repository-scoped reporting writer token')
                 self.assertIn('permission-contents: write', mint)
@@ -132,6 +166,17 @@ class ReportingAuthorization(unittest.TestCase):
         for name in REPORTS:
             text = read_workflow(name)
             selected = block(text, 'Validate selected reporting credentials')
+            effects = {
+                'factory-hosted-digest': ['Verify Slack identity and history before delivery',
+                                          'Deliver with authoritative branch checkpoints',
+                                          'Verify delivery and signal independent watchdog'],
+                'factory-hosted-feedback': ['Capture authenticated feedback and commit only encrypted state'],
+                'factory-reporting-alerts': ['Monitor and reconcile protected reporting alerts'],
+                'factory-reporting-queue': ['Observe and reconcile protected queue notifications'],
+            }
+            for effect in effects[name]:
+                self.assertLess(text.index('- name: Validate selected reporting credentials'),
+                                text.index('- name: ' + effect), 'credential validation must precede effects')
             self.assertNotRegex(selected, r'(?m)^        if:', 'runtime App-only rejection must not be skipped by an environment override')
             code = python_script(selected)
             for enabled, app_token, expected in [('true', 'writer-synthetic', 0),
@@ -148,6 +193,40 @@ class ReportingAuthorization(unittest.TestCase):
                     result = subprocess.run(['python3', '-'], input=code, cwd=ROOT, env=env,
                                             capture_output=True, text=True, timeout=15)
                     self.assertEqual(result.returncode == 0, expected == 0, result.stderr)
+
+    def test_job_permission_override_is_rejected_by_workflow_contract(self):
+        original = read_workflow
+        for name in REPORTS:
+            for override in ('    permissions: write-all\n',
+                             '    permissions:\n      contents: write\n',
+                             '    permissions:\n      pull-requests: write\n'):
+                with self.subTest(workflow=name, override=override.strip()):
+                    changed = original(name).replace('    runs-on: ubuntu-latest\n',
+                                                     override + '    runs-on: ubuntu-latest\n', 1)
+                    selected = ReportingAuthorization('test_ordinary_token_is_read_and_no_legacy_secret_is_exposed')
+                    with patch(__name__ + '.read_workflow', side_effect=lambda n: changed if n == name else original(n)):
+                        with self.assertRaisesRegex(AssertionError, 'ordinary token'):
+                            selected.test_ordinary_token_is_read_and_no_legacy_secret_is_exposed()
+
+    def test_reordered_validation_is_rejected_by_workflow_contract(self):
+        original = read_workflow
+        for name, effect in [('factory-hosted-digest', 'Verify Slack identity and history before delivery'),
+                             ('factory-hosted-feedback', 'Capture authenticated feedback and commit only encrypted state'),
+                             ('factory-reporting-alerts', 'Monitor and reconcile protected reporting alerts'),
+                             ('factory-reporting-queue', 'Observe and reconcile protected queue notifications')]:
+            with self.subTest(workflow=name):
+                changed = move_validation_after_effect(original(name), effect)
+                selected = ReportingAuthorization('test_runtime_rejects_env_override_before_any_client_or_slack')
+                with patch(__name__ + '.read_workflow', side_effect=lambda n: changed if n == name else original(n)):
+                    with self.assertRaisesRegex(AssertionError, 'credential validation'):
+                        selected.test_runtime_rejects_env_override_before_any_client_or_slack()
+
+    def test_optional_watchdog_flag_is_independently_disabled(self):
+        selected = block(read_workflow('factory-hosted-digest'), 'Verify delivery and signal independent watchdog')
+        condition = re.search(r'^        if: (.+)$', selected, re.M)[1]
+        self.assertTrue(expression(condition, {'vars.FACTORY_REPORTING_WATCHDOG_ENABLED': 'true'}))
+        for value in ('false', ''):
+            self.assertFalse(expression(condition, {'vars.FACTORY_REPORTING_WATCHDOG_ENABLED': value}))
 
     def test_real_transport_routes_state_only_to_app_and_never_falls_back(self):
         path = ROOT / '.claude/scripts/factory-reporting-transport.py'
@@ -232,10 +311,28 @@ class ShadowAuthorization(unittest.TestCase):
         self.assertLess(preflight, request)
         self.assertLess(request, mint)
         self.assertLess(mint, evaluate)
-        policy = json.loads((ROOT / 'factory/policy.json').read_text())
-        self.assertIs(policy['enabled'], False)
-        self.assertIs(policy['merge_enabled'], False)
-        self.assertEqual(policy['specs'], {})
+
+    def test_source_order_contract_allows_a_later_approved_policy(self):
+        with tempfile.TemporaryDirectory(prefix='future-policy-test-') as folder:
+            root = Path(folder);(root / 'factory').mkdir()
+            (root / 'factory/policy.json').write_text(json.dumps({
+                'enabled': True, 'merge_enabled': True, 'specs': {'future-approved': {}}}))
+            selected = ShadowAuthorization('test_policy_preflight_and_validated_request_precede_token_mint')
+            with patch.dict(globals(), {'ROOT': root}):
+                selected.test_policy_preflight_and_validated_request_precede_token_mint()
+
+    def test_expression_string_equality_matches_github_ascii_case_rules(self):
+        self.assertTrue(expression("${{ 'MERGE' == 'merge' }}", {}))
+        self.assertFalse(expression("${{ 'MERGE' != 'merge' }}", {}))
+        context = reporting_context()
+        context['vars.FACTORY_REPORTING_APP_WRITER_ENABLED'] = 'TRUE'
+        self.assertTrue(expression(reporting_condition(read_workflow('factory-hosted-digest')), context))
+        self.assertEqual(self.permissions('MERGE')['contents'], 'write')
+
+    def test_expression_rejects_unmodelled_coercion_and_unicode(self):
+        for condition in ("${{ 'é' == 'É' }}", "${{ '1' == 1 }}"):
+            with self.assertRaisesRegex(AssertionError, 'Unsupported equality'):
+                expression(condition, {})
 
     def test_missing_or_unknown_mode_fails_without_mint_outputs(self):
         for mode in ('', 'Merge', 'anything'):
