@@ -77,6 +77,7 @@ def oci(path,expected_hash=None):
     break
    info=tarfile.TarInfo.frombuf(header,tarfile.ENCODING,'surrogateescape');headers+=1
    require(headers<=256,'OCI entry bound');require(info.type in (tarfile.REGTYPE,tarfile.AREGTYPE,tarfile.DIRTYPE),'extended/sparse/link OCI header unsupported')
+   require(not info.isdir() or info.size==0,'OCI directory payload unsupported')
    require(0<=info.size<=MAX_IMAGE,'OCI header size invalid');offset=source.tell()+((info.size+511)//512)*512;require(offset<=path.stat().st_size,'OCI member beyond archive');source.seek(offset)
  with tarfile.open(path,'r:') as tar:
   entries={};count=0

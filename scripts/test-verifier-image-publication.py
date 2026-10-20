@@ -184,4 +184,20 @@ class Contracts(unittest.TestCase):
    item=tarfile.TarInfo('index.json');item.pax_headers={'comment':'unsupported'};item.size=1;tar.addfile(item,io.BytesIO(b'x'))
   self.assertRaisesRegex(ValueError,'extended/sparse/link',lambda:m.oci(path))
 
+ def test_sized_directory_rejected_before_hidden_pax(self):
+  path=pathlib.Path(self.tmp.name)/'hidden-pax.tar';fixture(path);original=path.read_bytes()
+  text=b'comment=LOCAL_NONSECRET_CANARY\n';length=len(text)+3
+  while True:
+   payload=str(length).encode()+b' '+text
+   if len(payload)==length:break
+   length=len(payload)
+  extension=tarfile.TarInfo('pax');extension.type=tarfile.XGLTYPE;extension.size=len(payload)
+  for kind in (tarfile.DIRTYPE,tarfile.AREGTYPE):
+   with self.subTest(directory_type=kind):
+    directory=tarfile.TarInfo('blobs/');directory.type=kind;directory.size=1024
+    path.write_bytes(directory.tobuf(format=tarfile.USTAR_FORMAT)+extension.tobuf(format=tarfile.USTAR_FORMAT)+payload.ljust(512,b'\0')+original)
+    with mock.patch.object(tarfile.TarInfo,'_proc_pax',side_effect=AssertionError('hidden PAX payload processed')) as pax:
+     self.assertRaisesRegex(ValueError,'directory payload',lambda:m.oci(path))
+     pax.assert_not_called()
+
 if __name__=='__main__':unittest.main(verbosity=2)

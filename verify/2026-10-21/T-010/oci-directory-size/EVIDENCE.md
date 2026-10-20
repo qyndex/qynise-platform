@@ -1,0 +1,7 @@
+# Bounded OCI directory headers
+
+The fresh complete tool-free Sonnet review of the redirect repair found a low-severity archive-bounds defect in the shared OCI pre-scan. Actual local reproduction accepted an 11,776-byte archive for both DIRTYPE and legacy AREGTYPE with trailing slash: nonzero directory size hid a PAX extension from the raw pre-scan, while tarfile processed it. This does not demonstrate a live compromise or substituted image; a malicious input archive is required.
+
+The new regression genuinely failed before the guard, with hidden PAX payload processed in both cases. The one-line guard requires normalized directory size zero before seeking. TarInfo.frombuf already normalizes legacy directory headers. GREEN is57/57 publisher tests plus7/7 actual CLI/fake-gh cases. No credential, external API, build, push, signing or dispatch was used. Parent separately observed valid zero-size DIR/AREG archives remain accepted.
+
+red-raw.gz.b64 preserves exact subprocess output; red.log removes display-only trailing whitespace. The unchanged fixed recipe/workflow/profile/configuration is not enabled. Prior redirects-only models/collectors are historical; no report is relabelled as covering this guard. New full collector results follow at the frozen source and remain incomplete if AC proof is absent. This is local implementation verification, not native acceptance or permission to publish/merge/activate.
