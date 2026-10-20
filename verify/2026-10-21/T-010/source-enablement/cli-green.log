@@ -1,0 +1,12 @@
+test_denied_metadata_through_bounded_runner (__main__.Integration.test_denied_metadata_through_bounded_runner) ... ok
+test_environment_drift_through_real_cli (__main__.Integration.test_environment_drift_through_real_cli) ... ok
+test_real_cli_metadata_and_output_binding (__main__.Integration.test_real_cli_metadata_and_output_binding) ... ok
+test_tag_policy_through_real_cli (__main__.Integration.test_tag_policy_through_real_cli) ... ok
+test_unenabled_committed_config_before_metadata (__main__.Integration.test_unenabled_committed_config_before_metadata) ... ok
+test_wrong_event_before_publish_or_metadata (__main__.Integration.test_wrong_event_before_publish_or_metadata) ... ok
+test_wrong_ref_before_publish_or_metadata (__main__.Integration.test_wrong_ref_before_publish_or_metadata) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.972s
+
+OK

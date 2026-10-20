@@ -1,0 +1,12 @@
+{
+  "source": "91ccda9931be8c658329874366066559db3f9f73",
+  "base": "00db25523e66a6fd820acfd1476124f00ddb823e",
+  "exit": 1,
+  "seconds": 121.75750279205386,
+  "no_skip": true,
+  "node": "24.13.1",
+  "npm_offline": true,
+  "no_install": true,
+  "VERIFY_BASE": "00db25523e66a6fd820acfd1476124f00ddb823e",
+  "scope": "one unchanged full image003collector; not a hosted publication or product-repair loop"
+}

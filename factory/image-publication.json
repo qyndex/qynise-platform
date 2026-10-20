@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "enabled": false,
+  "enabled": true,
   "repository": "qyndex/qynise-platform",
   "package": "ghcr.io/qyndex/qynise-platform-verifier",
   "environment": "factory-image-publishing",

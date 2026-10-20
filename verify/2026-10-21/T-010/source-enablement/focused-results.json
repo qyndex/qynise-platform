@@ -1,0 +1,12 @@
+[
+  {
+    "suite": "contract-green",
+    "exit": 0,
+    "seconds": 18.14307795802597
+  },
+  {
+    "suite": "cli-green",
+    "exit": 0,
+    "seconds": 1.0151319169672206
+  }
+]

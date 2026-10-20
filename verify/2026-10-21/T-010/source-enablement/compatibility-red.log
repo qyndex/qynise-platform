@@ -1,0 +1,18 @@
+test_default_disabled (__main__.Contracts.test_default_disabled) ... FAIL
+
+======================================================================
+FAIL: test_default_disabled (__main__.Contracts.test_default_disabled)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/factory-qynise-image-enablement-20261021/scripts/test-verifier-image-publication.py", line 34, in test_default_disabled
+    def test_default_disabled(self):self.reject(lambda:m.event_binding(self.contract,self.env,self.event))
+                                    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/factory-qynise-image-enablement-20261021/scripts/test-verifier-image-publication.py", line 33, in reject
+    def reject(self,fn):self.assertRaises((ValueError,RuntimeError),fn)
+                        ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: (<class 'ValueError'>, <class 'RuntimeError'>) not raised by <lambda>
+
+----------------------------------------------------------------------
+Ran 1 test in 0.003s
+
+FAILED (failures=1)
