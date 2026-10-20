@@ -31,7 +31,7 @@ class Contracts(unittest.TestCase):
  def tearDown(self):self.tmp.cleanup()
  def api(self,path):return copy.deepcopy(self.branches if 'deployment-branch-policies?' in path else self.meta)
  def reject(self,fn):self.assertRaises((ValueError,RuntimeError),fn)
- def test_default_disabled(self):self.reject(lambda:m.event_binding(self.contract,self.env,self.event))
+ def test_explicit_disabled_contract(self):self.reject(lambda:m.event_binding(dict(self.contract,enabled=False),self.env,self.event))
  def test_main_event(self):self.assertEqual(m.event_binding(self.enabled,self.env,self.event)['source'],'a'*40)
  def test_wrong_ref(self):self.env['GITHUB_REF']='refs/tags/main';self.reject(lambda:m.event_binding(self.enabled,self.env,self.event))
  def test_wrong_event(self):self.env['GITHUB_EVENT_NAME']='pull_request_target';self.reject(lambda:m.event_binding(self.enabled,self.env,self.event))
