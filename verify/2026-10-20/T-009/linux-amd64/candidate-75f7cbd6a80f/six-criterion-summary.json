@@ -1,0 +1,143 @@
+{
+  "status": "six exact per-criterion local container runs passed",
+  "source": "75f7cbd6a80fbf75b74dd2e67e60f9668bb4bbbc",
+  "native_factory_acceptance": false,
+  "all_sandbox_limits_unchanged": true,
+  "aggregate": {
+    "status": "separate retained aggregate passed6/6",
+    "observation": "aggregate-observation.json",
+    "observation_sha256": "8eeb6974e90ad5cb2cddbed813d53639dc7ab7a425b49c7eb8342016150c940f",
+    "archive": "aggregate.tar",
+    "archive_sha256": "1fc20ee175839a9071d17425d11391ef7188edd4b73d93dcf6487e31a78a5864",
+    "seconds": 38.311,
+    "exit": 0,
+    "retained_results": "aggregate-files/qualification-proof/results.json",
+    "results_sha256": "65bdff1975d7f6f26616d17e83000ffbc7be90aeaf025ef19235a877ee829a6e"
+  },
+  "criteria": [
+    {
+      "criterion": "AC-1",
+      "exit": 0,
+      "seconds": 37.065,
+      "output_bytes": 10230,
+      "log_sha256": "c04a02a7421e53ebb39e22e34748468d48f9899cfcd8fedfac1fde90d510e933",
+      "suites": [
+        {
+          "suite": "app",
+          "complete_cases": 22,
+          "passed_cases": 22
+        },
+        {
+          "suite": "browser",
+          "complete_cases": 2,
+          "passed_cases": 2
+        }
+      ]
+    },
+    {
+      "criterion": "AC-2",
+      "exit": 0,
+      "seconds": 20.588,
+      "output_bytes": 8946,
+      "log_sha256": "1f23f21ef41a4dbab83f61479f0c5e71e862fc1736455a9ad8bf3e0aa0284248",
+      "suites": [
+        {
+          "suite": "app",
+          "complete_cases": 22,
+          "passed_cases": 22
+        }
+      ]
+    },
+    {
+      "criterion": "AC-3",
+      "exit": 0,
+      "seconds": 20.745,
+      "output_bytes": 8946,
+      "log_sha256": "04327b1845349a30e33841e6ffa61662031c4e370f1fc2639c27082e014ef3b0",
+      "suites": [
+        {
+          "suite": "app",
+          "complete_cases": 22,
+          "passed_cases": 22
+        }
+      ]
+    },
+    {
+      "criterion": "AC-4",
+      "exit": 0,
+      "seconds": 31.289,
+      "output_bytes": 12031,
+      "log_sha256": "0f847634998829a9d2d6bbb77dae60637188166c329d32d24e907771a4d25a39",
+      "suites": [
+        {
+          "suite": "app",
+          "complete_cases": 22,
+          "passed_cases": 22
+        },
+        {
+          "suite": "recovery",
+          "complete_cases": 9,
+          "passed_cases": 9
+        }
+      ]
+    },
+    {
+      "criterion": "AC-5",
+      "exit": 0,
+      "seconds": 18.329,
+      "output_bytes": 10228,
+      "log_sha256": "01edfb4f4e903c9eda9995b1512aa416206d7695744927ad808d1f94a28cf2e0",
+      "suites": [
+        {
+          "suite": "app",
+          "complete_cases": 22,
+          "passed_cases": 22
+        },
+        {
+          "suite": "browser",
+          "complete_cases": 2,
+          "passed_cases": 2
+        }
+      ]
+    },
+    {
+      "criterion": "AC-6",
+      "exit": 0,
+      "seconds": 74.736,
+      "output_bytes": 39973,
+      "log_sha256": "01823c92b341bcb812594308acf8c26918b1bf3682181c4b13d8f9d640670f16",
+      "suites": [
+        {
+          "suite": "app",
+          "complete_cases": 22,
+          "passed_cases": 22
+        },
+        {
+          "suite": "reporter",
+          "complete_cases": 2,
+          "passed_cases": 2
+        },
+        {
+          "suite": "contract",
+          "complete_cases": 12,
+          "passed_cases": 12
+        },
+        {
+          "suite": "recovery",
+          "complete_cases": 9,
+          "passed_cases": 9
+        },
+        {
+          "suite": "browser",
+          "complete_cases": 2,
+          "passed_cases": 2
+        },
+        {
+          "suite": "coverage",
+          "complete_cases": 22,
+          "passed_cases": 22
+        }
+      ]
+    }
+  ]
+}

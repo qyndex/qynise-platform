@@ -1,0 +1,4 @@
+npm error code ENOTCACHED
+npm error request to https://registry.npmjs.org/qynise-offline-negative-fixture/-/qynise-offline-negative-fixture-1.0.0.tgz failed: cache mode is 'only-if-cached' but no cached response is available.
+npm error A complete log of this run can be found in: /tmp/npm-logs/2026-10-20T00_52_29_389Z-debug-0.log
+OFFLINE_NEGATIVE_VERIFIED: actual npm exit=1; ENOTCACHED; network=none; no fallback/browser/skip; synthetic tooling fixture only

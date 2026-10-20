@@ -1,0 +1,5 @@
+git version 2.39.5
+tar (GNU tar) 1.34
+
+added 5 packages in 818ms
+{"scope":"local image contract only","node":"v24.13.1","arch":"x64","platform":"linux","uid":65532,"browser":"156.0.8078.4","freshOfflineNpmCi":true,"actualChromium":true}

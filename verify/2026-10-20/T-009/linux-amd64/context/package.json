@@ -1,0 +1,23 @@
+{
+  "name": "qynise-platform-local-contract",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24.13.1"
+  },
+  "scripts": {
+    "local": "node app/local/server.ts",
+    "test:local": "node --test app/local/demo.test.ts app/local/ui.test.ts",
+    "typecheck:local": "tsc --project app/local/tsconfig.json",
+    "test:browser": "node --test app/local/browser.test.ts",
+    "test": "node --test --test-timeout=30000 app/local/demo.test.ts app/local/ui.test.ts scripts/coverage-reporter.test.mjs",
+    "typecheck": "tsc --project app/local/tsconfig.json",
+    "lint": "node --check public/app.js && node --check scripts/coverage-reporter.mjs",
+    "coverage": "bash scripts/test-coverage.sh"
+  },
+  "devDependencies": {
+    "@types/node": "24.19.2",
+    "playwright": "1.64.1",
+    "typescript": "5.9.3"
+  }
+}

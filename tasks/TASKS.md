@@ -40,6 +40,6 @@ Completed local regressions are not full Spec001, authenticated factory or produ
 
 ## Approved bounded local qualification
 
-- [ ] T-009 Implement complete bounded local qualification mapping and real source/tool/browser verification without changing original001 or live authority. | spec:002 | phase:implementation | priority:normal | created:2026-10-20 | est:2h
+- [x] T-009 Implement complete bounded local qualification mapping and real source/tool/browser verification without changing original001 or live authority. | spec:002 | phase:implementation | priority:normal | created:2026-10-20 | est:2h
   spec: specs/active/002-bounded-local-fixture-qualification.md
   accept: node --test scripts/local-qualification.test.mjs
