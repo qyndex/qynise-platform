@@ -1,0 +1,53 @@
+{
+  "scope": "Exact historical source-digest scanner finding adjudication; not a scanner suppression or clean-range assertion",
+  "verdict": "Four verified public Git source SHA256 values; no credential values involved",
+  "source_commit": "75f7cbd6a80fbf75b74dd2e67e60f9668bb4bbbc",
+  "report_sha256": "488d7c450e31827a2001e0af1403e91b741f37025842eff18c7dd7a10ed94948",
+  "historical_proof_sha256": "99994bab0f51a6a9418a85aa7d244e5e2c2ca8ab1358ad705ee876955b077131",
+  "findings": [
+    {
+      "rule": "sentry-access-token",
+      "file": "verify/2026-10-20/T-009/source-equivalence.json",
+      "line": 137,
+      "commit": "345af895735240f972a7285df1f7f297f52a1ddc",
+      "source_path": ".claude/routines/hotfix-sentry-poll.yml",
+      "source_sha256": "defe0aacedc8e61b7ea0eb7752df3dccc7a2cae6c40777f3c480c53b8a05a5e7",
+      "recomputed_equal": true,
+      "fingerprint": "345af895735240f972a7285df1f7f297f52a1ddc:verify/2026-10-20/T-009/source-equivalence.json:sentry-access-token:137"
+    },
+    {
+      "rule": "generic-api-key",
+      "file": "verify/2026-10-20/T-009/source-equivalence.json",
+      "line": 43,
+      "commit": "345af895735240f972a7285df1f7f297f52a1ddc",
+      "source_path": ".claude/commands/deprecate-api.md",
+      "source_sha256": "f725fa5e2d084bcfa8248bbe98649da8935ceede8c3992823de036d5b1467fc7",
+      "recomputed_equal": true,
+      "fingerprint": "345af895735240f972a7285df1f7f297f52a1ddc:verify/2026-10-20/T-009/source-equivalence.json:generic-api-key:43"
+    },
+    {
+      "rule": "generic-api-key",
+      "file": "verify/2026-10-20/T-009/source-equivalence.json",
+      "line": 102,
+      "commit": "345af895735240f972a7285df1f7f297f52a1ddc",
+      "source_path": ".claude/hooks/pre-write-secret-scan.sh",
+      "source_sha256": "bca41d278521a5550af2a7d3f45950e3aca0233850ad8aeb58f6d3b9f030a73d",
+      "recomputed_equal": true,
+      "fingerprint": "345af895735240f972a7285df1f7f297f52a1ddc:verify/2026-10-20/T-009/source-equivalence.json:generic-api-key:102"
+    },
+    {
+      "rule": "generic-api-key",
+      "file": "verify/2026-10-20/T-009/source-equivalence.json",
+      "line": 663,
+      "commit": "345af895735240f972a7285df1f7f297f52a1ddc",
+      "source_path": "docs/FACTORY-CREDENTIAL-BOUNDARIES.md",
+      "source_sha256": "f73ca1a137f2ddf3e037a93b6531a797756ab630fdd23669a1ec82d0e214faef",
+      "recomputed_equal": true,
+      "fingerprint": "345af895735240f972a7285df1f7f297f52a1ddc:verify/2026-10-20/T-009/source-equivalence.json:generic-api-key:663"
+    }
+  ],
+  "scanner_result_remains": "Four historical findings retained; newdelta clean separately",
+  "history_rewritten": false,
+  "scanner_configuration_changed": false,
+  "suppression_added": false
+}
