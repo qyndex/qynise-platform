@@ -37,3 +37,9 @@ Completed local regressions are not full Spec001, authenticated factory or produ
 - [x] T-008 Narrow adopter reporting and shadow credential capabilities without activating factory authority. | spec:001 | phase:implementation | priority:normal | created:2026-10-19 | est:1h
   spec: specs/active/001-first-workflow-slice.md
   accept: bash scripts/verify-factory-least-privilege.sh
+
+## Approved bounded local qualification
+
+- [ ] T-009 Implement complete bounded local qualification mapping and real source/tool/browser verification without changing original001 or live authority. | spec:002 | phase:implementation | priority:normal | created:2026-10-20 | est:2h
+  spec: specs/active/002-bounded-local-fixture-qualification.md
+  accept: node --test scripts/local-qualification.test.mjs

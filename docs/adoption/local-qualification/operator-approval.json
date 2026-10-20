@@ -1,0 +1,14 @@
+{
+  "decision": "A",
+  "authorization": "Direct human A approving the separate six-criterion local qualification contract; original Spec001 unchanged/incomplete; providers and production disabled",
+  "proposal_sha256": "a72233b2f17a69806c2d7034b58e0a6398c19c4cb49a191350b0fc5486a4a00c",
+  "recorded_at": "2026-10-20T00:45:03.396373+00:00",
+  "not_authorized": [
+    "policy cutover",
+    "authority activation",
+    "provider spending",
+    "production",
+    "state initialization",
+    "Slack dispatch"
+  ]
+}

@@ -44,5 +44,14 @@ test('actual Chromium brief-to-evidence journey and tenant switch at desktop/mob
   assert.equal(await page.locator('#evidence').isHidden(),true);
   assert.equal(await page.locator('#history').textContent(),'No runs in this test session.');
   assert.equal(await page.evaluate(async id=>(await fetch('/api/runs/'+id)).status,id),404);
+  assert.match(await page.locator('.mode').innerText(),/Synthetic fixtures.*No model calls/);
+  assert.match(await page.locator('footer').innerText(),/Provider execution and production deployment are disabled/);
+  const mobileBrief='A mobile keyboard fixture export 🚀.';
+  await page.getByLabel('What should change?').fill(mobileBrief);
+  await page.locator('#start').focus();await page.keyboard.press('Enter');
+  await page.waitForFunction(()=>document.querySelector('#state')!.textContent!.startsWith('succeeded'));
+  assert.equal(await page.locator('#tasks li').count(),4);assert.equal(await page.locator('#tasks li p').first().textContent(),mobileBrief);
+  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
+  if(process.env.QYNISE_BROWSER_PROOF_DIR)await page.screenshot({path:join(process.env.QYNISE_BROWSER_PROOF_DIR,'mobile-bob-final.png'),fullPage:true});
   assert.deepEqual(errors,[]);
 });
