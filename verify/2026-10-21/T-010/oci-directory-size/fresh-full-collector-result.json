@@ -1,0 +1,13 @@
+{
+  "source": "bade968728b1969bffe291fb5ce7acc91de37cdf",
+  "base": "ac6f8437707ac10c2dd3567578d680c8601973e4",
+  "exit": 1,
+  "seconds": 122.37112112494651,
+  "environment_config": {
+    "node": "24.13.1",
+    "npm_config_offline": "true",
+    "npm_config_yes": "false",
+    "VERIFY_BASE": "ac6f8437707ac10c2dd3567578d680c8601973e4"
+  },
+  "scope": "full unchanged collector; no SKIP; serial; no installs; sandbox-local-listen limitation disclosed"
+}
