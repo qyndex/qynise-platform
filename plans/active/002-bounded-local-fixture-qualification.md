@@ -1,7 +1,10 @@
 ---
-spec: 002
-status: active
+id: 002
+slug: bounded-local-fixture-qualification
+status: approved
+spec: specs/active/002-bounded-local-fixture-qualification.md
 created: 2026-10-20
+updated: 2026-10-20
 ---
 
 # Plan002: Real bounded local qualification
