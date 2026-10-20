@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {mkdtempSync,mkdirSync,writeFileSync,rmSync,readdirSync,readFileSync,symlinkSync} from 'node:fs';
+import {mkdtempSync,mkdirSync,writeFileSync,rmSync,readdirSync,readFileSync,symlinkSync,realpathSync} from 'node:fs';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 import {validateSuite,validateCoverage,qualificationResults,captureProcess,sourceSnapshotCommands,verifyExtractedSnapshot,createQualificationWorkspace} from './local-qualification-contract.mjs';
@@ -39,8 +39,8 @@ function gitFixture(t,attributes=''){
  return {repository,directory,source,git};
 }
 test('actual git archive must preserve every immutable blob including binary bytes',t=>{const f=gitFixture(t);assert.equal(verifyExtractedSnapshot(f.repository,f.source,f.directory).files,2);assert.deepEqual(readFileSync(join(f.directory,'binary.bin')),Buffer.from([0,255,128,65]));});
-test('actual export-ignore and export-subst archives cannot claim the committed source tree',t=>{for(const attr of ['binary.bin export-ignore\n','substitute.txt export-subst\n']){const f=gitFixture(t,attr);assert.throws(()=>verifyExtractedSnapshot(f.repository,f.source,f.directory));}});
-test('missing extra altered and unsupported symlink sources fail byte binding',t=>{for(const change of ['missing','extra','changed','symlink']){const f=gitFixture(t);if(change==='missing')rmSync(join(f.directory,'binary.bin'));if(change==='extra')writeFileSync(join(f.directory,'extra.txt'),'extra');if(change==='changed')writeFileSync(join(f.directory,'binary.bin'),'changed');if(change==='symlink'){rmSync(join(f.directory,'binary.bin'));symlinkSync('/etc/passwd',join(f.directory,'binary.bin'));}assert.throws(()=>verifyExtractedSnapshot(f.repository,f.source,f.directory));}});
+test('actual export-ignore and export-subst archives cannot claim the committed source tree',t=>{for(const [attr,message] of [['binary.bin export-ignore\n',/immutable source files missing/],['substitute.txt export-subst\n',/extracted source bytes differ/]]){const f=gitFixture(t,attr);assert.throws(()=>verifyExtractedSnapshot(f.repository,f.source,f.directory),message);}});
+test('missing extra altered and unsupported symlink sources fail byte binding',t=>{for(const change of ['missing','extra','changed','symlink']){const f=gitFixture(t);if(change==='missing')rmSync(join(f.directory,'binary.bin'));if(change==='extra')writeFileSync(join(f.directory,'extra.txt'),'extra');if(change==='changed')writeFileSync(join(f.directory,'binary.bin'),'changed');if(change==='symlink'){rmSync(join(f.directory,'binary.bin'));symlinkSync('/etc/passwd',join(f.directory,'binary.bin'));}assert.throws(()=>verifyExtractedSnapshot(f.repository,f.source,f.directory),{missing:/immutable source files missing/,extra:/unexpected extracted source file/,changed:/extracted source bytes differ/,symlink:/unsupported extracted symlink/}[change]);}});
 test('nonempty output is rejected and output setup failure cleans owned workspace',t=>{
  const parent=mkdtempSync(join(tmpdir(),'qualification-output-control-'));t.after(()=>rmSync(parent,{recursive:true,force:true}));
  const stale=join(parent,'stale');mkdirSync(stale);writeFileSync(join(stale,'old.events.jsonl'),'old');assert.throws(()=>createQualificationWorkspace(stale,parent));
@@ -51,6 +51,6 @@ test('immutable Git symlink and gitlink modes are unsupported rather than silent
 });
 test('fresh empty output works and symlinked temporary roots normalize native identities',t=>{
  const base=mkdtempSync(join(tmpdir(),'qualification-realpath-control-'));t.after(()=>rmSync(base,{recursive:true,force:true}));const actual=join(base,'actual'),alias=join(base,'alias'),output=join(base,'output');mkdirSync(actual);mkdirSync(output);symlinkSync(actual,alias);
- const workspace=createQualificationWorkspace(output,alias);assert.ok(workspace.work.startsWith(actual+'/'));
+ const workspace=createQualificationWorkspace(output,alias);t.after(()=>rmSync(workspace.base,{recursive:true,force:true}));assert.equal(workspace.base,realpathSync(workspace.base));assert.ok(workspace.work.startsWith(realpathSync(actual)+'/'));
  const observed=events();observed[0].data.file=join(workspace.work,'app/local/demo.test.ts');assert.equal(validateSuite(observed,expected,workspace.work,0).passed,1);rmSync(workspace.base,{recursive:true,force:true});
 });

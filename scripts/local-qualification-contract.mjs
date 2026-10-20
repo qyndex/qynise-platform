@@ -57,7 +57,7 @@ export function verifyExtractedSnapshot(repository,source,directory){
 }
 export function createQualificationWorkspace(output,parent){
  if(output!==undefined && existsSync(output)){const stat=lstatSync(output);require(stat.isDirectory()&&!stat.isSymbolicLink()&&readdirSync(output).length===0,'output directory must be absent or empty');}
- const base=mkdtempSync(join(parent,'qynise-local-qualification-'));
+ const base=realpathSync(mkdtempSync(join(parent,'qynise-local-qualification-')));
  try{const work=join(base,'checkout');mkdirSync(work);output??=join(base,'proof');mkdirSync(output,{recursive:true});return {base,work:realpathSync(work),output};}
  catch(error){rmSync(base,{recursive:true,force:true});throw error;}
 }

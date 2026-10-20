@@ -1,0 +1,26 @@
+✔ complete native events require exact cases and a successful command (0.601ms)
+✔ missing or duplicate cases cannot qualify a criterion (0.086208ms)
+✔ skipped todo failed or cancelled native cases never receive pass credit (0.1195ms)
+✔ printed success and foreign or malformed events cannot spoof native outcomes (1.035708ms)
+✔ missing duplicate or contradictory native summaries are rejected (0.254792ms)
+✔ actual coverage requires both measured source files and unchanged floors (0.409708ms)
+✔ missing duplicate malformed and below-floor coverage cannot become PASS (0.35575ms)
+✔ whole-criterion results require every mapped suite and setup control (0.974375ms)
+✔ a pass event carrying a native failure cannot spoof a successful outcome (0.195875ms)
+✔ empty or duplicate suite requirements cannot vacuously qualify a criterion (0.196709ms)
+✔ process capture preserves binary archive bytes without UTF8 decoding (58.6005ms)
+✔ snapshot tree and archive bind captured immutable commit instead of moving HEAD (1.963167ms)
+✔ actual git archive must preserve every immutable blob including binary bytes (173.338834ms)
+✔ actual export-ignore and export-subst archives cannot claim the committed source tree (299.054417ms)
+✔ missing extra altered and unsupported symlink sources fail byte binding (556.857541ms)
+✔ nonempty output is rejected and output setup failure cleans owned workspace (1.672208ms)
+✔ immutable Git symlink and gitlink modes are unsupported rather than silently omitted (300.282541ms)
+✔ fresh empty output works and symlinked temporary roots normalize native identities (2.042042ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 18
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1469.097667
