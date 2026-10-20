@@ -1,0 +1,35 @@
+{
+  "unpublished_original_proof_commit": "a3b878b9e79cd75aaf92d97deff62784678f3651",
+  "findings": [
+    {
+      "RuleID": "sentry-access-token",
+      "File": "verify/2026-10-20/T-009/sonnet-repair/final-source-equivalence.json",
+      "StartLine": 133,
+      "Description": "Found a Sentry.io Access Token (old format), risking unauthorized access to error tracking services and sensitive application data.",
+      "Fingerprint": "verify/2026-10-20/T-009/sonnet-repair/final-source-equivalence.json:sentry-access-token:133"
+    },
+    {
+      "RuleID": "generic-api-key",
+      "File": "verify/2026-10-20/T-009/sonnet-repair/final-source-equivalence.json",
+      "StartLine": 39,
+      "Description": "Detected a Generic API Key, potentially exposing access to various services and sensitive operations.",
+      "Fingerprint": "verify/2026-10-20/T-009/sonnet-repair/final-source-equivalence.json:generic-api-key:39"
+    },
+    {
+      "RuleID": "generic-api-key",
+      "File": "verify/2026-10-20/T-009/sonnet-repair/final-source-equivalence.json",
+      "StartLine": 98,
+      "Description": "Detected a Generic API Key, potentially exposing access to various services and sensitive operations.",
+      "Fingerprint": "verify/2026-10-20/T-009/sonnet-repair/final-source-equivalence.json:generic-api-key:98"
+    },
+    {
+      "RuleID": "generic-api-key",
+      "File": "verify/2026-10-20/T-009/sonnet-repair/final-source-equivalence.json",
+      "StartLine": 659,
+      "Description": "Detected a Generic API Key, potentially exposing access to various services and sensitive operations.",
+      "Fingerprint": "verify/2026-10-20/T-009/sonnet-repair/final-source-equivalence.json:generic-api-key:659"
+    }
+  ],
+  "status": "Source-file SHA256 values derived from immutable Git blobs; not credentials. Ordered array is a lossless proof representation, with original raw reconstruction hash verified. No detector or allowlist changes.",
+  "original_raw_report_sha256": "f25583ac1ad9ffc7e4bf9daf7c32259b78747444f8512b26bd3eb23560b2d8cc"
+}

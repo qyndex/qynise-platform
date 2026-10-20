@@ -1,7 +1,7 @@
 ## Evidence Bundle — Spec 001 (001-first-workflow-slice)
-Spec: `specs/active/001-first-workflow-slice.md` · Commit: `75f7cbd`
+Spec: `specs/active/001-first-workflow-slice.md` · Commit: `be378ff`
 
-Retained results: [verify/2026-10-20-001-first-workflow-slice/attempt-QZMJjaHH/results.json](verify/2026-10-20-001-first-workflow-slice/attempt-QZMJjaHH/results.json)
+Retained results: [verify/2026-10-20-001-first-workflow-slice/attempt-Jd2rnfUT/results.json](verify/2026-10-20-001-first-workflow-slice/attempt-Jd2rnfUT/results.json)
 
 ### Acceptance criteria (0/10 proven)
 | AC | Proven by | Result |
@@ -19,7 +19,7 @@ Retained results: [verify/2026-10-20-001-first-workflow-slice/attempt-QZMJjaHH/r
 
 ### Smoke test (exit codes are load-bearing)
 ```
-# Smoke test — 2026-10-20T12:02:37+11:00
+# Smoke test — 2026-10-20T21:17:17+11:00
 $ bash .claude/scripts/verify.sh
 
 → Integration coverage gate

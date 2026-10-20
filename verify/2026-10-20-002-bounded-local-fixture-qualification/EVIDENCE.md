@@ -1,7 +1,7 @@
 ## Evidence Bundle — Spec 002 (002-bounded-local-fixture-qualification)
-Spec: `specs/active/002-bounded-local-fixture-qualification.md` · Commit: `75f7cbd`
+Spec: `specs/active/002-bounded-local-fixture-qualification.md` · Commit: `be378ff`
 
-Retained results: [verify/2026-10-20-002-bounded-local-fixture-qualification/attempt-I0VoyPtB/results.json](verify/2026-10-20-002-bounded-local-fixture-qualification/attempt-I0VoyPtB/results.json)
+Retained results: [verify/2026-10-20-002-bounded-local-fixture-qualification/attempt-aZzJJDKX/results.json](verify/2026-10-20-002-bounded-local-fixture-qualification/attempt-aZzJJDKX/results.json)
 
 ### Acceptance criteria (0/6 proven)
 | AC | Proven by | Result |
@@ -15,7 +15,7 @@ Retained results: [verify/2026-10-20-002-bounded-local-fixture-qualification/att
 
 ### Smoke test (exit codes are load-bearing)
 ```
-# Smoke test — 2026-10-20T12:03:33+11:00
+# Smoke test — 2026-10-20T21:18:02+11:00
 $ bash .claude/scripts/verify.sh
 
 → Integration coverage gate
@@ -40,5 +40,6 @@ line 97.83783783783784% · branch 86.36363636363636% (gate: line≥90 branch≥8
 ## Artifact index
 - verify/2026-10-20-002-bounded-local-fixture-qualification/evidence.json
 - verify/2026-10-20-002-bounded-local-fixture-qualification/pr-body.md
+- verify/2026-10-20-002-bounded-local-fixture-qualification/attempt-6FNQuR8l/results.json
 - verify/2026-10-20-002-bounded-local-fixture-qualification/EVIDENCE.md
 - verify/2026-10-20-002-bounded-local-fixture-qualification/smoke.log

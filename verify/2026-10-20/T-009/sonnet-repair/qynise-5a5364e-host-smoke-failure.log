@@ -1,0 +1,160 @@
+Verification root: /private/tmp/factory-least-privilege-qynise-20261019
+
+→ Branch freshness
+  ✓ branch fresh against main
+
+→ Node project detected
+
+> typecheck
+> tsc --project app/local/tsconfig.json
+
+  ✓ typecheck
+
+> lint
+> node --check public/app.js && node --check scripts/coverage-reporter.mjs
+
+  ✓ lint
+
+> test
+> node --test --test-timeout=30000 app/local/demo.test.ts app/local/ui.test.ts scripts/coverage-reporter.test.mjs
+
+(node:21332) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ explicit local mode, server-owned identities, origin and session boundaries (33.65675ms)
+✔ durable idempotent start validates input and denies cross-tenant access (19.019958ms)
+✔ restart resumes durable fixture work, records overlap, review and digest without a provider (413.8075ms)
+✔ cancellation persists and prevents queued fixture completion (10.141459ms)
+✔ recovery after review commit preserves original task provenance and final set (420.258208ms)
+✔ chunked Unicode brief is preserved byte-for-byte (28.02675ms)
+✔ running cancellation prevents final fixture publication (511.061958ms)
+✔ actual process death after a planner commit resumes without replacing that evidence (555.062125ms)
+✔ initial storage-claim failure stops scheduling without process death or false success (594.737625ms)
+✔ late cancel body cannot overwrite a committed successful run (414.6785ms)
+✔ HTTP input and retained-run limits reject invalid or oversized requests explicitly (112.7235ms)
+✔ static responses and session boundaries retain their explicit contract (58.948708ms)
+✔ a forged Host cannot read even a valid local test session (5.361708ms)
+✔ client identity hints cannot change the server-owned session tenant (7.968125ms)
+✔ foreign Origin cannot read or mutate a valid server-owned session (10.0695ms)
+✔ late Alice response cannot render after a successful Bob identity switch (3.034917ms)
+✔ overlapping identity submissions cannot reorder the browser session cookie (1.665542ms)
+✔ UI polls fixture evidence and preserves provenance and explicit errors (1.736667ms)
+✔ UI cancellation refreshes terminal state and reports failed mutations (0.69325ms)
+✔ UI login and polling failures remain visible without continuing a stale poll (1.448667ms)
+✔ UI rejects a changed shared cookie instead of writing under a stale identity label (0.718167ms)
+✔ coverage summary weights real counts from both application source files (0.5825ms)
+✔ missing, duplicate, foreign or malformed coverage never becomes a passing summary (0.213583ms)
+ℹ tests 23
+ℹ suites 0
+ℹ pass 23
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3308.116709
+  ✓ unit tests
+
+→ Coverage gate (min line=90%, branch=85%)
+  ✓ line coverage 97.83783783783784%
+  ✓ branch coverage 86.36363636363636%
+
+→ Stack accounting
+  ✓ typescript test command executed
+
+→ Assertion-density gate
+assert-density: checked 4 test file(s), 0 issue(s)
+  ✓ all tests contain real assertions
+
+→ TDD red→green ledger gate (check-tdd-ledger.sh)
+⚠ T-001: legacy (pre-T-111) incomplete ledger — warn only
+✓ T-002: red+green ledger present and content-valid
+✓ T-003: red+green ledger present and content-valid
+✓ T-004: red+green ledger present and content-valid
+✓ T-005: characterization task — green-only ledger accepted (no red phase for golden-master tests)
+✓ T-006: red+green ledger present and content-valid
+⚠ T-007: legacy (pre-T-111) incomplete ledger — warn only
+✓ T-008: red+green ledger present and content-valid
+✓ T-009: red+green ledger present and content-valid
+tdd-ledger: 0 fail(s), 0 warn(s), 2 legacy-incomplete (pre-T-111, not enforced)
+  ✓ TDD ledger gate clean
+
+→ Rerun newly completed task acceptance
+test_job_permission_override_is_rejected_by_workflow_contract (__main__.ReportingAuthorization.test_job_permission_override_is_rejected_by_workflow_contract) ... ok
+test_optional_watchdog_flag_is_independently_disabled (__main__.ReportingAuthorization.test_optional_watchdog_flag_is_independently_disabled) ... ok
+test_ordinary_token_is_read_and_no_legacy_secret_is_exposed (__main__.ReportingAuthorization.test_ordinary_token_is_read_and_no_legacy_secret_is_exposed) ... ok
+test_real_transport_routes_state_only_to_app_and_never_falls_back (__main__.ReportingAuthorization.test_real_transport_routes_state_only_to_app_and_never_falls_back) ... ok
+test_reordered_validation_is_rejected_by_workflow_contract (__main__.ReportingAuthorization.test_reordered_validation_is_rejected_by_workflow_contract) ... ok
+test_runtime_rejects_env_override_before_any_client_or_slack (__main__.ReportingAuthorization.test_runtime_rejects_env_override_before_any_client_or_slack) ... ok
+test_writer_disabled_or_absent_never_allocates_reporting_job (__main__.ReportingAuthorization.test_writer_disabled_or_absent_never_allocates_reporting_job) ... ok
+test_expression_rejects_unmodelled_coercion_and_unicode (__main__.ShadowAuthorization.test_expression_rejects_unmodelled_coercion_and_unicode) ... ok
+test_expression_string_equality_matches_github_ascii_case_rules (__main__.ShadowAuthorization.test_expression_string_equality_matches_github_ascii_case_rules) ... ok
+test_forbidden_merge_is_rejected_before_permission_outputs_exist (__main__.ShadowAuthorization.test_forbidden_merge_is_rejected_before_permission_outputs_exist) ... ok
+test_missing_or_unknown_mode_fails_without_mint_outputs (__main__.ShadowAuthorization.test_missing_or_unknown_mode_fails_without_mint_outputs) ... ok
+test_permitted_merge_and_workflow_completion_keep_existing_modes (__main__.ShadowAuthorization.test_permitted_merge_and_workflow_completion_keep_existing_modes) ... ok
+test_policy_preflight_and_validated_request_precede_token_mint (__main__.ShadowAuthorization.test_policy_preflight_and_validated_request_precede_token_mint) ... ok
+test_shadow_keeps_checks_write_but_cannot_request_content_or_pr_write (__main__.ShadowAuthorization.test_shadow_keeps_checks_write_but_cannot_request_content_or_pr_write) ... ok
+test_source_order_contract_allows_a_later_approved_policy (__main__.ShadowAuthorization.test_source_order_contract_allows_a_later_approved_policy) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 4.015s
+
+OK
+T-008: acceptance PASS
+✔ complete native events require exact cases and a successful command (0.654042ms)
+✔ missing or duplicate cases cannot qualify a criterion (0.086792ms)
+✔ skipped todo failed or cancelled native cases never receive pass credit (0.1265ms)
+✔ printed success and foreign or malformed events cannot spoof native outcomes (0.942291ms)
+✔ missing duplicate or contradictory native summaries are rejected (0.300209ms)
+✔ actual coverage requires both measured source files and unchanged floors (0.480708ms)
+✔ missing duplicate malformed and below-floor coverage cannot become PASS (0.453584ms)
+✔ whole-criterion results require every mapped suite and setup control (0.8635ms)
+✔ a pass event carrying a native failure cannot spoof a successful outcome (0.216458ms)
+✔ empty or duplicate suite requirements cannot vacuously qualify a criterion (0.201792ms)
+✔ process capture preserves binary archive bytes without UTF8 decoding (28.767875ms)
+✔ snapshot tree and archive bind captured immutable commit instead of moving HEAD (0.114958ms)
+✔ actual git archive must preserve every immutable blob including binary bytes (179.940416ms)
+✔ actual export-ignore and export-subst archives cannot claim the committed source tree (303.102375ms)
+✔ missing extra altered and unsupported symlink sources fail byte binding (598.121916ms)
+✔ nonempty output is rejected and output setup failure cleans owned workspace (2.299958ms)
+✔ immutable Git symlink and gitlink modes are unsupported rather than silently omitted (412.965ms)
+✖ fresh empty output works and symlinked temporary roots normalize native identities (3.006833ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 17
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1594.197958
+
+✖ failing tests:
+
+test at scripts/local-qualification.test.mjs:52:1
+✖ fresh empty output works and symlinked temporary roots normalize native identities (3.006833ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(workspace.work.startsWith(actual+'/'))
+  
+      at TestContext.<anonymous> (file:///private/tmp/factory-least-privilege-qynise-20261019/scripts/local-qualification.test.mjs:54:68)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1103:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:785:18)
+      at Test.postRun (node:internal/test_runner/test:1232:19)
+      at Test.run (node:internal/test_runner/test:1160:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:785:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+acceptance: FAIL: T-009: acceptance failed (1)
+  ✗ task acceptance failed
+
+→ Story → E2E coverage gate
+  ✓ every approved-spec user story has an E2E test
+
+→ Integration coverage gate
+  ✓ changed API/DB files have integration tests
+
+verify: FAIL (1 check(s) failed)
