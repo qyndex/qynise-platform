@@ -149,6 +149,16 @@ class Contracts(unittest.TestCase):
  def test_package_exact_association(self):
   self.assertEqual(m.package_association(200,{'name':m.PACKAGE.rsplit('/',1)[1],'package_type':'container','owner':{'login':'qyndex'},'repository':{'full_name':m.REPOSITORY}}),'existing-repository-package')
  def test_package_missing_fixed_target(self):self.assertEqual(m.package_association(404,{'message':'Not Found'}),'create-fixed-package')
+ def test_package_missing_http_status_not_error_wording(self):
+  for message in ('Package not found.', 'The requested package does not exist'):
+   with self.subTest(message=message):self.assertEqual(m.package_association(404,{'message':message,'documentation_url':'https://docs.github.com/rest/packages/packages','status':'404'}),'create-fixed-package')
+ def test_package_missing_rejects_conflicting_embedded_status(self):self.reject(lambda:m.package_association(404,{'message':'Not Found','status':'200'}))
+ def test_package_missing_rejects_invalid_message(self):
+  for message in (None,True,{},'', 'x'*513):
+   with self.subTest(message=message):self.reject(lambda:m.package_association(404,{'message':message}))
+ def test_package_missing_rejects_foreign_metadata(self):
+  for body in ({'message':'Not Found','documentation_url':'https://elsewhere.invalid/'},{'message':'Not Found','unexpected':True}):
+   with self.subTest(body=body):self.reject(lambda:m.package_association(404,body))
  def test_package_forbidden(self):self.reject(lambda:m.package_association(403,{'message':'Forbidden'}))
  def test_package_foreign(self):self.reject(lambda:m.package_association(200,{'name':m.PACKAGE.rsplit('/',1)[1],'package_type':'container','owner':{'login':'qyndex'},'repository':{'full_name':'qyndex/elsewhere'}}))
  def test_package_unknown_association(self):self.reject(lambda:m.package_association(200,{'name':m.PACKAGE.rsplit('/',1)[1],'package_type':'container','owner':{'login':'qyndex'}}))
