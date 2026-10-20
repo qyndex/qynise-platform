@@ -1,7 +1,7 @@
 ---
 id: 003
 slug: verifier-image-publication
-status: active
+status: approved
 spec: specs/active/003-verifier-image-publication.md
 created: 2026-10-21
 updated: 2026-10-21

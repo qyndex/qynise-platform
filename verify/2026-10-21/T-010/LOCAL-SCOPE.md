@@ -26,3 +26,8 @@ Only local source/evidence changes are authorized. Both config enabledfalse and
 workflow enable-variable gate remain disarmed. Product/provider/production
 acceptance, public package visibility, pre-created environment/live permissions,
 actual build/push/native signing, image registration and activation remain pending.
+
+Final plan validation exposed an invalid active status; that actual failed
+observation is retained as validate-final.json. The only follow-up source change
+sets the plan to the schema-valid approved local scope status. validate-corrected.json
+records its separate corrected result. No runtime bytes changed for this repair.
