@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 // Approved Spec002 local-only qualification. No provider/native-review authority.
-import {mkdtempSync,mkdirSync,readFileSync,writeFileSync,cpSync,rmSync,existsSync,lstatSync} from 'node:fs';
+import {mkdirSync,readFileSync,writeFileSync,cpSync,rmSync,existsSync,lstatSync} from 'node:fs';
 import {tmpdir} from 'node:os';
 import {dirname,join,resolve,relative} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {createHash} from 'node:crypto';
 import {isDeepStrictEqual} from 'node:util';
-import {validateSuite,validateCoverage,qualificationResults,captureProcess,sourceSnapshotCommands} from './local-qualification-contract.mjs';
+import {validateSuite,validateCoverage,qualificationResults,captureProcess,sourceSnapshotCommands,verifyExtractedSnapshot,createQualificationWorkspace} from './local-qualification-contract.mjs';
 
 const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
 const mapping={'AC-1':['app','browser'],'AC-2':['app'],'AC-3':['app'],'AC-4':['app','recovery'],'AC-5':['app','browser'],'AC-6':['app','browser','recovery','reporter','contract','coverage','strict','syntax']};
@@ -17,12 +17,12 @@ for(let i=0;i<options.length;i++){
 }
 if(criterion&&!Object.hasOwn(mapping,criterion))throw Error('unknown approved criterion');
 const requested=criterion?{[criterion]:mapping[criterion]}:mapping;
-const base=mkdtempSync(join(tmpdir(),'qynise-local-qualification-'));
-const work=join(base,'checkout');mkdirSync(work);output??=join(base,'proof');mkdirSync(output,{recursive:true});
+const workspace=createQualificationWorkspace(output,tmpdir());
+const {base,work}=workspace;output=workspace.output;
 const records=[],passed={},needed=new Set(Object.values(requested).flat());let setup=false,source,tree,coverage,error;
 const hash=value=>createHash('sha256').update(value).digest('hex');
 const env={PATH:dirname(process.execPath)+':'+(process.env.PATH||''),HOME:join(base,'home'),LANG:'C.UTF-8',CI:'true',NODE_NO_WARNINGS:'1',npm_config_cache:join(base,'npm-cache'),npm_config_logs_dir:join(base,'npm-logs'),PLAYWRIGHT_BROWSERS_PATH:process.env.PLAYWRIGHT_BROWSERS_PATH||'/opt/playwright-browsers'};
-mkdirSync(env.HOME);mkdirSync(env.npm_config_logs_dir);
+
 function run(name,argv,cwd=work,input){
   const result=captureProcess(argv,{cwd,env,input,timeout:120000,maxBuffer:32_000_000});
   const stdout=Buffer.from(result.stdout||''),stderr=Buffer.from(result.stderr||'');
@@ -51,10 +51,12 @@ function suite(name,{covered=false}={}){
   Object.assign(retained,{complete_cases:outcome.expected,passed_cases:outcome.passed});passed[name]=true;
 }
 try{
+  mkdirSync(env.HOME);mkdirSync(env.npm_config_logs_dir);
   if(process.versions.node!=='24.13.1')throw Error('exact Node24.13.1 required; observed '+process.versions.node);
   source=run('source-head',['git','rev-parse','HEAD'],root).toString().trim();const snapshot=sourceSnapshotCommands(source);tree=run('source-tree',snapshot.tree,root).toString().trim();
   const dirty=run('tracked-source-status',['git','status','--porcelain','--untracked-files=no'],root).toString();if(dirty.trim())throw Error('tracked source must be committed and clean');
   const tar=run('clean-source-archive',snapshot.archive,root);run('clean-source-extract',['tar','-xf','-','-C',work],base,tar);
+  records.push({name:'immutable-source-byte-verification',...verifyExtractedSnapshot(root,source,work)});
   if(existsSync(join(work,'node_modules'))||existsSync(join(work,'experiments/recovery-spike/node_modules'))||existsSync(join(work,'coverage')))throw Error('checkout contains inherited tooling/coverage');
   const cache=process.env.QYNISE_QUALIFICATION_NPM_CACHE||process.env.npm_config_cache||'/opt/npm-cache';
   if(!existsSync(cache)||!lstatSync(cache).isDirectory())throw Error('explicit seeded public npm cache unavailable');cpSync(cache,env.npm_config_cache,{recursive:true});

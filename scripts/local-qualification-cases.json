@@ -195,6 +195,30 @@
     {
       "file": "scripts/local-qualification.test.mjs",
       "name": "snapshot tree and archive bind captured immutable commit instead of moving HEAD"
+    },
+    {
+      "file": "scripts/local-qualification.test.mjs",
+      "name": "actual git archive must preserve every immutable blob including binary bytes"
+    },
+    {
+      "file": "scripts/local-qualification.test.mjs",
+      "name": "actual export-ignore and export-subst archives cannot claim the committed source tree"
+    },
+    {
+      "file": "scripts/local-qualification.test.mjs",
+      "name": "missing extra altered and unsupported symlink sources fail byte binding"
+    },
+    {
+      "file": "scripts/local-qualification.test.mjs",
+      "name": "nonempty output is rejected and output setup failure cleans owned workspace"
+    },
+    {
+      "file": "scripts/local-qualification.test.mjs",
+      "name": "immutable Git symlink and gitlink modes are unsupported rather than silently omitted"
+    },
+    {
+      "file": "scripts/local-qualification.test.mjs",
+      "name": "fresh empty output works and symlinked temporary roots normalize native identities"
     }
   ]
 }
