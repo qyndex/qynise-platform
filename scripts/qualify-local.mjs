@@ -6,7 +6,7 @@ import {dirname,join,resolve,relative} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {createHash} from 'node:crypto';
 import {isDeepStrictEqual} from 'node:util';
-import {validateSuite,validateCoverage,qualificationResults,captureProcess} from './local-qualification-contract.mjs';
+import {validateSuite,validateCoverage,qualificationResults,captureProcess,sourceSnapshotCommands} from './local-qualification-contract.mjs';
 
 const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
 const mapping={'AC-1':['app','browser'],'AC-2':['app'],'AC-3':['app'],'AC-4':['app','recovery'],'AC-5':['app','browser'],'AC-6':['app','browser','recovery','reporter','contract','coverage','strict','syntax']};
@@ -52,9 +52,9 @@ function suite(name,{covered=false}={}){
 }
 try{
   if(process.versions.node!=='24.13.1')throw Error('exact Node24.13.1 required; observed '+process.versions.node);
-  source=run('source-head',['git','rev-parse','HEAD'],root).toString().trim();tree=run('source-tree',['git','rev-parse','HEAD^{tree}'],root).toString().trim();
+  source=run('source-head',['git','rev-parse','HEAD'],root).toString().trim();const snapshot=sourceSnapshotCommands(source);tree=run('source-tree',snapshot.tree,root).toString().trim();
   const dirty=run('tracked-source-status',['git','status','--porcelain','--untracked-files=no'],root).toString();if(dirty.trim())throw Error('tracked source must be committed and clean');
-  const tar=run('clean-source-archive',['git','archive','--format=tar','HEAD'],root);run('clean-source-extract',['tar','-xf','-','-C',work],base,tar);
+  const tar=run('clean-source-archive',snapshot.archive,root);run('clean-source-extract',['tar','-xf','-','-C',work],base,tar);
   if(existsSync(join(work,'node_modules'))||existsSync(join(work,'experiments/recovery-spike/node_modules'))||existsSync(join(work,'coverage')))throw Error('checkout contains inherited tooling/coverage');
   const cache=process.env.QYNISE_QUALIFICATION_NPM_CACHE||process.env.npm_config_cache||'/opt/npm-cache';
   if(!existsSync(cache)||!lstatSync(cache).isDirectory())throw Error('explicit seeded public npm cache unavailable');cpSync(cache,env.npm_config_cache,{recursive:true});

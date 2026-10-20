@@ -5,6 +5,7 @@ import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 import {chromium} from 'playwright';
 import {startDemo} from './server.ts';
+import {observeBrowserErrors,assertNoBrowserErrors} from './browser-errors.ts';
 
 // @AC-1 @AC-2 @AC-7 @AC-8 @AC-10 — local fixture/browser portion only.
 test('actual Chromium brief-to-evidence journey and tenant switch at desktop/mobile sizes',async t=>{
@@ -13,8 +14,8 @@ test('actual Chromium brief-to-evidence journey and tenant switch at desktop/mob
   t.after(async()=>{await demo.close();rmSync(dir,{recursive:true});});
   const browser=await chromium.launch();t.after(()=>browser.close());
   const context=await browser.newContext({viewport:{width:1200,height:900}});
-  const page=await context.newPage(),errors:string[]=[];
-  page.on('pageerror',error=>errors.push(error.message));
+  const errors:string[]=[];observeBrowserErrors(context,errors);
+  const page=await context.newPage();
   await page.goto(demo.origin);
   assert.equal(await page.locator('#brief').isDisabled(),true);
   await page.locator('#login button').focus();await page.keyboard.press('Enter');
@@ -53,5 +54,16 @@ test('actual Chromium brief-to-evidence journey and tenant switch at desktop/mob
   assert.equal(await page.locator('#tasks li').count(),4);assert.equal(await page.locator('#tasks li p').first().textContent(),mobileBrief);
   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
   if(process.env.QYNISE_BROWSER_PROOF_DIR)await page.screenshot({path:join(process.env.QYNISE_BROWSER_PROOF_DIR,'mobile-bob-final.png'),fullPage:true});
-  assert.deepEqual(errors,[]);
+  assertNoBrowserErrors(errors);
+});
+
+// A deliberately thrown second-page error must trip the observation control.
+test('actual Chromium second-page exception is detected by the browser control',async t=>{
+ const browser=await chromium.launch();t.after(()=>browser.close());
+ const context=await browser.newContext(),errors:string[]=[];observeBrowserErrors(context,errors);
+ await context.newPage();const second=await context.newPage();
+ const observed=second.waitForEvent('pageerror');
+ await second.evaluate(()=>{setTimeout(()=>{throw Error('synthetic second-page exception');},0);});
+ await observed;assert.deepEqual(errors,['synthetic second-page exception']);
+ assert.throws(()=>assertNoBrowserErrors(errors),/native browser exceptions/);
 });

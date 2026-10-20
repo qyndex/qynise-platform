@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {validateSuite,validateCoverage,qualificationResults,captureProcess} from './local-qualification-contract.mjs';
+import {validateSuite,validateCoverage,qualificationResults,captureProcess,sourceSnapshotCommands} from './local-qualification-contract.mjs';
 const expected=[{file:'app/local/demo.test.ts',name:'real contract'}];
 const pass={type:'test:pass',data:{name:'real contract',file:'/clean/app/local/demo.test.ts',nesting:0}};
 const summary={type:'test:summary',data:{success:true,counts:{tests:1,passed:1,failed:0,cancelled:0,skipped:0,todo:0}}};
@@ -21,3 +21,5 @@ test('a pass event carrying a native failure cannot spoof a successful outcome',
 test('empty or duplicate suite requirements cannot vacuously qualify a criterion',()=>{assert.throws(()=>qualificationResults({'AC-1':[]},{},true));assert.throws(()=>qualificationResults({'AC-1':['http','http']},{http:true},true));});
 
 test('process capture preserves binary archive bytes without UTF8 decoding',()=>{const expected=Buffer.from([0,255,128,65,10]);const value=captureProcess([process.execPath,'-e','process.stdout.write(Buffer.from([0,255,128,65,10]))']);assert.equal(value.status,0);assert.ok(Buffer.isBuffer(value.stdout));assert.deepEqual(value.stdout,expected);});
+
+test('snapshot tree and archive bind captured immutable commit instead of moving HEAD',()=>{const source='a'.repeat(40);assert.deepEqual(sourceSnapshotCommands(source),{tree:['git','rev-parse',source+'^{tree}'],archive:['git','archive','--format=tar',source]});});

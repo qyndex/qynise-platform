@@ -12,12 +12,12 @@ Complete-criterion mapping:
 
 | Criterion | Required real groups |
 | --- | --- |
-| AC1 tenant/session/loopback | All21 HTTP/UI cases plus actual Chromium identity/foreign-run/mobile controls |
-| AC2 durable bounded input | All21 HTTP/UI cases, including Unicode chunk boundaries and authority hints |
-| AC3 fixture artifacts | All21 HTTP/UI cases with full envelope/digest/overlap/review/provider-denial assertions |
-| AC4 process recovery | All21 application cases plus9 separately labelled recovery-mechanics cases |
-| AC5 real browser journey | All21 HTTP/UI cases plus actual desktop and mobile brief→evidence, keyboard and tenant-switch Chromium journey |
-| AC6 reproducibility | All groups,11 completeness/coverage/process-capture contract fixtures,2 coverage-normalizer fixtures, strict app/experiment TypeScript, syntax and measured server/controller coverage90/85 |
+| AC1 tenant/session/loopback | All22 HTTP/UI cases plus actual Chromium identity/foreign-run/mobile controls |
+| AC2 durable bounded input | All22 HTTP/UI cases, including Unicode chunk boundaries and authority hints |
+| AC3 fixture artifacts | All22 HTTP/UI cases with full envelope/digest/overlap/review/provider-denial assertions |
+| AC4 process recovery | All22 application cases plus9 separately labelled recovery-mechanics cases |
+| AC5 real browser journey | All22 HTTP/UI cases plus actual desktop and mobile brief→evidence, keyboard and tenant-switch Chromium journey |
+| AC6 reproducibility | All groups,12 completeness/coverage/process-capture contract fixtures,2 coverage-normalizer fixtures, strict app/experiment TypeScript, syntax and measured server/controller coverage90/85 |
 
 Fixed case identities live in scripts/local-qualification-cases.json. Native events must match every expected name and file exactly, with one global successful summary and successful process exit. Missing/duplicate/failed/cancelled/skipped/todo/foreign/malformed cases fail. Printed stdout cannot impersonate test events. The reporter distinguishes Node's per-file summaries from its global invocation summary. Native coverage must contain exactly the two actual application source files, one real coverage event, valid counts, unchanged90/85 floors and an identical freshly emitted summary; cached/missing/malformed data does not count.
 

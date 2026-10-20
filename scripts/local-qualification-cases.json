@@ -83,12 +83,20 @@
     {
       "file": "app/local/ui.test.ts",
       "name": "UI rejects a changed shared cookie instead of writing under a stale identity label"
+    },
+    {
+      "file": "app/local/browser-errors.test.ts",
+      "name": "browser exception control covers existing and future context pages"
     }
   ],
   "browser": [
     {
       "file": "app/local/browser.test.ts",
       "name": "actual Chromium brief-to-evidence journey and tenant switch at desktop/mobile sizes"
+    },
+    {
+      "file": "app/local/browser.test.ts",
+      "name": "actual Chromium second-page exception is detected by the browser control"
     }
   ],
   "recovery": [
@@ -183,6 +191,10 @@
     {
       "file": "scripts/local-qualification.test.mjs",
       "name": "process capture preserves binary archive bytes without UTF8 decoding"
+    },
+    {
+      "file": "scripts/local-qualification.test.mjs",
+      "name": "snapshot tree and archive bind captured immutable commit instead of moving HEAD"
     }
   ]
 }

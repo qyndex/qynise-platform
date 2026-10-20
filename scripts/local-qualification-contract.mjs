@@ -28,3 +28,4 @@ export function validateCoverage(events){const found=events.filter(event=>event?
 export function qualificationResults(mapping,passed,setup){for(const [ac,suites] of Object.entries(mapping)){require(/^AC-[1-9][0-9]*$/.test(ac)&&Array.isArray(suites)&&suites.length>0&&new Set(suites).size===suites.length&&suites.every(name=>typeof name==='string'&&name),'empty/duplicate criterion requirements');}return Object.fromEntries(Object.entries(mapping).map(([ac,suites])=>[ac,setup===true&&suites.every(name=>passed[name]===true)]));}
 
 export function captureProcess(argv,options={}){return spawnSync(argv[0],argv.slice(1),{...options,encoding:undefined});}
+export function sourceSnapshotCommands(source){if(!/^[a-f0-9]{40}$/.test(source))throw Error('immutable source commit required');return {tree:['git','rev-parse',source+'^{tree}'],archive:['git','archive','--format=tar',source]};}

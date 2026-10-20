@@ -223,7 +223,8 @@ test('client identity hints cannot change the server-owned session tenant',async
 
 // Spec002 AC1: Origin is a request restriction, not tenant authentication.
 test('foreign Origin cannot read or mutate a valid server-owned session',async t=>{
-  const {request,login}=await fixture(t,undefined,true),cookie=await login();
+  const {server,request,login}=await fixture(t,undefined,true),cookie=await login();
+  const navigation=await fetch(server.origin+'/api/runs',{headers:{Cookie:cookie}});assert.equal(navigation.status,200);
   const input={key:'origin-control',brief:'Synthetic origin boundary observation'};
   const own=await request('/api/runs','POST',input,cookie);assert.equal(own.status,201);
   for(const [path,method,body] of [
