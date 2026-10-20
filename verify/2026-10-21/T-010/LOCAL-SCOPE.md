@@ -38,3 +38,11 @@ The historical bundle is retained under historical-missing-main-collector/.
 New cross-process integration checks7/7 PASS; exact-base integration gate PASS.
 A single new source collector will use offline/no-install npm settings; it cannot
 establish hosted image AC5. Existing native-tool failures remain visible.
+
+The adopter's pinned managed snapshot still uses a global /tmp/smoke.out;
+parallel collector observations are retained as historical and cannot establish
+isolated smoke attribution. Canonical current harness already uses attempt-scoped
+smoke output; this is ADOPTER-BUNDLE-REFRESH-PENDING, not a new unfixed core bug.
+The managed manifest source69574d23988d1a98c2c6f6f27c08815449a59351 is preserved.
+No managed file or manifest was patched by this image feature. Serialized local
+collector observations are the applicable isolated attempts for this snapshot.
