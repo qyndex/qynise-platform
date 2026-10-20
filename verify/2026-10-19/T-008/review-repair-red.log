@@ -1,0 +1,210 @@
+test_job_permission_override_is_rejected_by_workflow_contract (__main__.ReportingAuthorization.test_job_permission_override_is_rejected_by_workflow_contract) ... 
+  test_job_permission_override_is_rejected_by_workflow_contract (__main__.ReportingAuthorization.test_job_permission_override_is_rejected_by_workflow_contract) (workflow='factory-hosted-digest', override='permissions: write-all') ... FAIL
+  test_job_permission_override_is_rejected_by_workflow_contract (__main__.ReportingAuthorization.test_job_permission_override_is_rejected_by_workflow_contract) (workflow='factory-hosted-digest', override='permissions:\n      contents: write') ... FAIL
+  test_job_permission_override_is_rejected_by_workflow_contract (__main__.ReportingAuthorization.test_job_permission_override_is_rejected_by_workflow_contract) (workflow='factory-hosted-digest', override='permissions:\n      pull-requests: write') ... FAIL
+  test_job_permission_override_is_rejected_by_workflow_contract (__main__.ReportingAuthorization.test_job_permission_override_is_rejected_by_workflow_contract) (workflow='factory-hosted-feedback', override='permissions: write-all') ... FAIL
+  test_job_permission_override_is_rejected_by_workflow_contract (__main__.ReportingAuthorization.test_job_permission_override_is_rejected_by_workflow_contract) (workflow='factory-hosted-feedback', override='permissions:\n      contents: write') ... FAIL
+  test_job_permission_override_is_rejected_by_workflow_contract (__main__.ReportingAuthorization.test_job_permission_override_is_rejected_by_workflow_contract) (workflow='factory-hosted-feedback', override='permissions:\n      pull-requests: write') ... FAIL
+  test_job_permission_override_is_rejected_by_workflow_contract (__main__.ReportingAuthorization.test_job_permission_override_is_rejected_by_workflow_contract) (workflow='factory-reporting-alerts', override='permissions: write-all') ... FAIL
+  test_job_permission_override_is_rejected_by_workflow_contract (__main__.ReportingAuthorization.test_job_permission_override_is_rejected_by_workflow_contract) (workflow='factory-reporting-alerts', override='permissions:\n      contents: write') ... FAIL
+  test_job_permission_override_is_rejected_by_workflow_contract (__main__.ReportingAuthorization.test_job_permission_override_is_rejected_by_workflow_contract) (workflow='factory-reporting-alerts', override='permissions:\n      pull-requests: write') ... FAIL
+  test_job_permission_override_is_rejected_by_workflow_contract (__main__.ReportingAuthorization.test_job_permission_override_is_rejected_by_workflow_contract) (workflow='factory-reporting-queue', override='permissions: write-all') ... FAIL
+  test_job_permission_override_is_rejected_by_workflow_contract (__main__.ReportingAuthorization.test_job_permission_override_is_rejected_by_workflow_contract) (workflow='factory-reporting-queue', override='permissions:\n      contents: write') ... FAIL
+  test_job_permission_override_is_rejected_by_workflow_contract (__main__.ReportingAuthorization.test_job_permission_override_is_rejected_by_workflow_contract) (workflow='factory-reporting-queue', override='permissions:\n      pull-requests: write') ... FAIL
+test_optional_watchdog_flag_is_independently_disabled (__main__.ReportingAuthorization.test_optional_watchdog_flag_is_independently_disabled) ... ok
+test_ordinary_token_is_read_and_no_legacy_secret_is_exposed (__main__.ReportingAuthorization.test_ordinary_token_is_read_and_no_legacy_secret_is_exposed) ... ok
+test_real_transport_routes_state_only_to_app_and_never_falls_back (__main__.ReportingAuthorization.test_real_transport_routes_state_only_to_app_and_never_falls_back) ... ok
+test_reordered_validation_is_rejected_by_workflow_contract (__main__.ReportingAuthorization.test_reordered_validation_is_rejected_by_workflow_contract) ... 
+  test_reordered_validation_is_rejected_by_workflow_contract (__main__.ReportingAuthorization.test_reordered_validation_is_rejected_by_workflow_contract) (workflow='factory-hosted-digest') ... FAIL
+  test_reordered_validation_is_rejected_by_workflow_contract (__main__.ReportingAuthorization.test_reordered_validation_is_rejected_by_workflow_contract) (workflow='factory-hosted-feedback') ... FAIL
+  test_reordered_validation_is_rejected_by_workflow_contract (__main__.ReportingAuthorization.test_reordered_validation_is_rejected_by_workflow_contract) (workflow='factory-reporting-alerts') ... FAIL
+  test_reordered_validation_is_rejected_by_workflow_contract (__main__.ReportingAuthorization.test_reordered_validation_is_rejected_by_workflow_contract) (workflow='factory-reporting-queue') ... FAIL
+test_runtime_rejects_env_override_before_any_client_or_slack (__main__.ReportingAuthorization.test_runtime_rejects_env_override_before_any_client_or_slack) ... ok
+test_writer_disabled_or_absent_never_allocates_reporting_job (__main__.ReportingAuthorization.test_writer_disabled_or_absent_never_allocates_reporting_job) ... ok
+test_expression_rejects_unmodelled_coercion_and_unicode (__main__.ShadowAuthorization.test_expression_rejects_unmodelled_coercion_and_unicode) ... FAIL
+test_expression_string_equality_matches_github_ascii_case_rules (__main__.ShadowAuthorization.test_expression_string_equality_matches_github_ascii_case_rules) ... FAIL
+test_forbidden_merge_is_rejected_before_permission_outputs_exist (__main__.ShadowAuthorization.test_forbidden_merge_is_rejected_before_permission_outputs_exist) ... ok
+test_missing_or_unknown_mode_fails_without_mint_outputs (__main__.ShadowAuthorization.test_missing_or_unknown_mode_fails_without_mint_outputs) ... ok
+test_permitted_merge_and_workflow_completion_keep_existing_modes (__main__.ShadowAuthorization.test_permitted_merge_and_workflow_completion_keep_existing_modes) ... ok
+test_policy_preflight_and_validated_request_precede_token_mint (__main__.ShadowAuthorization.test_policy_preflight_and_validated_request_precede_token_mint) ... ok
+test_shadow_keeps_checks_write_but_cannot_request_content_or_pr_write (__main__.ShadowAuthorization.test_shadow_keeps_checks_write_but_cannot_request_content_or_pr_write) ... ok
+test_source_order_contract_allows_a_later_approved_policy (__main__.ShadowAuthorization.test_source_order_contract_allows_a_later_approved_policy) ... FAIL
+
+======================================================================
+FAIL: test_job_permission_override_is_rejected_by_workflow_contract (__main__.ReportingAuthorization.test_job_permission_override_is_rejected_by_workflow_contract) (workflow='factory-hosted-digest', override='permissions: write-all')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/factory-least-privilege-qynise-20261019/scripts/test-factory-least-privilege.py", line 176, in test_job_permission_override_is_rejected_by_workflow_contract
+    with self.assertRaisesRegex(AssertionError, 'ordinary token'):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: AssertionError not raised
+
+======================================================================
+FAIL: test_job_permission_override_is_rejected_by_workflow_contract (__main__.ReportingAuthorization.test_job_permission_override_is_rejected_by_workflow_contract) (workflow='factory-hosted-digest', override='permissions:\n      contents: write')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/factory-least-privilege-qynise-20261019/scripts/test-factory-least-privilege.py", line 176, in test_job_permission_override_is_rejected_by_workflow_contract
+    with self.assertRaisesRegex(AssertionError, 'ordinary token'):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: AssertionError not raised
+
+======================================================================
+FAIL: test_job_permission_override_is_rejected_by_workflow_contract (__main__.ReportingAuthorization.test_job_permission_override_is_rejected_by_workflow_contract) (workflow='factory-hosted-digest', override='permissions:\n      pull-requests: write')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/factory-least-privilege-qynise-20261019/scripts/test-factory-least-privilege.py", line 176, in test_job_permission_override_is_rejected_by_workflow_contract
+    with self.assertRaisesRegex(AssertionError, 'ordinary token'):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: AssertionError not raised
+
+======================================================================
+FAIL: test_job_permission_override_is_rejected_by_workflow_contract (__main__.ReportingAuthorization.test_job_permission_override_is_rejected_by_workflow_contract) (workflow='factory-hosted-feedback', override='permissions: write-all')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/factory-least-privilege-qynise-20261019/scripts/test-factory-least-privilege.py", line 176, in test_job_permission_override_is_rejected_by_workflow_contract
+    with self.assertRaisesRegex(AssertionError, 'ordinary token'):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: AssertionError not raised
+
+======================================================================
+FAIL: test_job_permission_override_is_rejected_by_workflow_contract (__main__.ReportingAuthorization.test_job_permission_override_is_rejected_by_workflow_contract) (workflow='factory-hosted-feedback', override='permissions:\n      contents: write')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/factory-least-privilege-qynise-20261019/scripts/test-factory-least-privilege.py", line 176, in test_job_permission_override_is_rejected_by_workflow_contract
+    with self.assertRaisesRegex(AssertionError, 'ordinary token'):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: AssertionError not raised
+
+======================================================================
+FAIL: test_job_permission_override_is_rejected_by_workflow_contract (__main__.ReportingAuthorization.test_job_permission_override_is_rejected_by_workflow_contract) (workflow='factory-hosted-feedback', override='permissions:\n      pull-requests: write')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/factory-least-privilege-qynise-20261019/scripts/test-factory-least-privilege.py", line 176, in test_job_permission_override_is_rejected_by_workflow_contract
+    with self.assertRaisesRegex(AssertionError, 'ordinary token'):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: AssertionError not raised
+
+======================================================================
+FAIL: test_job_permission_override_is_rejected_by_workflow_contract (__main__.ReportingAuthorization.test_job_permission_override_is_rejected_by_workflow_contract) (workflow='factory-reporting-alerts', override='permissions: write-all')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/factory-least-privilege-qynise-20261019/scripts/test-factory-least-privilege.py", line 176, in test_job_permission_override_is_rejected_by_workflow_contract
+    with self.assertRaisesRegex(AssertionError, 'ordinary token'):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: AssertionError not raised
+
+======================================================================
+FAIL: test_job_permission_override_is_rejected_by_workflow_contract (__main__.ReportingAuthorization.test_job_permission_override_is_rejected_by_workflow_contract) (workflow='factory-reporting-alerts', override='permissions:\n      contents: write')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/factory-least-privilege-qynise-20261019/scripts/test-factory-least-privilege.py", line 176, in test_job_permission_override_is_rejected_by_workflow_contract
+    with self.assertRaisesRegex(AssertionError, 'ordinary token'):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: AssertionError not raised
+
+======================================================================
+FAIL: test_job_permission_override_is_rejected_by_workflow_contract (__main__.ReportingAuthorization.test_job_permission_override_is_rejected_by_workflow_contract) (workflow='factory-reporting-alerts', override='permissions:\n      pull-requests: write')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/factory-least-privilege-qynise-20261019/scripts/test-factory-least-privilege.py", line 176, in test_job_permission_override_is_rejected_by_workflow_contract
+    with self.assertRaisesRegex(AssertionError, 'ordinary token'):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: AssertionError not raised
+
+======================================================================
+FAIL: test_job_permission_override_is_rejected_by_workflow_contract (__main__.ReportingAuthorization.test_job_permission_override_is_rejected_by_workflow_contract) (workflow='factory-reporting-queue', override='permissions: write-all')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/factory-least-privilege-qynise-20261019/scripts/test-factory-least-privilege.py", line 176, in test_job_permission_override_is_rejected_by_workflow_contract
+    with self.assertRaisesRegex(AssertionError, 'ordinary token'):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: AssertionError not raised
+
+======================================================================
+FAIL: test_job_permission_override_is_rejected_by_workflow_contract (__main__.ReportingAuthorization.test_job_permission_override_is_rejected_by_workflow_contract) (workflow='factory-reporting-queue', override='permissions:\n      contents: write')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/factory-least-privilege-qynise-20261019/scripts/test-factory-least-privilege.py", line 176, in test_job_permission_override_is_rejected_by_workflow_contract
+    with self.assertRaisesRegex(AssertionError, 'ordinary token'):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: AssertionError not raised
+
+======================================================================
+FAIL: test_job_permission_override_is_rejected_by_workflow_contract (__main__.ReportingAuthorization.test_job_permission_override_is_rejected_by_workflow_contract) (workflow='factory-reporting-queue', override='permissions:\n      pull-requests: write')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/factory-least-privilege-qynise-20261019/scripts/test-factory-least-privilege.py", line 176, in test_job_permission_override_is_rejected_by_workflow_contract
+    with self.assertRaisesRegex(AssertionError, 'ordinary token'):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: AssertionError not raised
+
+======================================================================
+FAIL: test_reordered_validation_is_rejected_by_workflow_contract (__main__.ReportingAuthorization.test_reordered_validation_is_rejected_by_workflow_contract) (workflow='factory-hosted-digest')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/factory-least-privilege-qynise-20261019/scripts/test-factory-least-privilege.py", line 189, in test_reordered_validation_is_rejected_by_workflow_contract
+    with self.assertRaisesRegex(AssertionError, 'credential validation'):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: AssertionError not raised
+
+======================================================================
+FAIL: test_reordered_validation_is_rejected_by_workflow_contract (__main__.ReportingAuthorization.test_reordered_validation_is_rejected_by_workflow_contract) (workflow='factory-hosted-feedback')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/factory-least-privilege-qynise-20261019/scripts/test-factory-least-privilege.py", line 189, in test_reordered_validation_is_rejected_by_workflow_contract
+    with self.assertRaisesRegex(AssertionError, 'credential validation'):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: AssertionError not raised
+
+======================================================================
+FAIL: test_reordered_validation_is_rejected_by_workflow_contract (__main__.ReportingAuthorization.test_reordered_validation_is_rejected_by_workflow_contract) (workflow='factory-reporting-alerts')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/factory-least-privilege-qynise-20261019/scripts/test-factory-least-privilege.py", line 189, in test_reordered_validation_is_rejected_by_workflow_contract
+    with self.assertRaisesRegex(AssertionError, 'credential validation'):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: AssertionError not raised
+
+======================================================================
+FAIL: test_reordered_validation_is_rejected_by_workflow_contract (__main__.ReportingAuthorization.test_reordered_validation_is_rejected_by_workflow_contract) (workflow='factory-reporting-queue')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/factory-least-privilege-qynise-20261019/scripts/test-factory-least-privilege.py", line 189, in test_reordered_validation_is_rejected_by_workflow_contract
+    with self.assertRaisesRegex(AssertionError, 'credential validation'):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: AssertionError not raised
+
+======================================================================
+FAIL: test_expression_rejects_unmodelled_coercion_and_unicode (__main__.ShadowAuthorization.test_expression_rejects_unmodelled_coercion_and_unicode)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/factory-least-privilege-qynise-20261019/scripts/test-factory-least-privilege.py", line 306, in test_expression_rejects_unmodelled_coercion_and_unicode
+    with self.assertRaisesRegex(AssertionError, 'Unsupported equality'):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: AssertionError not raised
+
+======================================================================
+FAIL: test_expression_string_equality_matches_github_ascii_case_rules (__main__.ShadowAuthorization.test_expression_string_equality_matches_github_ascii_case_rules)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/factory-least-privilege-qynise-20261019/scripts/test-factory-least-privilege.py", line 297, in test_expression_string_equality_matches_github_ascii_case_rules
+    self.assertTrue(expression("${{ 'MERGE' == 'merge' }}", {}))
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_source_order_contract_allows_a_later_approved_policy (__main__.ShadowAuthorization.test_source_order_contract_allows_a_later_approved_policy)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/factory-least-privilege-qynise-20261019/scripts/test-factory-least-privilege.py", line 294, in test_source_order_contract_allows_a_later_approved_policy
+    selected.test_policy_preflight_and_validated_request_precede_token_mint()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/private/tmp/factory-least-privilege-qynise-20261019/scripts/test-factory-least-privilege.py", line 283, in test_policy_preflight_and_validated_request_precede_token_mint
+    self.assertIs(policy['enabled'], False)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not False
+
+----------------------------------------------------------------------
+Ran 15 tests in 4.788s
+
+FAILED (failures=19)

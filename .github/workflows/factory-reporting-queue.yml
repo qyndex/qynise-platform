@@ -9,7 +9,7 @@ on:
         type: boolean
         default: false
 permissions:
-  contents: write
+  contents: read
   actions: read
 concurrency:
   group: factory-reporting-queue-${{ github.repository }}
@@ -18,6 +18,7 @@ jobs:
   monitor:
     if: >-
       vars.FACTORY_REPORTING_ENABLED == 'true' &&
+      vars.FACTORY_REPORTING_APP_WRITER_ENABLED == 'true' &&
       vars.FACTORY_REPORTING_PROFILE == 'github-hosted' &&
       vars.FACTORY_REPORTING_QUEUE_ENABLED == 'true' &&
       github.server_url == 'https://github.com' &&
@@ -46,7 +47,6 @@ jobs:
           permission-contents: write
           permission-administration: read
       - name: Validate selected reporting credentials
-        if: env.FACTORY_REPORTING_APP_WRITER_ENABLED == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
           FACTORY_REPORTING_APP_TOKEN: ${{ steps.reporting_app.outputs.token }}
@@ -55,6 +55,8 @@ jobs:
           import importlib.util,os
           spec=importlib.util.spec_from_file_location('reporting_transport','.claude/scripts/factory-reporting-transport.py')
           transport=importlib.util.module_from_spec(spec);spec.loader.exec_module(transport)
+          transport.require(transport.build_config(os.environ)['writer_mode']=='app',
+                            'Adopter reporting requires App writer')
           transport.create_api(os.environ)
           PYWRITER
       - name: Observe and reconcile protected queue notifications
@@ -74,7 +76,6 @@ jobs:
           FACTORY_REPORTING_STATE_BRANCH: ${{ vars.FACTORY_REPORTING_STATE_BRANCH }}
           FACTORY_REPORTING_POLICY_APPROVALS: ${{ vars.FACTORY_REPORTING_POLICY_APPROVALS }}
           GH_TOKEN: ${{ github.token }}
-          FACTORY_REPORTING_STATE_TOKEN: ${{ secrets.FACTORY_REPORTING_STATE_TOKEN }}
           FACTORY_REPORTING_APP_TOKEN: ${{ steps.reporting_app.outputs.token }}
           FACTORY_SLACK_BOT_TOKEN: ${{ secrets.FACTORY_SLACK_BOT_TOKEN }}
           VERIFICATION_DRILL: ${{ github.event_name == 'workflow_dispatch' && inputs.verification_drill && 'true' || 'false' }}

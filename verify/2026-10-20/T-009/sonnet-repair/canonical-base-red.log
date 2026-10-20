@@ -1,0 +1,51 @@
+✔ complete native events require exact cases and a successful command (0.605709ms)
+✔ missing or duplicate cases cannot qualify a criterion (0.088667ms)
+✔ skipped todo failed or cancelled native cases never receive pass credit (0.122375ms)
+✔ printed success and foreign or malformed events cannot spoof native outcomes (1.225625ms)
+✔ missing duplicate or contradictory native summaries are rejected (0.139584ms)
+✔ actual coverage requires both measured source files and unchanged floors (0.471834ms)
+✔ missing duplicate malformed and below-floor coverage cannot become PASS (0.226958ms)
+✔ whole-criterion results require every mapped suite and setup control (0.450458ms)
+✔ a pass event carrying a native failure cannot spoof a successful outcome (0.08525ms)
+✔ empty or duplicate suite requirements cannot vacuously qualify a criterion (0.10125ms)
+✔ process capture preserves binary archive bytes without UTF8 decoding (39.569ms)
+✔ snapshot tree and archive bind captured immutable commit instead of moving HEAD (0.145084ms)
+✔ actual git archive must preserve every immutable blob including binary bytes (133.931458ms)
+✔ actual export-ignore and export-subst archives cannot claim the committed source tree (246.285625ms)
+✔ missing extra altered and unsupported symlink sources fail byte binding (476.310291ms)
+✔ nonempty output is rejected and output setup failure cleans owned workspace (1.265125ms)
+✔ immutable Git symlink and gitlink modes are unsupported rather than silently omitted (317.605417ms)
+✖ fresh empty output works and symlinked temporary roots normalize native identities (1.634709ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 17
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1297.003916
+
+✖ failing tests:
+
+test at scripts/local-qualification.test.mjs:52:1
+✖ fresh empty output works and symlinked temporary roots normalize native identities (1.634709ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + '/var/folders/40/pjsx1gg17p91kdvfrzgjc2_00000gn/T/qualification-realpath-control-i0o98H/alias/qynise-local-qualification-ocIKh7'
+  - '/private/var/folders/40/pjsx1gg17p91kdvfrzgjc2_00000gn/T/qualification-realpath-control-i0o98H/actual/qynise-local-qualification-ocIKh7'
+  
+      at TestContext.<anonymous> (file:///private/tmp/factory-least-privilege-qynise-20261019/scripts/local-qualification.test.mjs:54:132)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1103:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:785:18)
+      at Test.postRun (node:internal/test_runner/test:1232:19)
+      at Test.run (node:internal/test_runner/test:1160:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:785:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '/var/folders/40/pjsx1gg17p91kdvfrzgjc2_00000gn/T/qualification-realpath-control-i0o98H/alias/qynise-local-qualification-ocIKh7',
+    expected: '/private/var/folders/40/pjsx1gg17p91kdvfrzgjc2_00000gn/T/qualification-realpath-control-i0o98H/actual/qynise-local-qualification-ocIKh7',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

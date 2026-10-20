@@ -63,7 +63,7 @@ export async function startDemo(options:{path:string;enabled:boolean;paused?:boo
       if(req.headers.host!==new URL(origin).host)reject(403,'invalid host');
       const url=new URL(req.url||'/',origin),method=req.method||'GET';
       if(unavailable && url.pathname.startsWith('/api/'))reject(503,'local storage unavailable');
-      if(method==='POST' && req.headers.origin!==origin)reject(403,'invalid origin');
+      if((method==='POST' || req.headers.origin!==undefined) && req.headers.origin!==origin)reject(403,'invalid origin');
       if(method==='GET' && ['/','/app.js','/style.css'].includes(url.pathname)){
         const name=url.pathname==='/'?'index.html':url.pathname.slice(1),type=name.endsWith('.js')?'text/javascript':name.endsWith('.css')?'text/css':'text/html';
         res.writeHead(200,{'Content-Type':type,'Cache-Control':'no-store','Content-Security-Policy':"default-src 'self'; script-src 'self'; style-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'",'X-Content-Type-Options':'nosniff'});res.end(readFileSync(new URL('../../public/'+name,import.meta.url)));return;

@@ -1,0 +1,26 @@
+{
+  "base": "ac6f8437707ac10c2dd3567578d680c8601973e4",
+  "branch": "codex/factory-least-privilege",
+  "staged_files": 26,
+  "staged_gitleaks_exit": 0,
+  "new_dependency_packages": 0,
+  "application_files_changed": false,
+  "live_effects": 0,
+  "all_flags_or_policy_changed": false,
+  "full_collector_run": false,
+  "native_permission_proof": "pending",
+  "file_sha256": {
+    ".github/workflows/adopter-baseline.yml": "b2346f63d7382ce6a4f834a71b63872bc390b618247095aacf6300f67aeafab5",
+    ".github/workflows/factory-hosted-digest.yml": "f35b40a48810a17c066b622e1438a7dd62ab657ebc6fff0e5844b33428575ddb",
+    ".github/workflows/factory-hosted-feedback.yml": "bb4396c4aafe551c085e79e0355483824e2bc893b7c2bca271bd768c8e5f4bc2",
+    ".github/workflows/factory-merge.yml": "fc85c75f6de636bf8dfaf8bc8584ce0a3de505d42d6739e524b64fea7705808f",
+    ".github/workflows/factory-reporting-alerts.yml": "f6bbae61083aec446cb3fe75150162b0ece0ae8c3a743ce4709873b4c8b80f48",
+    ".github/workflows/factory-reporting-queue.yml": "0ddc43e357677553dc8539d432e682e6eaad9a39cdaaa1fb020a6de2d8e85757",
+    "CLAUDE.md": "18826badc1e1d6cd89cf04349d73d841004da231478c057a9f8c7ff8a48e8a42",
+    "docs/FACTORY-CREDENTIAL-BOUNDARIES.md": "2cfb88e95f58b000128a0a5bd7c0fe681e2d8f116fa23177e32e8d1d10296724",
+    "plans/active/001-first-workflow-slice.md": "c8d15a264356eb8b3d721de3c9e3de02f5d00673874381251b1d92c803bd6469",
+    "scripts/test-factory-least-privilege.py": "0fe31b38724f12f7e435476444b87e3b745b796bb708fb583d1d52f671696b7c",
+    "scripts/verify-factory-least-privilege.sh": "547c793c1f5688ff501a908ef31c47aef3607c55fbda5081198ba1ff1d71281f",
+    "tasks/TASKS.md": "6245a7a17e47a5d204f35cc712d56eb6ac3dee2abd546019205dd5cb87669188"
+  }
+}

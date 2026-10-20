@@ -1,0 +1,152 @@
+TAP version 13
+# Subtest: complete native events require exact cases and a successful command
+ok 1 - complete native events require exact cases and a successful command
+  ---
+  duration_ms: 0.970084
+  ...
+# Subtest: missing or duplicate cases cannot qualify a criterion
+ok 2 - missing or duplicate cases cannot qualify a criterion
+  ---
+  duration_ms: 0.075792
+  ...
+# Subtest: skipped todo failed or cancelled native cases never receive pass credit
+ok 3 - skipped todo failed or cancelled native cases never receive pass credit
+  ---
+  duration_ms: 0.131208
+  ...
+# Subtest: printed success and foreign or malformed events cannot spoof native outcomes
+ok 4 - printed success and foreign or malformed events cannot spoof native outcomes
+  ---
+  duration_ms: 0.140625
+  ...
+# Subtest: missing duplicate or contradictory native summaries are rejected
+ok 5 - missing duplicate or contradictory native summaries are rejected
+  ---
+  duration_ms: 0.118417
+  ...
+# Subtest: actual coverage requires both measured source files and unchanged floors
+ok 6 - actual coverage requires both measured source files and unchanged floors
+  ---
+  duration_ms: 0.1415
+  ...
+# Subtest: missing duplicate malformed and below-floor coverage cannot become PASS
+ok 7 - missing duplicate malformed and below-floor coverage cannot become PASS
+  ---
+  duration_ms: 0.189708
+  ...
+# Subtest: whole-criterion results require every mapped suite and setup control
+ok 8 - whole-criterion results require every mapped suite and setup control
+  ---
+  duration_ms: 0.47475
+  ...
+# Subtest: a pass event carrying a native failure cannot spoof a successful outcome
+ok 9 - a pass event carrying a native failure cannot spoof a successful outcome
+  ---
+  duration_ms: 0.174042
+  ...
+# Subtest: empty or duplicate suite requirements cannot vacuously qualify a criterion
+ok 10 - empty or duplicate suite requirements cannot vacuously qualify a criterion
+  ---
+  duration_ms: 0.679583
+  ...
+# Subtest: process capture preserves binary archive bytes without UTF8 decoding
+ok 11 - process capture preserves binary archive bytes without UTF8 decoding
+  ---
+  duration_ms: 18.788542
+  ...
+# Subtest: snapshot tree and archive bind captured immutable commit instead of moving HEAD
+ok 12 - snapshot tree and archive bind captured immutable commit instead of moving HEAD
+  ---
+  duration_ms: 0.08425
+  ...
+# Subtest: actual git archive must preserve every immutable blob including binary bytes
+not ok 13 - actual git archive must preserve every immutable blob including binary bytes
+  ---
+  duration_ms: 44.981417
+  location: '/private/tmp/factory-least-privilege-qynise-20261019/scripts/local-qualification.test.mjs:41:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    0 !== 2
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 2
+  actual: 0
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///private/tmp/factory-least-privilege-qynise-20261019/scripts/local-qualification.test.mjs:41:118)
+    Test.runInAsyncScope (node:async_hooks:211:14)
+    Test.run (node:internal/test_runner/test:979:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:677:18)
+    Test.postRun (node:internal/test_runner/test:1090:19)
+    Test.run (node:internal/test_runner/test:1018:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:677:7)
+  ...
+# Subtest: actual export-ignore and export-subst archives cannot claim the committed source tree
+not ok 14 - actual export-ignore and export-subst archives cannot claim the committed source tree
+  ---
+  duration_ms: 43.845875
+  location: '/private/tmp/factory-least-privilege-qynise-20261019/scripts/local-qualification.test.mjs:42:1'
+  failureType: 'testCodeFailure'
+  error: 'Missing expected exception.'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  operator: 'throws'
+  stack: |-
+    TestContext.<anonymous> (file:///private/tmp/factory-least-privilege-qynise-20261019/scripts/local-qualification.test.mjs:42:214)
+    Test.runInAsyncScope (node:async_hooks:211:14)
+    Test.run (node:internal/test_runner/test:979:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:677:18)
+    Test.postRun (node:internal/test_runner/test:1090:19)
+    Test.run (node:internal/test_runner/test:1018:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:677:7)
+  ...
+# Subtest: missing extra altered and unsupported symlink sources fail byte binding
+not ok 15 - missing extra altered and unsupported symlink sources fail byte binding
+  ---
+  duration_ms: 39.685375
+  location: '/private/tmp/factory-least-privilege-qynise-20261019/scripts/local-qualification.test.mjs:43:1'
+  failureType: 'testCodeFailure'
+  error: 'Missing expected exception.'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  operator: 'throws'
+  stack: |-
+    TestContext.<anonymous> (file:///private/tmp/factory-least-privilege-qynise-20261019/scripts/local-qualification.test.mjs:43:507)
+    Test.runInAsyncScope (node:async_hooks:211:14)
+    Test.run (node:internal/test_runner/test:979:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:677:18)
+    Test.postRun (node:internal/test_runner/test:1090:19)
+    Test.run (node:internal/test_runner/test:1018:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:677:7)
+  ...
+# Subtest: nonempty output is rejected and output setup failure cleans owned workspace
+not ok 16 - nonempty output is rejected and output setup failure cleans owned workspace
+  ---
+  duration_ms: 0.665833
+  location: '/private/tmp/factory-least-privilege-qynise-20261019/scripts/local-qualification.test.mjs:44:1'
+  failureType: 'testCodeFailure'
+  error: 'Missing expected exception.'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  operator: 'throws'
+  stack: |-
+    TestContext.<anonymous> (file:///private/tmp/factory-least-privilege-qynise-20261019/scripts/local-qualification.test.mjs:46:111)
+    Test.runInAsyncScope (node:async_hooks:211:14)
+    Test.run (node:internal/test_runner/test:979:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:677:18)
+    Test.postRun (node:internal/test_runner/test:1090:19)
+    Test.run (node:internal/test_runner/test:1018:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:677:7)
+  ...
+1..16
+# tests 16
+# suites 0
+# pass 12
+# fail 4
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 188.852958

@@ -4,7 +4,7 @@ on:
     - cron: '0,15,30,45 * * * *'
   workflow_dispatch:
 permissions:
-  contents: write
+  contents: read
   pull-requests: read
   actions: read
 concurrency:
@@ -14,6 +14,7 @@ jobs:
   report:
     if: >-
       vars.FACTORY_REPORTING_ENABLED == 'true' &&
+      vars.FACTORY_REPORTING_APP_WRITER_ENABLED == 'true' &&
       vars.FACTORY_REPORTING_PROFILE == 'github-hosted' &&
       github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
     environment: factory-reporting
@@ -40,7 +41,6 @@ jobs:
           permission-contents: write
           permission-administration: read
       - name: Validate selected reporting credentials
-        if: env.FACTORY_REPORTING_APP_WRITER_ENABLED == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
           FACTORY_REPORTING_APP_TOKEN: ${{ steps.reporting_app.outputs.token }}
@@ -49,6 +49,8 @@ jobs:
           import importlib.util,os
           spec=importlib.util.spec_from_file_location('reporting_transport','.claude/scripts/factory-reporting-transport.py')
           transport=importlib.util.module_from_spec(spec);spec.loader.exec_module(transport)
+          transport.require(transport.build_config(os.environ)['writer_mode']=='app',
+                            'Adopter reporting requires App writer')
           transport.create_api(os.environ)
           PYWRITER
       - name: Prepare explicit hosted configuration
@@ -103,22 +105,16 @@ jobs:
       - name: Deliver with authoritative branch checkpoints
         env:
           GH_TOKEN: ${{ github.token }}
-          FACTORY_REPORTING_STATE_TOKEN: ${{ secrets.FACTORY_REPORTING_STATE_TOKEN }}
           FACTORY_REPORTING_APP_TOKEN: ${{ steps.reporting_app.outputs.token }}
           FACTORY_SLACK_BOT_TOKEN: ${{ secrets.FACTORY_SLACK_BOT_TOKEN }}
         run: |
           umask 077
-          case "${FACTORY_REPORTING_APP_WRITER_ENABLED:-false}" in
-            true) python3 .claude/scripts/factory-reporting-driver.py --config "$RUNNER_TEMP/factory-hosted-digest.json" ;;
-            false) python3 .claude/scripts/factory-git-state.py --config "$RUNNER_TEMP/factory-hosted-digest.json" ;;
-            *) exit 1 ;;
-          esac
+          python3 .claude/scripts/factory-reporting-driver.py --config "$RUNNER_TEMP/factory-hosted-digest.json"
 
       - name: Verify delivery and signal independent watchdog
         if: vars.FACTORY_REPORTING_WATCHDOG_ENABLED == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
-          FACTORY_REPORTING_STATE_TOKEN: ${{ secrets.FACTORY_REPORTING_STATE_TOKEN }}
           FACTORY_REPORTING_APP_TOKEN: ${{ steps.reporting_app.outputs.token }}
           FACTORY_SLACK_BOT_TOKEN: ${{ secrets.FACTORY_SLACK_BOT_TOKEN }}
           FACTORY_REPORTING_HEARTBEAT_URL: ${{ secrets.FACTORY_REPORTING_HEARTBEAT_URL }}

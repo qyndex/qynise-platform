@@ -1,0 +1,25 @@
+{
+  "scope": "inert container configuration readback; never started",
+  "image": "sha256:0129d48f5985176efdebbdb4a45c0347900c4f0a53727718a800c7a4738d4c44",
+  "platform": "linux/amd64",
+  "user": "65532:65532",
+  "host_config": {
+    "NetworkMode": "none",
+    "CapDrop": [
+      "ALL"
+    ],
+    "SecurityOpt": [
+      "no-new-privileges"
+    ],
+    "PidsLimit": 256,
+    "Memory": 2147483648,
+    "NanoCpus": 2000000000,
+    "ReadonlyRootfs": true,
+    "Tmpfs": {
+      "/tmp": "rw,nosuid,size=1g"
+    }
+  },
+  "host_mounts": 0,
+  "candidate_execution": false,
+  "owned_inert_container_removed": true
+}

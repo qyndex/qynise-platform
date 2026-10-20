@@ -1,0 +1,13 @@
+{
+  "context_files": {
+    "Dockerfile": "1c12a86eaaf4da6a88d34f514edc6d2c19fac545d576d953fdf7295d00c3d2c7",
+    "package-lock.json": "c0cc612d6a3a80afb5047fb6ad2cced2c07bc28019a68b78968376185ec43c61",
+    "package.json": "9f27cea0d7ce1f1b9d2382b35b0614c6420ad30c5ebc481d7f01a717dd51d799"
+  },
+  "base_platform": "linux/amd64",
+  "base": "docker.io/library/node@sha256:85a395c77b811fa7f5b5e4aa69cd6eb4c3b80c7f1a8e34704dc0ce061e5b404e",
+  "registry_resolution": "docker buildx imagetools inspect docker.io/library/node:24.13.1-bookworm-slim",
+  "local_engine": "Docker Desktop29.8.1 linuxarm64; target emulated linuxamd64",
+  "public_context_only": true,
+  "published": false
+}

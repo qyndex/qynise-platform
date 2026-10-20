@@ -1,0 +1,123 @@
+TAP version 13
+# Subtest: complete native events require exact cases and a successful command
+ok 1 - complete native events require exact cases and a successful command
+  ---
+  duration_ms: 0.932166
+  ...
+# Subtest: missing or duplicate cases cannot qualify a criterion
+ok 2 - missing or duplicate cases cannot qualify a criterion
+  ---
+  duration_ms: 0.077583
+  ...
+# Subtest: skipped todo failed or cancelled native cases never receive pass credit
+ok 3 - skipped todo failed or cancelled native cases never receive pass credit
+  ---
+  duration_ms: 0.153958
+  ...
+# Subtest: printed success and foreign or malformed events cannot spoof native outcomes
+ok 4 - printed success and foreign or malformed events cannot spoof native outcomes
+  ---
+  duration_ms: 0.155042
+  ...
+# Subtest: missing duplicate or contradictory native summaries are rejected
+ok 5 - missing duplicate or contradictory native summaries are rejected
+  ---
+  duration_ms: 0.111875
+  ...
+# Subtest: actual coverage requires both measured source files and unchanged floors
+ok 6 - actual coverage requires both measured source files and unchanged floors
+  ---
+  duration_ms: 0.150458
+  ...
+# Subtest: missing duplicate malformed and below-floor coverage cannot become PASS
+ok 7 - missing duplicate malformed and below-floor coverage cannot become PASS
+  ---
+  duration_ms: 0.195708
+  ...
+# Subtest: whole-criterion results require every mapped suite and setup control
+ok 8 - whole-criterion results require every mapped suite and setup control
+  ---
+  duration_ms: 0.372291
+  ...
+# Subtest: a pass event carrying a native failure cannot spoof a successful outcome
+ok 9 - a pass event carrying a native failure cannot spoof a successful outcome
+  ---
+  duration_ms: 0.175709
+  ...
+# Subtest: empty or duplicate suite requirements cannot vacuously qualify a criterion
+ok 10 - empty or duplicate suite requirements cannot vacuously qualify a criterion
+  ---
+  duration_ms: 0.231041
+  ...
+# Subtest: process capture preserves binary archive bytes without UTF8 decoding
+ok 11 - process capture preserves binary archive bytes without UTF8 decoding
+  ---
+  duration_ms: 19.707917
+  ...
+# Subtest: snapshot tree and archive bind captured immutable commit instead of moving HEAD
+not ok 12 - snapshot tree and archive bind captured immutable commit instead of moving HEAD
+  ---
+  duration_ms: 0.998
+  location: '/private/tmp/factory-least-privilege-qynise-20261019/scripts/local-qualification.test.mjs:25:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      {
+        archive: [
+          'git',
+          'archive',
+          '--format=tar',
+    +     'HEAD'
+    -     'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
+        ],
+        tree: [
+          'git',
+          'rev-parse',
+    +     'HEAD^{tree}'
+    -     'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa^{tree}'
+        ]
+      }
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+    tree:
+      0: 'git'
+      1: 'rev-parse'
+      2: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa^{tree}'
+    archive:
+      0: 'git'
+      1: 'archive'
+      2: '--format=tar'
+      3: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
+  actual:
+    tree:
+      0: 'git'
+      1: 'rev-parse'
+      2: 'HEAD^{tree}'
+    archive:
+      0: 'git'
+      1: 'archive'
+      2: '--format=tar'
+      3: 'HEAD'
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///private/tmp/factory-least-privilege-qynise-20261019/scripts/local-qualification.test.mjs:25:128)
+    Test.runInAsyncScope (node:async_hooks:211:14)
+    Test.run (node:internal/test_runner/test:979:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:677:18)
+    Test.postRun (node:internal/test_runner/test:1090:19)
+    Test.run (node:internal/test_runner/test:1018:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:677:7)
+  ...
+1..12
+# tests 12
+# suites 0
+# pass 11
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 66.413875

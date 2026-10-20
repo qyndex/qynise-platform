@@ -26,3 +26,7 @@ Do not replace the missing application verification contract with the experiment
 ## Current approved next stage
 
 The operator selected local test identity and single-host persistence after the nine-test recovery spike, with application provider execution disabled. Implement and verify a bounded fixture-backed local demonstration: server-owned test sessions and tenant authorization, durable idempotent start/read, fixed synthetic planning/review tasks, restart-safe artifacts and an accessible local status view. Preserve all native-provider and production acceptance as deferred, not satisfied. No paid execution, cloud provisioning or production release is authorized. Prepare one consolidated adopter credential checklist, but do not enter keys or activate authority before the exact bootstrap package is reviewed.
+
+## Bounded credential hardening continuation
+
+Resolve retained bootstrap F5/F7 in adopter workflow definitions only: require App-only reporting jobs, avoid unused legacy credentials/ordinary token write authority, and select Contents/PR-read for shadow while preserving eligibility Checks-write. Reject forbidden merge before write-token mint. Keep all live flags, secrets, profile registrations and protection unchanged; whole-spec/native acceptance remains pending. scripts/verify-factory-least-privilege.sh provides offline authorization/route regressions, with separate YAML validation and later genuine native permission checks.

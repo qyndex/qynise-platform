@@ -1,0 +1,114 @@
+{
+  "checks": [
+    {
+      "check": "green.log",
+      "exit": 0,
+      "argv": [
+        "bash",
+        "scripts/verify-factory-least-privilege.sh"
+      ]
+    },
+    {
+      "check": "actionlint.log",
+      "exit": 0,
+      "argv": [
+        "/opt/homebrew/bin/actionlint",
+        "-shellcheck=",
+        "-pyflakes=",
+        "-oneline",
+        ".github/workflows/adopter-baseline.yml",
+        ".github/workflows/evidence-gate.yml",
+        ".github/workflows/factory-hosted-digest.yml",
+        ".github/workflows/factory-hosted-feedback.yml",
+        ".github/workflows/factory-merge.yml",
+        ".github/workflows/factory-reporting-alerts.yml",
+        ".github/workflows/factory-reporting-queue.yml",
+        ".github/workflows/factory-review.yml",
+        ".github/workflows/factory-verification.yml"
+      ]
+    },
+    {
+      "check": "shellcheck.log",
+      "exit": 0,
+      "argv": [
+        "/opt/homebrew/bin/shellcheck",
+        "scripts/verify-factory-least-privilege.sh"
+      ]
+    },
+    {
+      "check": "tdd-ledger.log",
+      "exit": 0,
+      "argv": [
+        "bash",
+        ".claude/scripts/check-tdd-ledger.sh"
+      ]
+    },
+    {
+      "check": "validation.json",
+      "exit": 0,
+      "argv": [
+        "bash",
+        ".claude/scripts/validate.sh",
+        "--json"
+      ]
+    },
+    {
+      "check": "diff-source.log",
+      "exit": 0,
+      "argv": [
+        "git",
+        "diff",
+        "--check",
+        "--",
+        ".github",
+        "scripts",
+        "CLAUDE.md",
+        "docs",
+        "plans",
+        "tasks"
+      ]
+    },
+    {
+      "check": "transport-regression.log",
+      "exit": 0,
+      "scope": "existing offline fake-gh subprocess suite; unsandboxed process cleanup required"
+    },
+    {
+      "check": "transport-sandbox-limitation.log",
+      "exit": 1,
+      "scope": "sandbox denies /bin/ps; not product RED or successful coverage"
+    },
+    {
+      "check": "gitleaks.log",
+      "exit": 0,
+      "scope": "changed/new files only, scanner defaults, no new exceptions"
+    }
+  ],
+  "structural_summary": {
+    "passed": 66,
+    "warned": 236,
+    "failed": 0,
+    "overall": "warn"
+  },
+  "scope": "targeted authorization/workflow/routing local checks; not full collector/native proof",
+  "full_collector": "not-run-by-subtask",
+  "native_permissions": "pending",
+  "semgrep": {
+    "exit": 0,
+    "version": "1.172.0",
+    "configs": [
+      "p/ci",
+      "p/owasp-top-ten",
+      "p/secrets"
+    ],
+    "targets": 8,
+    "findings": 0,
+    "errors": 0,
+    "metrics": "off",
+    "account_credentials_used": false,
+    "scope": "changed workflow/test files only"
+  },
+  "dependency_changes": false,
+  "app_source_changes": false,
+  "permission_profile_registration": "baseline observations only; not recomputed as active trust"
+}

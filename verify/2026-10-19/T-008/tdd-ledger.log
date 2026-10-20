@@ -1,0 +1,9 @@
+⚠ T-001: legacy (pre-T-111) incomplete ledger — warn only
+✓ T-002: red+green ledger present and content-valid
+✓ T-003: red+green ledger present and content-valid
+✓ T-004: red+green ledger present and content-valid
+✓ T-005: characterization task — green-only ledger accepted (no red phase for golden-master tests)
+✓ T-006: red+green ledger present and content-valid
+⚠ T-007: legacy (pre-T-111) incomplete ledger — warn only
+✓ T-008: red+green ledger present and content-valid
+tdd-ledger: 0 fail(s), 0 warn(s), 2 legacy-incomplete (pre-T-111, not enforced)

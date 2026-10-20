@@ -1,0 +1,63 @@
+{
+  "status": "public-image-contract-passed",
+  "candidate_qualification": "six exact per-criterion runs and one retained aggregate passed; local only",
+  "native_acceptance": false,
+  "published": false,
+  "image_id": "sha256:0129d48f5985176efdebbdb4a45c0347900c4f0a53727718a800c7a4738d4c44",
+  "repo_digests": [
+    "qynise-local-verifier@sha256:0129d48f5985176efdebbdb4a45c0347900c4f0a53727718a800c7a4738d4c44"
+  ],
+  "platform": "linux/amd64",
+  "size_bytes": 556952642,
+  "actual_public_observation": {
+    "scope": "local image contract only",
+    "node": "v24.13.1",
+    "arch": "x64",
+    "platform": "linux",
+    "uid": 65532,
+    "browser": "156.0.8078.4",
+    "freshOfflineNpmCi": true,
+    "actualChromium": true
+  },
+  "proof_sha256": {
+    "context-manifest.json": "866f96ec36555ba70eb8a70e4fb0f4b342765060c6cc9a1c71eb502ba9f38f29",
+    "build.log": "1de46f6eda74dfc1c896dbc1c59be341bfc55eba6018874ecbc641692f72a690",
+    "image-inspect.json": "fa577e3dca58ac15138679195b6a63cc1ba1f4726dec3ae7e3d85cde87607a4d",
+    "offline-browser-contract.log": "ab2a9799f32bed3c51e43e72709a7678bada10ff8f17c725c330a057ded6e303",
+    "resource-contract.json": "f64e29a51a11024ebe669d12f8aa7a3852144b77d4df2079418c8650257dc16f",
+    "offline-negative-contract.log": "2b2d0964db0dacf171a55f1aa0feb8bceedcd48f60d6542724b4857410fcbb78"
+  },
+  "negative_tooling": {
+    "scope": "synthetic deliberately unseeded lock dependency; not candidate acceptance",
+    "actual_npm_exit": 1,
+    "error_code": "ENOTCACHED",
+    "network": "none",
+    "fallback_used": false,
+    "browser_or_test_skipped_to_pass": false
+  },
+  "red": {
+    "source": "a7bf3118baf592265f3cc849b15252bf5854ddf5",
+    "criterion": "AC-1",
+    "failure": "foreign Origin cannot read or mutate a valid server-owned session",
+    "actual": 200,
+    "expected": 403,
+    "clean_offline_install": true,
+    "native_factory_acceptance": false,
+    "container_active": false
+  },
+  "green": {
+    "source": "75f7cbd6a80fbf75b74dd2e67e60f9668bb4bbbc",
+    "six_exact_commands_passed": true,
+    "aggregate_passed": 6,
+    "aggregate_total": 6,
+    "maximum_criterion_seconds": 74.736,
+    "maximum_criterion_stdout_bytes": 39973,
+    "coverage_lines_pct": 97.83783783783784,
+    "coverage_branches_pct": 86.36363636363636,
+    "all_limits_unchanged": true,
+    "candidate_execution_active": false,
+    "summary": "candidate-75f7cbd6a80f/six-criterion-summary.json",
+    "summary_sha256": "00f058d05454b3483d135949148e0a6fcf8a3506e5ed42165ed1b67fdbf50746",
+    "native_factory_acceptance": false
+  }
+}

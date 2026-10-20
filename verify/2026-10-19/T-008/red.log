@@ -1,0 +1,190 @@
+test_ordinary_token_is_read_and_no_legacy_secret_is_exposed (__main__.ReportingAuthorization.test_ordinary_token_is_read_and_no_legacy_secret_is_exposed) ... 
+  test_ordinary_token_is_read_and_no_legacy_secret_is_exposed (__main__.ReportingAuthorization.test_ordinary_token_is_read_and_no_legacy_secret_is_exposed) (workflow='factory-hosted-digest') ... FAIL
+  test_ordinary_token_is_read_and_no_legacy_secret_is_exposed (__main__.ReportingAuthorization.test_ordinary_token_is_read_and_no_legacy_secret_is_exposed) (workflow='factory-hosted-feedback') ... FAIL
+  test_ordinary_token_is_read_and_no_legacy_secret_is_exposed (__main__.ReportingAuthorization.test_ordinary_token_is_read_and_no_legacy_secret_is_exposed) (workflow='factory-reporting-alerts') ... FAIL
+  test_ordinary_token_is_read_and_no_legacy_secret_is_exposed (__main__.ReportingAuthorization.test_ordinary_token_is_read_and_no_legacy_secret_is_exposed) (workflow='factory-reporting-queue') ... FAIL
+test_real_transport_routes_state_only_to_app_and_never_falls_back (__main__.ReportingAuthorization.test_real_transport_routes_state_only_to_app_and_never_falls_back) ... ok
+test_runtime_rejects_env_override_before_any_client_or_slack (__main__.ReportingAuthorization.test_runtime_rejects_env_override_before_any_client_or_slack) ... FAIL
+test_writer_disabled_or_absent_never_allocates_reporting_job (__main__.ReportingAuthorization.test_writer_disabled_or_absent_never_allocates_reporting_job) ... 
+  test_writer_disabled_or_absent_never_allocates_reporting_job (__main__.ReportingAuthorization.test_writer_disabled_or_absent_never_allocates_reporting_job) (workflow='factory-hosted-digest', writer='false') ... FAIL
+  test_writer_disabled_or_absent_never_allocates_reporting_job (__main__.ReportingAuthorization.test_writer_disabled_or_absent_never_allocates_reporting_job) (workflow='factory-hosted-digest', writer='') ... FAIL
+  test_writer_disabled_or_absent_never_allocates_reporting_job (__main__.ReportingAuthorization.test_writer_disabled_or_absent_never_allocates_reporting_job) (workflow='factory-hosted-feedback', writer='false') ... FAIL
+  test_writer_disabled_or_absent_never_allocates_reporting_job (__main__.ReportingAuthorization.test_writer_disabled_or_absent_never_allocates_reporting_job) (workflow='factory-hosted-feedback', writer='') ... FAIL
+  test_writer_disabled_or_absent_never_allocates_reporting_job (__main__.ReportingAuthorization.test_writer_disabled_or_absent_never_allocates_reporting_job) (workflow='factory-reporting-alerts', writer='false') ... FAIL
+  test_writer_disabled_or_absent_never_allocates_reporting_job (__main__.ReportingAuthorization.test_writer_disabled_or_absent_never_allocates_reporting_job) (workflow='factory-reporting-alerts', writer='') ... FAIL
+  test_writer_disabled_or_absent_never_allocates_reporting_job (__main__.ReportingAuthorization.test_writer_disabled_or_absent_never_allocates_reporting_job) (workflow='factory-reporting-queue', writer='false') ... FAIL
+  test_writer_disabled_or_absent_never_allocates_reporting_job (__main__.ReportingAuthorization.test_writer_disabled_or_absent_never_allocates_reporting_job) (workflow='factory-reporting-queue', writer='') ... FAIL
+test_forbidden_merge_is_rejected_before_permission_outputs_exist (__main__.ShadowAuthorization.test_forbidden_merge_is_rejected_before_permission_outputs_exist) ... FAIL
+test_missing_or_unknown_mode_fails_without_mint_outputs (__main__.ShadowAuthorization.test_missing_or_unknown_mode_fails_without_mint_outputs) ... ok
+test_permitted_merge_and_workflow_completion_keep_existing_modes (__main__.ShadowAuthorization.test_permitted_merge_and_workflow_completion_keep_existing_modes) ... 
+  test_permitted_merge_and_workflow_completion_keep_existing_modes (__main__.ShadowAuthorization.test_permitted_merge_and_workflow_completion_keep_existing_modes) (event='workflow_run', mode='', policy=False) ... FAIL
+test_shadow_keeps_checks_write_but_cannot_request_content_or_pr_write (__main__.ShadowAuthorization.test_shadow_keeps_checks_write_but_cannot_request_content_or_pr_write) ... 
+  test_shadow_keeps_checks_write_but_cannot_request_content_or_pr_write (__main__.ShadowAuthorization.test_shadow_keeps_checks_write_but_cannot_request_content_or_pr_write) (merge_enabled=False) ... FAIL
+  test_shadow_keeps_checks_write_but_cannot_request_content_or_pr_write (__main__.ShadowAuthorization.test_shadow_keeps_checks_write_but_cannot_request_content_or_pr_write) (merge_enabled=True) ... FAIL
+
+======================================================================
+FAIL: test_ordinary_token_is_read_and_no_legacy_secret_is_exposed (__main__.ReportingAuthorization.test_ordinary_token_is_read_and_no_legacy_secret_is_exposed) (workflow='factory-hosted-digest')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/factory-least-privilege-qynise-20261019/scripts/test-factory-least-privilege.py", line 98, in test_ordinary_token_is_read_and_no_legacy_secret_is_exposed
+    self.assertRegex(permissions, r'(?m)^  contents: read$')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Regex didn't match: '(?m)^  contents: read$' not found in '  contents: write\n  pull-requests: read\n  actions: read\n'
+
+======================================================================
+FAIL: test_ordinary_token_is_read_and_no_legacy_secret_is_exposed (__main__.ReportingAuthorization.test_ordinary_token_is_read_and_no_legacy_secret_is_exposed) (workflow='factory-hosted-feedback')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/factory-least-privilege-qynise-20261019/scripts/test-factory-least-privilege.py", line 98, in test_ordinary_token_is_read_and_no_legacy_secret_is_exposed
+    self.assertRegex(permissions, r'(?m)^  contents: read$')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Regex didn't match: '(?m)^  contents: read$' not found in '  contents: write\n'
+
+======================================================================
+FAIL: test_ordinary_token_is_read_and_no_legacy_secret_is_exposed (__main__.ReportingAuthorization.test_ordinary_token_is_read_and_no_legacy_secret_is_exposed) (workflow='factory-reporting-alerts')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/factory-least-privilege-qynise-20261019/scripts/test-factory-least-privilege.py", line 98, in test_ordinary_token_is_read_and_no_legacy_secret_is_exposed
+    self.assertRegex(permissions, r'(?m)^  contents: read$')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Regex didn't match: '(?m)^  contents: read$' not found in '  contents: write\n  actions: read\n'
+
+======================================================================
+FAIL: test_ordinary_token_is_read_and_no_legacy_secret_is_exposed (__main__.ReportingAuthorization.test_ordinary_token_is_read_and_no_legacy_secret_is_exposed) (workflow='factory-reporting-queue')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/factory-least-privilege-qynise-20261019/scripts/test-factory-least-privilege.py", line 98, in test_ordinary_token_is_read_and_no_legacy_secret_is_exposed
+    self.assertRegex(permissions, r'(?m)^  contents: read$')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Regex didn't match: '(?m)^  contents: read$' not found in '  contents: write\n  actions: read\n'
+
+======================================================================
+FAIL: test_runtime_rejects_env_override_before_any_client_or_slack (__main__.ReportingAuthorization.test_runtime_rejects_env_override_before_any_client_or_slack)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/factory-least-privilege-qynise-20261019/scripts/test-factory-least-privilege.py", line 109, in test_runtime_rejects_env_override_before_any_client_or_slack
+    self.assertNotRegex(selected, r'(?m)^        if:', 'runtime App-only rejection must not be skipped by an environment override')
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Regex matched: '        if:' matches '(?m)^        if:' in "        if: env.FACTORY_REPORTING_APP_WRITER_ENABLED == 'true'\n        env:\n          GH_TOKEN: ${{ github.token }}\n          FACTORY_REPORTING_APP_TOKEN: ${{ steps.reporting_app.outputs.token }}\n        run: |\n          python3 - <<'PYWRITER'\n          import importlib.util,os\n          spec=importlib.util.spec_from_file_location('reporting_transport','.claude/scripts/factory-reporting-transport.py')\n          transport=importlib.util.module_from_spec(spec);spec.loader.exec_module(transport)\n          transport.create_api(os.environ)\n          PYWRITER\n" : runtime App-only rejection must not be skipped by an environment override
+
+======================================================================
+FAIL: test_writer_disabled_or_absent_never_allocates_reporting_job (__main__.ReportingAuthorization.test_writer_disabled_or_absent_never_allocates_reporting_job) (workflow='factory-hosted-digest', writer='false')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/factory-least-privilege-qynise-20261019/scripts/test-factory-least-privilege.py", line 91, in test_writer_disabled_or_absent_never_allocates_reporting_job
+    self.assertFalse(expression(condition, context), 'writer-disabled job can expose reporting environment')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false : writer-disabled job can expose reporting environment
+
+======================================================================
+FAIL: test_writer_disabled_or_absent_never_allocates_reporting_job (__main__.ReportingAuthorization.test_writer_disabled_or_absent_never_allocates_reporting_job) (workflow='factory-hosted-digest', writer='')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/factory-least-privilege-qynise-20261019/scripts/test-factory-least-privilege.py", line 91, in test_writer_disabled_or_absent_never_allocates_reporting_job
+    self.assertFalse(expression(condition, context), 'writer-disabled job can expose reporting environment')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false : writer-disabled job can expose reporting environment
+
+======================================================================
+FAIL: test_writer_disabled_or_absent_never_allocates_reporting_job (__main__.ReportingAuthorization.test_writer_disabled_or_absent_never_allocates_reporting_job) (workflow='factory-hosted-feedback', writer='false')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/factory-least-privilege-qynise-20261019/scripts/test-factory-least-privilege.py", line 91, in test_writer_disabled_or_absent_never_allocates_reporting_job
+    self.assertFalse(expression(condition, context), 'writer-disabled job can expose reporting environment')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false : writer-disabled job can expose reporting environment
+
+======================================================================
+FAIL: test_writer_disabled_or_absent_never_allocates_reporting_job (__main__.ReportingAuthorization.test_writer_disabled_or_absent_never_allocates_reporting_job) (workflow='factory-hosted-feedback', writer='')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/factory-least-privilege-qynise-20261019/scripts/test-factory-least-privilege.py", line 91, in test_writer_disabled_or_absent_never_allocates_reporting_job
+    self.assertFalse(expression(condition, context), 'writer-disabled job can expose reporting environment')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false : writer-disabled job can expose reporting environment
+
+======================================================================
+FAIL: test_writer_disabled_or_absent_never_allocates_reporting_job (__main__.ReportingAuthorization.test_writer_disabled_or_absent_never_allocates_reporting_job) (workflow='factory-reporting-alerts', writer='false')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/factory-least-privilege-qynise-20261019/scripts/test-factory-least-privilege.py", line 91, in test_writer_disabled_or_absent_never_allocates_reporting_job
+    self.assertFalse(expression(condition, context), 'writer-disabled job can expose reporting environment')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false : writer-disabled job can expose reporting environment
+
+======================================================================
+FAIL: test_writer_disabled_or_absent_never_allocates_reporting_job (__main__.ReportingAuthorization.test_writer_disabled_or_absent_never_allocates_reporting_job) (workflow='factory-reporting-alerts', writer='')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/factory-least-privilege-qynise-20261019/scripts/test-factory-least-privilege.py", line 91, in test_writer_disabled_or_absent_never_allocates_reporting_job
+    self.assertFalse(expression(condition, context), 'writer-disabled job can expose reporting environment')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false : writer-disabled job can expose reporting environment
+
+======================================================================
+FAIL: test_writer_disabled_or_absent_never_allocates_reporting_job (__main__.ReportingAuthorization.test_writer_disabled_or_absent_never_allocates_reporting_job) (workflow='factory-reporting-queue', writer='false')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/factory-least-privilege-qynise-20261019/scripts/test-factory-least-privilege.py", line 91, in test_writer_disabled_or_absent_never_allocates_reporting_job
+    self.assertFalse(expression(condition, context), 'writer-disabled job can expose reporting environment')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false : writer-disabled job can expose reporting environment
+
+======================================================================
+FAIL: test_writer_disabled_or_absent_never_allocates_reporting_job (__main__.ReportingAuthorization.test_writer_disabled_or_absent_never_allocates_reporting_job) (workflow='factory-reporting-queue', writer='')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/factory-least-privilege-qynise-20261019/scripts/test-factory-least-privilege.py", line 91, in test_writer_disabled_or_absent_never_allocates_reporting_job
+    self.assertFalse(expression(condition, context), 'writer-disabled job can expose reporting environment')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false : writer-disabled job can expose reporting environment
+
+======================================================================
+FAIL: test_forbidden_merge_is_rejected_before_permission_outputs_exist (__main__.ShadowAuthorization.test_forbidden_merge_is_rejected_before_permission_outputs_exist)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/factory-least-privilege-qynise-20261019/scripts/test-factory-least-privilege.py", line 187, in test_forbidden_merge_is_rejected_before_permission_outputs_exist
+    self.assertNotEqual(result.returncode, 0)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 == 0
+
+======================================================================
+FAIL: test_permitted_merge_and_workflow_completion_keep_existing_modes (__main__.ShadowAuthorization.test_permitted_merge_and_workflow_completion_keep_existing_modes) (event='workflow_run', mode='', policy=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/factory-least-privilege-qynise-20261019/scripts/test-factory-least-privilege.py", line 198, in test_permitted_merge_and_workflow_completion_keep_existing_modes
+    self.assertEqual(self.permissions(output['mode'])['contents'], 'write' if expected == 'merge' else 'read')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'write' != 'read'
+- write
++ read
+
+
+======================================================================
+FAIL: test_shadow_keeps_checks_write_but_cannot_request_content_or_pr_write (__main__.ShadowAuthorization.test_shadow_keeps_checks_write_but_cannot_request_content_or_pr_write) (merge_enabled=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/factory-least-privilege-qynise-20261019/scripts/test-factory-least-privilege.py", line 179, in test_shadow_keeps_checks_write_but_cannot_request_content_or_pr_write
+    self.assertEqual(selected['contents'], 'read')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'write' != 'read'
+- write
++ read
+
+
+======================================================================
+FAIL: test_shadow_keeps_checks_write_but_cannot_request_content_or_pr_write (__main__.ShadowAuthorization.test_shadow_keeps_checks_write_but_cannot_request_content_or_pr_write) (merge_enabled=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/factory-least-privilege-qynise-20261019/scripts/test-factory-least-privilege.py", line 179, in test_shadow_keeps_checks_write_but_cannot_request_content_or_pr_write
+    self.assertEqual(selected['contents'], 'read')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'write' != 'read'
+- write
++ read
+
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.243s
+
+FAILED (failures=17)

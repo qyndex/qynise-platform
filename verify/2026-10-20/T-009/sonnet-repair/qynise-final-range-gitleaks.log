@@ -1,0 +1,4 @@
+9:25PM INF Unknown SCM platform. Use --platform to include links in findings. host=github.com-qyndex
+9:25PM INF 7 commits scanned.
+9:25PM INF scanned ~1807660 bytes (1.81 MB) in 234ms
+9:25PM WRN leaks found: 4

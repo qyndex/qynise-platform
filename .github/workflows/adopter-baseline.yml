@@ -24,6 +24,8 @@ jobs:
         run: |
           set -euo pipefail
           bash .claude/scripts/validate.sh --json | tee "$RUNNER_TEMP/process-validation.json"
+      - name: Verify factory credential and shadow permission boundaries
+        run: bash scripts/verify-factory-least-privilege.sh
   application-readiness:
     runs-on: ubuntu-latest
     timeout-minutes: 10

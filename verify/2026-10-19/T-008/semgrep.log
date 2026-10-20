@@ -1,0 +1,28 @@
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 8 files tracked by git with 618 Code rules:
+                                                                                                                        
+  Language      Rules   Files          Origin      Rules                                                                
+ ─────────────────────────────        ───────────────────                                                               
+  <multilang>      39       8          Community     618                                                                
+  yaml             25       6                                                                                           
+  python          147       1                                                                                           
+  bash              1       1                                                                                           
+                                                                                                                        
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+✅ Scan completed successfully.
+ • Findings: 0 (0 blocking)
+ • Rules run: 212
+ • Targets scanned: 8
+ • Parsed lines: ~100.0%
+ • No ignore information available
+Ran 212 rules on 8 files: 0 findings.
+(need more rules? `semgrep login` for additional free Semgrep Registry rules)
+

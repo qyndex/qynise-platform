@@ -1,0 +1,31 @@
+{
+  "source": "be378ffcec085b15df86280f53da65737de68d63",
+  "review_file_sha256": "531b0c14512011d716294f5fa539ae43c4a8309f74c8b511cc00cca195a04c92",
+  "scope": "Parent evidence-based adjudication of the model conditional concern; not an authenticated native review receipt",
+  "conditional_coverage_concern": {
+    "status": "cleared by omitted writer source and actual exact-source run",
+    "facts": [
+      "No root coverage directory is tracked/inherited in Git archive",
+      "Current coverage-reporter creates coverage directory and writes fresh summary only from native test:coverage event",
+      "Native Node coverage thresholds and strict source/counter parser enforce90/85; stored-versus-event equality is consistency checking, not independent coverage-engine corroboration",
+      "Exactbe sixcriteria plusaggregate succeeded underunchanged sandbox;181/185lines and190/220branches"
+    ],
+    "writer_sha256": "f612d9ef10ee80b45bcf74c93ca3c09c7ba492aec02c7a7901c396dc4501f0d8",
+    "actual_result_sha256": "b14efebceb7310d3d7c5ad71f07393cc92faae519d2ea1c02358a6a0464fa5c3"
+  },
+  "mapped_controls_rechecked": {
+    "loopback_bind": "demo.test.ts:25",
+    "provider_denied": "demo.test.ts:77",
+    "caller_review_denied": "demo.test.ts:78",
+    "keyboard_controls": "browser.test.ts:21,52",
+    "fixture_and_tenant_browser_journey": "actual browser2/2 retained inaggregate"
+  },
+  "remaining_nonblocking_limits": [
+    "Case inventory is explicit, not discovery of all future testfiles",
+    "Percriterionfailure is deliberately failclosed/coarse",
+    "Existing per-command120sectimeout andcontainer300sec cap; measuredAC6wellbelowbounds",
+    "Model did not receive all app/recovery sources; its scope limitations remain preserved"
+  ],
+  "code_change_required": false,
+  "native_acceptance": false
+}
