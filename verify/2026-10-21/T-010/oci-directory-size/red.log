@@ -1,0 +1,26 @@
+test_sized_directory_rejected_before_hidden_pax (__main__.Contracts.test_sized_directory_rejected_before_hidden_pax) ...
+  test_sized_directory_rejected_before_hidden_pax (__main__.Contracts.test_sized_directory_rejected_before_hidden_pax) (directory_type=b'5') ... FAIL
+  test_sized_directory_rejected_before_hidden_pax (__main__.Contracts.test_sized_directory_rejected_before_hidden_pax) (directory_type=b'\x00') ... FAIL
+
+======================================================================
+FAIL: test_sized_directory_rejected_before_hidden_pax (__main__.Contracts.test_sized_directory_rejected_before_hidden_pax) (directory_type=b'5')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/factory-qynise-image-no-redirect-20261021/scripts/test-verifier-image-publication.py", line 200, in test_sized_directory_rejected_before_hidden_pax
+    self.assertRaisesRegex(ValueError,'directory payload',lambda:m.oci(path))
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: hidden PAX payload processed
+
+======================================================================
+FAIL: test_sized_directory_rejected_before_hidden_pax (__main__.Contracts.test_sized_directory_rejected_before_hidden_pax) (directory_type=b'\x00')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/factory-qynise-image-no-redirect-20261021/scripts/test-verifier-image-publication.py", line 200, in test_sized_directory_rejected_before_hidden_pax
+    self.assertRaisesRegex(ValueError,'directory payload',lambda:m.oci(path))
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: hidden PAX payload processed
+
+----------------------------------------------------------------------
+Ran 1 test in 0.004s
+
+FAILED (failures=2)

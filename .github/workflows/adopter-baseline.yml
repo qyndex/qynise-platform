@@ -19,6 +19,10 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
+      - name: Validate disabled image publication contracts
+        run: python3 scripts/test-verifier-image-publication.py
+      - name: Exercise publisher CLI integration against local fake metadata
+        run: python3 scripts/verifier-image-publication.integration.test.py
       - name: Validate installed process files
         shell: bash
         run: |

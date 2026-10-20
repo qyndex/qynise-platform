@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/private/tmp/factory-qynise-image-publication-20261021/scripts/test-verifier-image-publication.py", line 6, in <module>
+    assert MODULE.is_file(), 'disabled fixed-context image publication guard is missing'
+           ~~~~~~~~~~~~~~^^
+AssertionError: disabled fixed-context image publication guard is missing

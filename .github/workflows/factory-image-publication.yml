@@ -1,0 +1,263 @@
+{
+  "name": "Factory verifier image publication (disabled until approved)",
+  "on": {
+    "workflow_dispatch": {}
+  },
+  "permissions": {},
+  "concurrency": {
+    "group": "factory-image-publication",
+    "cancel-in-progress": false
+  },
+  "jobs": {
+    "build": {
+      "if": "${{ github.repository == 'qyndex/qynise-platform' && github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main' && vars.FACTORY_IMAGE_PUBLISHING_ENABLED == 'true' }}",
+      "runs-on": "ubuntu-24.04",
+      "timeout-minutes": 30,
+      "permissions": {
+        "contents": "read",
+        "actions": "read"
+      },
+      "outputs": {
+        "artifact_id": "${{ steps.upload.outputs.artifact-id }}",
+        "archive_sha256": "${{ steps.seal.outputs.archive_sha256 }}",
+        "handoff_sha256": "${{ steps.seal.outputs.handoff_sha256 }}",
+        "environment_sha256": "${{ steps.preflight.outputs.environment_sha256 }}"
+      },
+      "steps": [
+        {
+          "uses": "actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "with": {
+            "ref": "${{ github.sha }}",
+            "persist-credentials": false
+          }
+        },
+        {
+          "name": "Verify enabled exact-main source and existing environment",
+          "id": "preflight",
+          "run": "python3 scripts/verifier-image-publication.py preflight",
+          "env": {
+            "GH_TOKEN": "${{ github.token }}"
+          }
+        },
+        {
+          "name": "Stage exactly three reviewed public files",
+          "run": "python3 scripts/verifier-image-publication.py stage \"$RUNNER_TEMP/verifier-context\""
+        },
+        {
+          "uses": "docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f",
+          "with": {
+            "version": "v0.38.0",
+            "driver-opts": "image=moby/buildkit@sha256:b059f8d7226d0b326bc871af489a5dddf65e36af4d20d14251b072974d9ee87c"
+          }
+        },
+        {
+          "name": "Build fixed public toolchain only; never push",
+          "run": "set -euo pipefail\ndocker buildx build --platform linux/amd64 --provenance=false --sbom=false --load --output \"type=oci,compression=gzip,force-compression=true,dest=$RUNNER_TEMP/image.oci.tar\" --tag factory-verifier:tooling \"$RUNNER_TEMP/verifier-context\""
+        },
+        {
+          "name": "Fresh offline tooling/browser and missing-cache negative",
+          "id": "tooling",
+          "run": "set -euo pipefail\ndocker run --rm --pull=never --network none --cap-drop ALL --security-opt no-new-privileges --pids-limit 256 --memory 2g --cpus 2 --read-only --user 65532:65532 --tmpfs /tmp:rw,nosuid,nodev,noexec,size=1g --entrypoint /bin/sh factory-verifier:tooling -c 'set -eu\nmkdir /tmp/fresh\ncp /opt/public-seed/package.json /opt/public-seed/package-lock.json /tmp/fresh/\ncd /tmp/fresh\nnpm ci --offline --ignore-scripts --no-audit --no-fund\nnode -e '\\''const {chromium}=require(\"playwright\");(async()=>{if(process.version!==\"v24.13.1\"||process.arch!==\"x64\"||process.getuid()!==65532)throw Error(\"toolchain identity\");const b=await chromium.launch({headless:true});const p=await b.newPage();await p.setContent(\"<title>offline verifier</title>\");if(await p.title()!==\"offline verifier\")throw Error(\"browser contract\");await b.close()})().catch(e=>{console.error(e);process.exit(1)})'\\''\nmkdir /tmp/missing\ncd /tmp/missing\nprintf \"{}\" >package.json\nset +e\nnpm install --offline --ignore-scripts --no-audit --no-fund --package-lock=false factory-unseeded-image-control@0.0.0 >negative.log 2>&1\ncode=$?\nset -e\ntest \"$code\" -ne 0\ngrep -q ENOTCACHED negative.log'\nprintf 'image_id=%s\\n' \"$(docker image inspect --format '{{.Id}}' factory-verifier:tooling)\" >> \"$GITHUB_OUTPUT\"\n"
+        },
+        {
+          "name": "Seal exact OCI artifact/source/environment",
+          "id": "seal",
+          "run": "python3 scripts/verifier-image-publication.py seal",
+          "env": {
+            "GH_TOKEN": "${{ github.token }}",
+            "OCI_ARCHIVE": "${{ runner.temp }}/image.oci.tar",
+            "IMAGE_HANDOFF": "${{ runner.temp }}/handoff.json",
+            "EXPECTED_ENVIRONMENT_SHA256": "${{ steps.preflight.outputs.environment_sha256 }}",
+            "TOOLING_IMAGE_ID": "${{ steps.tooling.outputs.image_id }}"
+          }
+        },
+        {
+          "uses": "actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9",
+          "id": "upload",
+          "with": {
+            "name": "verifier-image-${{ github.run_id }}-${{ github.run_attempt }}",
+            "path": "${{ runner.temp }}/image.oci.tar\n${{ runner.temp }}/handoff.json",
+            "if-no-files-found": "error",
+            "retention-days": 7,
+            "compression-level": 0
+          }
+        }
+      ]
+    },
+    "publish": {
+      "if": "${{ github.repository == 'qyndex/qynise-platform' && github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main' && vars.FACTORY_IMAGE_PUBLISHING_ENABLED == 'true' }}",
+      "needs": [
+        "build"
+      ],
+      "runs-on": "ubuntu-24.04",
+      "timeout-minutes": 20,
+      "environment": "factory-image-publishing",
+      "permissions": {
+        "contents": "read",
+        "actions": "read",
+        "packages": "write"
+      },
+      "outputs": {
+        "manifest_digest": "${{ steps.publish.outputs.manifest_digest }}",
+        "source": "${{ steps.publish.outputs.source }}",
+        "run_id": "${{ steps.publish.outputs.run_id }}",
+        "attempt": "${{ steps.publish.outputs.attempt }}",
+        "environment_sha256": "${{ steps.publish.outputs.environment_sha256 }}"
+      },
+      "steps": [
+        {
+          "uses": "actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "with": {
+            "ref": "${{ github.sha }}",
+            "persist-credentials": false
+          }
+        },
+        {
+          "name": "Verify enabled exact-main source and existing environment",
+          "id": "preflight",
+          "run": "python3 scripts/verifier-image-publication.py preflight",
+          "env": {
+            "GH_TOKEN": "${{ github.token }}",
+            "EXPECTED_ENVIRONMENT_SHA256": "${{ needs.build.outputs.environment_sha256 }}"
+          }
+        },
+        {
+          "uses": "actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333",
+          "with": {
+            "artifact-ids": "${{ needs.build.outputs.artifact_id }}",
+            "path": "${{ runner.temp }}/verifier-artifact"
+          }
+        },
+        {
+          "name": "Validate exact artifact and package before registry login",
+          "run": "python3 scripts/verifier-image-publication.py check-artifact",
+          "env": {
+            "GH_TOKEN": "${{ github.token }}",
+            "OCI_ARCHIVE": "${{ runner.temp }}/verifier-artifact/image.oci.tar",
+            "IMAGE_HANDOFF": "${{ runner.temp }}/verifier-artifact/handoff.json",
+            "EXPECTED_OCI_SHA256": "${{ needs.build.outputs.archive_sha256 }}",
+            "EXPECTED_HANDOFF_SHA256": "${{ needs.build.outputs.handoff_sha256 }}",
+            "EXPECTED_ENVIRONMENT_SHA256": "${{ needs.build.outputs.environment_sha256 }}"
+          }
+        },
+        {
+          "uses": "oras-project/setup-oras@22ce207df3b08e061f537244349aac6ae1d214f6",
+          "with": {
+            "url": "https://github.com/oras-project/oras/releases/download/v1.3.0/oras_1.3.0_linux_amd64.tar.gz",
+            "checksum": "6cdc692f929100feb08aa8de584d02f7bcc30ec7d88bc2adc2054d782db57c64"
+          }
+        },
+        {
+          "name": "Authenticate only with ephemeral job token",
+          "run": "printf '%s' \"$GHCR_TOKEN\" | oras login ghcr.io --username \"$GITHUB_ACTOR\" --password-stdin",
+          "env": {
+            "GHCR_TOKEN": "${{ github.token }}"
+          }
+        },
+        {
+          "id": "publish",
+          "name": "Verify artifact, push unchanged manifest and read it back",
+          "run": "python3 scripts/verifier-image-publication.py publish",
+          "env": {
+            "GH_TOKEN": "${{ github.token }}",
+            "OCI_ARCHIVE": "${{ runner.temp }}/verifier-artifact/image.oci.tar",
+            "IMAGE_HANDOFF": "${{ runner.temp }}/verifier-artifact/handoff.json",
+            "EXPECTED_OCI_SHA256": "${{ needs.build.outputs.archive_sha256 }}",
+            "EXPECTED_HANDOFF_SHA256": "${{ needs.build.outputs.handoff_sha256 }}",
+            "EXPECTED_ENVIRONMENT_SHA256": "${{ needs.build.outputs.environment_sha256 }}"
+          }
+        }
+      ]
+    },
+    "sign": {
+      "if": "${{ github.repository == 'qyndex/qynise-platform' && github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main' && vars.FACTORY_IMAGE_PUBLISHING_ENABLED == 'true' }}",
+      "needs": [
+        "build",
+        "publish"
+      ],
+      "runs-on": "ubuntu-24.04",
+      "timeout-minutes": 15,
+      "environment": "factory-image-publishing",
+      "permissions": {
+        "contents": "read",
+        "actions": "read",
+        "packages": "write",
+        "id-token": "write",
+        "attestations": "write"
+      },
+      "steps": [
+        {
+          "uses": "actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "with": {
+            "ref": "${{ github.sha }}",
+            "persist-credentials": false
+          }
+        },
+        {
+          "name": "Verify enabled exact-main source and existing environment",
+          "id": "preflight",
+          "run": "python3 scripts/verifier-image-publication.py preflight",
+          "env": {
+            "GH_TOKEN": "${{ github.token }}",
+            "EXPECTED_ENVIRONMENT_SHA256": "${{ needs.build.outputs.environment_sha256 }}"
+          }
+        },
+        {
+          "uses": "oras-project/setup-oras@22ce207df3b08e061f537244349aac6ae1d214f6",
+          "with": {
+            "url": "https://github.com/oras-project/oras/releases/download/v1.3.0/oras_1.3.0_linux_amd64.tar.gz",
+            "checksum": "6cdc692f929100feb08aa8de584d02f7bcc30ec7d88bc2adc2054d782db57c64"
+          }
+        },
+        {
+          "name": "Authenticate only with ephemeral job token",
+          "run": "printf '%s' \"$GHCR_TOKEN\" | oras login ghcr.io --username \"$GITHUB_ACTOR\" --password-stdin",
+          "env": {
+            "GHCR_TOKEN": "${{ github.token }}"
+          }
+        },
+        {
+          "name": "Verify exact published subject/source/run before signing",
+          "run": "python3 scripts/verifier-image-publication.py sign-check",
+          "env": {
+            "GH_TOKEN": "${{ github.token }}",
+            "PUBLISHED_MANIFEST_DIGEST": "${{ needs.publish.outputs.manifest_digest }}",
+            "PUBLISHED_SOURCE": "${{ needs.publish.outputs.source }}",
+            "PUBLISHED_RUN_ID": "${{ needs.publish.outputs.run_id }}",
+            "PUBLISHED_ATTEMPT": "${{ needs.publish.outputs.attempt }}",
+            "EXPECTED_ENVIRONMENT_SHA256": "${{ needs.build.outputs.environment_sha256 }}"
+          }
+        },
+        {
+          "uses": "actions/attest@1e69f48acb82d1966a394da916b4c1698aa569d6",
+          "with": {
+            "subject-name": "ghcr.io/qyndex/qynise-platform-verifier",
+            "subject-digest": "${{ needs.publish.outputs.manifest_digest }}",
+            "push-to-registry": true
+          }
+        },
+        {
+          "name": "Require native certificate/source/run/attempt verification",
+          "run": "python3 scripts/verifier-image-publication.py verify-signature",
+          "env": {
+            "GH_TOKEN": "${{ github.token }}",
+            "PUBLISHED_MANIFEST_DIGEST": "${{ needs.publish.outputs.manifest_digest }}",
+            "PUBLISHED_SOURCE": "${{ needs.publish.outputs.source }}",
+            "PUBLISHED_RUN_ID": "${{ needs.publish.outputs.run_id }}",
+            "PUBLISHED_ATTEMPT": "${{ needs.publish.outputs.attempt }}",
+            "EXPECTED_ENVIRONMENT_SHA256": "${{ needs.build.outputs.environment_sha256 }}"
+          }
+        },
+        {
+          "uses": "actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9",
+          "with": {
+            "name": "verifier-image-provenance-${{ github.run_id }}-${{ github.run_attempt }}",
+            "path": "verified-image-provenance.json",
+            "if-no-files-found": "error",
+            "retention-days": 90
+          }
+        }
+      ]
+    }
+  }
+}

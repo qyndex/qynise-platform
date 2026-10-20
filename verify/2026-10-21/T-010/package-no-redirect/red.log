@@ -1,0 +1,206 @@
+test_package_http_rejects_redirects_without_forwarding_auth (__main__.Contracts.test_package_http_rejects_redirects_without_forwarding_auth) ...
+  test_package_http_rejects_redirects_without_forwarding_auth (__main__.Contracts.test_package_http_rejects_redirects_without_forwarding_auth) (status=301, cross_host=False) ... FAIL
+  test_package_http_rejects_redirects_without_forwarding_auth (__main__.Contracts.test_package_http_rejects_redirects_without_forwarding_auth) (status=301, cross_host=True) ... FAIL
+  test_package_http_rejects_redirects_without_forwarding_auth (__main__.Contracts.test_package_http_rejects_redirects_without_forwarding_auth) (status=302, cross_host=False) ... FAIL
+  test_package_http_rejects_redirects_without_forwarding_auth (__main__.Contracts.test_package_http_rejects_redirects_without_forwarding_auth) (status=302, cross_host=True) ... FAIL
+  test_package_http_rejects_redirects_without_forwarding_auth (__main__.Contracts.test_package_http_rejects_redirects_without_forwarding_auth) (status=303, cross_host=False) ... FAIL
+  test_package_http_rejects_redirects_without_forwarding_auth (__main__.Contracts.test_package_http_rejects_redirects_without_forwarding_auth) (status=303, cross_host=True) ... FAIL
+  test_package_http_rejects_redirects_without_forwarding_auth (__main__.Contracts.test_package_http_rejects_redirects_without_forwarding_auth) (status=307, cross_host=False) ... FAIL
+  test_package_http_rejects_redirects_without_forwarding_auth (__main__.Contracts.test_package_http_rejects_redirects_without_forwarding_auth) (status=307, cross_host=True) ... FAIL
+  test_package_http_rejects_redirects_without_forwarding_auth (__main__.Contracts.test_package_http_rejects_redirects_without_forwarding_auth) (status=308, cross_host=False) ... FAIL
+  test_package_http_rejects_redirects_without_forwarding_auth (__main__.Contracts.test_package_http_rejects_redirects_without_forwarding_auth) (status=308, cross_host=True) ... FAIL
+
+======================================================================
+FAIL: test_package_http_rejects_redirects_without_forwarding_auth (__main__.Contracts.test_package_http_rejects_redirects_without_forwarding_auth) (status=301, cross_host=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/factory-qynise-image-no-redirect-20261021/scripts/test-verifier-image-publication.py", line 144, in test_package_http_rejects_redirects_without_forwarding_auth
+    with self.subTest(status=status,cross_host=cross_host):self.package_http(200,status,cross_host)
+                                                           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/factory-qynise-image-no-redirect-20261021/scripts/test-verifier-image-publication.py", line 137, in package_http
+    self.assertEqual(received,[],'Authorization must never reach a redirect destination')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: ['Bearer LOCAL_NONSECRET_CANARY'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'Bearer LOCAL_NONSECRET_CANARY'
+
+- ['Bearer LOCAL_NONSECRET_CANARY']
++ [] : Authorization must never reach a redirect destination
+
+======================================================================
+FAIL: test_package_http_rejects_redirects_without_forwarding_auth (__main__.Contracts.test_package_http_rejects_redirects_without_forwarding_auth) (status=301, cross_host=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/factory-qynise-image-no-redirect-20261021/scripts/test-verifier-image-publication.py", line 144, in test_package_http_rejects_redirects_without_forwarding_auth
+    with self.subTest(status=status,cross_host=cross_host):self.package_http(200,status,cross_host)
+                                                           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/factory-qynise-image-no-redirect-20261021/scripts/test-verifier-image-publication.py", line 137, in package_http
+    self.assertEqual(received,[],'Authorization must never reach a redirect destination')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: ['Bearer LOCAL_NONSECRET_CANARY'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'Bearer LOCAL_NONSECRET_CANARY'
+
+- ['Bearer LOCAL_NONSECRET_CANARY']
++ [] : Authorization must never reach a redirect destination
+
+======================================================================
+FAIL: test_package_http_rejects_redirects_without_forwarding_auth (__main__.Contracts.test_package_http_rejects_redirects_without_forwarding_auth) (status=302, cross_host=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/factory-qynise-image-no-redirect-20261021/scripts/test-verifier-image-publication.py", line 144, in test_package_http_rejects_redirects_without_forwarding_auth
+    with self.subTest(status=status,cross_host=cross_host):self.package_http(200,status,cross_host)
+                                                           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/factory-qynise-image-no-redirect-20261021/scripts/test-verifier-image-publication.py", line 137, in package_http
+    self.assertEqual(received,[],'Authorization must never reach a redirect destination')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: ['Bearer LOCAL_NONSECRET_CANARY'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'Bearer LOCAL_NONSECRET_CANARY'
+
+- ['Bearer LOCAL_NONSECRET_CANARY']
++ [] : Authorization must never reach a redirect destination
+
+======================================================================
+FAIL: test_package_http_rejects_redirects_without_forwarding_auth (__main__.Contracts.test_package_http_rejects_redirects_without_forwarding_auth) (status=302, cross_host=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/factory-qynise-image-no-redirect-20261021/scripts/test-verifier-image-publication.py", line 144, in test_package_http_rejects_redirects_without_forwarding_auth
+    with self.subTest(status=status,cross_host=cross_host):self.package_http(200,status,cross_host)
+                                                           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/factory-qynise-image-no-redirect-20261021/scripts/test-verifier-image-publication.py", line 137, in package_http
+    self.assertEqual(received,[],'Authorization must never reach a redirect destination')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: ['Bearer LOCAL_NONSECRET_CANARY'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'Bearer LOCAL_NONSECRET_CANARY'
+
+- ['Bearer LOCAL_NONSECRET_CANARY']
++ [] : Authorization must never reach a redirect destination
+
+======================================================================
+FAIL: test_package_http_rejects_redirects_without_forwarding_auth (__main__.Contracts.test_package_http_rejects_redirects_without_forwarding_auth) (status=303, cross_host=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/factory-qynise-image-no-redirect-20261021/scripts/test-verifier-image-publication.py", line 144, in test_package_http_rejects_redirects_without_forwarding_auth
+    with self.subTest(status=status,cross_host=cross_host):self.package_http(200,status,cross_host)
+                                                           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/factory-qynise-image-no-redirect-20261021/scripts/test-verifier-image-publication.py", line 137, in package_http
+    self.assertEqual(received,[],'Authorization must never reach a redirect destination')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: ['Bearer LOCAL_NONSECRET_CANARY'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'Bearer LOCAL_NONSECRET_CANARY'
+
+- ['Bearer LOCAL_NONSECRET_CANARY']
++ [] : Authorization must never reach a redirect destination
+
+======================================================================
+FAIL: test_package_http_rejects_redirects_without_forwarding_auth (__main__.Contracts.test_package_http_rejects_redirects_without_forwarding_auth) (status=303, cross_host=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/factory-qynise-image-no-redirect-20261021/scripts/test-verifier-image-publication.py", line 144, in test_package_http_rejects_redirects_without_forwarding_auth
+    with self.subTest(status=status,cross_host=cross_host):self.package_http(200,status,cross_host)
+                                                           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/factory-qynise-image-no-redirect-20261021/scripts/test-verifier-image-publication.py", line 137, in package_http
+    self.assertEqual(received,[],'Authorization must never reach a redirect destination')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: ['Bearer LOCAL_NONSECRET_CANARY'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'Bearer LOCAL_NONSECRET_CANARY'
+
+- ['Bearer LOCAL_NONSECRET_CANARY']
++ [] : Authorization must never reach a redirect destination
+
+======================================================================
+FAIL: test_package_http_rejects_redirects_without_forwarding_auth (__main__.Contracts.test_package_http_rejects_redirects_without_forwarding_auth) (status=307, cross_host=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/factory-qynise-image-no-redirect-20261021/scripts/test-verifier-image-publication.py", line 144, in test_package_http_rejects_redirects_without_forwarding_auth
+    with self.subTest(status=status,cross_host=cross_host):self.package_http(200,status,cross_host)
+                                                           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/factory-qynise-image-no-redirect-20261021/scripts/test-verifier-image-publication.py", line 137, in package_http
+    self.assertEqual(received,[],'Authorization must never reach a redirect destination')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: ['Bearer LOCAL_NONSECRET_CANARY'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'Bearer LOCAL_NONSECRET_CANARY'
+
+- ['Bearer LOCAL_NONSECRET_CANARY']
++ [] : Authorization must never reach a redirect destination
+
+======================================================================
+FAIL: test_package_http_rejects_redirects_without_forwarding_auth (__main__.Contracts.test_package_http_rejects_redirects_without_forwarding_auth) (status=307, cross_host=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/factory-qynise-image-no-redirect-20261021/scripts/test-verifier-image-publication.py", line 144, in test_package_http_rejects_redirects_without_forwarding_auth
+    with self.subTest(status=status,cross_host=cross_host):self.package_http(200,status,cross_host)
+                                                           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/factory-qynise-image-no-redirect-20261021/scripts/test-verifier-image-publication.py", line 137, in package_http
+    self.assertEqual(received,[],'Authorization must never reach a redirect destination')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: ['Bearer LOCAL_NONSECRET_CANARY'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'Bearer LOCAL_NONSECRET_CANARY'
+
+- ['Bearer LOCAL_NONSECRET_CANARY']
++ [] : Authorization must never reach a redirect destination
+
+======================================================================
+FAIL: test_package_http_rejects_redirects_without_forwarding_auth (__main__.Contracts.test_package_http_rejects_redirects_without_forwarding_auth) (status=308, cross_host=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/factory-qynise-image-no-redirect-20261021/scripts/test-verifier-image-publication.py", line 144, in test_package_http_rejects_redirects_without_forwarding_auth
+    with self.subTest(status=status,cross_host=cross_host):self.package_http(200,status,cross_host)
+                                                           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/factory-qynise-image-no-redirect-20261021/scripts/test-verifier-image-publication.py", line 137, in package_http
+    self.assertEqual(received,[],'Authorization must never reach a redirect destination')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: ['Bearer LOCAL_NONSECRET_CANARY'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'Bearer LOCAL_NONSECRET_CANARY'
+
+- ['Bearer LOCAL_NONSECRET_CANARY']
++ [] : Authorization must never reach a redirect destination
+
+======================================================================
+FAIL: test_package_http_rejects_redirects_without_forwarding_auth (__main__.Contracts.test_package_http_rejects_redirects_without_forwarding_auth) (status=308, cross_host=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/private/tmp/factory-qynise-image-no-redirect-20261021/scripts/test-verifier-image-publication.py", line 144, in test_package_http_rejects_redirects_without_forwarding_auth
+    with self.subTest(status=status,cross_host=cross_host):self.package_http(200,status,cross_host)
+                                                           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/tmp/factory-qynise-image-no-redirect-20261021/scripts/test-verifier-image-publication.py", line 137, in package_http
+    self.assertEqual(received,[],'Authorization must never reach a redirect destination')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: ['Bearer LOCAL_NONSECRET_CANARY'] != []
+
+First list contains 1 additional elements.
+First extra element 0:
+'Bearer LOCAL_NONSECRET_CANARY'
+
+- ['Bearer LOCAL_NONSECRET_CANARY']
++ [] : Authorization must never reach a redirect destination
+
+----------------------------------------------------------------------
+Ran 1 test in 7.119s
+
+FAILED (failures=10)

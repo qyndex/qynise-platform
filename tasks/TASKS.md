@@ -31,3 +31,10 @@ Append-only product authority. Add tasks only from approved specifications and p
   accept: node --test app/local/browser.test.ts
 
 Completed local regressions are not full Spec001, authenticated factory or product acceptance. The host-specific ledger command paths are retained verbatim as actual observations; portable CI uses scripts/verify-application.sh on pinned Node24.
+
+## Approved local verifier-image publisher implementation
+
+- [x] T-010 Implement/test disabled fixed-context image publication guards; no live publication. | spec:003 | phase:implementation | priority:security | created:2026-10-21 | est:1h
+  spec: specs/active/003-verifier-image-publication.md
+  accept: python3 scripts/test-verifier-image-publication.py && python3 scripts/verifier-image-publication.integration.test.py
+  continuation: plans/active/003-verifier-image-publication.md

@@ -1,0 +1,15 @@
+# Fixed-endpoint package HTTP redirect refusal
+
+Published preimage: `aeb9551c4a0fef649ef5a136d34c9a3b35ec0393`. This local successor changes only the publisher HTTP redirect handling, its actual transport regression, and this proof. No workflow, immutable recipe, profile, policy, enable flag or environment changes.
+
+Genuine RED: the new actual two-local-server regression against unchanged published production exited1, failing all ten 301/302/303/307/308 same-host and cross-host subcases because the redirect sink received the synthetic nonsecret Authorization canary. No GitHub API, real token, build, push, signing or dispatch was used. An earlier test-harness routing mistake was retained privately and is not this RED.
+
+Final GREEN: all56 local fixture tests and all7 real CLI/fake-gh integration tests exited0. The source receives the synthetic token, every redirect sink receives zero requests, direct200/404/403 semantics remain intact, and additional300/304/305/306/399 responses reject. New tests explicitly clean up both owned local servers and threads. Existing54 controls still run unchanged.
+
+Implementation: a per-call no-redirect opener rejects redirect attempts with a fixed message; existing non-redirect package status/body/association checks remain unchanged. The endpoint remains fixed api.github.com. The reproduced exposure requires an upstream redirect; no actual GitHub redirect or live credential leak is claimed.
+
+Review: actual local OAuth tool-free Sonnet5.5 reviews of the old exact published heads completed; no hosted/native acceptance credit. Both inputs omitted the root package/lock contents despite their exact hashes appearing in the source contract. Their full public files are separately retained for later review; no model rerun or correction of that historical limitation is claimed. Other conditional suggestions were adjudicated separately, not automatically treated as defects.
+
+The full unchanged image-spec collector was subsequently run serially at the exact source recorded in fresh-full-collector-result.json with Node24, npm offline/no-install and explicit exactbase. It actually failed0/5/smoke1; no AC-tagged result set exists. Qynise smoke additionally encountered sandbox local-listen EPERM; recorded coverage is62.70%line/78.125%branch; remaining tail-only failures are not all attributed. Brownfield offlineVitest returned ENOTCACHED with unknowncoverage. Original canonical collector0/5/smoke1 remains historical, and protected model producers/publication workflow remain disabled. No local fixture result authorizes source publication, merge, protected configuration, image build/push/visibility or activation.
+
+Raw RED preservation: red-raw.gz.b64 decodes to the untouched actual subprocess stdout/stderr (SHA256 c6f951468cd879ca2f4fff7e61961f85bfacd326b8d3320851499fa1f654a4ae). red.log is the display copy with trailing whitespace removed only for diff hygiene; no failure or timestamp is changed. External original raw bytes remain retained.
