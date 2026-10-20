@@ -36,5 +36,5 @@ Completed local regressions are not full Spec001, authenticated factory or produ
 
 - [x] T-010 Implement/test disabled fixed-context image publication guards; no live publication. | spec:003 | phase:implementation | priority:security | created:2026-10-21 | est:1h
   spec: specs/active/003-verifier-image-publication.md
-  accept: python3 scripts/test-verifier-image-publication.py
+  accept: python3 scripts/test-verifier-image-publication.py && python3 scripts/verifier-image-publication.integration.test.py
   continuation: plans/active/003-verifier-image-publication.md

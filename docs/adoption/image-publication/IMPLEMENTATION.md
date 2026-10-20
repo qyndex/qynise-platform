@@ -98,3 +98,11 @@ config rootfs.diff_id. zstd and extended/PAX/GNU/sparse headers reject; a bounde
 header pre-scan runs before tarfile processes any extension payload. The OCI
 exporter requests gzip compression. Both ordinary process-validation lanes run
 the deterministic Python suite; publishing remains manual and disabled.
+
+Seven cross-process CLI integration checks additionally exercise real event/env/file
+parsing, fake gh subprocess metadata, environment policy and GITHUB_OUTPUT binding.
+Wrong ref/event, changed environment, denied metadata, tag policy and disabled
+contract reject. The fake gh boundary is local only, not native GitHub acceptance.
+The integration gate defaults to main; these disposable clones have no local main
+ref, so its full-tree fallback exposes brownfield existing waitlist route coverage.
+The new publisher has no API/handler/query path and tests do not repair that route.

@@ -31,3 +31,10 @@ Final plan validation exposed an invalid active status; that actual failed
 observation is retained as validate-final.json. The only follow-up source change
 sets the plan to the schema-valid approved local scope status. validate-corrected.json
 records its separate corrected result. No runtime bytes changed for this repair.
+
+The first collectors lacked local main. A later local-only main ref was
+established at recorded verified base `ac6f8437707ac10c2dd3567578d680c8601973e4` without checkout/remote write.
+The historical bundle is retained under historical-missing-main-collector/.
+New cross-process integration checks7/7 PASS; exact-base integration gate PASS.
+A single new source collector will use offline/no-install npm settings; it cannot
+establish hosted image AC5. Existing native-tool failures remain visible.
