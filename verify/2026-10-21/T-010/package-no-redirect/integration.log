@@ -7,6 +7,6 @@ test_wrong_event_before_publish_or_metadata (__main__.Integration.test_wrong_eve
 test_wrong_ref_before_publish_or_metadata (__main__.Integration.test_wrong_ref_before_publish_or_metadata) ... ok
 
 ----------------------------------------------------------------------
-Ran 7 tests in 0.924s
+Ran 7 tests in 0.901s
 
 OK

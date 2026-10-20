@@ -42,21 +42,7 @@ test_oci_wrong_platform (__main__.Contracts.test_oci_wrong_platform) ... ok
 test_package_exact_association (__main__.Contracts.test_package_exact_association) ... ok
 test_package_forbidden (__main__.Contracts.test_package_forbidden) ... ok
 test_package_foreign (__main__.Contracts.test_package_foreign) ... ok
-test_package_http_direct_status_semantics (__main__.Contracts.test_package_http_direct_status_semantics) ... /opt/homebrew/Cellar/python@3.14/3.14.4/Frameworks/Python.framework/Versions/3.14/lib/python3.14/tempfile.py:484: ResourceWarning: Implicitly cleaning up <HTTPError 404: 'Not Found'>
-  _warnings.warn(self.warn_message, ResourceWarning)
-/opt/homebrew/Cellar/python@3.14/3.14.4/Frameworks/Python.framework/Versions/3.14/lib/python3.14/tempfile.py:484: ResourceWarning: Implicitly cleaning up <HTTPError 403: 'Forbidden'>
-  _warnings.warn(self.warn_message, ResourceWarning)
-/opt/homebrew/Cellar/python@3.14/3.14.4/Frameworks/Python.framework/Versions/3.14/lib/python3.14/tempfile.py:484: ResourceWarning: Implicitly cleaning up <HTTPError 300: 'Multiple Choices'>
-  _warnings.warn(self.warn_message, ResourceWarning)
-/opt/homebrew/Cellar/python@3.14/3.14.4/Frameworks/Python.framework/Versions/3.14/lib/python3.14/tempfile.py:484: ResourceWarning: Implicitly cleaning up <HTTPError 304: 'Not Modified'>
-  _warnings.warn(self.warn_message, ResourceWarning)
-/opt/homebrew/Cellar/python@3.14/3.14.4/Frameworks/Python.framework/Versions/3.14/lib/python3.14/tempfile.py:484: ResourceWarning: Implicitly cleaning up <HTTPError 305: 'Use Proxy'>
-  _warnings.warn(self.warn_message, ResourceWarning)
-/opt/homebrew/Cellar/python@3.14/3.14.4/Frameworks/Python.framework/Versions/3.14/lib/python3.14/tempfile.py:484: ResourceWarning: Implicitly cleaning up <HTTPError 306: ''>
-  _warnings.warn(self.warn_message, ResourceWarning)
-/opt/homebrew/Cellar/python@3.14/3.14.4/Frameworks/Python.framework/Versions/3.14/lib/python3.14/tempfile.py:484: ResourceWarning: Implicitly cleaning up <HTTPError 399: ''>
-  _warnings.warn(self.warn_message, ResourceWarning)
-ok
+test_package_http_direct_status_semantics (__main__.Contracts.test_package_http_direct_status_semantics) ... ok
 test_package_http_rejects_redirects_without_forwarding_auth (__main__.Contracts.test_package_http_rejects_redirects_without_forwarding_auth) ... ok
 test_package_missing_fixed_target (__main__.Contracts.test_package_missing_fixed_target) ... ok
 test_package_unknown_association (__main__.Contracts.test_package_unknown_association) ... ok
@@ -70,6 +56,6 @@ test_wrong_package (__main__.Contracts.test_wrong_package) ... ok
 test_wrong_ref (__main__.Contracts.test_wrong_ref) ... ok
 
 ----------------------------------------------------------------------
-Ran 56 tests in 17.526s
+Ran 56 tests in 18.561s
 
 OK

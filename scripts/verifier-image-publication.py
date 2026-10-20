@@ -165,7 +165,7 @@ def package_association(status,value):
 
 class _NoPackageRedirect(urllib.request.HTTPRedirectHandler):
  def redirect_request(self,request,fp,code,message,headers,newurl):
-  raise ValueError('package metadata redirect rejected')
+  fp.close();raise ValueError('package metadata redirect rejected')
 
 def check_package():
  token=os.environ.get('GH_TOKEN');require(bool(token),'ephemeral package metadata token required')
@@ -174,7 +174,7 @@ def check_package():
  try:
   with urllib.request.build_opener(_NoPackageRedirect()).open(request,timeout=30) as response:status=response.status;body=response.read(2_000_001)
  except urllib.error.HTTPError as error:
-  status=error.code;body=error.read(2_000_001)
+  with error:status=error.code;body=error.read(2_000_001)
  require(len(body)<=2_000_000,'package response too large');return package_association(status,decode(body))
 
 def read_api(path):
