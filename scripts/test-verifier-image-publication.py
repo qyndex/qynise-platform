@@ -107,6 +107,45 @@ class Contracts(unittest.TestCase):
  def test_signing_requires_native_cli_verification(self):
   text=MODULE.read_text();self.assertIn("'gh','attestation','verify'",text);self.assertIn("certificate_binding(decode(verified)",text);self.assertIn("'--deny-self-hosted-runners'",text)
 
+
+ def package_http(self,status,redirect_status=None,cross_host=False):
+  import http.server,threading
+  received=[];source_auth=[]
+  class Sink(http.server.BaseHTTPRequestHandler):
+   def do_GET(server):
+    received.append(server.headers.get('Authorization'));server.send_response(200);server.end_headers();server.wfile.write(b'{}')
+   def log_message(server,*args):pass
+  sink=http.server.HTTPServer(('127.0.0.1',0),Sink)
+  value={'name':m.PACKAGE.rsplit('/',1)[1],'package_type':'container','owner':{'login':'qyndex'},'repository':{'full_name':m.REPOSITORY}} if status==200 else {'message':'Not Found' if status==404 else 'Forbidden'}
+  class Source(http.server.BaseHTTPRequestHandler):
+   def do_GET(server):
+    source_auth.append(server.headers.get('Authorization'));server.send_response(redirect_status or status)
+    if redirect_status:server.send_header('Location','http://'+('localhost' if cross_host else '127.0.0.1')+':'+str(sink.server_port)+'/sink')
+    server.end_headers();server.wfile.write(json.dumps(value).encode())
+   def log_message(server,*args):pass
+  source=http.server.HTTPServer(('127.0.0.1',0),Source)
+  threads=[threading.Thread(target=s.serve_forever,daemon=True) for s in (sink,source)]
+  for thread in threads:thread.start()
+  request=m.urllib.request.Request
+  def local_request(url,**kwargs):
+   if url=='https://api.github.com/orgs/qyndex/packages/container/'+m.PACKAGE.rsplit('/',1)[1]:url='http://127.0.0.1:'+str(source.server_port)+'/package'
+   return request(url,**kwargs)
+  try:
+   with mock.patch.dict(m.os.environ,{'GH_TOKEN':'LOCAL_NONSECRET_CANARY'}),mock.patch.object(m.urllib.request,'Request',side_effect=local_request):
+    if redirect_status or status not in (200,404):self.assertRaises(ValueError,m.check_package)
+    else:self.assertEqual(m.check_package(),'existing-repository-package' if status==200 else 'create-fixed-package')
+   self.assertEqual(source_auth,['Bearer LOCAL_NONSECRET_CANARY'])
+   self.assertEqual(received,[],'Authorization must never reach a redirect destination')
+  finally:
+   for server in (source,sink):server.shutdown();server.server_close()
+   for thread in threads:thread.join(timeout=2);self.assertFalse(thread.is_alive())
+ def test_package_http_rejects_redirects_without_forwarding_auth(self):
+  for status in (301,302,303,307,308):
+   for cross_host in (False,True):
+    with self.subTest(status=status,cross_host=cross_host):self.package_http(200,status,cross_host)
+ def test_package_http_direct_status_semantics(self):
+  for status in (200,404,403,300,304,305,306,399):
+   with self.subTest(status=status):self.package_http(status)
  def test_package_exact_association(self):
   self.assertEqual(m.package_association(200,{'name':m.PACKAGE.rsplit('/',1)[1],'package_type':'container','owner':{'login':'qyndex'},'repository':{'full_name':m.REPOSITORY}}),'existing-repository-package')
  def test_package_missing_fixed_target(self):self.assertEqual(m.package_association(404,{'message':'Not Found'}),'create-fixed-package')

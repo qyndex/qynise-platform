@@ -163,12 +163,16 @@ def package_association(status,value):
  require(type(value)is dict and value.get('name')==PACKAGE.rsplit('/',1)[1] and value.get('package_type')=='container' and value.get('owner',{}).get('login','').lower()==REPOSITORY.split('/')[0] and value.get('repository',{}).get('full_name')==REPOSITORY,'existing package belongs to another/unknown repository')
  return 'existing-repository-package'
 
+class _NoPackageRedirect(urllib.request.HTTPRedirectHandler):
+ def redirect_request(self,request,fp,code,message,headers,newurl):
+  raise ValueError('package metadata redirect rejected')
+
 def check_package():
  token=os.environ.get('GH_TOKEN');require(bool(token),'ephemeral package metadata token required')
  owner,name=PACKAGE.split('/')[1:];url='https://api.github.com/orgs/'+owner+'/packages/container/'+name
  request=urllib.request.Request(url,headers={'Authorization':'Bearer '+token,'Accept':'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28'})
  try:
-  with urllib.request.urlopen(request,timeout=30) as response:status=response.status;body=response.read(2_000_001)
+  with urllib.request.build_opener(_NoPackageRedirect()).open(request,timeout=30) as response:status=response.status;body=response.read(2_000_001)
  except urllib.error.HTTPError as error:
   status=error.code;body=error.read(2_000_001)
  require(len(body)<=2_000_000,'package response too large');return package_association(status,decode(body))
