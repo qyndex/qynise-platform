@@ -1,0 +1,56 @@
+# TDD ledger — green — T-010
+ledger_format: 2
+timestamp: 2026-10-21T01:59:42+11:00
+command: python3 scripts/test-verifier-image-publication.py
+exit_code: 0
+---
+test_certificate_wrong_subject (__main__.Contracts.test_certificate_wrong_subject) ... ok
+test_context_changed_hash (__main__.Contracts.test_context_changed_hash) ... ok
+test_context_exact (__main__.Contracts.test_context_exact) ... ok
+test_context_extra (__main__.Contracts.test_context_extra) ... ok
+test_context_symlink (__main__.Contracts.test_context_symlink) ... ok
+test_copy_is_exact_digest_no_platform_conversion (__main__.Contracts.test_copy_is_exact_digest_no_platform_conversion) ... ok
+test_default_disabled (__main__.Contracts.test_default_disabled) ... ok
+test_environment_changed_between_jobs (__main__.Contracts.test_environment_changed_between_jobs) ... ok
+test_environment_incomplete (__main__.Contracts.test_environment_incomplete) ... ok
+test_environment_main_only (__main__.Contracts.test_environment_main_only) ... ok
+test_environment_missing_type (__main__.Contracts.test_environment_missing_type) ... ok
+test_environment_permission_denied (__main__.Contracts.test_environment_permission_denied) ... ok
+test_environment_tag (__main__.Contracts.test_environment_tag) ... ok
+test_environment_wildcard (__main__.Contracts.test_environment_wildcard) ... ok
+test_foreign_repository (__main__.Contracts.test_foreign_repository) ... ok
+test_fork (__main__.Contracts.test_fork) ... ok
+test_gzip_bomb_bounded (__main__.Contracts.test_gzip_bomb_bounded) ... ok
+test_gzip_layer_verified (__main__.Contracts.test_gzip_layer_verified) ... ok
+test_handoff_exact (__main__.Contracts.test_handoff_exact) ... ok
+test_handoff_foreign_run (__main__.Contracts.test_handoff_foreign_run) ... ok
+test_handoff_wrong_environment (__main__.Contracts.test_handoff_wrong_environment) ... ok
+test_handoff_wrong_hash (__main__.Contracts.test_handoff_wrong_hash) ... ok
+test_input_ref (__main__.Contracts.test_input_ref) ... ok
+test_main_event (__main__.Contracts.test_main_event) ... ok
+test_missing_environment (__main__.Contracts.test_missing_environment) ... ok
+test_oci_bounded_iteration (__main__.Contracts.test_oci_bounded_iteration) ... ok
+test_oci_hash_changed (__main__.Contracts.test_oci_hash_changed) ... ok
+test_oci_link (__main__.Contracts.test_oci_link) ... ok
+test_oci_manifest_identity (__main__.Contracts.test_oci_manifest_identity) ... ok
+test_oci_unsafe_member (__main__.Contracts.test_oci_unsafe_member) ... ok
+test_oci_wrong_identity (__main__.Contracts.test_oci_wrong_identity) ... ok
+test_oci_wrong_platform (__main__.Contracts.test_oci_wrong_platform) ... ok
+test_package_exact_association (__main__.Contracts.test_package_exact_association) ... ok
+test_package_forbidden (__main__.Contracts.test_package_forbidden) ... ok
+test_package_foreign (__main__.Contracts.test_package_foreign) ... ok
+test_package_missing_fixed_target (__main__.Contracts.test_package_missing_fixed_target) ... ok
+test_package_unknown_association (__main__.Contracts.test_package_unknown_association) ... ok
+test_pax_header_rejected_before_payload (__main__.Contracts.test_pax_header_rejected_before_payload) ... ok
+test_publisher_validates_before_login (__main__.Contracts.test_publisher_validates_before_login) ... ok
+test_same_config_changed_layer_rejected (__main__.Contracts.test_same_config_changed_layer_rejected) ... ok
+test_signing_requires_native_cli_verification (__main__.Contracts.test_signing_requires_native_cli_verification) ... ok
+test_workflow_boundaries (__main__.Contracts.test_workflow_boundaries) ... ok
+test_wrong_event (__main__.Contracts.test_wrong_event) ... ok
+test_wrong_package (__main__.Contracts.test_wrong_package) ... ok
+test_wrong_ref (__main__.Contracts.test_wrong_ref) ... ok
+
+----------------------------------------------------------------------
+Ran 54 tests in 0.412s
+
+OK

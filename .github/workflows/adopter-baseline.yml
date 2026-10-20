@@ -19,6 +19,8 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
+      - name: Validate disabled image publication contracts
+        run: python3 scripts/test-verifier-image-publication.py
       - name: Validate installed process files
         shell: bash
         run: |

@@ -1,0 +1,12 @@
+# TDD ledger — red — T-010
+ledger_format: 2
+timestamp: 2026-10-21T01:48:20+11:00
+command: python3 scripts/test-verifier-image-publication.py
+exit_code: 1
+red_reason: assertion-failure
+---
+Traceback (most recent call last):
+  File "/private/tmp/factory-qynise-image-publication-20261021/scripts/test-verifier-image-publication.py", line 6, in <module>
+    assert MODULE.is_file(), 'disabled fixed-context image publication guard is missing'
+           ~~~~~~~~~~~~~~^^
+AssertionError: disabled fixed-context image publication guard is missing
