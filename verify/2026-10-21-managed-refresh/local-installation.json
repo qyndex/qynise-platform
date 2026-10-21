@@ -1,0 +1,21 @@
+{
+  "adopter": "qynise",
+  "base": "48c6991ecb2ac620cded1356c62121cf887f85a1",
+  "collector_observed_head": "a9507cd95d045a24d2d806d44d3b04e279bd8a01",
+  "metadata_repaired_parent": "0d38df1bf56a0b53c7bc61ba7b6cee22d0a385d5",
+  "whole_source_tree_equal": true,
+  "upstream_sources": [
+    "d948cbe29aeaefd998770343245da4ca6f95a1b0",
+    "6859f476264b3d317eb1e5670d361a1ec8d520bb",
+    "66178795a7408d0219186938d0dad9b493fc27c7"
+  ],
+  "local_stage_applications": 3,
+  "local_configuration_preserved": true,
+  "unchanged_application_paths": 211,
+  "shared_keep_local_fixtures": 27,
+  "native_acceptance": false,
+  "activation": false,
+  "collector_network_package_fetch_disabled": true,
+  "collector_skipped": false,
+  "proof_only_commit_is_not_a_new_verifier_execution": true
+}
