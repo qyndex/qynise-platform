@@ -1,7 +1,7 @@
 ## Evidence Bundle — Spec 003 (003-verifier-image-publication)
-Spec: `specs/active/003-verifier-image-publication.md` · Commit: `91ccda9`
+Spec: `specs/active/003-verifier-image-publication.md` · Commit: `593ac38`
 
-Retained results: [verify/2026-10-21-003-verifier-image-publication/attempt-o0JL2HHZ/results.json](verify/2026-10-21-003-verifier-image-publication/attempt-o0JL2HHZ/results.json)
+Retained results: [verify/2026-10-21-003-verifier-image-publication/attempt-4FEQrBA2/results.json](verify/2026-10-21-003-verifier-image-publication/attempt-4FEQrBA2/results.json)
 
 ### Acceptance criteria (0/5 proven)
 | AC | Proven by | Result |
@@ -14,7 +14,7 @@ Retained results: [verify/2026-10-21-003-verifier-image-publication/attempt-o0JL
 
 ### Smoke test (exit codes are load-bearing)
 ```
-# Smoke test — 2026-10-21T09:03:05+11:00
+# Smoke test — 2026-10-21T11:00:42+11:00
 $ bash .claude/scripts/verify.sh
 
 → Integration coverage gate

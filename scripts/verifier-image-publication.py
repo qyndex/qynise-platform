@@ -160,7 +160,10 @@ def package_association(status,value):
  """404 permits creation only at the fixed repository-owned namespace/name."""
  require(status in (200,404),'package visibility/permission ambiguous')
  if status==404:
-  require(type(value)is dict and value.get('message')=='Not Found','unexpected missing-package response');return 'create-fixed-package'
+  # HTTP status at the fixed API endpoint defines absence; human wording varies.
+  require(type(value)is dict and {'message'}<=set(value)<={'message','documentation_url','status'} and type(value['message'])is str and 0<len(value['message'])<=512 and value.get('status','404')=='404','unexpected missing-package response')
+  require('documentation_url' not in value or type(value['documentation_url'])is str and value['documentation_url'].startswith('https://docs.github.com/'),'unexpected missing-package documentation')
+  return 'create-fixed-package'
  require(type(value)is dict and value.get('name')==PACKAGE.rsplit('/',1)[1] and value.get('package_type')=='container' and value.get('owner',{}).get('login','').lower()==REPOSITORY.split('/')[0] and value.get('repository',{}).get('full_name')==REPOSITORY,'existing package belongs to another/unknown repository')
  return 'existing-repository-package'
 

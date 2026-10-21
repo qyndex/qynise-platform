@@ -1,0 +1,42 @@
+{
+  "source_commit": "593ac3805181a170628b34b8a42b5682150f447c",
+  "runtime_files_changed": [
+    "scripts/verifier-image-publication.py",
+    "scripts/test-verifier-image-publication.py"
+  ],
+  "local_contract_suite": {
+    "tests": 61,
+    "result": "PASS",
+    "loopback_required": true
+  },
+  "cli_integration_suite": {
+    "tests": 7,
+    "result": "PASS"
+  },
+  "initial_sandbox_suite": {
+    "errors": 18,
+    "reason": "Loopback HTTP server bind denied; same suite rerun outside sandbox and passed"
+  },
+  "original_hosted_attempt": {
+    "run_id": 39517764817,
+    "source": "1b200f9bf08267884fd4eb475afc11ed803ab779",
+    "build": "success",
+    "publish": "failure before registry login",
+    "sign": "skipped",
+    "source_defined_category": "unexpected missing-package response",
+    "publishing_restored_off": true,
+    "six_factory_flags_off": true,
+    "protections_unchanged": true
+  },
+  "new_hosted_attempt": false,
+  "native_acceptance": false,
+  "broad_collector": {
+    "spec": "003",
+    "verdict": "FAIL",
+    "ac_proven": 0,
+    "ac_total": 5,
+    "smoke_exit": 1
+  },
+  "gitleaks_delta": "PASS with canonical harness configuration",
+  "raw_job_logs_retained": false
+}
