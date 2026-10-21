@@ -1,0 +1,46 @@
+{
+  "source_commit": "da64997859144f6f2223a0392736685338ab572a",
+  "base": "f89036c0c0a2105faef8370a7c22fc637a12eda0",
+  "source_paths": [
+    ".github/workflows/adopter-baseline.yml",
+    ".github/workflows/factory-hosted-digest.yml",
+    ".github/workflows/factory-hosted-feedback.yml",
+    ".github/workflows/factory-merge.yml",
+    ".github/workflows/factory-reporting-alerts.yml",
+    ".github/workflows/factory-reporting-queue.yml",
+    "CLAUDE.md",
+    "docs/FACTORY-CREDENTIAL-BOUNDARIES.md",
+    "docs/FACTORY-PERMISSION-REVIEW-ADJUDICATION.md",
+    "docs/LOCAL-QUALIFICATION.md",
+    "docs/adoption/local-qualification/operator-approval.json",
+    "docs/adoption/local-qualification/proposal.md",
+    "plans/active/002-bounded-local-fixture-qualification.md",
+    "scripts/local-qualification-cases.json",
+    "scripts/local-qualification-contract.mjs",
+    "scripts/local-qualification-reporter.mjs",
+    "scripts/local-qualification.test.mjs",
+    "scripts/qualify-local.mjs",
+    "scripts/test-factory-least-privilege.py",
+    "scripts/verify-factory-least-privilege.sh",
+    "specs/active/002-bounded-local-fixture-qualification.md"
+  ],
+  "permission_tests": {
+    "passed": 15,
+    "failed": 0
+  },
+  "qualification_contract_tests": {
+    "passed": 18,
+    "failed": 0
+  },
+  "application_changes": false,
+  "full_collector": {
+    "spec": "002",
+    "verdict": "FAIL",
+    "proven": 0,
+    "total": 6,
+    "smoke_exit": 1,
+    "bundle": "verify/2026-10-21-002-bounded-local-fixture-qualification"
+  },
+  "native_acceptance": false,
+  "activation_performed": false
+}

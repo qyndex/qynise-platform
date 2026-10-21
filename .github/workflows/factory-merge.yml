@@ -75,6 +75,8 @@ jobs:
               number, mode = os.environ['REQUEST_PR'], os.environ['REQUEST_MODE']
           if not number.isdecimal() or int(number) <= 0 or mode not in ('shadow', 'merge'):
               raise SystemExit('Invalid factory request')
+          if mode == 'merge' and json.load(open('factory/policy.json')).get('merge_enabled') is not True:
+              raise SystemExit('Factory merge mode not activated after shadow proof')
           with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
               output.write(f'pr={number}\nmode={mode}\n')
           PY
@@ -88,8 +90,8 @@ jobs:
           repositories: ${{ github.event.repository.name }}
           permission-actions: read
           permission-checks: write
-          permission-contents: write
-          permission-pull-requests: write
+          permission-contents: ${{ steps.request.outputs.mode == 'merge' && 'write' || 'read' }}
+          permission-pull-requests: ${{ steps.request.outputs.mode == 'merge' && 'write' || 'read' }}
           permission-administration: read
       - name: Prepare protected policy observations
         env:

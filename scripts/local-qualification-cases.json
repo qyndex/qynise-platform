@@ -1,0 +1,224 @@
+{
+  "app": [
+    {
+      "file": "app/local/demo.test.ts",
+      "name": "explicit local mode, server-owned identities, origin and session boundaries"
+    },
+    {
+      "file": "app/local/demo.test.ts",
+      "name": "durable idempotent start validates input and denies cross-tenant access"
+    },
+    {
+      "file": "app/local/demo.test.ts",
+      "name": "restart resumes durable fixture work, records overlap, review and digest without a provider"
+    },
+    {
+      "file": "app/local/demo.test.ts",
+      "name": "cancellation persists and prevents queued fixture completion"
+    },
+    {
+      "file": "app/local/demo.test.ts",
+      "name": "recovery after review commit preserves original task provenance and final set"
+    },
+    {
+      "file": "app/local/demo.test.ts",
+      "name": "chunked Unicode brief is preserved byte-for-byte"
+    },
+    {
+      "file": "app/local/demo.test.ts",
+      "name": "running cancellation prevents final fixture publication"
+    },
+    {
+      "file": "app/local/demo.test.ts",
+      "name": "actual process death after a planner commit resumes without replacing that evidence"
+    },
+    {
+      "file": "app/local/demo.test.ts",
+      "name": "initial storage-claim failure stops scheduling without process death or false success"
+    },
+    {
+      "file": "app/local/demo.test.ts",
+      "name": "late cancel body cannot overwrite a committed successful run"
+    },
+    {
+      "file": "app/local/demo.test.ts",
+      "name": "HTTP input and retained-run limits reject invalid or oversized requests explicitly"
+    },
+    {
+      "file": "app/local/demo.test.ts",
+      "name": "static responses and session boundaries retain their explicit contract"
+    },
+    {
+      "file": "app/local/demo.test.ts",
+      "name": "a forged Host cannot read even a valid local test session"
+    },
+    {
+      "file": "app/local/demo.test.ts",
+      "name": "client identity hints cannot change the server-owned session tenant"
+    },
+    {
+      "file": "app/local/demo.test.ts",
+      "name": "foreign Origin cannot read or mutate a valid server-owned session"
+    },
+    {
+      "file": "app/local/ui.test.ts",
+      "name": "late Alice response cannot render after a successful Bob identity switch"
+    },
+    {
+      "file": "app/local/ui.test.ts",
+      "name": "overlapping identity submissions cannot reorder the browser session cookie"
+    },
+    {
+      "file": "app/local/ui.test.ts",
+      "name": "UI polls fixture evidence and preserves provenance and explicit errors"
+    },
+    {
+      "file": "app/local/ui.test.ts",
+      "name": "UI cancellation refreshes terminal state and reports failed mutations"
+    },
+    {
+      "file": "app/local/ui.test.ts",
+      "name": "UI login and polling failures remain visible without continuing a stale poll"
+    },
+    {
+      "file": "app/local/ui.test.ts",
+      "name": "UI rejects a changed shared cookie instead of writing under a stale identity label"
+    },
+    {
+      "file": "app/local/browser-errors.test.ts",
+      "name": "browser exception control covers existing and future context pages"
+    }
+  ],
+  "browser": [
+    {
+      "file": "app/local/browser.test.ts",
+      "name": "actual Chromium brief-to-evidence journey and tenant switch at desktop/mobile sizes"
+    },
+    {
+      "file": "app/local/browser.test.ts",
+      "name": "actual Chromium second-page exception is detected by the browser control"
+    }
+  ],
+  "recovery": [
+    {
+      "file": "experiments/recovery-spike/recovery.test.ts",
+      "name": "tenant-scoped idempotency conflicts and denies foreign reads"
+    },
+    {
+      "file": "experiments/recovery-spike/recovery.test.ts",
+      "name": "generation fence rejects stale completion and duplicate output conflicts"
+    },
+    {
+      "file": "experiments/recovery-spike/recovery.test.ts",
+      "name": "cancelled run refuses claims and late completion"
+    },
+    {
+      "file": "experiments/recovery-spike/recovery.test.ts",
+      "name": "final artifact waits for three tasks and independent review; replay is stable"
+    },
+    {
+      "file": "experiments/recovery-spike/recovery.test.ts",
+      "name": "review cannot run before aggregate; foreign or unknown task cannot mutate state"
+    },
+    {
+      "file": "experiments/recovery-spike/recovery.test.ts",
+      "name": "process death rolls back partial start; committed outbox survives death"
+    },
+    {
+      "file": "experiments/recovery-spike/recovery.test.ts",
+      "name": "process death after fixture response requires fenced retry without duplicate committed result"
+    },
+    {
+      "file": "experiments/recovery-spike/recovery.test.ts",
+      "name": "simultaneous processes serialize idempotent starts and fence competing claims"
+    },
+    {
+      "file": "experiments/recovery-spike/recovery.test.ts",
+      "name": "worker failure closes the competing fixture processes before returning"
+    }
+  ],
+  "reporter": [
+    {
+      "file": "scripts/coverage-reporter.test.mjs",
+      "name": "coverage summary weights real counts from both application source files"
+    },
+    {
+      "file": "scripts/coverage-reporter.test.mjs",
+      "name": "missing, duplicate, foreign or malformed coverage never becomes a passing summary"
+    }
+  ],
+  "contract": [
+    {
+      "file": "scripts/local-qualification.test.mjs",
+      "name": "complete native events require exact cases and a successful command"
+    },
+    {
+      "file": "scripts/local-qualification.test.mjs",
+      "name": "missing or duplicate cases cannot qualify a criterion"
+    },
+    {
+      "file": "scripts/local-qualification.test.mjs",
+      "name": "skipped todo failed or cancelled native cases never receive pass credit"
+    },
+    {
+      "file": "scripts/local-qualification.test.mjs",
+      "name": "printed success and foreign or malformed events cannot spoof native outcomes"
+    },
+    {
+      "file": "scripts/local-qualification.test.mjs",
+      "name": "missing duplicate or contradictory native summaries are rejected"
+    },
+    {
+      "file": "scripts/local-qualification.test.mjs",
+      "name": "actual coverage requires both measured source files and unchanged floors"
+    },
+    {
+      "file": "scripts/local-qualification.test.mjs",
+      "name": "missing duplicate malformed and below-floor coverage cannot become PASS"
+    },
+    {
+      "file": "scripts/local-qualification.test.mjs",
+      "name": "whole-criterion results require every mapped suite and setup control"
+    },
+    {
+      "file": "scripts/local-qualification.test.mjs",
+      "name": "a pass event carrying a native failure cannot spoof a successful outcome"
+    },
+    {
+      "file": "scripts/local-qualification.test.mjs",
+      "name": "empty or duplicate suite requirements cannot vacuously qualify a criterion"
+    },
+    {
+      "file": "scripts/local-qualification.test.mjs",
+      "name": "process capture preserves binary archive bytes without UTF8 decoding"
+    },
+    {
+      "file": "scripts/local-qualification.test.mjs",
+      "name": "snapshot tree and archive bind captured immutable commit instead of moving HEAD"
+    },
+    {
+      "file": "scripts/local-qualification.test.mjs",
+      "name": "actual git archive must preserve every immutable blob including binary bytes"
+    },
+    {
+      "file": "scripts/local-qualification.test.mjs",
+      "name": "actual export-ignore and export-subst archives cannot claim the committed source tree"
+    },
+    {
+      "file": "scripts/local-qualification.test.mjs",
+      "name": "missing extra altered and unsupported symlink sources fail byte binding"
+    },
+    {
+      "file": "scripts/local-qualification.test.mjs",
+      "name": "nonempty output is rejected and output setup failure cleans owned workspace"
+    },
+    {
+      "file": "scripts/local-qualification.test.mjs",
+      "name": "immutable Git symlink and gitlink modes are unsupported rather than silently omitted"
+    },
+    {
+      "file": "scripts/local-qualification.test.mjs",
+      "name": "fresh empty output works and symlinked temporary roots normalize native identities"
+    }
+  ]
+}
