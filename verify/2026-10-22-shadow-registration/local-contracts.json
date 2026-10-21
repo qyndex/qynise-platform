@@ -1,0 +1,60 @@
+{
+  "passes": 12,
+  "cases": [
+    {
+      "case": "prepared shadow data still fails credential gates without examining real credentials",
+      "result": "PASS"
+    },
+    {
+      "case": "merge-disabled source cannot reach any merge API",
+      "result": "PASS"
+    },
+    {
+      "case": "prepared profile parses as report data without native authentication",
+      "result": "PASS"
+    },
+    {
+      "case": "prepared profile schema parses without authenticating any receipt",
+      "result": "PASS"
+    },
+    {
+      "case": "empty legacy history cannot grant authority",
+      "result": "PASS"
+    },
+    {
+      "case": "exact approved candidate accepted by actual routing contract with fixture execution",
+      "result": "PASS"
+    },
+    {
+      "case": "scope blocks factory/policy.json",
+      "result": "PASS"
+    },
+    {
+      "case": "scope blocks app/local/tsconfig.json",
+      "result": "PASS"
+    },
+    {
+      "case": "scope blocks app/local/unapproved-feature.ts",
+      "result": "PASS"
+    },
+    {
+      "case": "drift blocks scripts/qualify-local.mjs",
+      "result": "PASS"
+    },
+    {
+      "case": "drift blocks specs/active/002-bounded-local-fixture-qualification.md",
+      "result": "PASS"
+    },
+    {
+      "case": "original product scope is not implicitly approved",
+      "result": "PASS"
+    }
+  ],
+  "real_API_calls": 0,
+  "real_credentials_examined": false,
+  "native_acceptance": false,
+  "policy_sha256": "b563ec018cdbc452ff8c4a72df402f4f673bccf911b2ab27eff1f7403ed1b0b9",
+  "receipt_trust_sha256": "fc9a018421964048871e808c26e8e65e6f63485fbb9c42f458218e9bc8c7fa4f",
+  "live_configuration_changes": 0,
+  "policy_file_sha256": "f79e5306ae121d5e0ddb767e06d8d8c17ee82e274b0f8e8f8ced1cddbe2c82bb"
+}
