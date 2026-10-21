@@ -18,7 +18,26 @@
     ".claude/scripts/autonomous-ship.sh",
     ".claude/scripts/verified-merge.sh",
     ".gitleaks.toml",
-    ".gitleaksignore"
+    ".gitleaksignore",
+    "scripts/qualify-local.mjs",
+    "scripts/local-qualification-contract.mjs",
+    "scripts/local-qualification-reporter.mjs",
+    "scripts/local-qualification-cases.json",
+    "scripts/local-qualification.test.mjs",
+    "scripts/coverage-reporter.mjs",
+    "scripts/coverage-reporter.test.mjs",
+    "package.json",
+    "package-lock.json",
+    "app/local/tsconfig.json",
+    "experiments/recovery-spike/.gitignore",
+    "experiments/recovery-spike/README.md",
+    "experiments/recovery-spike/crash.ts",
+    "experiments/recovery-spike/package-lock.json",
+    "experiments/recovery-spike/package.json",
+    "experiments/recovery-spike/recovery.test.ts",
+    "experiments/recovery-spike/store.ts",
+    "experiments/recovery-spike/tsconfig.json",
+    "experiments/recovery-spike/worker.ts"
   ],
   "required_checks": {
     "process-validation": 15368,
@@ -27,9 +46,125 @@
     "factory-verification": 15368,
     "factory-independent-review": 15368
   },
-  "specs": {},
-  "producers": {},
+  "specs": {
+    "002": {
+      "path": "specs/active/002-bounded-local-fixture-qualification.md",
+      "sha256": "ce15909602c046ca8a63b9cb1bb5b1f7e84c3d9a2dc02224a745abc255fb9f0e",
+      "ac_ids": [
+        "AC-1",
+        "AC-2",
+        "AC-3",
+        "AC-4",
+        "AC-5",
+        "AC-6"
+      ],
+      "allowed_paths": [
+        "app/local/browser-errors.test.ts",
+        "app/local/browser-errors.ts",
+        "app/local/browser.test.ts",
+        "app/local/demo.test.ts",
+        "app/local/server.ts",
+        "verify/*"
+      ],
+      "acceptance_commands": {
+        "AC-1": [
+          "node",
+          "scripts/qualify-local.mjs",
+          "--criterion",
+          "AC-1"
+        ],
+        "AC-2": [
+          "node",
+          "scripts/qualify-local.mjs",
+          "--criterion",
+          "AC-2"
+        ],
+        "AC-3": [
+          "node",
+          "scripts/qualify-local.mjs",
+          "--criterion",
+          "AC-3"
+        ],
+        "AC-4": [
+          "node",
+          "scripts/qualify-local.mjs",
+          "--criterion",
+          "AC-4"
+        ],
+        "AC-5": [
+          "node",
+          "scripts/qualify-local.mjs",
+          "--criterion",
+          "AC-5"
+        ],
+        "AC-6": [
+          "node",
+          "scripts/qualify-local.mjs",
+          "--criterion",
+          "AC-6"
+        ]
+      },
+      "verification_image": "ghcr.io/qyndex/qynise-platform-verifier@sha256:c24777df23f364b18e5cf24f58bed7d1a5ea895500d60c59e3646003abedda02",
+      "sandbox_profile": "native-build-v1"
+    }
+  },
+  "producers": {
+    "verification": {
+      "workflow_id": 389338574,
+      "artifact_name": "factory-verification",
+      "event": "pull_request_target",
+      "check_name": "factory-verification",
+      "trusted_files": {
+        ".claude/scripts/factory-bounded-process.py": "91d077e6badb7c606a31cf85d8fbb8315b91d9d211b4fe1ab8fb970693207f47",
+        ".claude/scripts/factory-coordinator.py": "c8ff2a7b4d106896c5d1cb9e866ac725521d0081f48f56529269351746476574",
+        ".claude/scripts/factory-font-adapter.py": "6e06c3f3e92318db47e7a61d911730aa7248c7b86c2254a3acc81b02c5ce3d6d",
+        ".claude/scripts/factory-policy-observation.py": "2fce0d7b6fda425dce97ee77cdccede155a16d93a2c2d4e588c7816e976a8dee",
+        ".claude/scripts/factory-producer-check.py": "848474c98c55c9281f47ce97a9bd3a7c302dd51033860cbebf154e478a0c6f07",
+        ".claude/scripts/factory-producer.py": "c7708cb98ae1aa91f99b07dcf3b8a344046866ad324d479658bff574a88171ee",
+        ".claude/scripts/factory-provenance.py": "0b169e5fefa78ee683ecf3aaf13bfce975929b113ff3d1052a59a95cc3077b01",
+        ".claude/scripts/validate-candidate-evidence.py": "4e530033cc15cd51a9ba8eb75208e4ffdaa91e7a6394b8af88f51ecfe17b1b50",
+        ".github/workflows/factory-verification.yml": "1ec9a5a9f2b3b30934814832b47a5da667782d529f1b504fe562141042de137c",
+        "app/local/tsconfig.json": "47001765e4ea22d7cf0a592b9f0d99418dd95173cf8c2398187e16fc0f4dcc49",
+        "experiments/recovery-spike/.gitignore": "4d56952b0fb13bf8f9b6c13a6d4c34a075bac3af447636a1df4335d7576e2f97",
+        "experiments/recovery-spike/README.md": "645b61bb0d2ea807f54bed44fe89ecdbe934e29467f6e8341c63ddaae1675ebf",
+        "experiments/recovery-spike/crash.ts": "9af9434c8174cde30b2b76141ecfe89a32d8c1fd95d175134adc741050728a83",
+        "experiments/recovery-spike/package-lock.json": "414b19d023d7e956ee9f7dcf5ed21b6ff534796a1d4622a501845bbe6fee3706",
+        "experiments/recovery-spike/package.json": "aad9ffa3d7d02711aeffa810681c45be422b29234bdd078c552d5b454bb9e3d8",
+        "experiments/recovery-spike/recovery.test.ts": "57667c0548b8809f8a754d88b4511caae523703c7f9fac26e343153b7a6fd033",
+        "experiments/recovery-spike/store.ts": "0241ff4a426692da33500c21f8f7c835552edfa62d1c3adeeeb1a1a55d847252",
+        "experiments/recovery-spike/tsconfig.json": "0a553354321f3a77afdf9e141e7357bb4dff9b5512cecbbd1b6befff9079cf87",
+        "experiments/recovery-spike/worker.ts": "b4f5e0fa40b9d745ef2849949b7467719794c74938638661758f3f080b6e7a13",
+        "package-lock.json": "c0cc612d6a3a80afb5047fb6ad2cced2c07bc28019a68b78968376185ec43c61",
+        "package.json": "9f27cea0d7ce1f1b9d2382b35b0614c6420ad30c5ebc481d7f01a717dd51d799",
+        "scripts/coverage-reporter.mjs": "f612d9ef10ee80b45bcf74c93ca3c09c7ba492aec02c7a7901c396dc4501f0d8",
+        "scripts/coverage-reporter.test.mjs": "8eed374200f220e24de4a4377984b8e4a5dfe486e1b95a772f6f7c3abb2a7ba6",
+        "scripts/local-qualification-cases.json": "01aae5fdd792f2eedfa622adb1b803cf4f92e9a84a69288c9a8cb733e1d3668c",
+        "scripts/local-qualification-contract.mjs": "834030870b2566975ca8f63e1b8ed4bf5fbca561836f130cb0f7b8c5c260d713",
+        "scripts/local-qualification-reporter.mjs": "bf11aa0de46a9c0450acc8721ef2ad76e71de97ea22e8a353c0a0cc70512028d",
+        "scripts/local-qualification.test.mjs": "9a76edce326939fde4185dc196bdb2eb7db97bba7b0e87e0430b0bdfaacab3ec",
+        "scripts/qualify-local.mjs": "d1016913112a7ea4e61c525eeb81f2b0fb18eefd90bf61a5572b3f18f4aeeb00"
+      }
+    },
+    "review": {
+      "workflow_id": 389338572,
+      "artifact_name": "factory-review",
+      "event": "pull_request_target",
+      "check_name": "factory-independent-review",
+      "trusted_files": {
+        ".claude/scripts/factory-bounded-process.py": "91d077e6badb7c606a31cf85d8fbb8315b91d9d211b4fe1ab8fb970693207f47",
+        ".claude/scripts/factory-coordinator.py": "c8ff2a7b4d106896c5d1cb9e866ac725521d0081f48f56529269351746476574",
+        ".claude/scripts/factory-font-adapter.py": "6e06c3f3e92318db47e7a61d911730aa7248c7b86c2254a3acc81b02c5ce3d6d",
+        ".claude/scripts/factory-policy-observation.py": "2fce0d7b6fda425dce97ee77cdccede155a16d93a2c2d4e588c7816e976a8dee",
+        ".claude/scripts/factory-producer-check.py": "848474c98c55c9281f47ce97a9bd3a7c302dd51033860cbebf154e478a0c6f07",
+        ".claude/scripts/factory-producer.py": "c7708cb98ae1aa91f99b07dcf3b8a344046866ad324d479658bff574a88171ee",
+        ".claude/scripts/factory-provenance.py": "0b169e5fefa78ee683ecf3aaf13bfce975929b113ff3d1052a59a95cc3077b01",
+        ".claude/scripts/validate-candidate-evidence.py": "4e530033cc15cd51a9ba8eb75208e4ffdaa91e7a6394b8af88f51ecfe17b1b50",
+        ".github/workflows/factory-review.yml": "786ead972bf5e9005a61e5b0a6011c932c43dcd921ac4de83e09a52307b21eb9"
+      }
+    }
+  },
   "receipts": {
+    "workflow_id": 389338566,
     "trusted_revisions": {}
   }
 }
