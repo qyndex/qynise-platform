@@ -1,0 +1,119 @@
+{
+  "repository": "qyndex/qynise-platform",
+  "base": "fc98617fa6e94090c9d35e8bc3d6559d0f7588f3",
+  "source_commit": "66c4e4862825e5a23d3ea1534158acb8059ece6a",
+  "upstream": "970268b93771477e5432803e46062f1e18cbabd7",
+  "managed_paths": [
+    {
+      "path": ".claude/install-manifest.json",
+      "sha256": "3499a0d6cb5d214bd9443489a8695130d5cd240e3c08acb40fb1bfa91ec7c25e",
+      "mode": 420
+    },
+    {
+      "path": ".claude/scripts/factory-coordinator.py",
+      "sha256": "c8ff2a7b4d106896c5d1cb9e866ac725521d0081f48f56529269351746476574",
+      "mode": 420
+    },
+    {
+      "path": ".claude/scripts/factory-font-adapter.py",
+      "sha256": "6e06c3f3e92318db47e7a61d911730aa7248c7b86c2254a3acc81b02c5ce3d6d",
+      "mode": 493
+    },
+    {
+      "path": ".claude/scripts/factory-preflight.py",
+      "sha256": "b85220ed06905c453b79d4500dbcccdf3dfccac69e6fde36c1a42995136ace08",
+      "mode": 420
+    },
+    {
+      "path": ".claude/scripts/factory-producer.py",
+      "sha256": "c7708cb98ae1aa91f99b07dcf3b8a344046866ad324d479658bff574a88171ee",
+      "mode": 493
+    },
+    {
+      "path": ".claude/scripts/factory-receipts.py",
+      "sha256": "17b45d8cd41a212cb1d7af134b1e6c4fd071e5846db55d213ab21eb4384fb113",
+      "mode": 493
+    },
+    {
+      "path": ".claude/scripts/prepare-claude-review.py",
+      "sha256": "22cabeb3acda8d0ed28173e58962cab0e7008008765542456752e7c3c7753419",
+      "mode": 493
+    },
+    {
+      "path": ".claude/scripts/test/candidate-evidence.sh",
+      "sha256": "a6253d99cc65c0b3bcd09e386e2a4c532289a33cefd6cf66e3e53251fb5ba371",
+      "mode": 493
+    },
+    {
+      "path": ".claude/scripts/test/factory-coordinator.sh",
+      "sha256": "352e63f96af533f7078637cc6ea69b62364939739e3940c622c71bddbe992fe9",
+      "mode": 493
+    },
+    {
+      "path": ".claude/scripts/test/factory-font-adapter.py",
+      "sha256": "b4c9b61ec4faf0864db52443e24060e4a71b65f6c612a5e581b2089c13fb9b63",
+      "mode": 493
+    },
+    {
+      "path": ".claude/scripts/test/factory-font-adapter.sh",
+      "sha256": "54bd9def469f10d2f70d5a93b230a0199f1fc1b6cb83a22c3367e6346b686936",
+      "mode": 493
+    },
+    {
+      "path": ".claude/scripts/test/factory-native-receipt-profile.sh",
+      "sha256": "10645518612f25832db6ac0800687c52576aea458090a69e36911c44bd188482",
+      "mode": 493
+    },
+    {
+      "path": ".claude/scripts/test/factory-preflight.sh",
+      "sha256": "296a30d5f38364c893bcdf32dd5f1fe9ded4c81549289f7e36531da35572993c",
+      "mode": 493
+    },
+    {
+      "path": ".claude/scripts/test/factory-provenance.sh",
+      "sha256": "34509291b5715967c01a2dcf34e17956872b0443a45528c3cb07f30bf9529ac1",
+      "mode": 493
+    },
+    {
+      "path": ".claude/scripts/test/factory-receipts-recovery.sh",
+      "sha256": "d071eb71f2309828fb7387bfe720fd00a69bd71ae9b0d3e88030cbcd1e843ede",
+      "mode": 493
+    },
+    {
+      "path": ".claude/scripts/test/fixtures/font-adapter-legacy-prepare.md",
+      "sha256": "5834958f4ddf13a82acea71907dd959eca1176f5d64e5097f506605d6373a5b9",
+      "mode": 420
+    },
+    {
+      "path": ".claude/scripts/test/fixtures/font-adapter-legacy-prepare.py",
+      "sha256": "2ec50b41b95457b2ecdf142c6b91c443aa40b35d3078b05121ebf8193239caf0",
+      "mode": 420
+    },
+    {
+      "path": ".claude/scripts/validate-candidate-evidence.py",
+      "sha256": "4e530033cc15cd51a9ba8eb75208e4ffdaa91e7a6394b8af88f51ecfe17b1b50",
+      "mode": 420
+    }
+  ],
+  "local_configuration_preserved": {
+    ".mcp.json": {
+      "sha256": "c55dff686d7b7d5b30992bb0a3c6301233e6c7fac8b3fc841cc5a6572a996eba",
+      "mode": 420
+    },
+    "CLAUDE.md": {
+      "sha256": "439b013db063b700d8889461215389eb4b4fe4c378778a9a4928c36b7be05694",
+      "mode": 420
+    }
+  },
+  "all_18_managed_files_match_previously_reviewed_candidate": true,
+  "application_changes": false,
+  "native_acceptance": false,
+  "remote_effects": false,
+  "full_collector_not_rerun": true,
+  "targeted_tests": {
+    "command": "bash .claude/scripts/test/factory-font-adapter.sh",
+    "passed": 11,
+    "failed": 0,
+    "ran_before_proof_only_commit": true
+  }
+}
