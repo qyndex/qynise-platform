@@ -53,7 +53,8 @@
   "real_API_calls": 0,
   "real_credentials_examined": false,
   "native_acceptance": false,
-  "policy_sha256": "f79e5306ae121d5e0ddb767e06d8d8c17ee82e274b0f8e8f8ced1cddbe2c82bb",
+  "policy_sha256": "b563ec018cdbc452ff8c4a72df402f4f673bccf911b2ab27eff1f7403ed1b0b9",
   "receipt_trust_sha256": "fc9a018421964048871e808c26e8e65e6f63485fbb9c42f458218e9bc8c7fa4f",
-  "live_configuration_changes": 0
+  "live_configuration_changes": 0,
+  "policy_file_sha256": "f79e5306ae121d5e0ddb767e06d8d8c17ee82e274b0f8e8f8ced1cddbe2c82bb"
 }
