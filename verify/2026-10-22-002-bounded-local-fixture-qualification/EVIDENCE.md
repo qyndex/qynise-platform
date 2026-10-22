@@ -87,5 +87,6 @@ See AC-MAPPING.md for complete native controls, QUALIFICATION-CONTEXT.md and APP
 - `verify/2026-10-22-002-bounded-local-fixture-qualification/results.json`
 - `verify/2026-10-22-002-bounded-local-fixture-qualification/smoke.log`
 - `verify/2026-10-22-002-bounded-local-fixture-qualification/source-equivalence-tests.json`
+- `verify/2026-10-22-002-bounded-local-fixture-qualification/source-equivalence.json`
 - `verify/2026-10-22-002-bounded-local-fixture-qualification/unskipped-collector.json`
 - `verify/2026-10-22-002-bounded-local-fixture-qualification/unskipped-collector.log`
