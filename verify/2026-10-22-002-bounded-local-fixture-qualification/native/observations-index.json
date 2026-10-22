@@ -1,0 +1,58 @@
+{
+  "AC-1": {
+    "source": "7e466e8a5605fca8dfc3ed3acd3bb77b90b9ed00",
+    "platform": "linux",
+    "command_count": 12,
+    "complete_suite_cases": {
+      "app": 22,
+      "browser": 2
+    }
+  },
+  "AC-2": {
+    "source": "7e466e8a5605fca8dfc3ed3acd3bb77b90b9ed00",
+    "platform": "linux",
+    "command_count": 10,
+    "complete_suite_cases": {
+      "app": 22
+    }
+  },
+  "AC-3": {
+    "source": "7e466e8a5605fca8dfc3ed3acd3bb77b90b9ed00",
+    "platform": "linux",
+    "command_count": 10,
+    "complete_suite_cases": {
+      "app": 22
+    }
+  },
+  "AC-4": {
+    "source": "7e466e8a5605fca8dfc3ed3acd3bb77b90b9ed00",
+    "platform": "linux",
+    "command_count": 12,
+    "complete_suite_cases": {
+      "app": 22,
+      "recovery": 9
+    }
+  },
+  "AC-5": {
+    "source": "7e466e8a5605fca8dfc3ed3acd3bb77b90b9ed00",
+    "platform": "linux",
+    "command_count": 12,
+    "complete_suite_cases": {
+      "app": 22,
+      "browser": 2
+    }
+  },
+  "AC-6": {
+    "source": "7e466e8a5605fca8dfc3ed3acd3bb77b90b9ed00",
+    "platform": "linux",
+    "command_count": 27,
+    "complete_suite_cases": {
+      "app": 22,
+      "reporter": 2,
+      "contract": 18,
+      "recovery": 9,
+      "browser": 2,
+      "coverage": 22
+    }
+  }
+}

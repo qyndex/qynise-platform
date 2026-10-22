@@ -1,6 +1,6 @@
-# Unchanged protected qualification context
+# Exact observed source context
 
-Exact public source snapshots at registered base`dbb95cd53b980620631e2e57b4871944225420d5` and observed source`6aadc3127321807cba03154551d594e182c9fb3c`; both byte-identical. These copies are review context, never an alternate executable or authority. Full approved spec is already supplied to the protected reviewer separately.
+Observed native source`7e466e8a5605fca8dfc3ed3acd3bb77b90b9ed00`; each source below is complete, unmodified Git content. These snapshots do not replace executable files or grant authority.
 
 ## scripts/qualify-local.mjs
 

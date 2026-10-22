@@ -1,0 +1,26 @@
+{
+  "repository": "qyndex/qynise-platform",
+  "pr": 12,
+  "head": "7e466e8a5605fca8dfc3ed3acd3bb77b90b9ed00",
+  "base": "dbb95cd53b980620631e2e57b4871944225420d5",
+  "run": 39703579864,
+  "subject_sha256": "6087002d569b31dfbcf8419fd2986b035c26fc02dda4a521ea0ae733db9b5ebc",
+  "github_signature_verified": true,
+  "signer_source_base_verified": true,
+  "exact_criteria_passed": 6,
+  "observation_digests_verified": 6,
+  "negative_controls": [
+    {
+      "case": "modified subject",
+      "result": "REJECTED"
+    },
+    {
+      "case": "wrong source/signer base",
+      "result": "REJECTED"
+    }
+  ],
+  "all_eight_gates_off": true,
+  "independent_review_passed": false,
+  "full_factory_eligibility_proven": false,
+  "merged": false
+}
