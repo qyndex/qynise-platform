@@ -1,0 +1,22 @@
+{
+  "passes": 4,
+  "cases": [
+    {
+      "case": "proof-only child preserves complete non-proof source",
+      "result": "PASS"
+    },
+    {
+      "case": "source mutation rejects",
+      "result": "PASS"
+    },
+    {
+      "case": "option-like revision rejects before Git",
+      "result": "PASS"
+    },
+    {
+      "case": "reverse/nonancestor observation rejects",
+      "result": "PASS"
+    }
+  ],
+  "remote_mutations": 0
+}

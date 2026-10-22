@@ -1,0 +1,12 @@
+{
+  "observed_commit": "7e466e8a5605fca8dfc3ed3acd3bb77b90b9ed00",
+  "checked_candidate_commit": "4736c124bc63c39ff50f1c27e326f68afb5102d9",
+  "scope": "all tracked files except verify/; modes and Git blob identities included",
+  "tracked_nonproof_files": 739,
+  "source_scope_sha256": "8e4ffe5c6fb082c976703b26069a831720df34c70c23b04016886a8b2ca3e1ca",
+  "observed_scope_sha256": "8e4ffe5c6fb082c976703b26069a831720df34c70c23b04016886a8b2ca3e1ca",
+  "changed_nonproof_files": 0,
+  "changed_proof_files": 46,
+  "ancestor_verified": true,
+  "native_acceptance_for_new_head": false
+}
