@@ -1,0 +1,74 @@
+{
+  "observed_source": "6aadc3127321807cba03154551d594e182c9fb3c",
+  "observed_base": "dbb95cd53b980620631e2e57b4871944225420d5",
+  "raw_results_sha256": "f2af74b04c5a0548bb71e8410d7ed2dd95902097af8ad8a297ccea12a311101b",
+  "raw_results_bytes": 109368,
+  "result_bytes_unmodified": true,
+  "criterion_suites": {
+    "AC-1": [
+      "app",
+      "browser"
+    ],
+    "AC-2": [
+      "app"
+    ],
+    "AC-3": [
+      "app"
+    ],
+    "AC-4": [
+      "app",
+      "recovery"
+    ],
+    "AC-5": [
+      "app",
+      "browser"
+    ],
+    "AC-6": [
+      "app",
+      "browser",
+      "recovery",
+      "reporter",
+      "contract",
+      "coverage",
+      "strict",
+      "syntax"
+    ]
+  },
+  "observed_suite_case_counts": {
+    "app": 22,
+    "reporter": 2,
+    "contract": 18,
+    "recovery": 9,
+    "browser": 2,
+    "coverage": 22
+  },
+  "actual_coverage": {
+    "lines": {
+      "total": 185,
+      "covered": 181,
+      "skipped": 0,
+      "pct": 97.83783783783784
+    },
+    "branches": {
+      "total": 220,
+      "covered": 190,
+      "skipped": 0,
+      "pct": 86.36363636363636
+    },
+    "functions": {
+      "total": 50,
+      "covered": 47,
+      "skipped": 0,
+      "pct": 94
+    },
+    "statements": {
+      "total": 185,
+      "covered": 181,
+      "skipped": 0,
+      "pct": 97.83783783783784
+    }
+  },
+  "all_command_exits_zero": true,
+  "interpretation": "complete suite/case/coverage observations, not one tagged assertion; local and unsigned",
+  "native_acceptance": false
+}

@@ -1,7 +1,7 @@
 ## Evidence Bundle — Spec 002 (002-bounded-local-fixture-qualification)
-Spec: `specs/active/002-bounded-local-fixture-qualification.md` · Commit: `81c433c`
+Spec: `specs/active/002-bounded-local-fixture-qualification.md` · Commit: `6aadc31`
 
-Retained results: [verify/2026-10-22-002-bounded-local-fixture-qualification/attempt-SyMF942b/results.json](verify/2026-10-22-002-bounded-local-fixture-qualification/attempt-SyMF942b/results.json)
+Retained results: [verify/2026-10-22-002-bounded-local-fixture-qualification/attempt-8oBHj0WG/results.json](verify/2026-10-22-002-bounded-local-fixture-qualification/attempt-8oBHj0WG/results.json)
 
 ### Acceptance criteria (6/6 proven)
 | AC | Proven by | Result |
@@ -15,7 +15,7 @@ Retained results: [verify/2026-10-22-002-bounded-local-fixture-qualification/att
 
 ### Smoke test (exit codes are load-bearing)
 ```
-# Smoke test — 2026-10-22T00:17:50+11:00
+# Smoke test — 2026-10-22T11:06:34+11:00
 $ bash .claude/scripts/verify.sh
 
 → Integration coverage gate

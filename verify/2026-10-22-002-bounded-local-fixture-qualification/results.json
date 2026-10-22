@@ -1,1 +1,3360 @@
-{"success":true,"numPassedTests":6,"numFailedTests":0,"numPendingTests":0,"testResults":[{"name":"Spec002 bounded local qualification","assertionResults":[{"fullName":"AC-1 complete approved local fixture qualification","title":"AC-1","status":"passed","failureMessages":[]},{"fullName":"AC-2 complete approved local fixture qualification","title":"AC-2","status":"passed","failureMessages":[]},{"fullName":"AC-3 complete approved local fixture qualification","title":"AC-3","status":"passed","failureMessages":[]},{"fullName":"AC-4 complete approved local fixture qualification","title":"AC-4","status":"passed","failureMessages":[]},{"fullName":"AC-5 complete approved local fixture qualification","title":"AC-5","status":"passed","failureMessages":[]},{"fullName":"AC-6 complete approved local fixture qualification","title":"AC-6","status":"passed","failureMessages":[]}]}],"qualification":{"spec":"002","source_commit":"81c433cd52e27e23424c6b7aeb18bd09ebdf33cd","source_tree":"4d799901d1c6285eeae53102792810382cce5b7c","node":"24.13.1","platform":"darwin","architecture":"arm64","clean_install":true,"coverage":{"app/local/server.ts":{"lines":{"total":105,"covered":101,"skipped":0,"pct":96.19047619047619},"branches":{"total":167,"covered":146,"skipped":0,"pct":87.42514970059881},"functions":{"total":38,"covered":36,"skipped":0,"pct":94.73684210526315},"statements":{"total":105,"covered":101,"skipped":0,"pct":96.19047619047619}},"public/app.js":{"lines":{"total":80,"covered":80,"skipped":0,"pct":100},"branches":{"total":53,"covered":44,"skipped":0,"pct":83.01886792452831},"functions":{"total":12,"covered":11,"skipped":0,"pct":91.66666666666666},"statements":{"total":80,"covered":80,"skipped":0,"pct":100}},"total":{"lines":{"total":185,"covered":181,"skipped":0,"pct":97.83783783783784},"branches":{"total":220,"covered":190,"skipped":0,"pct":86.36363636363636},"functions":{"total":50,"covered":47,"skipped":0,"pct":94},"statements":{"total":185,"covered":181,"skipped":0,"pct":97.83783783783784}}},"commands":[{"name":"source-head","argv":["git","rev-parse","HEAD"],"cwd":"source-repository","exit":0,"signal":null,"stdout_sha256":"72b624fff3ec68fc571e78ed1c19a6fb6a5326da1b5362cd59b749ac3e77f3b1","stderr_sha256":"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"},{"name":"source-tree","argv":["git","rev-parse","81c433cd52e27e23424c6b7aeb18bd09ebdf33cd^{tree}"],"cwd":"source-repository","exit":0,"signal":null,"stdout_sha256":"3e18a5b10df14d86db403540a37755ab11f300fe436ee7b3457596ea9c440c70","stderr_sha256":"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"},{"name":"tracked-source-status","argv":["git","status","--porcelain","--untracked-files=no"],"cwd":"source-repository","exit":0,"signal":null,"stdout_sha256":"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855","stderr_sha256":"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"},{"name":"clean-source-archive","argv":["git","archive","--format=tar","81c433cd52e27e23424c6b7aeb18bd09ebdf33cd"],"cwd":"source-repository","exit":0,"signal":null,"stdout_sha256":"05f48b9ee10cc2d6b240e1feaef36df6d0255fdf7e065201dd313db8b7fa4e49","stderr_sha256":"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"},{"name":"clean-source-extract","argv":["tar","-xf","-","-C","/private/tmp/qynise-local-qualification-tac2mn/checkout"],"cwd":"owned-temporary-root","exit":0,"signal":null,"stdout_sha256":"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855","stderr_sha256":"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"},{"name":"immutable-source-byte-verification","files":888,"byte_verified":true},{"name":"clean-root-install","argv":["npm","ci","--offline","--ignore-scripts","--no-audit","--no-fund"],"cwd":"checkout","exit":0,"signal":null,"stdout_sha256":"f4e17ec9a28b2abbf49b1c119bc1db2866356998866fd44d669847267a28e695","stderr_sha256":"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"},{"name":"clean-experiment-install","argv":["npm","ci","--offline","--ignore-scripts","--no-audit","--no-fund"],"cwd":"checkout/experiments/recovery-spike","exit":0,"signal":null,"stdout_sha256":"12fb872a38a3bed6d3985b61f82a53a4f558feade2f423b71eda00427c3d9fa2","stderr_sha256":"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"},{"name":"strict-application","argv":["/Users/shravanjha/.nvm/versions/node/v24.13.1/bin/node","node_modules/typescript/bin/tsc","--project","app/local/tsconfig.json"],"cwd":"checkout","exit":0,"signal":null,"stdout_sha256":"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855","stderr_sha256":"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"},{"name":"strict-recovery","argv":["/Users/shravanjha/.nvm/versions/node/v24.13.1/bin/node","node_modules/typescript/bin/tsc","--project","experiments/recovery-spike/tsconfig.json"],"cwd":"checkout","exit":0,"signal":null,"stdout_sha256":"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855","stderr_sha256":"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"},{"name":"syntax-public-app.js","argv":["/Users/shravanjha/.nvm/versions/node/v24.13.1/bin/node","--check","public/app.js"],"cwd":"checkout","exit":0,"signal":null,"stdout_sha256":"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855","stderr_sha256":"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"},{"name":"syntax-scripts-coverage-reporter.mjs","argv":["/Users/shravanjha/.nvm/versions/node/v24.13.1/bin/node","--check","scripts/coverage-reporter.mjs"],"cwd":"checkout","exit":0,"signal":null,"stdout_sha256":"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855","stderr_sha256":"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"},{"name":"syntax-scripts-local-qualification-contract.mjs","argv":["/Users/shravanjha/.nvm/versions/node/v24.13.1/bin/node","--check","scripts/local-qualification-contract.mjs"],"cwd":"checkout","exit":0,"signal":null,"stdout_sha256":"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855","stderr_sha256":"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"},{"name":"syntax-scripts-local-qualification-reporter.mjs","argv":["/Users/shravanjha/.nvm/versions/node/v24.13.1/bin/node","--check","scripts/local-qualification-reporter.mjs"],"cwd":"checkout","exit":0,"signal":null,"stdout_sha256":"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855","stderr_sha256":"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"},{"name":"syntax-scripts-qualify-local.mjs","argv":["/Users/shravanjha/.nvm/versions/node/v24.13.1/bin/node","--check","scripts/qualify-local.mjs"],"cwd":"checkout","exit":0,"signal":null,"stdout_sha256":"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855","stderr_sha256":"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"},{"name":"app","argv":["/Users/shravanjha/.nvm/versions/node/v24.13.1/bin/node","--test","--test-timeout=30000","--test-reporter=./scripts/local-qualification-reporter.mjs","--test-reporter-destination=/private/tmp/factory-pilot-closeout-20261021/qualification-preparation/qynise-local-observation/app.events.jsonl","app/local/demo.test.ts","app/local/ui.test.ts","app/local/browser-errors.test.ts"],"cwd":"checkout","exit":0,"signal":null,"stdout_sha256":"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855","stderr_sha256":"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"},{"suite":"app","events_sha256":"aa87c647a12f4f9005764d128d98ec62cb8f62e1888ed49a277453adb8623f44","native_events":[{"type":"test:pass","data":{"name":"browser exception control covers existing and future context pages","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/app/local/browser-errors.test.ts","nesting":0,"details":{"type":"test"}}},{"type":"test:pass","data":{"name":"explicit local mode, server-owned identities, origin and session boundaries","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/app/local/demo.test.ts","nesting":0,"details":{"type":"test"}}},{"type":"test:pass","data":{"name":"durable idempotent start validates input and denies cross-tenant access","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/app/local/demo.test.ts","nesting":0,"details":{"type":"test"}}},{"type":"test:pass","data":{"name":"restart resumes durable fixture work, records overlap, review and digest without a provider","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/app/local/demo.test.ts","nesting":0,"details":{"type":"test"}}},{"type":"test:pass","data":{"name":"cancellation persists and prevents queued fixture completion","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/app/local/demo.test.ts","nesting":0,"details":{"type":"test"}}},{"type":"test:pass","data":{"name":"recovery after review commit preserves original task provenance and final set","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/app/local/demo.test.ts","nesting":0,"details":{"type":"test"}}},{"type":"test:pass","data":{"name":"chunked Unicode brief is preserved byte-for-byte","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/app/local/demo.test.ts","nesting":0,"details":{"type":"test"}}},{"type":"test:pass","data":{"name":"running cancellation prevents final fixture publication","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/app/local/demo.test.ts","nesting":0,"details":{"type":"test"}}},{"type":"test:pass","data":{"name":"actual process death after a planner commit resumes without replacing that evidence","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/app/local/demo.test.ts","nesting":0,"details":{"type":"test"}}},{"type":"test:pass","data":{"name":"initial storage-claim failure stops scheduling without process death or false success","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/app/local/demo.test.ts","nesting":0,"details":{"type":"test"}}},{"type":"test:pass","data":{"name":"late cancel body cannot overwrite a committed successful run","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/app/local/demo.test.ts","nesting":0,"details":{"type":"test"}}},{"type":"test:pass","data":{"name":"HTTP input and retained-run limits reject invalid or oversized requests explicitly","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/app/local/demo.test.ts","nesting":0,"details":{"type":"test"}}},{"type":"test:pass","data":{"name":"static responses and session boundaries retain their explicit contract","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/app/local/demo.test.ts","nesting":0,"details":{"type":"test"}}},{"type":"test:pass","data":{"name":"a forged Host cannot read even a valid local test session","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/app/local/demo.test.ts","nesting":0,"details":{"type":"test"}}},{"type":"test:pass","data":{"name":"client identity hints cannot change the server-owned session tenant","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/app/local/demo.test.ts","nesting":0,"details":{"type":"test"}}},{"type":"test:pass","data":{"name":"foreign Origin cannot read or mutate a valid server-owned session","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/app/local/demo.test.ts","nesting":0,"details":{"type":"test"}}},{"type":"test:pass","data":{"name":"late Alice response cannot render after a successful Bob identity switch","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/app/local/ui.test.ts","nesting":0,"details":{"type":"test"}}},{"type":"test:pass","data":{"name":"overlapping identity submissions cannot reorder the browser session cookie","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/app/local/ui.test.ts","nesting":0,"details":{"type":"test"}}},{"type":"test:pass","data":{"name":"UI polls fixture evidence and preserves provenance and explicit errors","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/app/local/ui.test.ts","nesting":0,"details":{"type":"test"}}},{"type":"test:pass","data":{"name":"UI cancellation refreshes terminal state and reports failed mutations","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/app/local/ui.test.ts","nesting":0,"details":{"type":"test"}}},{"type":"test:pass","data":{"name":"UI login and polling failures remain visible without continuing a stale poll","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/app/local/ui.test.ts","nesting":0,"details":{"type":"test"}}},{"type":"test:pass","data":{"name":"UI rejects a changed shared cookie instead of writing under a stale identity label","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/app/local/ui.test.ts","nesting":0,"details":{"type":"test"}}},{"type":"test:summary","data":{"success":true,"counts":{"tests":22,"failed":0,"passed":22,"cancelled":0,"skipped":0,"todo":0,"topLevel":22,"suites":0},"duration_ms":3389.861}}],"complete_cases":22,"passed_cases":22},{"name":"reporter","argv":["/Users/shravanjha/.nvm/versions/node/v24.13.1/bin/node","--test","--test-timeout=30000","--test-reporter=./scripts/local-qualification-reporter.mjs","--test-reporter-destination=/private/tmp/factory-pilot-closeout-20261021/qualification-preparation/qynise-local-observation/reporter.events.jsonl","scripts/coverage-reporter.test.mjs"],"cwd":"checkout","exit":0,"signal":null,"stdout_sha256":"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855","stderr_sha256":"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"},{"suite":"reporter","events_sha256":"b815d4ddb9959dc7d2b5c0a849acc27a1a12d23522c0e7c18118cc8c9edf7da6","native_events":[{"type":"test:pass","data":{"name":"coverage summary weights real counts from both application source files","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/scripts/coverage-reporter.test.mjs","nesting":0,"details":{"type":"test"}}},{"type":"test:pass","data":{"name":"missing, duplicate, foreign or malformed coverage never becomes a passing summary","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/scripts/coverage-reporter.test.mjs","nesting":0,"details":{"type":"test"}}},{"type":"test:summary","data":{"success":true,"counts":{"tests":2,"failed":0,"passed":2,"cancelled":0,"skipped":0,"todo":0,"topLevel":2,"suites":0},"duration_ms":41.570333}}],"complete_cases":2,"passed_cases":2},{"name":"contract","argv":["/Users/shravanjha/.nvm/versions/node/v24.13.1/bin/node","--test","--test-timeout=30000","--test-reporter=./scripts/local-qualification-reporter.mjs","--test-reporter-destination=/private/tmp/factory-pilot-closeout-20261021/qualification-preparation/qynise-local-observation/contract.events.jsonl","scripts/local-qualification.test.mjs"],"cwd":"checkout","exit":0,"signal":null,"stdout_sha256":"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855","stderr_sha256":"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"},{"suite":"contract","events_sha256":"f5c885af17f42350c35a62d567c333f06f96168d8c727f3abb89b2079e67e1ae","native_events":[{"type":"test:pass","data":{"name":"complete native events require exact cases and a successful command","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/scripts/local-qualification.test.mjs","nesting":0,"details":{"type":"test"}}},{"type":"test:pass","data":{"name":"missing or duplicate cases cannot qualify a criterion","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/scripts/local-qualification.test.mjs","nesting":0,"details":{"type":"test"}}},{"type":"test:pass","data":{"name":"skipped todo failed or cancelled native cases never receive pass credit","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/scripts/local-qualification.test.mjs","nesting":0,"details":{"type":"test"}}},{"type":"test:pass","data":{"name":"printed success and foreign or malformed events cannot spoof native outcomes","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/scripts/local-qualification.test.mjs","nesting":0,"details":{"type":"test"}}},{"type":"test:pass","data":{"name":"missing duplicate or contradictory native summaries are rejected","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/scripts/local-qualification.test.mjs","nesting":0,"details":{"type":"test"}}},{"type":"test:pass","data":{"name":"actual coverage requires both measured source files and unchanged floors","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/scripts/local-qualification.test.mjs","nesting":0,"details":{"type":"test"}}},{"type":"test:pass","data":{"name":"missing duplicate malformed and below-floor coverage cannot become PASS","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/scripts/local-qualification.test.mjs","nesting":0,"details":{"type":"test"}}},{"type":"test:pass","data":{"name":"whole-criterion results require every mapped suite and setup control","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/scripts/local-qualification.test.mjs","nesting":0,"details":{"type":"test"}}},{"type":"test:pass","data":{"name":"a pass event carrying a native failure cannot spoof a successful outcome","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/scripts/local-qualification.test.mjs","nesting":0,"details":{"type":"test"}}},{"type":"test:pass","data":{"name":"empty or duplicate suite requirements cannot vacuously qualify a criterion","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/scripts/local-qualification.test.mjs","nesting":0,"details":{"type":"test"}}},{"type":"test:pass","data":{"name":"process capture preserves binary archive bytes without UTF8 decoding","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/scripts/local-qualification.test.mjs","nesting":0,"details":{"type":"test"}}},{"type":"test:pass","data":{"name":"snapshot tree and archive bind captured immutable commit instead of moving HEAD","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/scripts/local-qualification.test.mjs","nesting":0,"details":{"type":"test"}}},{"type":"test:pass","data":{"name":"actual git archive must preserve every immutable blob including binary bytes","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/scripts/local-qualification.test.mjs","nesting":0,"details":{"type":"test"}}},{"type":"test:pass","data":{"name":"actual export-ignore and export-subst archives cannot claim the committed source tree","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/scripts/local-qualification.test.mjs","nesting":0,"details":{"type":"test"}}},{"type":"test:pass","data":{"name":"missing extra altered and unsupported symlink sources fail byte binding","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/scripts/local-qualification.test.mjs","nesting":0,"details":{"type":"test"}}},{"type":"test:pass","data":{"name":"nonempty output is rejected and output setup failure cleans owned workspace","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/scripts/local-qualification.test.mjs","nesting":0,"details":{"type":"test"}}},{"type":"test:pass","data":{"name":"immutable Git symlink and gitlink modes are unsupported rather than silently omitted","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/scripts/local-qualification.test.mjs","nesting":0,"details":{"type":"test"}}},{"type":"test:pass","data":{"name":"fresh empty output works and symlinked temporary roots normalize native identities","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/scripts/local-qualification.test.mjs","nesting":0,"details":{"type":"test"}}},{"type":"test:summary","data":{"success":true,"counts":{"tests":18,"failed":0,"passed":18,"cancelled":0,"skipped":0,"todo":0,"topLevel":18,"suites":0},"duration_ms":1390.651917}}],"complete_cases":18,"passed_cases":18},{"name":"recovery","argv":["/Users/shravanjha/.nvm/versions/node/v24.13.1/bin/node","--test","--test-timeout=30000","--test-reporter=./scripts/local-qualification-reporter.mjs","--test-reporter-destination=/private/tmp/factory-pilot-closeout-20261021/qualification-preparation/qynise-local-observation/recovery.events.jsonl","experiments/recovery-spike/recovery.test.ts"],"cwd":"checkout","exit":0,"signal":null,"stdout_sha256":"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855","stderr_sha256":"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"},{"suite":"recovery","events_sha256":"28ce17a6dc825e3324bc6fdd6a2247665a653400bffd5d485866310fb77558aa","native_events":[{"type":"test:pass","data":{"name":"tenant-scoped idempotency conflicts and denies foreign reads","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/experiments/recovery-spike/recovery.test.ts","nesting":0,"details":{"type":"test"}}},{"type":"test:pass","data":{"name":"generation fence rejects stale completion and duplicate output conflicts","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/experiments/recovery-spike/recovery.test.ts","nesting":0,"details":{"type":"test"}}},{"type":"test:pass","data":{"name":"cancelled run refuses claims and late completion","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/experiments/recovery-spike/recovery.test.ts","nesting":0,"details":{"type":"test"}}},{"type":"test:pass","data":{"name":"final artifact waits for three tasks and independent review; replay is stable","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/experiments/recovery-spike/recovery.test.ts","nesting":0,"details":{"type":"test"}}},{"type":"test:pass","data":{"name":"review cannot run before aggregate; foreign or unknown task cannot mutate state","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/experiments/recovery-spike/recovery.test.ts","nesting":0,"details":{"type":"test"}}},{"type":"test:pass","data":{"name":"process death rolls back partial start; committed outbox survives death","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/experiments/recovery-spike/recovery.test.ts","nesting":0,"details":{"type":"test"}}},{"type":"test:pass","data":{"name":"process death after fixture response requires fenced retry without duplicate committed result","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/experiments/recovery-spike/recovery.test.ts","nesting":0,"details":{"type":"test"}}},{"type":"test:pass","data":{"name":"simultaneous processes serialize idempotent starts and fence competing claims","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/experiments/recovery-spike/recovery.test.ts","nesting":0,"details":{"type":"test"}}},{"type":"test:pass","data":{"name":"worker failure closes the competing fixture processes before returning","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/experiments/recovery-spike/recovery.test.ts","nesting":0,"details":{"type":"test"}}},{"type":"test:summary","data":{"success":true,"counts":{"tests":9,"failed":0,"passed":9,"cancelled":0,"skipped":0,"todo":0,"topLevel":9,"suites":0},"duration_ms":489.409709}}],"complete_cases":9,"passed_cases":9},{"name":"browser","argv":["/Users/shravanjha/.nvm/versions/node/v24.13.1/bin/node","--test","--test-timeout=30000","--test-reporter=./scripts/local-qualification-reporter.mjs","--test-reporter-destination=/private/tmp/factory-pilot-closeout-20261021/qualification-preparation/qynise-local-observation/browser.events.jsonl","app/local/browser.test.ts"],"cwd":"checkout","exit":0,"signal":null,"stdout_sha256":"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855","stderr_sha256":"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"},{"suite":"browser","events_sha256":"7428dd6d1bb21e65ddc5393ca0412e8fd13b3d17fed8e5831a5966b70249abc1","native_events":[{"type":"test:pass","data":{"name":"actual Chromium brief-to-evidence journey and tenant switch at desktop/mobile sizes","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/app/local/browser.test.ts","nesting":0,"details":{"type":"test"}}},{"type":"test:pass","data":{"name":"actual Chromium second-page exception is detected by the browser control","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/app/local/browser.test.ts","nesting":0,"details":{"type":"test"}}},{"type":"test:summary","data":{"success":true,"counts":{"tests":2,"failed":0,"passed":2,"cancelled":0,"skipped":0,"todo":0,"topLevel":2,"suites":0},"duration_ms":5040.925958}}],"complete_cases":2,"passed_cases":2},{"name":"coverage","argv":["/Users/shravanjha/.nvm/versions/node/v24.13.1/bin/node","--test","--test-timeout=30000","--test-reporter=./scripts/local-qualification-reporter.mjs","--test-reporter-destination=/private/tmp/factory-pilot-closeout-20261021/qualification-preparation/qynise-local-observation/coverage.events.jsonl","--experimental-test-coverage","--test-coverage-lines=90","--test-coverage-branches=85","--test-coverage-include=app/local/server.ts","--test-coverage-include=public/app.js","--test-reporter=./scripts/coverage-reporter.mjs","--test-reporter-destination=/private/tmp/factory-pilot-closeout-20261021/qualification-preparation/qynise-local-observation/coverage.native.log","app/local/demo.test.ts","app/local/ui.test.ts","app/local/browser-errors.test.ts"],"cwd":"checkout","exit":0,"signal":null,"stdout_sha256":"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855","stderr_sha256":"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"},{"suite":"coverage","events_sha256":"b73cc664d5cf5214009cf897cefe8b56aa903b6420d875b6a30151400e31d7e7","native_events":[{"type":"test:pass","data":{"name":"browser exception control covers existing and future context pages","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/app/local/browser-errors.test.ts","nesting":0,"details":{"type":"test"}}},{"type":"test:pass","data":{"name":"explicit local mode, server-owned identities, origin and session boundaries","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/app/local/demo.test.ts","nesting":0,"details":{"type":"test"}}},{"type":"test:pass","data":{"name":"durable idempotent start validates input and denies cross-tenant access","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/app/local/demo.test.ts","nesting":0,"details":{"type":"test"}}},{"type":"test:pass","data":{"name":"restart resumes durable fixture work, records overlap, review and digest without a provider","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/app/local/demo.test.ts","nesting":0,"details":{"type":"test"}}},{"type":"test:pass","data":{"name":"cancellation persists and prevents queued fixture completion","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/app/local/demo.test.ts","nesting":0,"details":{"type":"test"}}},{"type":"test:pass","data":{"name":"recovery after review commit preserves original task provenance and final set","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/app/local/demo.test.ts","nesting":0,"details":{"type":"test"}}},{"type":"test:pass","data":{"name":"chunked Unicode brief is preserved byte-for-byte","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/app/local/demo.test.ts","nesting":0,"details":{"type":"test"}}},{"type":"test:pass","data":{"name":"running cancellation prevents final fixture publication","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/app/local/demo.test.ts","nesting":0,"details":{"type":"test"}}},{"type":"test:pass","data":{"name":"actual process death after a planner commit resumes without replacing that evidence","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/app/local/demo.test.ts","nesting":0,"details":{"type":"test"}}},{"type":"test:pass","data":{"name":"initial storage-claim failure stops scheduling without process death or false success","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/app/local/demo.test.ts","nesting":0,"details":{"type":"test"}}},{"type":"test:pass","data":{"name":"late cancel body cannot overwrite a committed successful run","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/app/local/demo.test.ts","nesting":0,"details":{"type":"test"}}},{"type":"test:pass","data":{"name":"HTTP input and retained-run limits reject invalid or oversized requests explicitly","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/app/local/demo.test.ts","nesting":0,"details":{"type":"test"}}},{"type":"test:pass","data":{"name":"static responses and session boundaries retain their explicit contract","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/app/local/demo.test.ts","nesting":0,"details":{"type":"test"}}},{"type":"test:pass","data":{"name":"a forged Host cannot read even a valid local test session","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/app/local/demo.test.ts","nesting":0,"details":{"type":"test"}}},{"type":"test:pass","data":{"name":"client identity hints cannot change the server-owned session tenant","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/app/local/demo.test.ts","nesting":0,"details":{"type":"test"}}},{"type":"test:pass","data":{"name":"foreign Origin cannot read or mutate a valid server-owned session","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/app/local/demo.test.ts","nesting":0,"details":{"type":"test"}}},{"type":"test:pass","data":{"name":"late Alice response cannot render after a successful Bob identity switch","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/app/local/ui.test.ts","nesting":0,"details":{"type":"test"}}},{"type":"test:pass","data":{"name":"overlapping identity submissions cannot reorder the browser session cookie","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/app/local/ui.test.ts","nesting":0,"details":{"type":"test"}}},{"type":"test:pass","data":{"name":"UI polls fixture evidence and preserves provenance and explicit errors","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/app/local/ui.test.ts","nesting":0,"details":{"type":"test"}}},{"type":"test:pass","data":{"name":"UI cancellation refreshes terminal state and reports failed mutations","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/app/local/ui.test.ts","nesting":0,"details":{"type":"test"}}},{"type":"test:pass","data":{"name":"UI login and polling failures remain visible without continuing a stale poll","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/app/local/ui.test.ts","nesting":0,"details":{"type":"test"}}},{"type":"test:pass","data":{"name":"UI rejects a changed shared cookie instead of writing under a stale identity label","file":"/private/tmp/qynise-local-qualification-tac2mn/checkout/app/local/ui.test.ts","nesting":0,"details":{"type":"test"}}},{"type":"test:coverage","data":{"nesting":0,"summary":{"workingDirectory":"/private/tmp/qynise-local-qualification-tac2mn/checkout","files":[{"path":"/private/tmp/qynise-local-qualification-tac2mn/checkout/app/local/server.ts","totalLineCount":105,"totalBranchCount":167,"totalFunctionCount":38,"coveredLineCount":101,"coveredBranchCount":146,"coveredFunctionCount":36,"coveredLinePercent":96.19047619047619,"coveredBranchPercent":87.42514970059881,"coveredFunctionPercent":94.73684210526315,"functions":[{"name":"digest","count":137,"line":9},{"name":"<instance_members_initializer>","count":34,"line":10},{"name":"HttpError","count":34,"line":10},{"name":"reject","count":34,"line":11},{"name":"startDemo","count":19,"line":13},{"name":"tx","count":125,"line":19},{"name":"getRun","count":288,"line":22},{"name":"active","count":35,"line":23},{"name":"view","count":285,"line":24},{"name":"","count":259,"line":24},{"name":"valid","count":40,"line":25},{"name":"","count":40,"line":25},{"name":"execute","count":7,"line":26},{"name":"","count":7,"line":27},{"name":"save","count":22,"line":30},{"name":"","count":21,"line":32},{"name":"save.schema","count":17,"line":32},{"name":"","count":18,"line":35},{"name":"","count":36,"line":35},{"name":"","count":6,"line":38},{"name":"schedule","count":134,"line":41},{"name":"","count":0,"line":47},{"name":"","count":7,"line":47},{"name":"body","count":212,"line":53},{"name":"exact","count":206,"line":59},{"name":"","count":323,"line":59},{"name":"","count":316,"line":59},{"name":"","count":2081,"line":60},{"name":"send","count":406,"line":61},{"name":"","count":315,"line":77},{"name":"","count":315,"line":77},{"name":"","count":112,"line":87},{"name":"","count":18,"line":97},{"name":"","count":17,"line":97},{"name":"close","count":19,"line":99},{"name":"","count":17,"line":99},{"name":"","count":17,"line":99},{"name":"","count":0,"line":104}],"branches":[{"line":1,"count":1},{"line":101,"count":0},{"line":9,"count":137},{"line":10,"count":34},{"line":10,"count":34},{"line":11,"count":34},{"line":13,"count":19},{"line":14,"count":1},{"line":14,"count":18},{"line":97,"count":17},{"line":97,"count":1},{"line":97,"count":17},{"line":98,"count":0},{"line":98,"count":17},{"line":19,"count":125},{"line":19,"count":2},{"line":22,"count":288},{"line":22,"count":2},{"line":23,"count":35},{"line":23,"count":31},{"line":23,"count":31},{"line":23,"count":31},{"line":24,"count":285},{"line":24,"count":259},{"line":25,"count":40},{"line":25,"count":40},{"line":26,"count":7},{"line":28,"count":0},{"line":33,"count":1},{"line":33,"count":6},{"line":35,"count":0},{"line":35,"count":6},{"line":37,"count":5},{"line":37,"count":6},{"line":39,"count":0},{"line":27,"count":7},{"line":27,"count":0},{"line":30,"count":22},{"line":30,"count":0},{"line":30,"count":0},{"line":30,"count":3},{"line":30,"count":19},{"line":32,"count":21},{"line":32,"count":4},{"line":32,"count":17},{"line":32,"count":5},{"line":32,"count":12},{"line":32,"count":6},{"line":32,"count":17},{"line":35,"count":18},{"line":35,"count":36},{"line":35,"count":18},{"line":38,"count":6},{"line":38,"count":0},{"line":38,"count":0},{"line":41,"count":134},{"line":42,"count":116},{"line":42,"count":18},{"line":45,"count":7},{"line":46,"count":0},{"line":49,"count":18},{"line":50,"count":0},{"line":47,"count":7},{"line":53,"count":211},{"line":54,"count":1},{"line":54,"count":210},{"line":55,"count":212},{"line":55,"count":0},{"line":55,"count":1},{"line":55,"count":211},{"line":55,"count":209},{"line":56,"count":1},{"line":56,"count":208},{"line":57,"count":207},{"line":57,"count":206},{"line":57,"count":2},{"line":57,"count":206},{"line":59,"count":206},{"line":59,"count":203},{"line":59,"count":4},{"line":59,"count":323},{"line":59,"count":316},{"line":60,"count":409},{"line":63,"count":1},{"line":63,"count":408},{"line":64,"count":0},{"line":64,"count":0},{"line":65,"count":0},{"line":65,"count":0},{"line":65,"count":408},{"line":66,"count":190},{"line":66,"count":402},{"line":66,"count":6},{"line":66,"count":402},{"line":67,"count":187},{"line":67,"count":3},{"line":68,"count":1},{"line":68,"count":2},{"line":68,"count":1},{"line":68,"count":2},{"line":68,"count":1},{"line":70,"count":399},{"line":71,"count":214},{"line":71,"count":84},{"line":72,"count":83},{"line":72,"count":1},{"line":72,"count":82},{"line":73,"count":2081},{"line":73,"count":0},{"line":73,"count":82},{"line":74,"count":1},{"line":74,"count":81},{"line":76,"count":315},{"line":77,"count":1},{"line":77,"count":314},{"line":78,"count":314},{"line":78,"count":313},{"line":78,"count":2},{"line":78,"count":313},{"line":80,"count":2},{"line":80,"count":1},{"line":80,"count":312},{"line":82,"count":1},{"line":82,"count":311},{"line":83,"count":181},{"line":83,"count":4},{"line":83,"count":307},{"line":84,"count":129},{"line":84,"count":124},{"line":85,"count":119},{"line":85,"count":116},{"line":85,"count":115},{"line":85,"count":115},{"line":85,"count":114},{"line":85,"count":4},{"line":85,"count":112},{"line":90,"count":183},{"line":92,"count":180},{"line":92,"count":175},{"line":92,"count":175},{"line":92,"count":3},{"line":93,"count":3},{"line":93,"count":1},{"line":93,"count":2},{"line":93,"count":3},{"line":95,"count":34},{"line":95,"count":0},{"line":95,"count":0},{"line":95,"count":0},{"line":61,"count":406},{"line":77,"count":315},{"line":77,"count":315},{"line":87,"count":112},{"line":87,"count":3},{"line":87,"count":1},{"line":87,"count":2},{"line":87,"count":109},{"line":88,"count":1},{"line":88,"count":108},{"line":97,"count":18},{"line":97,"count":17},{"line":97,"count":17},{"line":99,"count":19},{"line":99,"count":2},{"line":99,"count":17},{"line":99,"count":17},{"line":99,"count":17}],"lines":[{"line":1,"count":1},{"line":2,"count":1},{"line":3,"count":1},{"line":4,"count":1},{"line":5,"count":1},{"line":6,"count":1},{"line":7,"count":1},{"line":8,"count":1},{"line":9,"count":1},{"line":10,"count":1},{"line":11,"count":1},{"line":12,"count":1},{"line":13,"count":1},{"line":14,"count":19},{"line":15,"count":18},{"line":16,"count":18},{"line":17,"count":18},{"line":18,"count":18},{"line":19,"count":18},{"line":20,"count":18},{"line":21,"count":18},{"line":22,"count":18},{"line":23,"count":18},{"line":24,"count":18},{"line":25,"count":18},{"line":26,"count":18},{"line":27,"count":7},{"line":28,"count":7},{"line":29,"count":7},{"line":30,"count":7},{"line":31,"count":7},{"line":32,"count":7},{"line":33,"count":7},{"line":34,"count":6},{"line":35,"count":7},{"line":36,"count":6},{"line":37,"count":7},{"line":38,"count":6},{"line":39,"count":7},{"line":40,"count":7},{"line":41,"count":18},{"line":42,"count":134},{"line":43,"count":18},{"line":44,"count":18},{"line":45,"count":134},{"line":46,"count":7},{"line":47,"count":7},{"line":48,"count":7},{"line":49,"count":7},{"line":50,"count":134},{"line":51,"count":134},{"line":52,"count":18},{"line":53,"count":18},{"line":54,"count":211},{"line":55,"count":211},{"line":56,"count":211},{"line":57,"count":211},{"line":58,"count":211},{"line":59,"count":18},{"line":60,"count":18},{"line":61,"count":409},{"line":62,"count":409},{"line":63,"count":409},{"line":64,"count":409},{"line":65,"count":409},{"line":66,"count":409},{"line":67,"count":409},{"line":68,"count":3},{"line":69,"count":3},{"line":70,"count":3},{"line":71,"count":409},{"line":72,"count":84},{"line":73,"count":84},{"line":74,"count":84},{"line":75,"count":81},{"line":76,"count":81},{"line":77,"count":409},{"line":78,"count":409},{"line":79,"count":313},{"line":80,"count":409},{"line":81,"count":312},{"line":82,"count":409},{"line":83,"count":409},{"line":84,"count":409},{"line":85,"count":124},{"line":86,"count":112},{"line":87,"count":112},{"line":88,"count":112},{"line":89,"count":112},{"line":90,"count":112},{"line":91,"count":183},{"line":92,"count":409},{"line":93,"count":180},{"line":94,"count":3},{"line":95,"count":409},{"line":96,"count":18},{"line":97,"count":19},{"line":98,"count":19},{"line":99,"count":17},{"line":100,"count":19},{"line":101,"count":1},{"line":102,"count":0},{"line":103,"count":0},{"line":104,"count":0},{"line":105,"count":0}]},{"path":"/private/tmp/qynise-local-qualification-tac2mn/checkout/public/app.js","totalLineCount":80,"totalBranchCount":53,"totalFunctionCount":12,"coveredLineCount":80,"coveredBranchCount":44,"coveredFunctionCount":11,"coveredLinePercent":100,"coveredBranchPercent":83.01886792452831,"coveredFunctionPercent":91.66666666666666,"functions":[{"name":"$","count":246,"line":2},{"name":"api","count":30,"line":4},{"name":"error","count":3,"line":21},{"name":"render","count":8,"line":22},{"name":"","count":8,"line":37},{"name":"loadHistory","count":12,"line":41},{"name":"","count":1,"line":48},{"name":"refresh","count":3,"line":52},{"name":"","count":9,"line":57},{"name":"","count":0,"line":70},{"name":"","count":6,"line":71},{"name":"","count":1,"line":76}],"branches":[{"line":1,"count":6},{"line":2,"count":246},{"line":4,"count":30},{"line":6,"count":15},{"line":6,"count":15},{"line":6,"count":22},{"line":6,"count":8},{"line":7,"count":15},{"line":7,"count":15},{"line":9,"count":4},{"line":10,"count":1},{"line":10,"count":1},{"line":17,"count":0},{"line":18,"count":26},{"line":21,"count":3},{"line":21,"count":0},{"line":22,"count":6},{"line":23,"count":0},{"line":28,"count":8},{"line":30,"count":2},{"line":30,"count":6},{"line":39,"count":3},{"line":37,"count":8},{"line":41,"count":12},{"line":43,"count":0},{"line":45,"count":6},{"line":46,"count":6},{"line":48,"count":1},{"line":48,"count":0},{"line":48,"count":0},{"line":52,"count":3},{"line":54,"count":2},{"line":54,"count":0},{"line":54,"count":2},{"line":55,"count":1},{"line":57,"count":9},{"line":58,"count":1},{"line":58,"count":8},{"line":65,"count":7},{"line":65,"count":0},{"line":65,"count":7},{"line":68,"count":1},{"line":68,"count":8},{"line":71,"count":6},{"line":73,"count":4},{"line":73,"count":1},{"line":73,"count":3},{"line":74,"count":2},{"line":74,"count":1},{"line":74,"count":5},{"line":74,"count":4},{"line":76,"count":1},{"line":79,"count":0}],"lines":[{"line":1,"count":6},{"line":2,"count":6},{"line":3,"count":6},{"line":4,"count":30},{"line":5,"count":30},{"line":6,"count":30},{"line":7,"count":30},{"line":8,"count":30},{"line":9,"count":30},{"line":10,"count":4},{"line":11,"count":1},{"line":12,"count":1},{"line":13,"count":1},{"line":14,"count":1},{"line":15,"count":1},{"line":16,"count":1},{"line":17,"count":4},{"line":18,"count":4},{"line":19,"count":26},{"line":20,"count":30},{"line":21,"count":3},{"line":22,"count":6},{"line":23,"count":6},{"line":24,"count":6},{"line":25,"count":6},{"line":26,"count":6},{"line":27,"count":6},{"line":28,"count":6},{"line":29,"count":8},{"line":30,"count":8},{"line":31,"count":8},{"line":32,"count":8},{"line":33,"count":8},{"line":34,"count":8},{"line":35,"count":8},{"line":36,"count":6},{"line":37,"count":6},{"line":38,"count":6},{"line":39,"count":6},{"line":40,"count":6},{"line":41,"count":12},{"line":42,"count":12},{"line":43,"count":12},{"line":44,"count":12},{"line":45,"count":12},{"line":46,"count":12},{"line":47,"count":6},{"line":48,"count":6},{"line":49,"count":6},{"line":50,"count":6},{"line":51,"count":12},{"line":52,"count":3},{"line":53,"count":3},{"line":54,"count":3},{"line":55,"count":3},{"line":56,"count":3},{"line":57,"count":6},{"line":58,"count":9},{"line":59,"count":8},{"line":60,"count":8},{"line":61,"count":8},{"line":62,"count":8},{"line":63,"count":8},{"line":64,"count":8},{"line":65,"count":9},{"line":66,"count":7},{"line":67,"count":7},{"line":68,"count":9},{"line":69,"count":6},{"line":70,"count":6},{"line":71,"count":6},{"line":72,"count":6},{"line":73,"count":6},{"line":74,"count":6},{"line":75,"count":6},{"line":76,"count":6},{"line":77,"count":1},{"line":78,"count":1},{"line":79,"count":1},{"line":80,"count":6}]}],"totals":{"totalLineCount":185,"totalBranchCount":220,"totalFunctionCount":50,"coveredLineCount":181,"coveredBranchCount":190,"coveredFunctionCount":47,"coveredLinePercent":97.83783783783784,"coveredBranchPercent":86.36363636363636,"coveredFunctionPercent":94},"thresholds":{"line":90,"branch":85,"function":0}}}},{"type":"test:summary","data":{"success":true,"counts":{"tests":22,"failed":0,"passed":22,"cancelled":0,"skipped":0,"todo":0,"topLevel":22,"suites":0},"duration_ms":3498.485667}}],"complete_cases":22,"passed_cases":22}],"limits":["Deterministic fixture planners/review only; no independent model/product review.","Recovery experiment is labelled local mechanics, not an application event engine.","Genuine provider, production identity, cloud, budgets and deployment DEFERRED.","Local results are not authenticated native verifier/reviewer receipts."]}}
+{
+  "success": true,
+  "numPassedTests": 6,
+  "numFailedTests": 0,
+  "numPendingTests": 0,
+  "testResults": [
+    {
+      "name": "Spec002 bounded local qualification",
+      "assertionResults": [
+        {
+          "fullName": "AC-1 complete approved local fixture qualification",
+          "title": "AC-1",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "fullName": "AC-2 complete approved local fixture qualification",
+          "title": "AC-2",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "fullName": "AC-3 complete approved local fixture qualification",
+          "title": "AC-3",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "fullName": "AC-4 complete approved local fixture qualification",
+          "title": "AC-4",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "fullName": "AC-5 complete approved local fixture qualification",
+          "title": "AC-5",
+          "status": "passed",
+          "failureMessages": []
+        },
+        {
+          "fullName": "AC-6 complete approved local fixture qualification",
+          "title": "AC-6",
+          "status": "passed",
+          "failureMessages": []
+        }
+      ]
+    }
+  ],
+  "qualification": {
+    "spec": "002",
+    "source_commit": "6aadc3127321807cba03154551d594e182c9fb3c",
+    "source_tree": "05f7431572bfdf30b755668b056a4620948b1b51",
+    "node": "24.13.1",
+    "platform": "darwin",
+    "architecture": "arm64",
+    "clean_install": true,
+    "coverage": {
+      "app/local/server.ts": {
+        "lines": {
+          "total": 105,
+          "covered": 101,
+          "skipped": 0,
+          "pct": 96.19047619047619
+        },
+        "branches": {
+          "total": 167,
+          "covered": 146,
+          "skipped": 0,
+          "pct": 87.42514970059881
+        },
+        "functions": {
+          "total": 38,
+          "covered": 36,
+          "skipped": 0,
+          "pct": 94.73684210526315
+        },
+        "statements": {
+          "total": 105,
+          "covered": 101,
+          "skipped": 0,
+          "pct": 96.19047619047619
+        }
+      },
+      "public/app.js": {
+        "lines": {
+          "total": 80,
+          "covered": 80,
+          "skipped": 0,
+          "pct": 100
+        },
+        "branches": {
+          "total": 53,
+          "covered": 44,
+          "skipped": 0,
+          "pct": 83.01886792452831
+        },
+        "functions": {
+          "total": 12,
+          "covered": 11,
+          "skipped": 0,
+          "pct": 91.66666666666666
+        },
+        "statements": {
+          "total": 80,
+          "covered": 80,
+          "skipped": 0,
+          "pct": 100
+        }
+      },
+      "total": {
+        "lines": {
+          "total": 185,
+          "covered": 181,
+          "skipped": 0,
+          "pct": 97.83783783783784
+        },
+        "branches": {
+          "total": 220,
+          "covered": 190,
+          "skipped": 0,
+          "pct": 86.36363636363636
+        },
+        "functions": {
+          "total": 50,
+          "covered": 47,
+          "skipped": 0,
+          "pct": 94
+        },
+        "statements": {
+          "total": 185,
+          "covered": 181,
+          "skipped": 0,
+          "pct": 97.83783783783784
+        }
+      }
+    },
+    "commands": [
+      {
+        "name": "source-head",
+        "argv": [
+          "git",
+          "rev-parse",
+          "HEAD"
+        ],
+        "cwd": "source-repository",
+        "exit": 0,
+        "signal": null,
+        "stdout_sha256": "1731f94ccc833cee09e7560e96d52bf03612f926543a5d13a3b595432be65c50",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "name": "source-tree",
+        "argv": [
+          "git",
+          "rev-parse",
+          "6aadc3127321807cba03154551d594e182c9fb3c^{tree}"
+        ],
+        "cwd": "source-repository",
+        "exit": 0,
+        "signal": null,
+        "stdout_sha256": "b2f559ee4bfd4567dc25d7a2481bf51a9db3d0d5e374d04f37d763463ee90223",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "name": "tracked-source-status",
+        "argv": [
+          "git",
+          "status",
+          "--porcelain",
+          "--untracked-files=no"
+        ],
+        "cwd": "source-repository",
+        "exit": 0,
+        "signal": null,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "name": "clean-source-archive",
+        "argv": [
+          "git",
+          "archive",
+          "--format=tar",
+          "6aadc3127321807cba03154551d594e182c9fb3c"
+        ],
+        "cwd": "source-repository",
+        "exit": 0,
+        "signal": null,
+        "stdout_sha256": "421950862c427df74502003440d83376050ace058af85153a89f776baf0fbe06",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "name": "clean-source-extract",
+        "argv": [
+          "tar",
+          "-xf",
+          "-",
+          "-C",
+          "/private/tmp/qynise-local-qualification-C0XWkf/checkout"
+        ],
+        "cwd": "owned-temporary-root",
+        "exit": 0,
+        "signal": null,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "name": "immutable-source-byte-verification",
+        "files": 911,
+        "byte_verified": true
+      },
+      {
+        "name": "clean-root-install",
+        "argv": [
+          "npm",
+          "ci",
+          "--offline",
+          "--ignore-scripts",
+          "--no-audit",
+          "--no-fund"
+        ],
+        "cwd": "checkout",
+        "exit": 0,
+        "signal": null,
+        "stdout_sha256": "4c17039ef169a4a02853f6de546a239e215d2faaf302b04ce09eb04467464875",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "name": "clean-experiment-install",
+        "argv": [
+          "npm",
+          "ci",
+          "--offline",
+          "--ignore-scripts",
+          "--no-audit",
+          "--no-fund"
+        ],
+        "cwd": "checkout/experiments/recovery-spike",
+        "exit": 0,
+        "signal": null,
+        "stdout_sha256": "ff3082a847fc91a816b454f2bb4cd15c0e162539e1dd1c4d17f4745f34abde30",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "name": "strict-application",
+        "argv": [
+          "/Users/shravanjha/.nvm/versions/node/v24.13.1/bin/node",
+          "node_modules/typescript/bin/tsc",
+          "--project",
+          "app/local/tsconfig.json"
+        ],
+        "cwd": "checkout",
+        "exit": 0,
+        "signal": null,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "name": "strict-recovery",
+        "argv": [
+          "/Users/shravanjha/.nvm/versions/node/v24.13.1/bin/node",
+          "node_modules/typescript/bin/tsc",
+          "--project",
+          "experiments/recovery-spike/tsconfig.json"
+        ],
+        "cwd": "checkout",
+        "exit": 0,
+        "signal": null,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "name": "syntax-public-app.js",
+        "argv": [
+          "/Users/shravanjha/.nvm/versions/node/v24.13.1/bin/node",
+          "--check",
+          "public/app.js"
+        ],
+        "cwd": "checkout",
+        "exit": 0,
+        "signal": null,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "name": "syntax-scripts-coverage-reporter.mjs",
+        "argv": [
+          "/Users/shravanjha/.nvm/versions/node/v24.13.1/bin/node",
+          "--check",
+          "scripts/coverage-reporter.mjs"
+        ],
+        "cwd": "checkout",
+        "exit": 0,
+        "signal": null,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "name": "syntax-scripts-local-qualification-contract.mjs",
+        "argv": [
+          "/Users/shravanjha/.nvm/versions/node/v24.13.1/bin/node",
+          "--check",
+          "scripts/local-qualification-contract.mjs"
+        ],
+        "cwd": "checkout",
+        "exit": 0,
+        "signal": null,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "name": "syntax-scripts-local-qualification-reporter.mjs",
+        "argv": [
+          "/Users/shravanjha/.nvm/versions/node/v24.13.1/bin/node",
+          "--check",
+          "scripts/local-qualification-reporter.mjs"
+        ],
+        "cwd": "checkout",
+        "exit": 0,
+        "signal": null,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "name": "syntax-scripts-qualify-local.mjs",
+        "argv": [
+          "/Users/shravanjha/.nvm/versions/node/v24.13.1/bin/node",
+          "--check",
+          "scripts/qualify-local.mjs"
+        ],
+        "cwd": "checkout",
+        "exit": 0,
+        "signal": null,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "name": "app",
+        "argv": [
+          "/Users/shravanjha/.nvm/versions/node/v24.13.1/bin/node",
+          "--test",
+          "--test-timeout=30000",
+          "--test-reporter=./scripts/local-qualification-reporter.mjs",
+          "--test-reporter-destination=/private/tmp/factory-pilot-closeout-20261021/qualification-preparation/qynise-current-base-observation/qualification/app.events.jsonl",
+          "app/local/demo.test.ts",
+          "app/local/ui.test.ts",
+          "app/local/browser-errors.test.ts"
+        ],
+        "cwd": "checkout",
+        "exit": 0,
+        "signal": null,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "suite": "app",
+        "events_sha256": "dff0eb262df077d33d3cf855a16deed01b4cc6fb24d88b22249cbbb35a6354a3",
+        "native_events": [
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "browser exception control covers existing and future context pages",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/app/local/browser-errors.test.ts",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "explicit local mode, server-owned identities, origin and session boundaries",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/app/local/demo.test.ts",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "durable idempotent start validates input and denies cross-tenant access",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/app/local/demo.test.ts",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "restart resumes durable fixture work, records overlap, review and digest without a provider",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/app/local/demo.test.ts",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "cancellation persists and prevents queued fixture completion",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/app/local/demo.test.ts",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "recovery after review commit preserves original task provenance and final set",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/app/local/demo.test.ts",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "chunked Unicode brief is preserved byte-for-byte",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/app/local/demo.test.ts",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "running cancellation prevents final fixture publication",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/app/local/demo.test.ts",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "actual process death after a planner commit resumes without replacing that evidence",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/app/local/demo.test.ts",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "initial storage-claim failure stops scheduling without process death or false success",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/app/local/demo.test.ts",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "late cancel body cannot overwrite a committed successful run",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/app/local/demo.test.ts",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "HTTP input and retained-run limits reject invalid or oversized requests explicitly",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/app/local/demo.test.ts",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "static responses and session boundaries retain their explicit contract",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/app/local/demo.test.ts",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "a forged Host cannot read even a valid local test session",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/app/local/demo.test.ts",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "client identity hints cannot change the server-owned session tenant",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/app/local/demo.test.ts",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "foreign Origin cannot read or mutate a valid server-owned session",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/app/local/demo.test.ts",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "late Alice response cannot render after a successful Bob identity switch",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/app/local/ui.test.ts",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "overlapping identity submissions cannot reorder the browser session cookie",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/app/local/ui.test.ts",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "UI polls fixture evidence and preserves provenance and explicit errors",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/app/local/ui.test.ts",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "UI cancellation refreshes terminal state and reports failed mutations",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/app/local/ui.test.ts",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "UI login and polling failures remain visible without continuing a stale poll",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/app/local/ui.test.ts",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "UI rejects a changed shared cookie instead of writing under a stale identity label",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/app/local/ui.test.ts",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:summary",
+            "data": {
+              "success": true,
+              "counts": {
+                "tests": 22,
+                "failed": 0,
+                "passed": 22,
+                "cancelled": 0,
+                "skipped": 0,
+                "todo": 0,
+                "topLevel": 22,
+                "suites": 0
+              },
+              "duration_ms": 3447.480167
+            }
+          }
+        ],
+        "complete_cases": 22,
+        "passed_cases": 22
+      },
+      {
+        "name": "reporter",
+        "argv": [
+          "/Users/shravanjha/.nvm/versions/node/v24.13.1/bin/node",
+          "--test",
+          "--test-timeout=30000",
+          "--test-reporter=./scripts/local-qualification-reporter.mjs",
+          "--test-reporter-destination=/private/tmp/factory-pilot-closeout-20261021/qualification-preparation/qynise-current-base-observation/qualification/reporter.events.jsonl",
+          "scripts/coverage-reporter.test.mjs"
+        ],
+        "cwd": "checkout",
+        "exit": 0,
+        "signal": null,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "suite": "reporter",
+        "events_sha256": "f1ba6cd9533eeabe70f66fe0d410c7789079c82f4c1944401a68311fb0ddd2d3",
+        "native_events": [
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "coverage summary weights real counts from both application source files",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/scripts/coverage-reporter.test.mjs",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "missing, duplicate, foreign or malformed coverage never becomes a passing summary",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/scripts/coverage-reporter.test.mjs",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:summary",
+            "data": {
+              "success": true,
+              "counts": {
+                "tests": 2,
+                "failed": 0,
+                "passed": 2,
+                "cancelled": 0,
+                "skipped": 0,
+                "todo": 0,
+                "topLevel": 2,
+                "suites": 0
+              },
+              "duration_ms": 55.324209
+            }
+          }
+        ],
+        "complete_cases": 2,
+        "passed_cases": 2
+      },
+      {
+        "name": "contract",
+        "argv": [
+          "/Users/shravanjha/.nvm/versions/node/v24.13.1/bin/node",
+          "--test",
+          "--test-timeout=30000",
+          "--test-reporter=./scripts/local-qualification-reporter.mjs",
+          "--test-reporter-destination=/private/tmp/factory-pilot-closeout-20261021/qualification-preparation/qynise-current-base-observation/qualification/contract.events.jsonl",
+          "scripts/local-qualification.test.mjs"
+        ],
+        "cwd": "checkout",
+        "exit": 0,
+        "signal": null,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "suite": "contract",
+        "events_sha256": "c8d457dfd66aacf2aa88e0c71b9335ba3604bc911142e8924f922a9762bed25e",
+        "native_events": [
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "complete native events require exact cases and a successful command",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/scripts/local-qualification.test.mjs",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "missing or duplicate cases cannot qualify a criterion",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/scripts/local-qualification.test.mjs",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "skipped todo failed or cancelled native cases never receive pass credit",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/scripts/local-qualification.test.mjs",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "printed success and foreign or malformed events cannot spoof native outcomes",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/scripts/local-qualification.test.mjs",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "missing duplicate or contradictory native summaries are rejected",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/scripts/local-qualification.test.mjs",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "actual coverage requires both measured source files and unchanged floors",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/scripts/local-qualification.test.mjs",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "missing duplicate malformed and below-floor coverage cannot become PASS",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/scripts/local-qualification.test.mjs",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "whole-criterion results require every mapped suite and setup control",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/scripts/local-qualification.test.mjs",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "a pass event carrying a native failure cannot spoof a successful outcome",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/scripts/local-qualification.test.mjs",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "empty or duplicate suite requirements cannot vacuously qualify a criterion",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/scripts/local-qualification.test.mjs",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "process capture preserves binary archive bytes without UTF8 decoding",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/scripts/local-qualification.test.mjs",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "snapshot tree and archive bind captured immutable commit instead of moving HEAD",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/scripts/local-qualification.test.mjs",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "actual git archive must preserve every immutable blob including binary bytes",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/scripts/local-qualification.test.mjs",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "actual export-ignore and export-subst archives cannot claim the committed source tree",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/scripts/local-qualification.test.mjs",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "missing extra altered and unsupported symlink sources fail byte binding",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/scripts/local-qualification.test.mjs",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "nonempty output is rejected and output setup failure cleans owned workspace",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/scripts/local-qualification.test.mjs",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "immutable Git symlink and gitlink modes are unsupported rather than silently omitted",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/scripts/local-qualification.test.mjs",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "fresh empty output works and symlinked temporary roots normalize native identities",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/scripts/local-qualification.test.mjs",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:summary",
+            "data": {
+              "success": true,
+              "counts": {
+                "tests": 18,
+                "failed": 0,
+                "passed": 18,
+                "cancelled": 0,
+                "skipped": 0,
+                "todo": 0,
+                "topLevel": 18,
+                "suites": 0
+              },
+              "duration_ms": 3508.449917
+            }
+          }
+        ],
+        "complete_cases": 18,
+        "passed_cases": 18
+      },
+      {
+        "name": "recovery",
+        "argv": [
+          "/Users/shravanjha/.nvm/versions/node/v24.13.1/bin/node",
+          "--test",
+          "--test-timeout=30000",
+          "--test-reporter=./scripts/local-qualification-reporter.mjs",
+          "--test-reporter-destination=/private/tmp/factory-pilot-closeout-20261021/qualification-preparation/qynise-current-base-observation/qualification/recovery.events.jsonl",
+          "experiments/recovery-spike/recovery.test.ts"
+        ],
+        "cwd": "checkout",
+        "exit": 0,
+        "signal": null,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "suite": "recovery",
+        "events_sha256": "5fa4cc73621992c683bbbd9ae9e47f13f277c624705103a170c9e91de59a188b",
+        "native_events": [
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "tenant-scoped idempotency conflicts and denies foreign reads",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/experiments/recovery-spike/recovery.test.ts",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "generation fence rejects stale completion and duplicate output conflicts",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/experiments/recovery-spike/recovery.test.ts",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "cancelled run refuses claims and late completion",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/experiments/recovery-spike/recovery.test.ts",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "final artifact waits for three tasks and independent review; replay is stable",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/experiments/recovery-spike/recovery.test.ts",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "review cannot run before aggregate; foreign or unknown task cannot mutate state",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/experiments/recovery-spike/recovery.test.ts",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "process death rolls back partial start; committed outbox survives death",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/experiments/recovery-spike/recovery.test.ts",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "process death after fixture response requires fenced retry without duplicate committed result",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/experiments/recovery-spike/recovery.test.ts",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "simultaneous processes serialize idempotent starts and fence competing claims",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/experiments/recovery-spike/recovery.test.ts",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "worker failure closes the competing fixture processes before returning",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/experiments/recovery-spike/recovery.test.ts",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:summary",
+            "data": {
+              "success": true,
+              "counts": {
+                "tests": 9,
+                "failed": 0,
+                "passed": 9,
+                "cancelled": 0,
+                "skipped": 0,
+                "todo": 0,
+                "topLevel": 9,
+                "suites": 0
+              },
+              "duration_ms": 1156.209917
+            }
+          }
+        ],
+        "complete_cases": 9,
+        "passed_cases": 9
+      },
+      {
+        "name": "browser",
+        "argv": [
+          "/Users/shravanjha/.nvm/versions/node/v24.13.1/bin/node",
+          "--test",
+          "--test-timeout=30000",
+          "--test-reporter=./scripts/local-qualification-reporter.mjs",
+          "--test-reporter-destination=/private/tmp/factory-pilot-closeout-20261021/qualification-preparation/qynise-current-base-observation/qualification/browser.events.jsonl",
+          "app/local/browser.test.ts"
+        ],
+        "cwd": "checkout",
+        "exit": 0,
+        "signal": null,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "suite": "browser",
+        "events_sha256": "432881fd49e966d1f8710502349d339add7f131eddb98dbd6241982f6b3ef8c1",
+        "native_events": [
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "actual Chromium brief-to-evidence journey and tenant switch at desktop/mobile sizes",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/app/local/browser.test.ts",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "actual Chromium second-page exception is detected by the browser control",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/app/local/browser.test.ts",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:summary",
+            "data": {
+              "success": true,
+              "counts": {
+                "tests": 2,
+                "failed": 0,
+                "passed": 2,
+                "cancelled": 0,
+                "skipped": 0,
+                "todo": 0,
+                "topLevel": 2,
+                "suites": 0
+              },
+              "duration_ms": 3144.105125
+            }
+          }
+        ],
+        "complete_cases": 2,
+        "passed_cases": 2
+      },
+      {
+        "name": "coverage",
+        "argv": [
+          "/Users/shravanjha/.nvm/versions/node/v24.13.1/bin/node",
+          "--test",
+          "--test-timeout=30000",
+          "--test-reporter=./scripts/local-qualification-reporter.mjs",
+          "--test-reporter-destination=/private/tmp/factory-pilot-closeout-20261021/qualification-preparation/qynise-current-base-observation/qualification/coverage.events.jsonl",
+          "--experimental-test-coverage",
+          "--test-coverage-lines=90",
+          "--test-coverage-branches=85",
+          "--test-coverage-include=app/local/server.ts",
+          "--test-coverage-include=public/app.js",
+          "--test-reporter=./scripts/coverage-reporter.mjs",
+          "--test-reporter-destination=/private/tmp/factory-pilot-closeout-20261021/qualification-preparation/qynise-current-base-observation/qualification/coverage.native.log",
+          "app/local/demo.test.ts",
+          "app/local/ui.test.ts",
+          "app/local/browser-errors.test.ts"
+        ],
+        "cwd": "checkout",
+        "exit": 0,
+        "signal": null,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "suite": "coverage",
+        "events_sha256": "2aae3665ef6de278be2a878d58e3a92ff5bc35b491571f4d6c7dbeaa3acd760e",
+        "native_events": [
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "browser exception control covers existing and future context pages",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/app/local/browser-errors.test.ts",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "explicit local mode, server-owned identities, origin and session boundaries",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/app/local/demo.test.ts",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "durable idempotent start validates input and denies cross-tenant access",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/app/local/demo.test.ts",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "restart resumes durable fixture work, records overlap, review and digest without a provider",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/app/local/demo.test.ts",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "cancellation persists and prevents queued fixture completion",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/app/local/demo.test.ts",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "recovery after review commit preserves original task provenance and final set",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/app/local/demo.test.ts",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "chunked Unicode brief is preserved byte-for-byte",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/app/local/demo.test.ts",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "running cancellation prevents final fixture publication",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/app/local/demo.test.ts",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "actual process death after a planner commit resumes without replacing that evidence",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/app/local/demo.test.ts",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "initial storage-claim failure stops scheduling without process death or false success",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/app/local/demo.test.ts",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "late cancel body cannot overwrite a committed successful run",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/app/local/demo.test.ts",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "HTTP input and retained-run limits reject invalid or oversized requests explicitly",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/app/local/demo.test.ts",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "static responses and session boundaries retain their explicit contract",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/app/local/demo.test.ts",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "a forged Host cannot read even a valid local test session",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/app/local/demo.test.ts",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "client identity hints cannot change the server-owned session tenant",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/app/local/demo.test.ts",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "foreign Origin cannot read or mutate a valid server-owned session",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/app/local/demo.test.ts",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "late Alice response cannot render after a successful Bob identity switch",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/app/local/ui.test.ts",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "overlapping identity submissions cannot reorder the browser session cookie",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/app/local/ui.test.ts",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "UI polls fixture evidence and preserves provenance and explicit errors",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/app/local/ui.test.ts",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "UI cancellation refreshes terminal state and reports failed mutations",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/app/local/ui.test.ts",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "UI login and polling failures remain visible without continuing a stale poll",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/app/local/ui.test.ts",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:pass",
+            "data": {
+              "name": "UI rejects a changed shared cookie instead of writing under a stale identity label",
+              "file": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/app/local/ui.test.ts",
+              "nesting": 0,
+              "details": {
+                "type": "test"
+              }
+            }
+          },
+          {
+            "type": "test:coverage",
+            "data": {
+              "nesting": 0,
+              "summary": {
+                "workingDirectory": "/private/tmp/qynise-local-qualification-C0XWkf/checkout",
+                "files": [
+                  {
+                    "path": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/app/local/server.ts",
+                    "totalLineCount": 105,
+                    "totalBranchCount": 167,
+                    "totalFunctionCount": 38,
+                    "coveredLineCount": 101,
+                    "coveredBranchCount": 146,
+                    "coveredFunctionCount": 36,
+                    "coveredLinePercent": 96.19047619047619,
+                    "coveredBranchPercent": 87.42514970059881,
+                    "coveredFunctionPercent": 94.73684210526315,
+                    "functions": [
+                      {
+                        "name": "digest",
+                        "count": 137,
+                        "line": 9
+                      },
+                      {
+                        "name": "<instance_members_initializer>",
+                        "count": 34,
+                        "line": 10
+                      },
+                      {
+                        "name": "HttpError",
+                        "count": 34,
+                        "line": 10
+                      },
+                      {
+                        "name": "reject",
+                        "count": 34,
+                        "line": 11
+                      },
+                      {
+                        "name": "startDemo",
+                        "count": 19,
+                        "line": 13
+                      },
+                      {
+                        "name": "tx",
+                        "count": 125,
+                        "line": 19
+                      },
+                      {
+                        "name": "getRun",
+                        "count": 288,
+                        "line": 22
+                      },
+                      {
+                        "name": "active",
+                        "count": 35,
+                        "line": 23
+                      },
+                      {
+                        "name": "view",
+                        "count": 285,
+                        "line": 24
+                      },
+                      {
+                        "name": "",
+                        "count": 260,
+                        "line": 24
+                      },
+                      {
+                        "name": "valid",
+                        "count": 40,
+                        "line": 25
+                      },
+                      {
+                        "name": "",
+                        "count": 40,
+                        "line": 25
+                      },
+                      {
+                        "name": "execute",
+                        "count": 7,
+                        "line": 26
+                      },
+                      {
+                        "name": "",
+                        "count": 7,
+                        "line": 27
+                      },
+                      {
+                        "name": "save",
+                        "count": 22,
+                        "line": 30
+                      },
+                      {
+                        "name": "",
+                        "count": 21,
+                        "line": 32
+                      },
+                      {
+                        "name": "save.schema",
+                        "count": 17,
+                        "line": 32
+                      },
+                      {
+                        "name": "",
+                        "count": 18,
+                        "line": 35
+                      },
+                      {
+                        "name": "",
+                        "count": 36,
+                        "line": 35
+                      },
+                      {
+                        "name": "",
+                        "count": 6,
+                        "line": 38
+                      },
+                      {
+                        "name": "schedule",
+                        "count": 134,
+                        "line": 41
+                      },
+                      {
+                        "name": "",
+                        "count": 0,
+                        "line": 47
+                      },
+                      {
+                        "name": "",
+                        "count": 7,
+                        "line": 47
+                      },
+                      {
+                        "name": "body",
+                        "count": 212,
+                        "line": 53
+                      },
+                      {
+                        "name": "exact",
+                        "count": 206,
+                        "line": 59
+                      },
+                      {
+                        "name": "",
+                        "count": 323,
+                        "line": 59
+                      },
+                      {
+                        "name": "",
+                        "count": 316,
+                        "line": 59
+                      },
+                      {
+                        "name": "",
+                        "count": 2081,
+                        "line": 60
+                      },
+                      {
+                        "name": "send",
+                        "count": 406,
+                        "line": 61
+                      },
+                      {
+                        "name": "",
+                        "count": 315,
+                        "line": 77
+                      },
+                      {
+                        "name": "",
+                        "count": 315,
+                        "line": 77
+                      },
+                      {
+                        "name": "",
+                        "count": 112,
+                        "line": 87
+                      },
+                      {
+                        "name": "",
+                        "count": 18,
+                        "line": 97
+                      },
+                      {
+                        "name": "",
+                        "count": 17,
+                        "line": 97
+                      },
+                      {
+                        "name": "close",
+                        "count": 19,
+                        "line": 99
+                      },
+                      {
+                        "name": "",
+                        "count": 17,
+                        "line": 99
+                      },
+                      {
+                        "name": "",
+                        "count": 17,
+                        "line": 99
+                      },
+                      {
+                        "name": "",
+                        "count": 0,
+                        "line": 104
+                      }
+                    ],
+                    "branches": [
+                      {
+                        "line": 1,
+                        "count": 1
+                      },
+                      {
+                        "line": 101,
+                        "count": 0
+                      },
+                      {
+                        "line": 9,
+                        "count": 137
+                      },
+                      {
+                        "line": 10,
+                        "count": 34
+                      },
+                      {
+                        "line": 10,
+                        "count": 34
+                      },
+                      {
+                        "line": 11,
+                        "count": 34
+                      },
+                      {
+                        "line": 13,
+                        "count": 19
+                      },
+                      {
+                        "line": 14,
+                        "count": 1
+                      },
+                      {
+                        "line": 14,
+                        "count": 18
+                      },
+                      {
+                        "line": 97,
+                        "count": 17
+                      },
+                      {
+                        "line": 97,
+                        "count": 1
+                      },
+                      {
+                        "line": 97,
+                        "count": 17
+                      },
+                      {
+                        "line": 98,
+                        "count": 0
+                      },
+                      {
+                        "line": 98,
+                        "count": 17
+                      },
+                      {
+                        "line": 19,
+                        "count": 125
+                      },
+                      {
+                        "line": 19,
+                        "count": 2
+                      },
+                      {
+                        "line": 22,
+                        "count": 288
+                      },
+                      {
+                        "line": 22,
+                        "count": 2
+                      },
+                      {
+                        "line": 23,
+                        "count": 35
+                      },
+                      {
+                        "line": 23,
+                        "count": 31
+                      },
+                      {
+                        "line": 23,
+                        "count": 31
+                      },
+                      {
+                        "line": 23,
+                        "count": 31
+                      },
+                      {
+                        "line": 24,
+                        "count": 285
+                      },
+                      {
+                        "line": 24,
+                        "count": 260
+                      },
+                      {
+                        "line": 25,
+                        "count": 40
+                      },
+                      {
+                        "line": 25,
+                        "count": 40
+                      },
+                      {
+                        "line": 26,
+                        "count": 7
+                      },
+                      {
+                        "line": 28,
+                        "count": 0
+                      },
+                      {
+                        "line": 33,
+                        "count": 1
+                      },
+                      {
+                        "line": 33,
+                        "count": 6
+                      },
+                      {
+                        "line": 35,
+                        "count": 0
+                      },
+                      {
+                        "line": 35,
+                        "count": 6
+                      },
+                      {
+                        "line": 37,
+                        "count": 5
+                      },
+                      {
+                        "line": 37,
+                        "count": 6
+                      },
+                      {
+                        "line": 39,
+                        "count": 0
+                      },
+                      {
+                        "line": 27,
+                        "count": 7
+                      },
+                      {
+                        "line": 27,
+                        "count": 0
+                      },
+                      {
+                        "line": 30,
+                        "count": 22
+                      },
+                      {
+                        "line": 30,
+                        "count": 0
+                      },
+                      {
+                        "line": 30,
+                        "count": 0
+                      },
+                      {
+                        "line": 30,
+                        "count": 3
+                      },
+                      {
+                        "line": 30,
+                        "count": 19
+                      },
+                      {
+                        "line": 32,
+                        "count": 21
+                      },
+                      {
+                        "line": 32,
+                        "count": 4
+                      },
+                      {
+                        "line": 32,
+                        "count": 17
+                      },
+                      {
+                        "line": 32,
+                        "count": 5
+                      },
+                      {
+                        "line": 32,
+                        "count": 12
+                      },
+                      {
+                        "line": 32,
+                        "count": 6
+                      },
+                      {
+                        "line": 32,
+                        "count": 17
+                      },
+                      {
+                        "line": 35,
+                        "count": 18
+                      },
+                      {
+                        "line": 35,
+                        "count": 36
+                      },
+                      {
+                        "line": 35,
+                        "count": 18
+                      },
+                      {
+                        "line": 38,
+                        "count": 6
+                      },
+                      {
+                        "line": 38,
+                        "count": 0
+                      },
+                      {
+                        "line": 38,
+                        "count": 0
+                      },
+                      {
+                        "line": 41,
+                        "count": 134
+                      },
+                      {
+                        "line": 42,
+                        "count": 116
+                      },
+                      {
+                        "line": 42,
+                        "count": 18
+                      },
+                      {
+                        "line": 45,
+                        "count": 7
+                      },
+                      {
+                        "line": 46,
+                        "count": 0
+                      },
+                      {
+                        "line": 49,
+                        "count": 18
+                      },
+                      {
+                        "line": 50,
+                        "count": 0
+                      },
+                      {
+                        "line": 47,
+                        "count": 7
+                      },
+                      {
+                        "line": 53,
+                        "count": 211
+                      },
+                      {
+                        "line": 54,
+                        "count": 1
+                      },
+                      {
+                        "line": 54,
+                        "count": 210
+                      },
+                      {
+                        "line": 55,
+                        "count": 212
+                      },
+                      {
+                        "line": 55,
+                        "count": 0
+                      },
+                      {
+                        "line": 55,
+                        "count": 1
+                      },
+                      {
+                        "line": 55,
+                        "count": 211
+                      },
+                      {
+                        "line": 55,
+                        "count": 209
+                      },
+                      {
+                        "line": 56,
+                        "count": 1
+                      },
+                      {
+                        "line": 56,
+                        "count": 208
+                      },
+                      {
+                        "line": 57,
+                        "count": 207
+                      },
+                      {
+                        "line": 57,
+                        "count": 206
+                      },
+                      {
+                        "line": 57,
+                        "count": 2
+                      },
+                      {
+                        "line": 57,
+                        "count": 206
+                      },
+                      {
+                        "line": 59,
+                        "count": 206
+                      },
+                      {
+                        "line": 59,
+                        "count": 203
+                      },
+                      {
+                        "line": 59,
+                        "count": 4
+                      },
+                      {
+                        "line": 59,
+                        "count": 323
+                      },
+                      {
+                        "line": 59,
+                        "count": 316
+                      },
+                      {
+                        "line": 60,
+                        "count": 409
+                      },
+                      {
+                        "line": 63,
+                        "count": 1
+                      },
+                      {
+                        "line": 63,
+                        "count": 408
+                      },
+                      {
+                        "line": 64,
+                        "count": 0
+                      },
+                      {
+                        "line": 64,
+                        "count": 0
+                      },
+                      {
+                        "line": 65,
+                        "count": 0
+                      },
+                      {
+                        "line": 65,
+                        "count": 0
+                      },
+                      {
+                        "line": 65,
+                        "count": 408
+                      },
+                      {
+                        "line": 66,
+                        "count": 190
+                      },
+                      {
+                        "line": 66,
+                        "count": 402
+                      },
+                      {
+                        "line": 66,
+                        "count": 6
+                      },
+                      {
+                        "line": 66,
+                        "count": 402
+                      },
+                      {
+                        "line": 67,
+                        "count": 187
+                      },
+                      {
+                        "line": 67,
+                        "count": 3
+                      },
+                      {
+                        "line": 68,
+                        "count": 1
+                      },
+                      {
+                        "line": 68,
+                        "count": 2
+                      },
+                      {
+                        "line": 68,
+                        "count": 1
+                      },
+                      {
+                        "line": 68,
+                        "count": 2
+                      },
+                      {
+                        "line": 68,
+                        "count": 1
+                      },
+                      {
+                        "line": 70,
+                        "count": 399
+                      },
+                      {
+                        "line": 71,
+                        "count": 214
+                      },
+                      {
+                        "line": 71,
+                        "count": 84
+                      },
+                      {
+                        "line": 72,
+                        "count": 83
+                      },
+                      {
+                        "line": 72,
+                        "count": 1
+                      },
+                      {
+                        "line": 72,
+                        "count": 82
+                      },
+                      {
+                        "line": 73,
+                        "count": 2081
+                      },
+                      {
+                        "line": 73,
+                        "count": 0
+                      },
+                      {
+                        "line": 73,
+                        "count": 82
+                      },
+                      {
+                        "line": 74,
+                        "count": 1
+                      },
+                      {
+                        "line": 74,
+                        "count": 81
+                      },
+                      {
+                        "line": 76,
+                        "count": 315
+                      },
+                      {
+                        "line": 77,
+                        "count": 1
+                      },
+                      {
+                        "line": 77,
+                        "count": 314
+                      },
+                      {
+                        "line": 78,
+                        "count": 314
+                      },
+                      {
+                        "line": 78,
+                        "count": 313
+                      },
+                      {
+                        "line": 78,
+                        "count": 2
+                      },
+                      {
+                        "line": 78,
+                        "count": 313
+                      },
+                      {
+                        "line": 80,
+                        "count": 2
+                      },
+                      {
+                        "line": 80,
+                        "count": 1
+                      },
+                      {
+                        "line": 80,
+                        "count": 312
+                      },
+                      {
+                        "line": 82,
+                        "count": 1
+                      },
+                      {
+                        "line": 82,
+                        "count": 311
+                      },
+                      {
+                        "line": 83,
+                        "count": 181
+                      },
+                      {
+                        "line": 83,
+                        "count": 4
+                      },
+                      {
+                        "line": 83,
+                        "count": 307
+                      },
+                      {
+                        "line": 84,
+                        "count": 129
+                      },
+                      {
+                        "line": 84,
+                        "count": 124
+                      },
+                      {
+                        "line": 85,
+                        "count": 119
+                      },
+                      {
+                        "line": 85,
+                        "count": 116
+                      },
+                      {
+                        "line": 85,
+                        "count": 115
+                      },
+                      {
+                        "line": 85,
+                        "count": 115
+                      },
+                      {
+                        "line": 85,
+                        "count": 114
+                      },
+                      {
+                        "line": 85,
+                        "count": 4
+                      },
+                      {
+                        "line": 85,
+                        "count": 112
+                      },
+                      {
+                        "line": 90,
+                        "count": 183
+                      },
+                      {
+                        "line": 92,
+                        "count": 180
+                      },
+                      {
+                        "line": 92,
+                        "count": 175
+                      },
+                      {
+                        "line": 92,
+                        "count": 175
+                      },
+                      {
+                        "line": 92,
+                        "count": 3
+                      },
+                      {
+                        "line": 93,
+                        "count": 3
+                      },
+                      {
+                        "line": 93,
+                        "count": 1
+                      },
+                      {
+                        "line": 93,
+                        "count": 2
+                      },
+                      {
+                        "line": 93,
+                        "count": 3
+                      },
+                      {
+                        "line": 95,
+                        "count": 34
+                      },
+                      {
+                        "line": 95,
+                        "count": 0
+                      },
+                      {
+                        "line": 95,
+                        "count": 0
+                      },
+                      {
+                        "line": 95,
+                        "count": 0
+                      },
+                      {
+                        "line": 61,
+                        "count": 406
+                      },
+                      {
+                        "line": 77,
+                        "count": 315
+                      },
+                      {
+                        "line": 77,
+                        "count": 315
+                      },
+                      {
+                        "line": 87,
+                        "count": 112
+                      },
+                      {
+                        "line": 87,
+                        "count": 3
+                      },
+                      {
+                        "line": 87,
+                        "count": 1
+                      },
+                      {
+                        "line": 87,
+                        "count": 2
+                      },
+                      {
+                        "line": 87,
+                        "count": 109
+                      },
+                      {
+                        "line": 88,
+                        "count": 1
+                      },
+                      {
+                        "line": 88,
+                        "count": 108
+                      },
+                      {
+                        "line": 97,
+                        "count": 18
+                      },
+                      {
+                        "line": 97,
+                        "count": 17
+                      },
+                      {
+                        "line": 97,
+                        "count": 17
+                      },
+                      {
+                        "line": 99,
+                        "count": 19
+                      },
+                      {
+                        "line": 99,
+                        "count": 2
+                      },
+                      {
+                        "line": 99,
+                        "count": 17
+                      },
+                      {
+                        "line": 99,
+                        "count": 17
+                      },
+                      {
+                        "line": 99,
+                        "count": 17
+                      }
+                    ],
+                    "lines": [
+                      {
+                        "line": 1,
+                        "count": 1
+                      },
+                      {
+                        "line": 2,
+                        "count": 1
+                      },
+                      {
+                        "line": 3,
+                        "count": 1
+                      },
+                      {
+                        "line": 4,
+                        "count": 1
+                      },
+                      {
+                        "line": 5,
+                        "count": 1
+                      },
+                      {
+                        "line": 6,
+                        "count": 1
+                      },
+                      {
+                        "line": 7,
+                        "count": 1
+                      },
+                      {
+                        "line": 8,
+                        "count": 1
+                      },
+                      {
+                        "line": 9,
+                        "count": 1
+                      },
+                      {
+                        "line": 10,
+                        "count": 1
+                      },
+                      {
+                        "line": 11,
+                        "count": 1
+                      },
+                      {
+                        "line": 12,
+                        "count": 1
+                      },
+                      {
+                        "line": 13,
+                        "count": 1
+                      },
+                      {
+                        "line": 14,
+                        "count": 19
+                      },
+                      {
+                        "line": 15,
+                        "count": 18
+                      },
+                      {
+                        "line": 16,
+                        "count": 18
+                      },
+                      {
+                        "line": 17,
+                        "count": 18
+                      },
+                      {
+                        "line": 18,
+                        "count": 18
+                      },
+                      {
+                        "line": 19,
+                        "count": 18
+                      },
+                      {
+                        "line": 20,
+                        "count": 18
+                      },
+                      {
+                        "line": 21,
+                        "count": 18
+                      },
+                      {
+                        "line": 22,
+                        "count": 18
+                      },
+                      {
+                        "line": 23,
+                        "count": 18
+                      },
+                      {
+                        "line": 24,
+                        "count": 18
+                      },
+                      {
+                        "line": 25,
+                        "count": 18
+                      },
+                      {
+                        "line": 26,
+                        "count": 18
+                      },
+                      {
+                        "line": 27,
+                        "count": 7
+                      },
+                      {
+                        "line": 28,
+                        "count": 7
+                      },
+                      {
+                        "line": 29,
+                        "count": 7
+                      },
+                      {
+                        "line": 30,
+                        "count": 7
+                      },
+                      {
+                        "line": 31,
+                        "count": 7
+                      },
+                      {
+                        "line": 32,
+                        "count": 7
+                      },
+                      {
+                        "line": 33,
+                        "count": 7
+                      },
+                      {
+                        "line": 34,
+                        "count": 6
+                      },
+                      {
+                        "line": 35,
+                        "count": 7
+                      },
+                      {
+                        "line": 36,
+                        "count": 6
+                      },
+                      {
+                        "line": 37,
+                        "count": 7
+                      },
+                      {
+                        "line": 38,
+                        "count": 6
+                      },
+                      {
+                        "line": 39,
+                        "count": 7
+                      },
+                      {
+                        "line": 40,
+                        "count": 7
+                      },
+                      {
+                        "line": 41,
+                        "count": 18
+                      },
+                      {
+                        "line": 42,
+                        "count": 134
+                      },
+                      {
+                        "line": 43,
+                        "count": 18
+                      },
+                      {
+                        "line": 44,
+                        "count": 18
+                      },
+                      {
+                        "line": 45,
+                        "count": 134
+                      },
+                      {
+                        "line": 46,
+                        "count": 7
+                      },
+                      {
+                        "line": 47,
+                        "count": 7
+                      },
+                      {
+                        "line": 48,
+                        "count": 7
+                      },
+                      {
+                        "line": 49,
+                        "count": 7
+                      },
+                      {
+                        "line": 50,
+                        "count": 134
+                      },
+                      {
+                        "line": 51,
+                        "count": 134
+                      },
+                      {
+                        "line": 52,
+                        "count": 18
+                      },
+                      {
+                        "line": 53,
+                        "count": 18
+                      },
+                      {
+                        "line": 54,
+                        "count": 211
+                      },
+                      {
+                        "line": 55,
+                        "count": 211
+                      },
+                      {
+                        "line": 56,
+                        "count": 211
+                      },
+                      {
+                        "line": 57,
+                        "count": 211
+                      },
+                      {
+                        "line": 58,
+                        "count": 211
+                      },
+                      {
+                        "line": 59,
+                        "count": 18
+                      },
+                      {
+                        "line": 60,
+                        "count": 18
+                      },
+                      {
+                        "line": 61,
+                        "count": 409
+                      },
+                      {
+                        "line": 62,
+                        "count": 409
+                      },
+                      {
+                        "line": 63,
+                        "count": 409
+                      },
+                      {
+                        "line": 64,
+                        "count": 409
+                      },
+                      {
+                        "line": 65,
+                        "count": 409
+                      },
+                      {
+                        "line": 66,
+                        "count": 409
+                      },
+                      {
+                        "line": 67,
+                        "count": 409
+                      },
+                      {
+                        "line": 68,
+                        "count": 3
+                      },
+                      {
+                        "line": 69,
+                        "count": 3
+                      },
+                      {
+                        "line": 70,
+                        "count": 3
+                      },
+                      {
+                        "line": 71,
+                        "count": 409
+                      },
+                      {
+                        "line": 72,
+                        "count": 84
+                      },
+                      {
+                        "line": 73,
+                        "count": 84
+                      },
+                      {
+                        "line": 74,
+                        "count": 84
+                      },
+                      {
+                        "line": 75,
+                        "count": 81
+                      },
+                      {
+                        "line": 76,
+                        "count": 81
+                      },
+                      {
+                        "line": 77,
+                        "count": 409
+                      },
+                      {
+                        "line": 78,
+                        "count": 409
+                      },
+                      {
+                        "line": 79,
+                        "count": 313
+                      },
+                      {
+                        "line": 80,
+                        "count": 409
+                      },
+                      {
+                        "line": 81,
+                        "count": 312
+                      },
+                      {
+                        "line": 82,
+                        "count": 409
+                      },
+                      {
+                        "line": 83,
+                        "count": 409
+                      },
+                      {
+                        "line": 84,
+                        "count": 409
+                      },
+                      {
+                        "line": 85,
+                        "count": 124
+                      },
+                      {
+                        "line": 86,
+                        "count": 112
+                      },
+                      {
+                        "line": 87,
+                        "count": 112
+                      },
+                      {
+                        "line": 88,
+                        "count": 112
+                      },
+                      {
+                        "line": 89,
+                        "count": 112
+                      },
+                      {
+                        "line": 90,
+                        "count": 112
+                      },
+                      {
+                        "line": 91,
+                        "count": 183
+                      },
+                      {
+                        "line": 92,
+                        "count": 409
+                      },
+                      {
+                        "line": 93,
+                        "count": 180
+                      },
+                      {
+                        "line": 94,
+                        "count": 3
+                      },
+                      {
+                        "line": 95,
+                        "count": 409
+                      },
+                      {
+                        "line": 96,
+                        "count": 18
+                      },
+                      {
+                        "line": 97,
+                        "count": 19
+                      },
+                      {
+                        "line": 98,
+                        "count": 19
+                      },
+                      {
+                        "line": 99,
+                        "count": 17
+                      },
+                      {
+                        "line": 100,
+                        "count": 19
+                      },
+                      {
+                        "line": 101,
+                        "count": 1
+                      },
+                      {
+                        "line": 102,
+                        "count": 0
+                      },
+                      {
+                        "line": 103,
+                        "count": 0
+                      },
+                      {
+                        "line": 104,
+                        "count": 0
+                      },
+                      {
+                        "line": 105,
+                        "count": 0
+                      }
+                    ]
+                  },
+                  {
+                    "path": "/private/tmp/qynise-local-qualification-C0XWkf/checkout/public/app.js",
+                    "totalLineCount": 80,
+                    "totalBranchCount": 53,
+                    "totalFunctionCount": 12,
+                    "coveredLineCount": 80,
+                    "coveredBranchCount": 44,
+                    "coveredFunctionCount": 11,
+                    "coveredLinePercent": 100,
+                    "coveredBranchPercent": 83.01886792452831,
+                    "coveredFunctionPercent": 91.66666666666666,
+                    "functions": [
+                      {
+                        "name": "$",
+                        "count": 246,
+                        "line": 2
+                      },
+                      {
+                        "name": "api",
+                        "count": 30,
+                        "line": 4
+                      },
+                      {
+                        "name": "error",
+                        "count": 3,
+                        "line": 21
+                      },
+                      {
+                        "name": "render",
+                        "count": 8,
+                        "line": 22
+                      },
+                      {
+                        "name": "",
+                        "count": 8,
+                        "line": 37
+                      },
+                      {
+                        "name": "loadHistory",
+                        "count": 12,
+                        "line": 41
+                      },
+                      {
+                        "name": "",
+                        "count": 1,
+                        "line": 48
+                      },
+                      {
+                        "name": "refresh",
+                        "count": 3,
+                        "line": 52
+                      },
+                      {
+                        "name": "",
+                        "count": 9,
+                        "line": 57
+                      },
+                      {
+                        "name": "",
+                        "count": 0,
+                        "line": 70
+                      },
+                      {
+                        "name": "",
+                        "count": 6,
+                        "line": 71
+                      },
+                      {
+                        "name": "",
+                        "count": 1,
+                        "line": 76
+                      }
+                    ],
+                    "branches": [
+                      {
+                        "line": 1,
+                        "count": 6
+                      },
+                      {
+                        "line": 2,
+                        "count": 246
+                      },
+                      {
+                        "line": 4,
+                        "count": 30
+                      },
+                      {
+                        "line": 6,
+                        "count": 15
+                      },
+                      {
+                        "line": 6,
+                        "count": 15
+                      },
+                      {
+                        "line": 6,
+                        "count": 22
+                      },
+                      {
+                        "line": 6,
+                        "count": 8
+                      },
+                      {
+                        "line": 7,
+                        "count": 15
+                      },
+                      {
+                        "line": 7,
+                        "count": 15
+                      },
+                      {
+                        "line": 9,
+                        "count": 4
+                      },
+                      {
+                        "line": 10,
+                        "count": 1
+                      },
+                      {
+                        "line": 10,
+                        "count": 1
+                      },
+                      {
+                        "line": 17,
+                        "count": 0
+                      },
+                      {
+                        "line": 18,
+                        "count": 26
+                      },
+                      {
+                        "line": 21,
+                        "count": 3
+                      },
+                      {
+                        "line": 21,
+                        "count": 0
+                      },
+                      {
+                        "line": 22,
+                        "count": 6
+                      },
+                      {
+                        "line": 23,
+                        "count": 0
+                      },
+                      {
+                        "line": 28,
+                        "count": 8
+                      },
+                      {
+                        "line": 30,
+                        "count": 2
+                      },
+                      {
+                        "line": 30,
+                        "count": 6
+                      },
+                      {
+                        "line": 39,
+                        "count": 3
+                      },
+                      {
+                        "line": 37,
+                        "count": 8
+                      },
+                      {
+                        "line": 41,
+                        "count": 12
+                      },
+                      {
+                        "line": 43,
+                        "count": 0
+                      },
+                      {
+                        "line": 45,
+                        "count": 6
+                      },
+                      {
+                        "line": 46,
+                        "count": 6
+                      },
+                      {
+                        "line": 48,
+                        "count": 1
+                      },
+                      {
+                        "line": 48,
+                        "count": 0
+                      },
+                      {
+                        "line": 48,
+                        "count": 0
+                      },
+                      {
+                        "line": 52,
+                        "count": 3
+                      },
+                      {
+                        "line": 54,
+                        "count": 2
+                      },
+                      {
+                        "line": 54,
+                        "count": 0
+                      },
+                      {
+                        "line": 54,
+                        "count": 2
+                      },
+                      {
+                        "line": 55,
+                        "count": 1
+                      },
+                      {
+                        "line": 57,
+                        "count": 9
+                      },
+                      {
+                        "line": 58,
+                        "count": 1
+                      },
+                      {
+                        "line": 58,
+                        "count": 8
+                      },
+                      {
+                        "line": 65,
+                        "count": 7
+                      },
+                      {
+                        "line": 65,
+                        "count": 0
+                      },
+                      {
+                        "line": 65,
+                        "count": 7
+                      },
+                      {
+                        "line": 68,
+                        "count": 1
+                      },
+                      {
+                        "line": 68,
+                        "count": 8
+                      },
+                      {
+                        "line": 71,
+                        "count": 6
+                      },
+                      {
+                        "line": 73,
+                        "count": 4
+                      },
+                      {
+                        "line": 73,
+                        "count": 1
+                      },
+                      {
+                        "line": 73,
+                        "count": 3
+                      },
+                      {
+                        "line": 74,
+                        "count": 2
+                      },
+                      {
+                        "line": 74,
+                        "count": 1
+                      },
+                      {
+                        "line": 74,
+                        "count": 5
+                      },
+                      {
+                        "line": 74,
+                        "count": 4
+                      },
+                      {
+                        "line": 76,
+                        "count": 1
+                      },
+                      {
+                        "line": 79,
+                        "count": 0
+                      }
+                    ],
+                    "lines": [
+                      {
+                        "line": 1,
+                        "count": 6
+                      },
+                      {
+                        "line": 2,
+                        "count": 6
+                      },
+                      {
+                        "line": 3,
+                        "count": 6
+                      },
+                      {
+                        "line": 4,
+                        "count": 30
+                      },
+                      {
+                        "line": 5,
+                        "count": 30
+                      },
+                      {
+                        "line": 6,
+                        "count": 30
+                      },
+                      {
+                        "line": 7,
+                        "count": 30
+                      },
+                      {
+                        "line": 8,
+                        "count": 30
+                      },
+                      {
+                        "line": 9,
+                        "count": 30
+                      },
+                      {
+                        "line": 10,
+                        "count": 4
+                      },
+                      {
+                        "line": 11,
+                        "count": 1
+                      },
+                      {
+                        "line": 12,
+                        "count": 1
+                      },
+                      {
+                        "line": 13,
+                        "count": 1
+                      },
+                      {
+                        "line": 14,
+                        "count": 1
+                      },
+                      {
+                        "line": 15,
+                        "count": 1
+                      },
+                      {
+                        "line": 16,
+                        "count": 1
+                      },
+                      {
+                        "line": 17,
+                        "count": 4
+                      },
+                      {
+                        "line": 18,
+                        "count": 4
+                      },
+                      {
+                        "line": 19,
+                        "count": 26
+                      },
+                      {
+                        "line": 20,
+                        "count": 30
+                      },
+                      {
+                        "line": 21,
+                        "count": 3
+                      },
+                      {
+                        "line": 22,
+                        "count": 6
+                      },
+                      {
+                        "line": 23,
+                        "count": 6
+                      },
+                      {
+                        "line": 24,
+                        "count": 6
+                      },
+                      {
+                        "line": 25,
+                        "count": 6
+                      },
+                      {
+                        "line": 26,
+                        "count": 6
+                      },
+                      {
+                        "line": 27,
+                        "count": 6
+                      },
+                      {
+                        "line": 28,
+                        "count": 6
+                      },
+                      {
+                        "line": 29,
+                        "count": 8
+                      },
+                      {
+                        "line": 30,
+                        "count": 8
+                      },
+                      {
+                        "line": 31,
+                        "count": 8
+                      },
+                      {
+                        "line": 32,
+                        "count": 8
+                      },
+                      {
+                        "line": 33,
+                        "count": 8
+                      },
+                      {
+                        "line": 34,
+                        "count": 8
+                      },
+                      {
+                        "line": 35,
+                        "count": 8
+                      },
+                      {
+                        "line": 36,
+                        "count": 6
+                      },
+                      {
+                        "line": 37,
+                        "count": 6
+                      },
+                      {
+                        "line": 38,
+                        "count": 6
+                      },
+                      {
+                        "line": 39,
+                        "count": 6
+                      },
+                      {
+                        "line": 40,
+                        "count": 6
+                      },
+                      {
+                        "line": 41,
+                        "count": 12
+                      },
+                      {
+                        "line": 42,
+                        "count": 12
+                      },
+                      {
+                        "line": 43,
+                        "count": 12
+                      },
+                      {
+                        "line": 44,
+                        "count": 12
+                      },
+                      {
+                        "line": 45,
+                        "count": 12
+                      },
+                      {
+                        "line": 46,
+                        "count": 12
+                      },
+                      {
+                        "line": 47,
+                        "count": 6
+                      },
+                      {
+                        "line": 48,
+                        "count": 6
+                      },
+                      {
+                        "line": 49,
+                        "count": 6
+                      },
+                      {
+                        "line": 50,
+                        "count": 6
+                      },
+                      {
+                        "line": 51,
+                        "count": 12
+                      },
+                      {
+                        "line": 52,
+                        "count": 3
+                      },
+                      {
+                        "line": 53,
+                        "count": 3
+                      },
+                      {
+                        "line": 54,
+                        "count": 3
+                      },
+                      {
+                        "line": 55,
+                        "count": 3
+                      },
+                      {
+                        "line": 56,
+                        "count": 3
+                      },
+                      {
+                        "line": 57,
+                        "count": 6
+                      },
+                      {
+                        "line": 58,
+                        "count": 9
+                      },
+                      {
+                        "line": 59,
+                        "count": 8
+                      },
+                      {
+                        "line": 60,
+                        "count": 8
+                      },
+                      {
+                        "line": 61,
+                        "count": 8
+                      },
+                      {
+                        "line": 62,
+                        "count": 8
+                      },
+                      {
+                        "line": 63,
+                        "count": 8
+                      },
+                      {
+                        "line": 64,
+                        "count": 8
+                      },
+                      {
+                        "line": 65,
+                        "count": 9
+                      },
+                      {
+                        "line": 66,
+                        "count": 7
+                      },
+                      {
+                        "line": 67,
+                        "count": 7
+                      },
+                      {
+                        "line": 68,
+                        "count": 9
+                      },
+                      {
+                        "line": 69,
+                        "count": 6
+                      },
+                      {
+                        "line": 70,
+                        "count": 6
+                      },
+                      {
+                        "line": 71,
+                        "count": 6
+                      },
+                      {
+                        "line": 72,
+                        "count": 6
+                      },
+                      {
+                        "line": 73,
+                        "count": 6
+                      },
+                      {
+                        "line": 74,
+                        "count": 6
+                      },
+                      {
+                        "line": 75,
+                        "count": 6
+                      },
+                      {
+                        "line": 76,
+                        "count": 6
+                      },
+                      {
+                        "line": 77,
+                        "count": 1
+                      },
+                      {
+                        "line": 78,
+                        "count": 1
+                      },
+                      {
+                        "line": 79,
+                        "count": 1
+                      },
+                      {
+                        "line": 80,
+                        "count": 6
+                      }
+                    ]
+                  }
+                ],
+                "totals": {
+                  "totalLineCount": 185,
+                  "totalBranchCount": 220,
+                  "totalFunctionCount": 50,
+                  "coveredLineCount": 181,
+                  "coveredBranchCount": 190,
+                  "coveredFunctionCount": 47,
+                  "coveredLinePercent": 97.83783783783784,
+                  "coveredBranchPercent": 86.36363636363636,
+                  "coveredFunctionPercent": 94
+                },
+                "thresholds": {
+                  "line": 90,
+                  "branch": 85,
+                  "function": 0
+                }
+              }
+            }
+          },
+          {
+            "type": "test:summary",
+            "data": {
+              "success": true,
+              "counts": {
+                "tests": 22,
+                "failed": 0,
+                "passed": 22,
+                "cancelled": 0,
+                "skipped": 0,
+                "todo": 0,
+                "topLevel": 22,
+                "suites": 0
+              },
+              "duration_ms": 3442.218959
+            }
+          }
+        ],
+        "complete_cases": 22,
+        "passed_cases": 22
+      }
+    ],
+    "limits": [
+      "Deterministic fixture planners/review only; no independent model/product review.",
+      "Recovery experiment is labelled local mechanics, not an application event engine.",
+      "Genuine provider, production identity, cloud, budgets and deployment DEFERRED.",
+      "Local results are not authenticated native verifier/reviewer receipts."
+    ]
+  }
+}
