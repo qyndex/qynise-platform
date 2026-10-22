@@ -1,0 +1,10 @@
+{
+  "operation": "deduplicate byte-identical raw result file only",
+  "original_result_path": "verify/2026-10-22-002-bounded-local-fixture-qualification/attempt-8oBHj0WG/results.json",
+  "retained_result_path": "verify/2026-10-22-002-bounded-local-fixture-qualification/results.json",
+  "raw_sha256": "f2af74b04c5a0548bb71e8410d7ed2dd95902097af8ad8a297ccea12a311101b",
+  "raw_bytes": 109368,
+  "raw_results_rewritten": false,
+  "acceptance_outcomes_modified": false,
+  "original_collector_metadata": "collector-original.json"
+}

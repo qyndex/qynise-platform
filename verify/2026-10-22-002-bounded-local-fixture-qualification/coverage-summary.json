@@ -1,0 +1,80 @@
+{
+  "app/local/server.ts": {
+    "lines": {
+      "total": 105,
+      "covered": 101,
+      "skipped": 0,
+      "pct": 96.19047619047619
+    },
+    "branches": {
+      "total": 167,
+      "covered": 146,
+      "skipped": 0,
+      "pct": 87.42514970059881
+    },
+    "functions": {
+      "total": 38,
+      "covered": 36,
+      "skipped": 0,
+      "pct": 94.73684210526315
+    },
+    "statements": {
+      "total": 105,
+      "covered": 101,
+      "skipped": 0,
+      "pct": 96.19047619047619
+    }
+  },
+  "public/app.js": {
+    "lines": {
+      "total": 80,
+      "covered": 80,
+      "skipped": 0,
+      "pct": 100
+    },
+    "branches": {
+      "total": 53,
+      "covered": 44,
+      "skipped": 0,
+      "pct": 83.01886792452831
+    },
+    "functions": {
+      "total": 12,
+      "covered": 11,
+      "skipped": 0,
+      "pct": 91.66666666666666
+    },
+    "statements": {
+      "total": 80,
+      "covered": 80,
+      "skipped": 0,
+      "pct": 100
+    }
+  },
+  "total": {
+    "lines": {
+      "total": 185,
+      "covered": 181,
+      "skipped": 0,
+      "pct": 97.83783783783784
+    },
+    "branches": {
+      "total": 220,
+      "covered": 190,
+      "skipped": 0,
+      "pct": 86.36363636363636
+    },
+    "functions": {
+      "total": 50,
+      "covered": 47,
+      "skipped": 0,
+      "pct": 94
+    },
+    "statements": {
+      "total": 185,
+      "covered": 181,
+      "skipped": 0,
+      "pct": 97.83783783783784
+    }
+  }
+}

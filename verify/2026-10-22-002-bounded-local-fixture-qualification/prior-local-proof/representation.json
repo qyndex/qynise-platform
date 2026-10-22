@@ -1,0 +1,13 @@
+{
+  "kind": "lossless-json-format-normalization",
+  "actual_source_commit": "81c433cd52e27e23424c6b7aeb18bd09ebdf33cd",
+  "original_sha256": "1c1dfac3abfea90360f88948baae0ccc94b51cce0919c7cd2fa65fcd17fd9f3b",
+  "normalized_sha256": "5e4ed39a784149f8077494fdeb7a624075c9300a2345b0574950361090bf84c5",
+  "original_bytes": 109217,
+  "normalized_bytes": 43595,
+  "all_parsed_values_preserved": true,
+  "original_archive": "original-qualification-results.json.gz.b64",
+  "original_archive_round_trip_verified": true,
+  "test_results_changed": false,
+  "native_authority": false
+}
