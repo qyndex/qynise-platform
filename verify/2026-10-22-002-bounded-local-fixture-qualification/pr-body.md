@@ -1,7 +1,7 @@
 ## Evidence Bundle — Spec 002 (002-bounded-local-fixture-qualification)
 Spec: `specs/active/002-bounded-local-fixture-qualification.md` · Commit: `6aadc31`
 
-Retained results: [verify/2026-10-22-002-bounded-local-fixture-qualification/attempt-8oBHj0WG/results.json](verify/2026-10-22-002-bounded-local-fixture-qualification/attempt-8oBHj0WG/results.json)
+Retained results: [verify/2026-10-22-002-bounded-local-fixture-qualification/results.json](verify/2026-10-22-002-bounded-local-fixture-qualification/results.json)
 
 ### Acceptance criteria (6/6 proven)
 | AC | Proven by | Result |

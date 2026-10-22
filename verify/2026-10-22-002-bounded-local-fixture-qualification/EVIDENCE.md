@@ -1,7 +1,7 @@
 ## Evidence Bundle — Spec 002 (002-bounded-local-fixture-qualification)
 Spec: `specs/active/002-bounded-local-fixture-qualification.md` · Commit: `6aadc31`
 
-Retained results: [verify/2026-10-22-002-bounded-local-fixture-qualification/attempt-8oBHj0WG/results.json](verify/2026-10-22-002-bounded-local-fixture-qualification/attempt-8oBHj0WG/results.json)
+Retained results: [verify/2026-10-22-002-bounded-local-fixture-qualification/results.json](verify/2026-10-22-002-bounded-local-fixture-qualification/results.json)
 
 ### Acceptance criteria (6/6 proven)
 | AC | Proven by | Result |
@@ -57,7 +57,7 @@ line 97.83783783783784% · branch 86.36363636363636% (gate: line≥90 branch≥8
 - verify/2026-10-22-002-bounded-local-fixture-qualification/attempt-Xu40BlbB/smoke.out
 - verify/2026-10-22-002-bounded-local-fixture-qualification/attempt-SyMF942b/results.json
 - verify/2026-10-22-002-bounded-local-fixture-qualification/attempt-SyMF942b/smoke.out
-- verify/2026-10-22-002-bounded-local-fixture-qualification/attempt-8oBHj0WG/results.json
+- verify/2026-10-22-002-bounded-local-fixture-qualification/results.json
 - verify/2026-10-22-002-bounded-local-fixture-qualification/attempt-8oBHj0WG/smoke.out
 - verify/2026-10-22-002-bounded-local-fixture-qualification/history-unskipped-smoke.log
 
